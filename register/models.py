@@ -40,6 +40,7 @@ class User(models.Model):
     team = models.ForeignKey(Team, on_delete=models.CASCADE)
     is_head = models.BooleanField(default=False)
     email = models.TextField()
+    grade = models.ForeignKey(Grade, on_delete=models.CASCADE, default=None)
     skills = models.TextField(default='')
     university = models.ForeignKey(University, on_delete=models.CASCADE)
 
