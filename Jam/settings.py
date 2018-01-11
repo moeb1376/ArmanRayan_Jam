@@ -40,10 +40,10 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -124,3 +124,7 @@ USE_TZ = True
 
 STATIC_URL = '/statics/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "statics")]
+const = {
+    'CODE_DIRECTORY': STATICFILES_DIRS[0] + '/team_name' + '/code',
+    'LOGO_DIRECTORY': STATICFILES_DIRS[0] + '/team_name' + '/logo',
+}

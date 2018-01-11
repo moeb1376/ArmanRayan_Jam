@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>آرمانکده| ورود</title>
+
+    <link href='{% static "css/bootstrap.min.css" %}' rel="stylesheet">
+    <link href='{% static "css/bootstrap-rtl.min.css" %}' rel="stylesheet">
+    <link href='{% static "font-awesome/css/font-awesome.css" %}' rel="stylesheet">
+    <link href='{% static "css/animate.css" %}' rel="stylesheet">
+    <link href='{% static "css/style.css" %}' rel="stylesheet">
+
+    <style>
+        @font-face {
+            font-family: 'BMitra';
+            src: url("{% static 'fonts/BMitra.woff'%}") format('woff'),
+            url("{% static 'fonts/BMitra.ttf'%}") format('truetype'),
+            url("{% static 'fonts/BMitra.svg#BMitra'%}") format('svg');
+        }
+
+        input, button, label, p, h3, a {
+            font-family: "BMitra";
+            direction: rtl;
+        }
+    </style>
+
+</head>
+
+<body class="rtls gray-bg">
+
+<div class="middle-box text-center loginscreen animated fadeInDown">
+    <div>
+        <div>
+
+            <img alt="image" class="center-block" src='{% static "img/jaam.png" %}'>
+
+        </div>
+        <h3>صفحه ورود به جام آرمانکده</h3>
+        {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'success' %}
+                    <h2 style="background-color: #398439;color: #FFFFFF">{{ message }}</h2>
+                {% endif %}
+                {% if message.tags == 'error' %}
+                    <h2 style="background-color: #f44336;color: #FFFFFF">{{ message }}</h2>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        <p>
+            <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
+        </p>
+        <form class="m-t" role="form" action="login">
+            <div class="form-group">
+                <input type="text" name='team_name' class="form-control" placeholder="نام کاربری"
+                       required="info@Armankadeh.ir">
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" class="form-control" placeholder="رمز عبور"
+                       required="Armankade">
+            </div>
+            <button type="submit" class="btn btn-primary block full-width m-b">ورود</button>
+
+            <a href="forgot_password.html">
+                <small>رمز عبور خود را فراموش کرده اید؟</small>
+            </a>
+            <p class="text-muted text-center">
+                <small>هنوز ثبت نام نکرده اید؟</small>
+            </p>
+            <a class="btn btn-sm btn-white btn-block" href="register">ثبت نام</a>
+        </form>
+        <p class="m-t">
+            <small>ArmanRTO &copy; 2017</small>
+        </p>
+    </div>
+</div>
+
+<!-- Mainly scripts -->
+<script src='{% static "js/jquery-3.1.1.min.js" %}'></script>
+<script src='{% static "js/bootstrap.min.js" %}'></script>
+</body>
+
+</html>
