@@ -12,8 +12,6 @@ class Competition(models.Model):
 
 class Grade(models.Model):
     grade_name = models.CharField(max_length=200)
-    entrance_year = models.IntegerField()
-    graduate_year = models.IntegerField()
 
     def __str__(self):
         return self.grade_name
