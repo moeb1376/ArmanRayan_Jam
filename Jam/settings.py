@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main.apps.MainConfig',
     'register.apps.RegisterConfig',
+    'SPC_main.apps.SPCMainConfig',
 ]
 
 MIDDLEWARE = [
@@ -125,6 +126,7 @@ USE_TZ = True
 STATIC_URL = '/statics/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "statics")]
 const = {
-    'CODE_DIRECTORY': STATICFILES_DIRS[0] + '/team_name' + '/code',
-    'LOGO_DIRECTORY': STATICFILES_DIRS[0] + '/team_name' + '/logo',
-}
+    'CODE_DIRECTORY': '/%d' + '/%s' + '/code',
+    'LOGO_DIRECTORY': '/%d' + '/%s' + '/logo',
+}  # % (competition_id, team_name)
+# SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
