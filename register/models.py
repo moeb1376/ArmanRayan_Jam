@@ -1,18 +1,21 @@
 from django.db import models
 from main.models import *
 from Jam.settings import const
+from django.contrib.auth.models import User as auth_user
+from django.contrib.auth import authenticate
 
 
 # Create your models here.
 
 class Team(models.Model):
-    team_name = models.CharField(max_length=200, )
-    email = models.TextField()
+    user_team = models.ForeignKey(auth_user, on_delete=models.CASCADE)  # username = team_name
+    # team_name = models.CharField(max_length=200, )
+    # email = models.TextField()
+    # password = models.CharField(max_length=200)
     rating = models.IntegerField(default=3)
     competition = models.ForeignKey(Competition, on_delete=models.CASCADE)
     code_address = models.TextField(default='')
     university = models.ForeignKey(University, on_delete=models.CASCADE)
-    password = models.CharField(max_length=200)
     win = models.IntegerField(default=0)
     loose = models.IntegerField(default=0)
     draw = models.IntegerField(default=0)
@@ -21,17 +24,21 @@ class Team(models.Model):
     language = models.ForeignKey(Language, on_delete=models.CASCADE)
 
     def create_by_form(self, post_form, competition, university, languages):
-        self.team_name = post_form['team_name']
-        self.email = post_form['email']
+        print('post form', post_form)
+        temp_user = auth_user.objects.create_user(post_form['team_name'], post_form['email'], post_form['password'])
+        temp_user.save()
+        self.user_team = temp_user
+        # self.team_name = post_form['team_name']
+        # self.email = post_form['email']
+        # self.password = post_form['password']
         self.competition = competition
         self.university = university
-        self.code_address = const['CODE_DIRECTORY'].replace('team_name', self.team_name)
-        self.password = post_form['password']
-        self.logo_address = const['LOGO_DIRECTORY'].replace('team_name', self.team_name)
         self.language = languages
+        self.code_address = const['CODE_DIRECTORY'] % (self.competition.id, self.user_team.username)
+        self.logo_address = const['LOGO_DIRECTORY'] % (self.competition.id, self.user_team.username)
 
     def __str__(self):
-        return self.team_name
+        return self.user_team.username
 
 
 class User(models.Model):
@@ -43,7 +50,8 @@ class User(models.Model):
     grade = models.ForeignKey(Grade, on_delete=models.CASCADE, default=None)
     skills = models.TextField(default='')
     university = models.ForeignKey(University, on_delete=models.CASCADE)
-
+    entrance_year = models.IntegerField()
+    graduate_year = models.IntegerField()
     def create_by_form(self, post_form, team, university, is_head=False):
         self.user_fname = post_form['f_name']
         self.user_lname = post_form['l_name']
@@ -51,6 +59,7 @@ class User(models.Model):
         self.is_head = is_head
         self.email = post_form['email']
         self.university = university
+        # self.grade = grade
 
     def __str__(self):
         return self.user_fname + ' ' + self.user_lname
