@@ -23,9 +23,6 @@
     
 	<link href="font-awesome/css/font-awesome.css" rel="stylesheet">
 
-	 <!-- Toastr style -->
-    <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
-
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
@@ -360,33 +357,7 @@
     <!-- jQuery UI -->
     <script src="js/plugins/jquery-ui/jquery-ui.min.js"></script>
 
-	<!-- Toastr -->
-    <script src="js/plugins/toastr/toastr.min.js"></script>
 
-
-    <script>
-        $(document).ready(function() {
-
-            setTimeout(function() {
-                toastr.options = {
-                    closeButton: true,
-                    progressBar: false,
-                    showMethod: 'slideDown',
-                    timeOut: 400000 ,
-					positionClass: "toast-top-center",
-                };
-				var str='به سامانه جام بزرگ آرمانکده خوش آمدید   ' ;
-				var result= str.fontsize(5);
-				var str1='لطفا برای ادامه شرکت در مسابقه مشخصات سرگروه و اعضای تیم را مشخص کنید ';
-				var res1 = str1.fontsize(4)
-                toastr.(res1, result );
-
-
-
-
-            }, 1300);
-      });
-    </script>
 	
 </body>
 </html>
