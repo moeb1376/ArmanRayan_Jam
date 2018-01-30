@@ -9,7 +9,7 @@
 <html>
 
 <head>
-		
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,11 +17,7 @@
     <title>آرمانکده| پنل مدیریت تیم ها</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
-	 <!-- Toastr style -->
-    <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
-
-    <!-- Gritter -->
-    <link href="js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+	
 	<!-- Persian -->
 	<link href="css/bootstrap-rtl.min.css" rel="stylesheet"> 
     
@@ -47,48 +43,52 @@
 		}
 	</style>
 	 
+	 
 </head>
 
 <body class="rtls">
     <div id="wrapper">
-        <nav class="navbar-default navbar-static-side" role="navigation">
-            <div class="sidebar-collapse">
-                <ul class="nav metismenu" id="side-menu">
-                    <li class="nav-header">
-                        <div class="dropdown profile-element"> <span>
-                            <img alt="image" class="img-circle center-block" src="img/unknown.jpg" width="128" height="128"/>
-                             </span>
-							<a>
-							<span class="clear"> <span class="block m-t-xs text-center"> <strong style="font-size:40px" class="font-bold">آرمانکده</strong></span>
-							</a>
-                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                             <span class="text-muted text-xs block text-center" style="font-size:25px">تیم <b class="caret"></b></span> </span> </a>
-                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                                <li><a href="jaam.html" style="font-size:15px" ><i class="fa fa-address-card"></i>&nbsp;&nbsp;اطلاعات</a></li>
-								<li class="divider"></li>
-                                <li><a href="settings.html" style="font-size:15px" ><i class="fa fa-cog"></i>&nbsp;&nbsp;تنظیمات</a></li>
-								<li class="divider"></li>
-                                <li><a href="login.html" style="font-size:15px"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;خروج</a></li>
-                            </ul>
-                        </div>
-                        <div class="logo-element">
-                            <img alt="image" class="img-circle center-block" src="img/unknown.jpg" width="40" height="40"/><br>
-							 <a href="jaam.html"><i class="fa fa-address-card"></i><span class="nav-label" style="font-size:15px">&nbsp; اطلاعات</span></a><br>
-							   <a href="settings.html"><i class="fa fa-cog"></i><span class="nav-label" style="font-size:15px">&nbsp; تنظیمات</span></a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="play.html"><i class="fa fa-handshake-o"></i><span class="nav-label" style="font-size:15px">&nbsp; بازی دوستانه</span></a>
-                    </li>
+      			<nav class="navbar-default navbar-static-side" role="navigation">
+				<div class="sidebar-collapse">
+					<ul class="nav metismenu" id="side-menu">
+						<li class="nav-header">
+							<div class="dropdown profile-element"> <span>
+								<img alt="image" class="img-circle center-block" src="img/unknown.jpg" width="128" height="128"/>
+								 </span>
+								<a>
+								<span class="clear"> <span class="block m-t-xs text-center"> <strong style="font-size:40px" class="font-bold">آرمانکده</strong></span>
+								</a>
+								<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+								<span class="text-muted text-xs block text-center" style="font-size:25px">تیم <b class="caret"></b></span> </span> </a>
+								<ul class="dropdown-menu animated fadeInRight m-t-xs">
+									<li><a href="jaam_iac.html" style="font-size:15px" ><i class="fa fa-address-card"></i>&nbsp;&nbsp;اطلاعات</a></li>
+									<li class="divider"></li>
+									<li><a href="settings_iac.html" style="font-size:15px" ><i class="fa fa-cog"></i>&nbsp;&nbsp;تنظیمات</a></li>
+									<li class="divider"></li>
+									<li><a href="login.html" style="font-size:15px"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;خروج</a></li>
+								</ul>
+							</div>
+							<div class="logo-element">
+								<img alt="image" class="img-circle center-block" src="img/unknown.jpg" width="40" height="40"/><br>
+								 <a href="jaam_iac.html"><i class="fa fa-address-card"></i><span class="nav-label" style="font-size:15px">&nbsp; اطلاعات</span></a><br>
+								   <a href="settings_iac.html"><i class="fa fa-cog"></i><span class="nav-label" style="font-size:15px">&nbsp; تنظیمات</span></a>
+							</div>
+						</li>
+						<li>
+							<a href="play_iac.html"><i class="fa fa-database"></i><span class="nav-label" style="font-size:15px">&nbsp; مجموعه دادگان</span></a>
+						</li>
 
-                    <li>
-                        <a href="cup.html"><i class="fa fa-trophy"></i><span class="nav-label" style="font-size:15px">&nbsp; جام</span><span class="pull-right"></span></a>
+						<li>
+							<a href="table_iac.html"><i class="fa fa-list"></i><span class="nav-label" style="font-size:15px">&nbsp; جدول مسابقات</span><span class="pull-right"></span></a>
+						</li>
+						 <li>
+                        <a href="cup_iac.html"><i class="fa fa-trophy"></i><span class="nav-label" style="font-size:15px">&nbsp; جام</span><span class="pull-right"></span></a>
                     </li>
-                </ul>
+					</ul>
 
-            </div>
-        </nav>
-        <div id="page-wrapper" class="gray-bg dashbard-1">
+				</div>
+			</nav>
+	  <div id="page-wrapper" class="gray-bg dashbard-1">
 			<div class="row border-bottom">
 				<nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
 					<div class="navbar-header">
@@ -103,6 +103,7 @@
 					</ul>
 				</nav>
 			</div>
+			
 			<div class="wrapper wrapper-content animated fadeInRight">
 				<div class="row  border-bottom white-bg dashboard-header">
 				<h5 style="font-size:40px">&nbsp;&nbsp;&nbsp;ویرایش اطلاعات</h5>
@@ -148,7 +149,6 @@
 						</div>
 						</div>
 						</div>
-									
 						<div class="ibox float-e-margins">
 						<div class="ibox-title">
 							<h5>اعضا</h5>
@@ -345,23 +345,13 @@
 
         </div>
     </div>
-	
-  <!-- Mainly scripts -->
+
+
+    <!-- Mainly scripts -->
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
     <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-
-    <!-- Flot -->
-    <script src="js/plugins/flot/jquery.flot.js"></script>
-    <script src="js/plugins/flot/jquery.flot.tooltip.min.js"></script>
-    <script src="js/plugins/flot/jquery.flot.spline.js"></script>
-    <script src="js/plugins/flot/jquery.flot.resize.js"></script>
-    <script src="js/plugins/flot/jquery.flot.pie.js"></script>
-
-    <!-- Peity -->
-    <script src="js/plugins/peity/jquery.peity.min.js"></script>
-    <script src="js/demo/peity-demo.js"></script>
 
     <!-- Custom and plugin javascript -->
     <script src="js/inspinia.js"></script>
@@ -370,46 +360,7 @@
     <!-- jQuery UI -->
     <script src="js/plugins/jquery-ui/jquery-ui.min.js"></script>
 
-    <!-- GITTER -->
-    <script src="js/plugins/gritter/jquery.gritter.min.js"></script>
 
-    <!-- Sparkline -->
-    <script src="js/plugins/sparkline/jquery.sparkline.min.js"></script>
-
-    <!-- Sparkline demo data  -->
-    <script src="js/demo/sparkline-demo.js"></script>
-
-    <!-- ChartJS-->
-    <script src="js/plugins/chartJs/Chart.min.js"></script>
-
-   
-    <!-- Toastr -->
-    <script src="js/plugins/toastr/toastr.min.js"></script>
-
-
-    <script>
-        $(document).ready(function() {
-
-            setTimeout(function() {
-                toastr.options = {
-                    closeButton: true,
-                    progressBar: false,
-                    showMethod: 'slideDown',
-                    timeOut: 400000 ,
-					positionClass: "toast-top-center",
-                };
-				var str='به سامانه جام بزرگ آرمانکده خوش آمدید   ' ;
-				var result= str.fontsize(5);
-				var str1='لطفا برای ادامه شرکت در مسابقه مشخصات سرگروه و اعضای تیم را مشخص کنید ';
-				var res1 = str1.fontsize(4)
-                toastr.info(res1, result );
-				
 	
-					
-
-            }, 1300);
-      });
-    </script>
 </body>
-
 </html>
