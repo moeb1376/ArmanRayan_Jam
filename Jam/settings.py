@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'register.apps.RegisterConfig',
     'SPC_main.apps.SPCMainConfig',
+    'team_setting.apps.TeamSettingConfig',
+    'widget_tweaks',
+    'setting'
 ]
 
 MIDDLEWARE = [
@@ -75,17 +78,17 @@ WSGI_APPLICATION = 'Jam.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        # 'ENGINE': 'django.db.backends.mysql',
-        # 'NAME': 'Jam',
-        # 'USER': 'root',
-        # 'PASSWORD': '1234',
-        # 'HOST': 'localhost',
-        # 'PORT': '',
-        # 'OPTIONS': {
-        #     'read_default_file': 'static/my.cnf'
-        # },
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Jam',
+        'USER': 'root',
+        'PASSWORD': '1234',
+        'HOST': 'localhost',
+        'PORT': '',
+        'OPTIONS': {
+            'read_default_file': 'static/my.cnf'
+        },
     }
 }
 
@@ -130,3 +133,6 @@ const = {
     'LOGO_DIRECTORY': '/%d' + '/%s' + '/logo',
 }  # % (competition_id, team_name)
 # SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+
+# Google reCAPTCHA Key
+GOOGLE_RECAPTCHA_SECRET_KEY = '6LcdiEUUAAAAAE4dzbtS88EJpq8jqIOMlPmAKjKa'

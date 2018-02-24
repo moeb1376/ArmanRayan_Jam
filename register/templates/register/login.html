@@ -3,6 +3,7 @@
 
 <head>
     {% load static %}
+    {% load widget_tweaks %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>آرمانکده| ورود</title>
@@ -54,13 +55,18 @@
         </p>
         <form class="m-t" role="form" action="login" method="post">
             {% csrf_token %}
+            {{ auth_form.non_field_errors }}
             <div class="form-group">
-                <input type="text" name='username' class="form-control" placeholder="رایانامه تیم"
-                       required="info@Armankadeh.ir">
+                <h3>{{ auth_form.username.errors }}</h3>
+                {% render_field auth_form.username class="form-control" placeholder=auth_form.username.label %}
+                {#                <input type="text" name='username' class="form-control" placeholder="رایانامه تیم"#}
+                {#                       required="info@Armankadeh.ir">#}
             </div>
             <div class="form-group">
-                <input type="password" name="password" class="form-control" placeholder="رمز عبور"
-                       required="Armankade">
+                <h3>{{ auth_form.password.errors }}</h3>
+                {% render_field auth_form.password class="form-control" placeholder=auth_form.password.label %}
+{#                <input type="password" name="password" class="form-control" placeholder="رمز عبور"#}
+{#                       required="Armankade">#}
             </div>
             <button type="submit" class="btn btn-primary block full-width m-b">ورود</button>
 
