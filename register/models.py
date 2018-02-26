@@ -27,6 +27,7 @@ class Team(models.Model):
     team_bio = models.TextField(default='')
     language = models.ForeignKey(Language, on_delete=models.CASCADE)
     mentor = models.CharField(max_length=20, null=True)
+    # mentor = models.ForeignKey(Mentor, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.user_team.username
