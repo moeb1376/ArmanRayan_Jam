@@ -80,6 +80,7 @@
                 {#                       value="{{ email }}" {% if email_color %}style="background-color: #FFC107" {% endif %}>#}
             </div>
             <div class="form-group">
+                <h2>{{ team_form.mentor.errors }}</h2>
                 {% render_field team_form.mentor class='form-control' placeholder=team_form.mentor.label%}
 {#                <select class="form-control" name="university">#}
 {#                    {% for uni in universities %}#}
