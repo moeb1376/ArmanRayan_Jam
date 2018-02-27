@@ -21,6 +21,6 @@ urlpatterns = [
     path('', include('main.urls')),
     path('', include('register.urls')),
     path('', include('SPC_main.urls')),
-    path('', include('team_setting.urls')),
+    # path('', include('team_setting.urls')),
     path('', include('setting.urls'))
 ]
