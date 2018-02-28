@@ -5,5 +5,5 @@ from .views import *
 
 app_name = 'main'
 urlpatterns = [
-    path('', TemplateView.as_view(template_name='main/index.html')),
+    # path('index', TemplateView.as_view(template_name='main/index.html')),
 ]

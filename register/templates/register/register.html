@@ -3,9 +3,10 @@
 
 <head>
     {% load static %}
+    {% load widget_tweaks %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <title>آرمانکده| ثبت نام</title>
 
     <link href='{% static "css/bootstrap.min.css" %}' rel="stylesheet">
@@ -49,56 +50,80 @@
         </h2>
         <form class="m-t" role="form" action="register" method="post">
             {% csrf_token %}
+            {#            {{ form }}#}
+            {{ user_form.non_field_errors }}
+            {{ team_form.non_field_errors }}
             <div class="form-group">
-                <input type="text" name="team_name" class="form-control" placeholder="نام تیم" required=""
-                       value="{{ team_name }}" {% if team_name_color %}style="background-color: #FFC107" {% endif %}>
-            </div>
-{#            <div class="form-group">#}
-{#                <input type="text" name="f_name" class="form-control" placeholder="نام" required=""#}
-{#                       value="{{ f_name }}">#}
-{#            </div>#}
-{#            <div class="form-group">#}
-{#                <input type="text" name='l_name' class="form-control" placeholder="نام خانوادگی" required=""#}
-{#                       value="{{ l_name }}">#}
-{#            </div>#}
-
-            <div class="form-group">
-                <input type="password" name="password" class="form-control" placeholder="رمز عبور" required=""
-                       value="{{ password }}">
-            </div>
-             <div class="form-group">
-                <input type="text" name="mentor_code" class="form-control" placeholder="کد معرفی" required=""
-                     >
-            </div>
-            <div class="form-group">
-                <input type="email" name="email" class="form-control" placeholder="رایانامه تیم" required=""
-                       value="{{ email }}" {% if email_color %}style="background-color: #FFC107" {% endif %}>
+                <h2>{{ user_form.username.errors }}</h2>
+                {% render_field user_form.username placeholder=user_form.username.label class='form-control' %}
+                {#                {{ user_form.username|attr:"placeholder:نام تیم"|attr:"class:form-control" }}#}
+                {#                <input type="text" name="team_name" class="form-control" placeholder="نام تیم" required=""#}
+                {#                       value="{{ team_name }}" {% if team_name_color %}style="background-color: #FFC107" {% endif %}>#}
             </div>
 
             <div class="form-group">
-                <select class="form-control" name="university">
-                    {% for uni in universities %}
-                        <option value="{{ uni.id }}">{{ uni.university_name }}</option>
-                    {% endfor %}
+                <h2>{{ user_form.password1.errors }}</h2>
+                {% render_field user_form.password1 placeholder=user_form.password1.label class="form-control" %}
+                {#                <input type="password" name="password" class="form-control" placeholder="رمز عبور" required=""#}
+                {#                       value="{{ password }}">#}
+                {#                {{ user_form.password1|attr:"placeholder:رمز عبور" |attr:"class:form-control"}}#}
+            </div>
+            <div class="form-group">
+                <h2>{{ user_form.password2.errors }}</h2>
+                {% render_field user_form.password2 placeholder=user_form.password2.label class="form-control" %}
+                {#                {{ user_form.password2|attr:"placeholder:رمز عبور" |attr:"class:form-control" }}#}
+            </div>
+            <div class="form-group">
+                <h2>{{ user_form.email.errors }}</h2>
+                {% render_field user_form.email placeholder=user_form.email.label class="form-control" %}
+                {#                <input type="email" name="email" class="form-control" placeholder="رایانامه تیم" required=""#}
+                {#                       value="{{ email }}" {% if email_color %}style="background-color: #FFC107" {% endif %}>#}
+            </div>
+            <div class="form-group">
+                <h2>{{ team_form.mentor.errors }}</h2>
+                {% render_field team_form.mentor class='form-control' placeholder=team_form.mentor.label%}
+{#                <select class="form-control" name="university">#}
+{#                    {% for uni in universities %}#}
+{#                        <option value="{{ uni.id }}">{{ uni.university_name }}</option>#}
+{#                    {% endfor %}#}
+{#                </select>#}
+            </div>
+            <div class="form-group">
+                <h2>{{ team_form.university.errors }}</h2>
+                {% render_field team_form.university class="form-control" %}
+                {#                <select class="form-control" name="university">#}
+                {#                    {% for uni in universities %}#}
+                {#                        <option value="{{ uni.id }}">{{ uni.university_name }}</option>#}
+                {#                    {% endfor %}#}
                 </select>
             </div>
             <div class="form-group">
-                <select class="form-control" name="leagues">
-                    {% for comp in competition %}
-                        <option value="{{ comp.id }}">{{ comp.competition_name }}</option>
-                    {% endfor %}
-                </select>
+                <h2>{{ team_form.competition.errors }}</h2>
+                {% render_field team_form.competition class="form-control" %}
+                {#                <select class="form-control" name="leagues">#}
+                {#                    {% for comp in competition %}#}
+                {#                        <option value="{{ comp.id }}">{{ comp.competition_name }}</option>#}
+                {#                    {% endfor %}#}
+                {#                </select>#}
             </div>
             <div class="form-group">
-                <select class="form-control" name="lang">
-                    {% for lan in languages %}
-                        <option dir="ltr" value="{{ lan.id }}">{{ lan.language_name }}</option>
-                    {% endfor %}
-                </select>
+                <h2>{{ team_form.language.errors }}</h2>
+                {% render_field team_form.language class="form-control" %}
+                {#                <select class="form-control" name="lang">#}
+                {#                    {% for lan in languages %}#}
+                {#                        <option dir="ltr" value="{{ lan.id }}">{{ lan.language_name }}</option>#}
+                {#                    {% endfor %}#}
+                {#                </select>#}
             </div>
             <div class="form-group">
-                <div class="checkbox i-checks"><label> <input type="checkbox"><i></i> تمام <a
-                        href="index.html">شرایط </a>را قبول دارم. </label></div>
+                <div class="g-recaptcha" data-sitekey="6LcdiEUUAAAAAGOBQWMKoLuztCR97rGB9BZs9Sc9"></div>
+            </div>
+            <div class="form-group">
+                <h2>{{ team_form.checkbox.errors }}</h2>
+                {#                {{ team_form.checkbox.label }}#}
+                <i></i> تمام <a href="#">شرایط </a>را قبول دارم.
+                {% render_field team_form.checkbox class="checkbox i-checks" %}
+                {#                                <div class="checkbox i-checks"><label> <input type="checkbox"><i></i> تمام <a href="index.html">شرایط </a>را قبول دارم. </label></div>#}
             </div>
             <button type="submit" class="btn btn-primary block full-width m-b">ثبت نام</button>
 

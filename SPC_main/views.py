@@ -1,7 +1,6 @@
 from django.shortcuts import render, HttpResponseRedirect, loader, HttpResponse
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
-from django.contrib import messages
 
 
 # Create your views here
@@ -9,8 +8,10 @@ from django.contrib import messages
 @login_required(login_url='/login', redirect_field_name='')
 def SPC_main_page(request):
     print(request.user)
-    team = request.user.team_set.all()[0]
-    team_member = team.user_set.all()
+    team = request.user.Teams.all()[0]
+    team_member = team.Users.all()
+    if len(team_member) < 2:
+        return HttpResponseRedirect('/setting')
     for member in team_member:
         print(member.user_lname)
     context = {

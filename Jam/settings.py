@@ -24,7 +24,7 @@ SECRET_KEY = '4j5lq*s4+7a&ac*3opp5v97u)0=mqw2gw_fc4@1qkzu+b-mezp'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['185.81.40.213']
 
 # Application definition
 
@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'register.apps.RegisterConfig',
     'SPC_main.apps.SPCMainConfig',
+    # 'team_setting.apps.TeamSettingConfig',
+    'widget_tweaks',
+    'setting'
 ]
 
 MIDDLEWARE = [
@@ -84,7 +87,7 @@ DATABASES = {
         # 'HOST': 'localhost',
         # 'PORT': '',
         # 'OPTIONS': {
-        #     'read_default_file': 'static/my.cnf'
+        #    'read_default_file': 'static/my.cnf'
         # },
     }
 }
@@ -130,3 +133,6 @@ const = {
     'LOGO_DIRECTORY': '/%d' + '/%s' + '/logo',
 }  # % (competition_id, team_name)
 # SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+
+# Google reCAPTCHA Key
+GOOGLE_RECAPTCHA_SECRET_KEY = '6LcdiEUUAAAAAE4dzbtS88EJpq8jqIOMlPmAKjKa'
