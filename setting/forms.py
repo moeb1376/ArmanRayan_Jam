@@ -1,7 +1,15 @@
 from django import forms
 from django.contrib.auth.forms import UserChangeForm
+from django.forms import BaseModelFormSet
 
 from .models import *
+
+
+class MyFormSet(BaseModelFormSet):
+    def save(self, commit=True):
+        if not commit:
+            self.saved_forms = []
+        return self.save_existing_objects(commit)
 
 
 class UserSettingForm(forms.ModelForm):
@@ -27,7 +35,7 @@ class UserSettingForm(forms.ModelForm):
         self.fields['skills'].required = False
 
     class Meta:
-        model = User
+        model = MyUser
         exclude = ['is_head', 'team']
         labels = {
             'user_fname': 'نام',
@@ -55,7 +63,7 @@ class UserTeamSettingForm(UserChangeForm):
         fields = ['username', 'email', 'password']
         labels = {
             'username': 'نام',
-            'email': 'یارانامه'
+            'email': 'رایانامه'
         }
 
 
@@ -75,15 +83,18 @@ class TeamSettingForm(forms.ModelForm):
 class testForm(forms.ModelForm):
     class Meta:
         model = Test
-        fields = "__all__"
+        fields = ['image']
+        labels = {
+            'image': 'عکس'
+        }
 
 
 #
-# class test_change_form(UserChangeForm):
-#     class Meta:
-#         model = auth_user
-#         fields = (
-#             'username',
-#             'email',
-#             'password'
-#         )
+class test_change_form(UserChangeForm):
+    class Meta:
+        model = auth_user
+        fields = (
+            'username',
+            'email',
+            'password'
+        )

@@ -57,12 +57,16 @@
         <div class="sidebar-collapse">
             <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header">
-                    <div class="dropdown profile-element"> <span>
-                            <img alt="image" class="img-circle center-block" src="img/unknown.jpg" width="128"
+                    <div class="dropdown profile-element">
+                        {% for team in user.Teams.all %}
+                            <span>
+                            <img alt="image" class="img-circle center-block" src='{{ team.logo_image.url }}'
+                                 width="128"
                                  height="128"/>
                              </span>
+                        {% endfor %}
                         <a>
-							<span class="clear"> <span class="block m-t-xs text-center"> <strong style="font-size:40px"
+							<span class="clear"> <span class="block m-t-xs text-center"> <strong style="font-size:25px"
                                                                                                  class="font-bold">{{ user.username }}</strong></span>
                         </a>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -82,8 +86,10 @@
                         </ul>
                     </div>
                     <div class="logo-element">
-                        <img alt="image" class="img-circle center-block" src="img/unknown.jpg" width="40"
-                             height="40"/><br>
+                        {% for team in user.Teams.all %}
+                            <img alt="image" class="img-circle center-block" src='{{ team.logo_image.url }}' width="40"
+                                 height="40"/><br>
+                        {% endfor %}
                         <a href="jaam"><i class="fa fa-address-card"></i><span class="nav-label"
                                                                                style="font-size:15px">&nbsp; اطلاعات</span></a><br>
                         <a href="settings"><i class="fa fa-cog"></i><span class="nav-label" style="font-size:15px">&nbsp; تنظیمات</span></a>
@@ -166,8 +172,10 @@
                                             <br><br>
                                         </div>
                                         <div class="col-lg-4"> <!--upload img-->
-                                            <img alt="image" class="img-circle center-block img-responsive"
-                                                 src="{% static 'img/unknown.jpg' %}" width="200px" height="200px"><br>
+                                            {% for team in user.Teams.all %}
+                                                <img alt="image" class="img-circle center-block "
+                                                     src="{{ team.logo_image.url }}" width="200" height="200"><br>
+                                            {% endfor %}
                                             <div class="text-center">
                                                 <div class="fileinput fileinput-new " data-provides="fileinput">
                                                 <span class="btn btn-default btn-file navy-bg"><span
@@ -190,8 +198,9 @@
                                 </div>
                                 <div class="ibox-content ">
                                     <table class="table table-bordered text-center">
-                                    {{ user_form.management_form }}
+                                        {{ user_form.management_form }}
                                         {% for form in user_form %}
+                                            {{ form.id }}
                                             {% if loop.index > 1 %}
                                                 <tbody>
                                             {% endif %}
@@ -200,6 +209,7 @@
                                             <td style=" background-color:gary" class="text-center">
                                                 {% if forloop.counter == 1 %}
                                                     سرگروه
+
                                                 {% elif forloop.counter == 2 %}
                                                     عضو اول
                                                 {% elif forloop.counter == 3 %}
@@ -266,11 +276,11 @@
 
                                 </div>
                             </div>
-{#                            {{ testForm.image.label }}#}
-{#                            <span class="btn btn-default btn-file navy-bg">#}
-{#                                انتخاب لگو#}
-{#                                {{ testForm.image }}#}
-{#                            </span>#}
+                            {#                            {{ testForm.image.label }}#}
+                            {#                            <span class="btn btn-default btn-file navy-bg">#}
+                            {#                                انتخاب لگو#}
+                            {#                                {{ testForm.image }}#}
+                            {#                            </span>#}
                             <button type="submit" class="btn btn-primary block full-width m-b">ذخیره تغییرات</button>
 
                         </div>
@@ -281,9 +291,11 @@
         </form>
         <br>
         <div class="footer">
-            <div class="pull-right"><img alt="image" src="img/armankadeh.png" width="20" height="20"></div>
-            <div class="pull-right"><img alt="image" src="img/logo.jpg" width="20" height="20"></div>
-            <div class="pull-right"><img alt="image" src="img/arman_logo.gif" width="25" height="20"></div>
+            <div class="pull-right"><img alt="image" src='{% static "img/armankadeh.png" %}' width="20" height="20">
+            </div>
+            <div class="pull-right"><img alt="image" src='{% static "img/logo.jpg" %}' width="20" height="20"></div>
+            <div class="pull-right"><img alt="image" src='{% static "img/arman_logo.gif" %}' width="25" height="20">
+            </div>
             <div>
                 <strong>Copyright</strong> ArmanRTO © 2017
             </div>
