@@ -1,10 +1,10 @@
+import os
 from django.conf.urls.static import static
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse
 from django.template import loader
 from .forms import *
-from django.forms import modelformset_factory, inlineformset_factory
+from django.forms import modelformset_factory
 from django.conf import settings
 
 
@@ -13,82 +13,54 @@ from django.conf import settings
 def setting_page(request):
     redirect_flag = False
     team_change = request.user.Teams.all()[0]
-    user_formset_factory = modelformset_factory(MyUser,
-                                                # fields=['user_fname', 'user_lname', 'email', 'university', 'grade',
-                                                #         'entrance_year', 'graduate_year', 'skills'],
-                                                extra=3,
-                                                max_num=3,
-                                                # labels=UserSettingForm.label,
-                                                form=UserSettingForm
-                                                )
-
-    # user_formset_inline = inlineformset_factory(Grade, MyUser, form=UserSettingForm, extra=3, max_num=3)
-
+    user_formset_factory = modelformset_factory(MyUser, extra=3, max_num=3, form=UserSettingForm)
     if request.method == 'POST':
         print(request.POST)
+
         auth_user_setting_form = UserTeamSettingForm(request.POST, instance=request.user)
         if auth_user_setting_form.is_valid():
             print('auth user is valid ')
-            # auth_user_setting_form.save()
+            auth_user_setting_form.save()
         else:
             print('auth user is not valid', auth_user_setting_form.cleaned_data, auth_user_setting_form.errors)
-        team_setting_form = TeamSettingForm(request.POST, instance=team_change)
+        previous_logo_image = '/'.join(team_change.logo_image.url.split('/')[2:])
+        team_setting_form = TeamSettingForm(request.POST or None, request.FILES or None, instance=team_change)
         team_setting_form.change_required_field()
         if team_setting_form.is_valid():
             print('team setting form is valid ')
-            # test = team_setting_form.save(commit=False)
+            if 'logo_image' in team_setting_form.changed_data:
+                if os.path.isfile(os.path.join(settings.MEDIA_ROOT,previous_logo_image)):
+                    os.remove(os.path.join(settings.MEDIA_ROOT, previous_logo_image))
+            team_setting_form.save()
         else:
             print(team_setting_form.errors)
-            test = [team_setting_form, 'WTFaaz']
-
         user_team_form = user_formset_factory(request.POST, queryset=team_change.Users.all())
-        c = 0
-        queryset = team_change.Users.all()
-        for userman in user_team_form:
-            print(userman.fields['id'], queryset[c].id)
-            if not userman.fields['id'].initial:
-                print('dasti')
-                userman.fields['id'].initial = queryset[c].id
+        for user_team in user_team_form:
+            type(user_team)
+            if not user_team.is_valid():
+                print('user fname:', user_team.cleaned_data)
             else:
-                print('payi')
-            c += 1
-        print('salam:', team_change.Users.all()[0].id, user_team_form[0].fields['id'])
-        for userman in user_team_form:
-            type(userman)
-            if not userman.is_valid():
-                print('user fname:', userman.cleaned_data)
-            else:
-                temp = userman.save(commit=False)
+                if user_team.cleaned_data.get('user_fname', '') == '' and \
+                                user_team.cleaned_data.get('user_lname', '') == '':
+                    continue
+                temp = user_team.save(commit=False)
                 temp.team = team_change
                 temp.save()
                 print('temp:', type(temp))
-            c += 1
         if user_team_form.is_valid():
             print("Pashm")
         else:
             print(user_team_form.errors)
-        print("****")
-        # print(test)
     else:
         redirect_flag = True
         auth_user_setting_form = UserTeamSettingForm(request.POST or None, instance=request.user)
         team_setting_form = TeamSettingForm(instance=team_change)
         team_setting_form.change_required_field()
         user_team_form = user_formset_factory(queryset=team_change.Users.all())
-        # user_team_inlineform = user_formset_inline(queryset=team_change.Users.all())
-        # user_team_form = []
-        # for i in team_change.Users.all():
-        #     user_team_form.append(UserSettingForm(instance=i))
-        # for i in range(3 - len(team_change.Users.all())):
-        #     user_team_form.append(UserSettingForm())
-        # user_team_form[1].change_required_user()
-        # user_team_form[2].change_required_user()
     template = loader.get_template('settings.html')
-    # print(request.user.Teams.all()[0].university)
-    # print(request.user.Teams.all()[0].Users.all()[0])
     return HttpResponse(
         template.render({'test': redirect_flag, 'user_form': user_team_form, 'auth_form': auth_user_setting_form,
-                         'team_form': team_setting_form, 'testForm': testForm()}, request))
+                         'team_form': team_setting_form}, request))
 
 
 def test_change(request):

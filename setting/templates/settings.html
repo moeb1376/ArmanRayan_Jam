@@ -123,7 +123,7 @@
                 </ul>
             </nav>
         </div>
-        <form action="setting" method="post">
+        <form action="setting" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="wrapper wrapper-content animated fadeInRight">
                 <div class="row  border-bottom white-bg dashboard-header">
@@ -140,52 +140,47 @@
                                             <div class="form-group">
                                                 <label class="col-lg-1 control-label">{{ auth_form.username.label }}</label>
                                                 <div class="col-lg-6">{% render_field auth_form.username class='form-control' %}</div>
-                                                {#                                            <label class="col-lg-1 control-label">نام:</label>#}
-                                                {#                                            <div class="col-lg-6"><input placeholder="آرمانکده" class="form-control"#}
-                                                {#                                                                         type="text"></div>#}
                                             </div>
                                             <br><br>
                                             <div class="form-group">
                                                 <label class="col-lg-1 control-label">{{ team_form.university.label }}</label>
                                                 <div class="col-lg-6">{% render_field team_form.university class='form-control' %}</div>
-                                                {#                                            <label class="col-lg-1 control-label">دانشگاه:</label>#}
-                                                {#                                            <div class="col-lg-6"><input disabled placeholder="علم و صنعت ایران"#}
-                                                {#                                                                         class="form-control" type="text"></div>#}
                                             </div>
                                             <br><br>
                                             <div class="form-group">
                                                 <label class="col-lg-1 control-label">{{ auth_form.email.label }}</label>
                                                 <div class="col-lg-6">{% render_field auth_form.email class='form-control' %}</div>
-                                                {#                                            <label class="col-lg-1 control-label">رایانامه</label>#}
-                                                {#                                            <div class="col-lg-6"><input placeholder="redeemer.redhat@gmail.com"#}
-                                                {#                                                                         class="form-control" type="email"></div>#}
                                             </div>
                                             <br><br>
                                             <div class="form-group">
                                                 <label class="col-lg-1 control-label">{{ team_form.team_bio.label }}</label>
                                                 <div class="col-lg-6">{% render_field team_form.team_bio class='form-control' %}</div>
-                                                {#                                            <label class="col-lg-1 control-label">بیو:</label>#}
-                                                {#                                            <div class="col-lg-6"><textarea style="height:90px;"#}
-                                                {#                                                                            placeholder="خواستن توانستن است. کافی است به توانایی هایتان ایمان داشته باشید."#}
-                                                {#                                                                            class="form-control" type="text"></textarea>#}
                                             </div>
                                             <br><br>
                                         </div>
-                                        <div class="col-lg-4"> <!--upload img-->
+                                        <!--upload img-->
+                                        <div class="col-lg-4">
                                             {% for team in user.Teams.all %}
                                                 <img alt="image" class="img-circle center-block "
                                                      src="{{ team.logo_image.url }}" width="200" height="200"><br>
                                             {% endfor %}
                                             <div class="text-center">
-                                                <div class="fileinput fileinput-new " data-provides="fileinput">
-                                                <span class="btn btn-default btn-file navy-bg"><span
-                                                        class="fileinput-new">انتخاب لوگوی تیم</span><span
-                                                        class="fileinput-exists">تغییر</span><input type="file"
-                                                                                                    name="..."></span>
-                                                    <span class="fileinput-filename"></span>
-                                                    <a href="#" class="close fileinput-exists" data-dismiss="fileinput"
-                                                       style="float: none">&times;</a>
-                                                </div>
+                                                {#                                                {{ team_form.logo_image.label }}#}
+                                                {#                                                {% render_field team_form.logo_image class='btn btn-default btn-file navy-bg' %}#}
+                                                <span class="btn btn-default btn-file navy-bg">
+                                                    {{ team_form.logo_image.label }}
+                                                    {{ team_form.logo_image }}
+                                                </span>
+                                                {#                                                <div class="fileinput fileinput-new " data-provides="fileinput">#}
+                                                {#                                                                                                <span class="btn btn-default btn-file navy-bg"><span#}
+                                                {#                                                                                                        class="fileinput-new">انتخاب لوگوی تیم</span><span#}
+                                                {#                                                                                                        class="fileinput-exists">تغییر</span><input#}
+                                                {#                                                                                                        type="file"#}
+                                                {#                                                                                                        name="logo_image"></span>#}
+                                                {#                                                    <span class="fileinput-filename"></span>#}
+                                                {#                                                    <a href="#" class="close fileinput-exists" data-dismiss="fileinput"#}
+                                                {#                                                       style="float: none">&times;</a>#}
+                                                {#                                                </div>#}
                                             </div>
                                         </div>
                                     </div>

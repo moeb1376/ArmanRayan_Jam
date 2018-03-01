@@ -5,13 +5,6 @@ from django.forms import BaseModelFormSet
 from .models import *
 
 
-class MyFormSet(BaseModelFormSet):
-    def save(self, commit=True):
-        if not commit:
-            self.saved_forms = []
-        return self.save_existing_objects(commit)
-
-
 class UserSettingForm(forms.ModelForm):
     label = {
         'user_fname': 'نام',
@@ -70,13 +63,18 @@ class UserTeamSettingForm(UserChangeForm):
 class TeamSettingForm(forms.ModelForm):
     def change_required_field(self):
         self.fields['team_bio'].required = False
+        self.fields['logo_image'].required = False
 
     class Meta:
         model = Team
-        fields = ['university', 'team_bio']
+        fields = ['university', 'team_bio', 'logo_image']
         labels = {
             'university': 'دانشگاه',
-            'team_bio': "بیو"
+            'team_bio': "بیو",
+            'logo_image': "انتخاب عکس"
+        }
+        widgets = {
+            'logo_image': forms.FileInput
         }
 
 
@@ -86,6 +84,9 @@ class testForm(forms.ModelForm):
         fields = ['image']
         labels = {
             'image': 'عکس'
+        }
+        widgets={
+            'image':forms.FileInput
         }
 
 

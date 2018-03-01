@@ -5,14 +5,30 @@ from django.contrib.auth.models import User as auth_user
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import AbstractUser
 from django.conf import settings
+from hashlib import sha256
 
 
 # Create your models here.
 # class MyAuthUser(AbstractUser):
 #     email = models.EmailField(unique=True)
 #
+def upload_test(instance, filename):
+    return 'testi/%s.%s' % (instance.id, filename.split('.')[-1])
+
+
 class Test(models.Model):
-    image = models.ImageField(default=settings.LOGO_DEFAULT, upload_to='picture')
+    image = models.ImageField(default=settings.LOGO_DEFAULT, upload_to=upload_test, width_field="width_field",
+                              height_field="height_field", null=True, blank=True)
+    height_field = models.IntegerField(default=0)
+    width_field = models.IntegerField(default=0)
+
+
+def upload_location(instance, filename):
+    type = filename.split('.')[-1]
+    competition_name = 'SPC' if instance.competition.competition_level < 3 else 'IAC'
+    team_id = instance.id
+    logo_name = (str(team_id) + filename.split('.')[0]).encode()
+    return "%s/%d/logo/%s.%s" % (competition_name, team_id, sha256(logo_name).hexdigest(), type)
 
 
 class Team(models.Model):
@@ -24,12 +40,15 @@ class Team(models.Model):
     win = models.IntegerField(default=0)
     loose = models.IntegerField(default=0)
     draw = models.IntegerField(default=0)
-    logo_image = models.ImageField(null=True, default='unknown.jpg')
+    logo_image = models.ImageField(null=True, default='unknown.jpg',
+                                   width_field="width_field",
+                                   height_field="height_field",
+                                   upload_to=upload_location)
+    height_field = models.IntegerField(default=0)
+    width_field = models.IntegerField(default=0)
     team_bio = models.TextField(default='', blank=True)
     language = models.ForeignKey(Language, on_delete=models.CASCADE)
     mentor = models.CharField(max_length=20, blank=True, default='')
-
-    # mentor = models.ForeignKey(Mentor, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.user_team.username

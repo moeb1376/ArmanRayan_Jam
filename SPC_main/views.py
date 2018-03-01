@@ -18,7 +18,7 @@ def SPC_main_page(request):
         'team': team,
         'members': team_member
     }
-    template = loader.get_template('SPC_main/jaam.html')
+    template = loader.get_template('SPC_main/jaam2.html')
     return HttpResponse(template.render(context, request))
 
 

@@ -10,6 +10,7 @@
 
 <head>
     {% load static %}
+    {% load staticfiles %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -47,8 +48,6 @@
             font-family: 'BMitra';
             direction: rtl;
         }
-
-
     </style>
 
 
@@ -60,16 +59,16 @@
         <div class="sidebar-collapse">
             <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header">
-                    <div class="dropdown profile-element">
-                        <span>
-                            <img alt="image" class="img-circle center-block" src='{% static team.logo_address %}'
+                    <div class="dropdown profile-element"> <span>
+                            <img alt="image" class="img-circle center-block" src="{{ team.logo_image.url }}"
                                  width="128"
                                  height="128"/>
-                        </span>
+                            </span>
                         <a>
 							<span class="clear">
                                 <span class="block m-t-xs text-center">
-                                    <strong style="font-size:40px"class="font-bold">{{ team.user_team.username }}
+                                    <strong style="font-size:25px" class="font-bold">
+                                            {{ user.username }}
                                     </strong>
                                 </span>
                             </span>
@@ -91,8 +90,8 @@
                         </ul>
                     </div>
                     <div class="logo-element">
-                        <img alt="image" class="img-circle center-block" src='{% static team.logo_address %}' width="40"
-                             height="40" name="childofbithc"/><br>
+                        <img alt="image" class="img-circle center-block" src="{{ team.logo_image.url }}" width="40"
+                             height="40"/><br>
                         <a href="jaam"><i class="fa fa-address-card"></i><span class="nav-label"
                                                                                style="font-size:15px">&nbsp; اطلاعات</span></a><br>
                         <a href="setting"><i class="fa fa-cog"></i><span class="nav-label" style="font-size:15px">&nbsp; تنظیمات</span></a>
@@ -131,16 +130,14 @@
                 <div class="col-lg-12">
                     <div class="col-md-4 widget p-lg text-center">
                         <div>
-                            <h1 class="no-margins" style="font-size:70px">
-                                {{ team.user_team.username }}
+                            <h1 class="no-margins" style="font-size:40px">
+                                {{ user.username }}
                             </h1>
                             <br>
-                            <h3 style="font-size:20px">
-                                {{ team.university }}
-                            </h3>
+                            <h3 style="font-size:25px">{{ team.university }}</h3>
                             <br>
                             <small>
-                                {{ team.user_team.email }}
+                                {{ user.email }}
                             </small>
                             <br><br>
                             <small>
@@ -176,110 +173,109 @@
                                 <i class="fa fa-question-circle"></i>&nbsp; راهنما و توضیحات
                             </h1>
                             <div class="help">
-                                {% for team in user.Teams.all %}
-                                    {% if team.competition.competititon_level == 1 %}
-                                        <div>
-                                            <div class="ibox-content">
-                                                <h2>اشاره گرهای مقدماتی</h2>
-                                                <p class="text-center">
-                                                    توضیحات لازم را از فایل زیر دانلود کنید
+                                {% if team.competition.competition_level == 1 %}
+                                    <div>
+                                        <div class="ibox-content">
+                                            <h2>اشاره گرهای مقدماتی</h2>
+                                            <p class="text-center">
+                                                توضیحات لازم را از فایل زیر دانلود کنید
 
-                                                </p>
-                                                <div class="text-center">
-                                                    <a href="{% static 'download/spc1.pdf' %}" download>
-                                                        <button type="button" class="btn btn-w-m btn-primary">دانلود
-                                                            فایل
-                                                        </button>
-                                                    </a>
-                                                </div>
+                                            </p>
+                                            <div class="text-center">
+                                                <a href="{% static 'download/spc1.pdf' %}" download>
+                                                    <button type="button" class="btn btn-w-m btn-primary">
+                                                        دانلود فایل
+                                                    </button>
+                                                </a>
                                             </div>
                                         </div>
-                                    {% elif team.competition.competition_level == 2 %}
-                                        <div>
-                                            <div class="ibox-content">
-                                                <h2>اشاره گرهای پیشرفته </h2>
-                                                <p class="text-center">
-                                                    توضیحات لازم را از فایل زیر دانلود کنید
+                                    </div>
+                                {% elif team.competition.competiotion_level == 2 %}
+                                    <div>
+                                        <div class="ibox-content">
+                                            <h2>اشاره گرهای پیشرفته </h2>
+                                            <p class="text-center">
+                                                توضیحات لازم را از فایل زیر دانلود کنید
 
-                                                </p>
-                                                <div class="text-center">
-                                                    <a href="{% static 'download/spc2.pdf' %}" download>
-                                                        <button type="button" class="btn btn-w-m btn-primary">دانلود
-                                                            فایل
-                                                        </button>
-                                                    </a>
-                                                </div>
+                                            </p>
+                                            <div class="text-center">
+                                                <a href="{% static 'download/spc2.pdf' %}" download>
+                                                    <button type="button" class="btn btn-w-m btn-primary">
+                                                        دانلود فایل
+                                                    </button>
+                                                </a>
                                             </div>
                                         </div>
+                                    </div>
+                                {% endif %}
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>لیست اعضای تیم</h5>
+
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+                            <table class="footable table table-stripped toggle-arrow-tiny">
+                                <thead>
+                                <tr>
+                                    <th data-toggle="true">نام خانوادگی</th>
+                                    <th>نام</th>
+                                    <th>مقطع</th>
+                                    <th data-hide="all">رایانامه</th>
+                                    <th data-hide="all">ورودی</th>
+                                    <th data-hide="all">فارغ التحصیل</th>
+                                    <th data-hide="all">توانایی ها</th>
+                                    <th>دانشگاه</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for my_user in members %}
+                                    {% if my_user.user_fname != '' and my_user.user_lname != '' %}
+                                        <tr>
+                                            <td>&nbsp;&nbsp;{{ my_user.user_lname }}</td>
+                                            <td>{{ my_user.user_fname }}</td>
+                                            <td>{{ my_user.grade }}</td>
+                                            <td>&nbsp;&nbsp;{{ my_user.email }}</td>
+                                            <td>&nbsp;&nbsp;{{ my_user.entrance_year }}</td>
+                                            <td>&nbsp;&nbsp;{{ my_user.graduate_year }}</td>
+                                            <td>&nbsp;&nbsp;{{ my_user.skills }}</td>
+                                            <td>{{ my_user.university }}</td>
+                                        </tr>
                                     {% endif %}
                                 {% endfor %}
-                            </div>
+                                </tbody>
+                            </table>
 
                         </div>
                     </div>
-
                 </div>
             </div>
+
         </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>لیست اعضای تیم</h5>
-
-                        <div class="ibox-tools">
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="ibox-content">
-                        <table class="footable table table-stripped toggle-arrow-tiny">
-                            <thead>
-                            <tr>
-                                <th data-toggle="true">نام خانوادگی</th>
-                                <th>نام</th>
-                                <th>مقطع</th>
-                                <th data-hide="all">رایانامه</th>
-                                <th data-hide="all">ورودی</th>
-                                <th data-hide="all">فارغ التحصیل</th>
-                                <th data-hide="all">توانایی ها</th>
-                                <th>دانشگاه</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {% for member in members %}
-                                <tr>
-                                    <td>{{ member.user_lname }}</td>
-                                    <td>{{ member.user_fname }}</td>
-                                    <td>{{ member.grade }}</td>
-                                    <td>&nbsp;&nbsp;{{ member.email }}</td>
-                                    <td>&nbsp;&nbsp;{{ member.entrance_year }}</td>
-                                    <td>&nbsp;&nbsp;{{ member.graduate_year }}</td>
-                                    <td>&nbsp;&nbsp;{{ member.skills }}</td>
-                                    <td>{{ member.university }}</td>
-                                </tr>
-                            {% endfor %}
-                            </tbody>
-                        </table>
-
-                    </div>
-                </div>
+        <div class="footer">
+            <div class="pull-right"><img alt="image" src='{% static "img/jaam.png" %}' width="15" height="20"></div>
+            <div class="pull-right"><img alt="image" src='{% static "img/logo.jpg" %}' width="20" height="20"></div>
+            <div class="pull-right"><img alt="image" src='{% static "img/arman_logo.gif" %}' width="25" height="20">
             </div>
-        </div>
-
-    </div>
-    <div class="footer">
-        <div class="pull-right"><img alt="image" src='{% static "img/jaam.png" %}' width="15" height="20"></div>
-        <div class="pull-right"><img alt="image" src='{% static "img/logo.jpg" %}' width="20" height="20"></div>
-        <div class="pull-right"><img alt="image" src='{% static "img/arman_logo.gif" %}' width="25" height="20">
-        </div>
-        <div>
-            <strong>Copyright</strong> ArmanRTO © 2017
+            <div>
+                <strong>Copyright</strong> ArmanRTO © 2017
+            </div>
         </div>
     </div>
 </div>
-
 
 
 <!-- Mainly scripts -->
@@ -314,7 +310,6 @@
 
         $('.footable').footable();
     });
-
 
 </script>
 
