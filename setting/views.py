@@ -11,8 +11,8 @@ from django.conf import settings
 # Create your views here.
 @login_required(login_url='/login', redirect_field_name='')
 def setting_page(request):
-    redirect_flag = False
     team_change = request.user.Teams.all()[0]
+    redirect_flag = False if len(team_change.Users.all()) > 1 else True
     user_formset_factory = modelformset_factory(MyUser, extra=3, max_num=3, form=UserSettingForm)
     if request.method == 'POST':
         print(request.POST)
@@ -52,8 +52,6 @@ def setting_page(request):
         else:
             print(user_team_form.errors)
     else:
-        if len(team_change.Users.all()) < 2:
-            redirect_flag = True
         auth_user_setting_form = UserTeamSettingForm(request.POST or None, instance=request.user)
         team_setting_form = TeamSettingForm(instance=team_change)
         team_setting_form.change_required_field()
