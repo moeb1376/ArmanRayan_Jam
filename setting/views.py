@@ -52,7 +52,8 @@ def setting_page(request):
         else:
             print(user_team_form.errors)
     else:
-        redirect_flag = True
+        if len(team_change.Users.all()) < 2:
+            redirect_flag = True
         auth_user_setting_form = UserTeamSettingForm(request.POST or None, instance=request.user)
         team_setting_form = TeamSettingForm(instance=team_change)
         team_setting_form.change_required_field()
