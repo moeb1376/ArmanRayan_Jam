@@ -12,7 +12,6 @@ from django.conf import settings
 @login_required(login_url='/login', redirect_field_name='')
 def setting_page(request):
     team_change = request.user.Teams.all()[0]
-    redirect_flag = False if len(team_change.Users.all()) > 1 else True
     user_formset_factory = modelformset_factory(MyUser, extra=3, max_num=3, form=UserSettingForm)
     if request.method == 'POST':
         print(request.POST)
@@ -29,14 +28,14 @@ def setting_page(request):
         if team_setting_form.is_valid():
             print('team setting form is valid ')
             if 'logo_image' in team_setting_form.changed_data:
-                if os.path.isfile(os.path.join(settings.MEDIA_ROOT,previous_logo_image)):
+                if os.path.isfile(os.path.join(settings.MEDIA_ROOT, previous_logo_image)):
                     os.remove(os.path.join(settings.MEDIA_ROOT, previous_logo_image))
             team_setting_form.save()
         else:
             print(team_setting_form.errors)
         user_team_form = user_formset_factory(request.POST, queryset=team_change.Users.all())
-        for user_team in user_team_form:
-            type(user_team)
+        for index, user_team in enumerate(user_team_form):
+            print('user_team', user_team.has_changed(), user_team.changed_data)
             if not user_team.is_valid():
                 print('user fname:', user_team.cleaned_data)
             else:
@@ -44,19 +43,22 @@ def setting_page(request):
                                 user_team.cleaned_data.get('user_lname', '') == '':
                     continue
                 temp = user_team.save(commit=False)
+                temp.is_head = True if index == 0 else False
                 temp.team = team_change
                 temp.save()
-                print('temp:', type(temp))
+                print('temp:', temp, temp.id)
         if user_team_form.is_valid():
             print("Pashm")
         else:
             print(user_team_form.errors)
+        user_team_form = user_formset_factory(queryset=team_change.Users.all())
     else:
         auth_user_setting_form = UserTeamSettingForm(request.POST or None, instance=request.user)
         team_setting_form = TeamSettingForm(instance=team_change)
         team_setting_form.change_required_field()
         user_team_form = user_formset_factory(queryset=team_change.Users.all())
     template = loader.get_template('settings.html')
+    redirect_flag = False if len(team_change.Users.all()) > 1 else True
     return HttpResponse(
         template.render({'test': redirect_flag, 'user_form': user_team_form, 'auth_form': auth_user_setting_form,
                          'team_form': team_setting_form}, request))
