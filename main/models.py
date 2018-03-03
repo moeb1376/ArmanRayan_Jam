@@ -11,7 +11,7 @@ class Competition(models.Model):
         return self.competition_name
 
     class Meta:
-        ordering = ['competition_name']
+        ordering = ['competition_level']
 
 
 class Grade(models.Model):
