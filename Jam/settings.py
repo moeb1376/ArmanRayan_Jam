@@ -24,7 +24,7 @@ SECRET_KEY = '4j5lq*s4+7a&ac*3opp5v97u)0=mqw2gw_fc4@1qkzu+b-mezp'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 # DEBUG = False
-ALLOWED_HOSTS = ['185.81.40.213', '127.0.0.1','jaam.armankadeh.ir']
+ALLOWED_HOSTS = ['185.81.40.213', '127.0.0.1', 'jaam.armankadeh.ir']
 # ALLOWED_HOSTS = []
 # Application definition
 
@@ -78,17 +78,17 @@ WSGI_APPLICATION = 'Jam.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        #'ENGINE': 'django.db.backends.mysql',
-        #'NAME': 'Jam',
-        #'USER': 'root',
-        #'PASSWORD': '1234',
-        #'HOST': 'localhost',
-        #'PORT': '',
-        #'OPTIONS': {
-        #    'read_default_file': 'static/my.cnf'
-        #},
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Jam',
+        'USER': 'root',
+        'PASSWORD': '1234',
+        'HOST': 'localhost',
+        'PORT': '',
+        'OPTIONS': {
+            'read_default_file': 'static/my.cnf'
+        },
     }
 }
 
@@ -131,7 +131,7 @@ STATIC_URL = '/statics/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "statics")]
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = '/media/'
-LOGO_DEFAULT = os.path.join(STATICFILES_DIRS[0], 'img/unknown.jpg')
+LOGO_DEFAULT = os.path.join(MEDIA_ROOT, 'unknown.jpg')
 const = {
     'CODE_DIRECTORY': '/%d' + '/%s' + '/code',
     'LOGO_DIRECTORY': '/%d' + '/%s' + '/logo',

@@ -25,11 +25,13 @@ def setting_page(request):
         previous_logo_image = '/'.join(team_change.logo_image.url.split('/')[2:])
         team_setting_form = TeamSettingForm(request.POST or None, request.FILES or None, instance=team_change)
         team_setting_form.change_required_field()
+        print(settings.LOGO_DEFAULT, os.path.join(settings.MEDIA_ROOT, previous_logo_image), previous_logo_image)
         if team_setting_form.is_valid():
             print('team setting form is valid ')
             if 'logo_image' in team_setting_form.changed_data:
-                if os.path.isfile(os.path.join(settings.MEDIA_ROOT, previous_logo_image)):
-                    os.remove(os.path.join(settings.MEDIA_ROOT, previous_logo_image))
+                previous_logo_image_path = os.path.join(settings.MEDIA_ROOT, previous_logo_image)
+                if os.path.isfile(previous_logo_image_path) and previous_logo_image_path != settings.LOGO_DEFAULT:
+                    os.remove(previous_logo_image_path)
             team_setting_form.save()
         else:
             print(team_setting_form.errors)
