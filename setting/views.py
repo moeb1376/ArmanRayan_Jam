@@ -65,7 +65,8 @@ def setting_page(request):
     else:
         template = loader.get_template('settings_iac.html')
     user_require = 2 if team.competition.competition_level < 3 else 1
-    redirect_flag = False if len(team_change.Users.all()) > user_require else True
+    redirect_flag = False if len(team_change.Users.all()) >= user_require else True
+    print('redirect ', redirect_flag, user_require)
     return HttpResponse(
         template.render({'test': redirect_flag, 'user_form': user_team_form, 'auth_form': auth_user_setting_form,
                          'team_form': team_setting_form}, request))
