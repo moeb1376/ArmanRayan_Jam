@@ -1,0 +1,432 @@
+<!--
+*
+*  INSPINIA - Responsive Admin Theme
+*  version 2.7
+*
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load static %}
+    {% load widget_tweaks %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>{{ user.username }}| پنل مدیریت تیم ها</title>
+
+    <link href='{% static "css/bootstrap.min.css" %}' rel="stylesheet">
+    <!-- Toastr style -->
+    <link href="{% static 'css/plugins/toastr/toastr.min.css' %}" rel="stylesheet">
+
+    <!-- Gritter -->
+    <link href="{% static 'js/plugins/gritter/jquery.gritter.css' %}" rel="stylesheet">
+    <!-- Persian -->
+    <link href='{% static "css/bootstrap-rtl.min.css" %}' rel="stylesheet">
+
+    <link href='{% static "font-awesome/css/font-awesome.css" %}' rel="stylesheet">
+
+    <link href='{% static "css/animate.css" %}' rel="stylesheet">
+    <link href='{% static "css/style.css" %}' rel="stylesheet">
+
+
+    <!--upload-->
+    <link href="{% static 'css/plugins/jasny/jasny-bootstrap.min.css' %}" rel="stylesheet">
+
+    <style>
+        @font-face {
+            font-family: 'BMitra';
+            src: url("{% static 'fonts/BMitra.woff'%}") format('woff'),
+            url("{% static 'fonts/BMitra.ttf'%}") format('truetype'),
+            url("{% static 'fonts/BMitra.svg#BMitra'%}") format('svg');
+        }
+
+        select, option, input, div, button, small, label, p, h1, h2, h3, h4, h5, a, th, tr, td {
+            font-family: 'BMitra';
+            direction: rtl;
+        }
+    </style>
+</head>
+
+<body class="rtls">
+<div id="wrapper">
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element">
+                        {% for team in user.Teams.all %}
+                            <span>
+                                <img alt="image" class="img-circle center-block" src="{{ team.logo_image.url }}"
+                                     width="128"
+                                     height="128"/>
+                            </span>
+                        {% endfor %}
+                        <a>
+                            <span class="clear">
+                                <span class="block m-t-xs text-center">
+                                    <strong style="font-size:40px" class="font-bold">
+                                        {{ user.username }}
+                                    </strong>
+                                </span>
+                            </span>
+                        </a>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="text-muted text-xs block text-center" style="font-size:25px">تیم
+                                <b class="caret"></b>
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                            <li>
+                                <a href="jaam" style="font-size:15px">
+                                    <i class="fa fa-address-card"></i>&nbsp;&nbsp;
+                                    اطلاعات
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="setting" style="font-size:15px">
+                                    <i class="fa fa-cog"></i>&nbsp;&nbsp;
+                                    تنظیمات
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="logout" style="font-size:15px">
+                                    <i class="fa fa-sign-out"></i>&nbsp;&nbsp;
+                                    خروج
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="logo-element">
+                        {% for team in user.Teams.all %}
+                            <img alt="image" class="img-circle center-block" src="{{ team.logo_image.url }}" width="40"
+                                 height="40"/>
+                        {% endfor %}
+                        <br>
+                        <a href="jaam">
+                            <i class="fa fa-address-card"></i>
+                            <span class="nav-label" style="font-size:15px">&nbsp;
+                                اطلاعات
+                            </span>
+                        </a>
+                        <br>
+                        <a href="setting">
+                            <i class="fa fa-cog"></i>
+                            <span class="nav-label" style="font-size:15px">
+                                &nbsp; تنظیمات
+                            </span>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <a href="play_iac">
+                        <i class="fa fa-database"></i>
+                        <span class="nav-label" style="font-size:15px">
+                            &nbsp; مجموعه دادگان
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="table_iac">
+                        <i class="fa fa-list"></i>
+                        <span class="nav-label" style="font-size:15px">
+                            &nbsp; جدول مسابقات
+                        </span>
+                        <span class="pull-right"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="cup_iac">
+                        <i class="fa fa-trophy"></i>
+                        <span class="nav-label" style="font-size:15px">
+                            &nbsp; جام
+                        </span>
+                        <span class="pull-right"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li>
+                        <a href="logout">
+                            <i class="fa fa-sign-out"></i> &nbsp;خروج
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <form action="setting" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h3>
+                {{ user_form.non_field_errors }}
+                {{ auth_form.non_field_errors }}
+                {{ team_form.non_field_errors }}
+            </h3>
+            <div class="wrapper wrapper-content animated fadeInRight">
+                <div class="row  border-bottom white-bg dashboard-header">
+                    <h5 style="font-size:40px">&nbsp;&nbsp;&nbsp;ویرایش اطلاعات</h5>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>تیم</h5>
+                                </div>
+                                <div class="ibox-content ">
+                                    <div class="row">
+                                        <div class="col-lg-8">
+                                            <div class="form-group">
+                                                <h3>{{ auth_form.username.errors }}</h3>
+                                                <label class="col-lg-1 control-label">
+                                                    {{ auth_form.username.label }}
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    {% render_field auth_form.username class='form-control' %}
+                                                </div>
+                                            </div>
+                                            <br><br>
+                                            <div class="form-group">
+                                                <h3>{{ team_form.university.errors }}</h3>
+                                                <label class="col-lg-1 control-label">
+                                                    {{ team_form.university.label }}
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    {% render_field team_form.university class='form-control' %}
+                                                </div>
+                                            </div>
+                                            <br><br>
+                                            <div class="form-group">
+                                                <h3>{{ auth_form.email.errors }}</h3>
+                                                <label class="col-lg-1 control-label">
+                                                    {{ auth_form.email.label }}
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    {% render_field auth_form.email class='form-control' %}
+                                                </div>
+                                            </div>
+                                            <br><br>
+                                            <div class="form-group">
+                                                <h3>{{ team_form.team_bio.errors }}</h3>
+                                                <label class="col-lg-1 control-label">
+                                                    {{ team_form.team_bio.label }}
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    {% render_field team_form.team_bio class='form-control' %}
+                                                </div>
+                                            </div>
+                                            <br><br>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            {% for team in user.Teams.all %}
+                                                <img alt="image" class="img-circle center-block "
+                                                     src="{{ team.logo_image.url }}" width="200" height="200"><br>
+                                            {% endfor %}
+                                            <div class="text-center">
+                                                <h3>{{ team_form.logo_image.errors }}</h3>
+                                                <span class="btn btn-default btn-file navy-bg">
+                                                    {{ team_form.logo_image.label }}
+                                                    {{ team_form.logo_image }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>اعضا</h5>
+                                </div>
+                                <div class="ibox-content ">
+                                    <table class="table table-bordered text-center">
+                                        {{ user_form.management_form }}
+                                        {% for form in user_form %}
+                                            {{ form.id }}
+                                            {% if loop.index > 1 %}
+                                                <tbody>
+                                            {% endif %}
+                                            <tr>
+                                                <td style=" background-color:gary" class="text-center">
+                                                {% if forloop.counter == 1 %}
+                                                    سرگروه
+                                                {% elif forloop.counter == 2 %}
+                                                    عضو اول
+                                                {% elif forloop.counter == 3 %}
+                                                    عضو دوم
+                                                {% endif %}
+                                                <br>
+                                                <i class="fa fa-minus-circle"></i>
+                                            </td>
+                                                <td class="text-center row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <h4>{{ form.user_fname.errors }}</h4>
+                                                        <label class="col-lg-4 control-label">
+                                                            {{ form.user_fname.label }}
+                                                        </label>
+                                                        <div class="col-lg-8">
+                                                            {{ form.user_fname|attr:"class:form-control" }}
+                                                        </div>
+                                                    </div>
+                                                    <br><br>
+                                                    <div class="form-group">
+                                                        <h4>{{ form.user_lname.errors }}</h4>
+                                                        <label class="col-lg-4 control-label">
+                                                            {{ form.user_lname.label }}
+                                                        </label>
+                                                        <div class="col-lg-8">
+                                                            {{ form.user_lname|attr:"class:form-control" }}
+                                                        </div>
+                                                    </div>
+                                                    <br><br>
+                                                    <div class="form-group">
+                                                        <h4>{{ form.email.errors }}</h4>
+                                                        <label class="col-lg-4 control-label">
+                                                            {{ form.email.label }}
+                                                        </label>
+                                                        <div class="col-lg-8">
+                                                            {{ form.email|attr:"class:form-control" }}
+                                                        </div>
+                                                    </div>
+                                                    <br><br>
+                                                    <div class="form-group">
+                                                        <h4>{{ form.university.errors }}</h4>
+                                                        <label class="col-lg-4 control-label">
+                                                            {{ form.university.label }}
+                                                        </label>
+                                                        <div class="col-lg-8">
+                                                            {{ form.university|attr:'class:form-control' }}
+                                                        </div>
+                                                    </div>
+                                                    <br><br>
+                                                    <div class="form-group">
+                                                        <h4>{{ form.grade.errors }}</h4>
+                                                        <label class="col-lg-4 control-label">
+                                                            {{ form.grade.label }}
+                                                        </label>
+                                                        <div class="col-lg-8">
+                                                            {{ form.grade|attr:'class:form-control' }}
+                                                        </div>
+                                                    </div>
+                                                    <br><br>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <h4>{{ form.entrance_year.errors }}</h4>
+                                                        <label class="col-lg-4 control-label">
+                                                            {{ form.entrance_year.label }}
+                                                        </label>
+                                                        <div class="col-lg-8">
+                                                            {{ form.entrance_year|attr:"class:form-control" }}
+                                                        </div>
+                                                    </div>
+                                                    <br><br>
+                                                    <div class="form-group">
+                                                        <h4>{{ form.graduate_year.errors }}</h4>
+                                                        <label class="col-lg-4 control-label">
+                                                            {{ form.graduate_year.label }}
+                                                        </label>
+                                                        <div class="col-lg-8">
+                                                            {{ form.graduate_year|attr:"class:form-control" }}
+                                                        </div>
+                                                    </div>
+                                                    <br><br>
+                                                    <div class="form-group">
+                                                        <h4>{{ form.skills.errors }}</h4>
+                                                        <label class="col-lg-4 control-label">
+                                                            {{ form.skills.label }}
+                                                        </label>
+                                                        <div class="col-lg-8">
+                                                            {{ form.skills|attr:"class:form-control" }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <br><br>
+                                                <br><br>
+                                            </td>
+                                            </tr>
+                                            {% if loop.index > 1 %}
+                                            </tbody>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </table>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary block full-width m-b">ذخیره تغییرات</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <br>
+        <div class="footer">
+            <div class="pull-right">
+                <img alt="image" src='{% static "img/armankadeh.png" %}' width="20" height="20">
+            </div>
+            <div class="pull-right">
+                <img alt="image" src='{% static "img/logo.jpg" %}' width="20" height="20">
+            </div>
+            <div class="pull-right">
+                <img alt="image" src='{% static "img/arman_logo.gif" %}' width="25" height="20">
+            </div>
+            <div>
+                <strong>Copyright</strong> ArmanRTO © 2017
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+<!-- Mainly scripts -->
+<script src='{% static "js/jquery-3.1.1.min.js" %}'></script>
+<script src='{% static "js/bootstrap.min.js" %}'></script>
+<script src="{% static 'js/plugins/metisMenu/jquery.metisMenu.js' %}"></script>
+<script src="{% static 'js/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="{% static 'js/inspinia.js' %}"></script>
+<script src="{% static 'js/plugins/pace/pace.min.js' %}"></script>
+
+<!-- jQuery UI -->
+<script src="{% static 'js/plugins/jquery-ui/jquery-ui.min.js' %}"></script>
+
+<!-- Toastr -->
+<script src="{% static 'js/plugins/toastr/toastr.min.js' %}"></script>
+
+{% if test %}
+    <script>
+        $(document).ready(function () {
+            setTimeout(function () {
+                toastr.options = {
+                    closeButton: true,
+                    progressBar: false,
+                    showMethod: 'slideDown',
+                    timeOut: 400000,
+                    positionClass: "toast-top-center",
+                };
+                var str = 'به سامانه جام بزرگ آرمانکده خوش آمدید   ';
+                var result = str.fontsize(5);
+                var str1 = 'لطفا برای ادامه شرکت در مسابقه مشخصات سرگروه و اعضای تیم را مشخص کنید ';
+                var res1 = str1.fontsize(4);
+                toastr.info(res1, result);
+
+
+            }, 1300);
+        });
+    </script>
+{% endif %}
+</body>
+</html>

@@ -59,8 +59,13 @@ def setting_page(request):
         team_setting_form = TeamSettingForm(instance=team_change)
         team_setting_form.change_required_field()
         user_team_form = user_formset_factory(queryset=team_change.Users.all())
-    template = loader.get_template('settings.html')
-    redirect_flag = False if len(team_change.Users.all()) > 1 else True
+    team = request.user.Teams.all()[0]
+    if team.competition.competition_level < 3:
+        template = loader.get_template('settings.html')
+    else:
+        template = loader.get_template('settings_iac.html')
+    user_require = 2 if team.competition.competition_level < 3 else 1
+    redirect_flag = False if len(team_change.Users.all()) > user_require else True
     return HttpResponse(
         template.render({'test': redirect_flag, 'user_form': user_team_form, 'auth_form': auth_user_setting_form,
                          'team_form': team_setting_form}, request))

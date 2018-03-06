@@ -10,7 +10,9 @@ def SPC_main_page(request):
     print(request.user)
     team = request.user.Teams.all()[0]
     team_member = team.Users.all()
-    if len(team_member) < 2:
+    user_require = 2 if team.competition.competition_level < 3 else 1
+    print(user_require,team.competition.competition_level)
+    if len(team_member) < user_require:
         return HttpResponseRedirect('/setting')
     for member in team_member:
         print(member.user_lname)
@@ -18,7 +20,12 @@ def SPC_main_page(request):
         'team': team,
         'members': team_member
     }
-    template = loader.get_template('SPC_main/jaam2.html')
+    if team.competition.competition_level < 3:
+        print('jaam2')
+        template = loader.get_template('SPC_main/jaam2.html')
+    else:
+        print('jaamiac')
+        template = loader.get_template('SPC_main/jaam_iac.html')
     return HttpResponse(template.render(context, request))
 
 

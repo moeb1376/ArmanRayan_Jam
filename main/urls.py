@@ -9,6 +9,7 @@ urlpatterns = [
     path('update', TemplateView.as_view(template_name='main/start.html')),
     path('play', RedirectView.as_view(url='/update')),
     path('play_iac', RedirectView.as_view(url='/update')),
+    path('table_iac', RedirectView.as_view(url='/update')),
     path('cup', RedirectView.as_view(url='/update')),
     path('cup_iac', RedirectView.as_view(url='/update')),
 
