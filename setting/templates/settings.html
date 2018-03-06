@@ -275,11 +275,6 @@
 
                                 </div>
                             </div>
-                            {#                            {{ testForm.image.label }}#}
-                            {#                            <span class="btn btn-default btn-file navy-bg">#}
-                            {#                                انتخاب لگو#}
-                            {#                                {{ testForm.image }}#}
-                            {#                            </span>#}
                             <button type="submit" class="btn btn-primary block full-width m-b">ذخیره تغییرات</button>
 
                         </div>
@@ -344,7 +339,6 @@
 {% if test %}
     <script>
         $(document).ready(function () {
-
             setTimeout(function () {
                 toastr.options = {
                     closeButton: true,
@@ -356,10 +350,8 @@
                 var str = 'به سامانه جام بزرگ آرمانکده خوش آمدید   ';
                 var result = str.fontsize(5);
                 var str1 = 'لطفا برای ادامه شرکت در مسابقه مشخصات سرگروه و اعضای تیم را مشخص کنید ';
-                var res1 = str1.fontsize(4)
+                var res1 = str1.fontsize(4);
                 toastr.info(res1, result);
-
-
             }, 1300);
         });
     </script>
