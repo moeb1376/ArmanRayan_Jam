@@ -1,0 +1,106 @@
+[uWSGI] getting INI configuration from Jaam_uwsgi.ini
+unable to load configuration from $
+[uWSGI] getting INI configuration from Jaam_uwsgi.ini
+*** Starting uWSGI 2.0.17 (64bit) on [Wed Mar  7 00:32:05 2018] ***
+compiled with version: 4.8.5 20150623 (Red Hat 4.8.5-16) on 01 March 2018 22:22:09
+os: Linux-3.10.0-514.el7.x86_64 #1 SMP Tue Nov 22 16:42:41 UTC 2016
+nodename: localhost.localdomain
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/Armankadeh/ArmanRayan_Jam
+detected binary path: /usr/local/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+chdir() to /home/Armankadeh/ArmanRayan_Jam
+your processes number limit is 31206
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/Armankadeh/ArmanRayan_Jam/Jam.sock fd 3
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+Python version: 3.6.4 (default, Mar  1 2018, 17:31:14)  [GCC 4.8.5 20150623 (Red Hat 4.8.5-16)]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x224fe40
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 802120 bytes (783 KB) for 10 cores
+*** Operational MODE: preforking ***
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 15, in <module>
+    import MySQLdb as Database
+ModuleNotFoundError: No module named 'MySQLdb'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "./Jam/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/usr/local/lib/python3.6/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/usr/local/lib/python3.6/site-packages/django/__init__.py", line 24, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/usr/local/lib/python3.6/site-packages/django/apps/registry.py", line 112, in populate
+    app_config.import_models()
+  File "/usr/local/lib/python3.6/site-packages/django/apps/config.py", line 198, in import_models
+    self.models_module = import_module(models_module_name)
+  File "/usr/local/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/auth/models.py", line 2, in <module>
+    from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
+  File "/usr/local/lib/python3.6/site-packages/django/contrib/auth/base_user.py", line 47, in <module>
+    class AbstractBaseUser(models.Model):
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 114, in __new__
+    new_class.add_to_class('_meta', Options(meta, app_label))
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/base.py", line 315, in add_to_class
+    value.contribute_to_class(cls, name)
+  File "/usr/local/lib/python3.6/site-packages/django/db/models/options.py", line 205, in contribute_to_class
+    self.db_table = truncate_name(self.db_table, connection.ops.max_name_length())
+  File "/usr/local/lib/python3.6/site-packages/django/db/__init__.py", line 33, in __getattr__
+    return getattr(connections[DEFAULT_DB_ALIAS], item)
+  File "/usr/local/lib/python3.6/site-packages/django/db/utils.py", line 202, in __getitem__
+    backend = load_backend(db['ENGINE'])
+  File "/usr/local/lib/python3.6/site-packages/django/db/utils.py", line 110, in load_backend
+    return import_module('%s.base' % backend_name)
+  File "/usr/local/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/usr/local/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 20, in <module>
+    ) from err
+django.core.exceptions.ImproperlyConfigured: Error loading MySQLdb module.
+Did you install mysqlclient?
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) *** 
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 27237)
+spawned uWSGI worker 1 (pid: 27239, cores: 1)
+spawned uWSGI worker 2 (pid: 27240, cores: 1)
+spawned uWSGI worker 3 (pid: 27241, cores: 1)
+spawned uWSGI worker 4 (pid: 27242, cores: 1)
+spawned uWSGI worker 5 (pid: 27243, cores: 1)
+spawned uWSGI worker 6 (pid: 27244, cores: 1)
+spawned uWSGI worker 7 (pid: 27245, cores: 1)
+spawned uWSGI worker 8 (pid: 27246, cores: 1)
+spawned uWSGI worker 9 (pid: 27247, cores: 1)
+spawned uWSGI worker 10 (pid: 27248, cores: 1)
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 1 seconds
+worker 2 buried after 1 seconds
+worker 3 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 5 buried after 1 seconds
+worker 6 buried after 1 seconds
+worker 7 buried after 1 seconds
+worker 8 buried after 1 seconds
+worker 9 buried after 1 seconds
+worker 10 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM: unix socket /home/Armankadeh/ArmanRayan_Jam/Jam.sock removed.
+[uWSGI] getting INI configuration from Jaam_uwsgi.ini
+unable to load configuration from $
