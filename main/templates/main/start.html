@@ -59,47 +59,76 @@
         <div class="sidebar-collapse">
             <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header">
-                    <div class="dropdown profile-element"> <span>
-                            <img alt="image" class="img-circle center-block" src='{% static "img/unknown.jpg" %}'
-                                 width="128"
-                                 height="128"/>
-                             </span>
+                    <div class="dropdown profile-element">
+                        <span>
+                            {% for team in user.Teams.all %}
+                                <img alt="image" class="img-circle center-block" src='{{ team.logo_image.url }}'
+                                     width="128"
+                                     height="128"/>
+                            {% endfor %}
+                        </span>
                         <a>
-							<span class="clear"> <span class="block m-t-xs text-center"> <strong style="font-size:40px"
-                                                                                                 class="font-bold">آرمانکده</strong></span>
+							<span class="clear">
+                                <span class="block m-t-xs text-center">
+                                    <strong style="font-size:40px" class="font-bold">{{ user.username }}</strong>
+                                </span>
+                            </span>
                         </a>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="text-muted text-xs block text-center" style="font-size:25px">تیم <b
-                                    class="caret"></b></span> </span> </a>
+                            <span class="text-muted text-xs block text-center" style="font-size:25px">تیم
+                                <b class="caret"></b>
+                            </span>
+                        </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><a href="jaam" style="font-size:15px"><i class="fa fa-address-card"></i>&nbsp;&nbsp;اطلاعات</a>
+                            <li>
+                                <a href="jaam" style="font-size:15px">
+                                    <i class="fa fa-address-card"></i>&nbsp;&nbsp;اطلاعات
+                                </a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="setting" style="font-size:15px"><i
-                                    class="fa fa-cog"></i>&nbsp;&nbsp;تنظیمات</a>
+                            <li>
+                                <a href="setting" style="font-size:15px">
+                                    <i class="fa fa-cog"></i>&nbsp;&nbsp;تنظیمات
+                                </a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="logout" style="font-size:15px"><i
-                                    class="fa fa-sign-out"></i>&nbsp;&nbsp;خروج</a>
+                            <li>
+                                <a href="logout" style="font-size:15px">
+                                    <i class="fa fa-sign-out"></i>&nbsp;&nbsp;خروج
+                                </a>
                             </li>
                         </ul>
                     </div>
                     <div class="logo-element">
-                        <img alt="image" class="img-circle center-block" src='{% static "img/unknown.jpg" %}' width="40"
-                             height="40"/><br>
-                        <a href="jaam"><i class="fa fa-address-card"></i><span class="nav-label"
-                                                                               style="font-size:15px">&nbsp; اطلاعات</span></a><br>
-                        <a href="setting"><i class="fa fa-cog"></i><span class="nav-label" style="font-size:15px">&nbsp; تنظیمات</span></a>
+                        {% for team in user.Teams.all %}
+                            <img alt="image" class="img-circle center-block"
+                                 src='{{ team.logo_image.url }}'
+                                 width="40" height="40"/>
+                        {% endfor %}
+                        <br>
+                        <a href="jaam">
+                            <i class="fa fa-address-card"></i>
+                            <span class="nav-label" style="font-size:15px">&nbsp; اطلاعات</span>
+                        </a>
+                        <br>
+                        <a href="setting">
+                            <i class="fa fa-cog"></i>
+                            <span class="nav-label" style="font-size:15px">&nbsp; تنظیمات</span>
+                        </a>
                     </div>
                 </li>
                 <li>
-                    <a href="play"><i class="fa fa-handshake-o"></i><span class="nav-label" style="font-size:15px">&nbsp; بازی دوستانه</span></a>
+                    <a href="play">
+                        <i class="fa fa-handshake-o"></i>
+                        <span class="nav-label" style="font-size:15px">&nbsp; بازی دوستانه</span>
+                    </a>
                 </li>
-
                 <li>
-                    <a href="cup"><i class="fa fa-trophy"></i><span class="nav-label"
-                                                                    style="font-size:15px">&nbsp; جام</span><span
-                            class="pull-right"></span></a>
+                    <a href="cup">
+                        <i class="fa fa-trophy"></i>
+                        <span class="nav-label" style="font-size:15px">&nbsp; جام</span>
+                        <span class="pull-right"></span>
+                    </a>
                 </li>
             </ul>
 
@@ -127,7 +156,8 @@
                     <h1 class="text-center">توجه</h1>
 
                     <div class="ibox-content text-center" style="">
-شروع رقابت های غیرحضوری در قالب بازی های دوستانه و تورنومنت های مرحله ای از تاریخ 18 فروردین 1397 خواهد بود.
+                        شروع رقابت های غیرحضوری در قالب بازی های دوستانه و تورنومنت های مرحله ای از تاریخ 18 فروردین
+                        1397 خواهد بود.
                     </div>
                 </div>
             </div>

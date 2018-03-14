@@ -58,15 +58,17 @@
                 <li class="nav-header">
                     <div class="dropdown profile-element">
                         <span>
+                            {% for team in user.Teams.all %}
 								<img alt="image" class="img-circle center-block" src="{{ team.logo_image.url }}"
                                      width="128"
                                      height="128"/>
+                            {% endfor %}
                         </span>
                         <a>
 								<span class="clear">
                                     <span class="block m-t-xs text-center">
                                         <strong style="font-size:40px" class="font-bold">
-                                            آرمانکده
+                                            {{ user.username }}
                                         </strong>
                                     </span>
                                 </span>
@@ -100,8 +102,10 @@
                         </ul>
                     </div>
                     <div class="logo-element">
-                        <img alt="image" class="img-circle center-block" src="{{ team.logo_image.url }}" width="40"
-                             height="40"/><br>
+                        {% for team in user.Teams.all %}
+                            <img alt="image" class="img-circle center-block" src="{{ team.logo_image.url }}" width="40"
+                                 height="40"/><br>
+                        {% endfor %}
                         <a href="jaam">
                             <i class="fa fa-address-card"></i>
                             <span class="nav-label" style="font-size:15px">
@@ -161,19 +165,20 @@
                 </ul>
             </nav>
         </div>
-	<div class="col-lg-3"></div>
-	<div class="col-lg-6">
-	<div class="ibox float-e-margins">
-	<div class="ibox-title">
-	<h1 class="text-center">توجه</h1>
-	<div class="ibox-content text-center" style="">
-شروع رقابت ها در قالب بازی های دوستانه و تورنومنت های مرحله ای از تاریخ 18 فروردین 1397 خواهد بود.
-	</div>
-	</div>
-	</div>
-	</div>
-	<div class="col-lg-3"></div>
-	<div class="footer">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h1 class="text-center">توجه</h1>
+                    <div class="ibox-content text-center" style="">
+                        شروع رقابت ها در قالب بازی های دوستانه و تورنومنت های مرحله ای از تاریخ 18 فروردین 1397 خواهد
+                        بود.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3"></div>
+        <div class="footer">
             <div class="pull-right">
                 <img alt="image" src='{% static "img/jaam.png" %}' width="15" height="20">
             </div>
