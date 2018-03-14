@@ -13,5 +13,5 @@ urlpatterns = [
     path('table_iac', RedirectView.as_view(url='/update_iac')),
     path('cup', RedirectView.as_view(url='/update')),
     path('cup_iac', RedirectView.as_view(url='/update_iac')),
-
+    #serfan baraye chek kardane :D
 ]
