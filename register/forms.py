@@ -27,7 +27,7 @@ class TeamForm(forms.ModelForm):
         model = Team
         fields = {'university', 'competition', 'language', 'mentor'}
         labels = {
-            'mentor': 'کد معرفی'
+            'mentor': 'کد معرفی(اختیاری)'
         }
 
 

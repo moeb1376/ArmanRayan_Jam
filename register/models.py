@@ -67,14 +67,8 @@ class MyUser(models.Model):
     entrance_year = models.IntegerField(default=1396, blank=True)
     graduate_year = models.IntegerField(default=1400, blank=True)
 
-    def create_by_form(self, post_form, team, university, is_head=False):
-        self.user_fname = post_form['f_name']
-        self.user_lname = post_form['l_name']
-        self.team = team
-        self.is_head = is_head
-        self.email = post_form['email']
-        self.university = university
-        # self.grade = grade
+    def get_normal_entrance_year(self):
+        return self.entrance_year % 100
 
     def __str__(self):
         return self.user_fname + ' ' + self.user_lname

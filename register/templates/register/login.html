@@ -53,7 +53,7 @@
         <p>
             <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
         </p>
-        <form class="m-t" role="form" action="login" method="post">
+        <form class="m-t" role="form" action="login" method="post" id="login-form">
             {% csrf_token %}
             {{ auth_form.non_field_errors }}
             <div class="form-group">
@@ -65,11 +65,17 @@
             <div class="form-group">
                 <h3>{{ auth_form.password.errors }}</h3>
                 {% render_field auth_form.password class="form-control" placeholder=auth_form.password.label %}
-{#                <input type="password" name="password" class="form-control" placeholder="رمز عبور"#}
-{#                       required="Armankade">#}
+                {#                <input type="password" name="password" class="form-control" placeholder="رمز عبور"#}
+                {#                       required="Armankade">#}
             </div>
-            <button type="submit" class="btn btn-primary block full-width m-b">ورود</button>
-
+            <div class="form-group" id='recaptcha'>
+                <div  class="g-recaptcha" data-sitekey="6LcdiEUUAAAAAGOBQWMKoLuztCR97rGB9BZs9Sc9"></div>
+            </div>
+            <div id="Alert-box" class="alert alert-danger alert-dismissible" hidden>
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <p id="alert-msg"></p>
+            </div>
+            <button type="button" class="btn btn-primary block full-width m-b" onclick="get_validate('login-form')">ورود</button>
             <a href="#">
                 <small>رمز عبور خود را فراموش کرده اید؟</small>
             </a>
@@ -87,6 +93,9 @@
 <!-- Mainly scripts -->
 <script src='{% static "js/jquery-3.1.1.min.js" %}'></script>
 <script src='{% static "js/bootstrap.min.js" %}'></script>
+<!-- Recaptcha -->
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<script src="{% static 'js/recaptcha_validation.js' %}"></script>
 </body>
 
 </html>

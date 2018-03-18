@@ -6,7 +6,7 @@
     {% load widget_tweaks %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+
     <title>آرمانکده| ثبت نام</title>
 
     <link href='{% static "css/bootstrap.min.css" %}' rel="stylesheet">
@@ -48,7 +48,7 @@
                 <br>
             {% endfor %}
         </h2>
-        <form class="m-t" role="form" action="register" method="post">
+        <form class="m-t" role="form" action="register" method="post" id="register-form">
             {% csrf_token %}
             {#            {{ form }}#}
             {{ user_form.non_field_errors }}
@@ -81,12 +81,12 @@
             </div>
             <div class="form-group">
                 <h2>{{ team_form.mentor.errors }}</h2>
-                {% render_field team_form.mentor class='form-control' placeholder=team_form.mentor.label%}
-{#                <select class="form-control" name="university">#}
-{#                    {% for uni in universities %}#}
-{#                        <option value="{{ uni.id }}">{{ uni.university_name }}</option>#}
-{#                    {% endfor %}#}
-{#                </select>#}
+                {% render_field team_form.mentor class='form-control' placeholder=team_form.mentor.label %}
+                {#                <select class="form-control" name="university">#}
+                {#                    {% for uni in universities %}#}
+                {#                        <option value="{{ uni.id }}">{{ uni.university_name }}</option>#}
+                {#                    {% endfor %}#}
+                {#                </select>#}
             </div>
             <div class="form-group">
                 <h2>{{ team_form.university.errors }}</h2>
@@ -115,8 +115,12 @@
                 {#                    {% endfor %}#}
                 {#                </select>#}
             </div>
-            <div class="form-group">
-                <div class="g-recaptcha" data-sitekey="6LcdiEUUAAAAAGOBQWMKoLuztCR97rGB9BZs9Sc9"></div>
+            <div class="form-group" id="recaptcha">
+                <div class="g-recaptcha" data-sitekey="6LcdiEUUAAAAAGOBQWMKoLuztCR97rGB9BZs9Sc9" ></div>
+            </div>
+            <div class="alert alert-danger alert-dismissible" id='Alert-box' hidden>
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <p id="alert-msg"></p>
             </div>
             <div class="form-group">
                 <h2>{{ team_form.checkbox.errors }}</h2>
@@ -125,7 +129,7 @@
                 {% render_field team_form.checkbox class="checkbox i-checks" %}
                 {#                                <div class="checkbox i-checks"><label> <input type="checkbox"><i></i> تمام <a href="index.html">شرایط </a>را قبول دارم. </label></div>#}
             </div>
-            <button type="submit" class="btn btn-primary block full-width m-b">ثبت نام</button>
+            <button type="button" class="btn btn-primary block full-width m-b" onclick="get_validate('register-form')">ثبت نام</button>
 
             <p class="text-muted text-center">
                 <small>قبلا ثبت نام کرده اید؟</small>
@@ -143,6 +147,9 @@
 <script src='{% static "js/bootstrap.min.js" %}'></script>
 <!-- iCheck -->
 <script src='{% static "js/plugins/iCheck/icheck.min.js" %}'></script>
+<!--Recaptcha-->
+<script src="{% static 'js/recaptcha_validation.js' %}"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
 <script>
     $(document).ready(function () {
         $('.i-checks').iCheck({

@@ -83,15 +83,15 @@ def register_page2(request):
         team_form.changed_required_mentor()
         user_form.changed_password_label()
         if user_form.is_valid() and team_form.is_valid():
-            ''' Begin reCAPTCHA validation '''
-            recaptcha_response = request.POST.get('g-recaptcha-response')
-            data = {
-                'secret': GOOGLE_RECAPTCHA_SECRET_KEY,
-                'response': recaptcha_response
-            }
-            r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)
-            result = r.json()
-            ''' End reCAPTCHA validation '''
+            # ''' Begin reCAPTCHA validation '''
+            # recaptcha_response = request.POST.get('g-recaptcha-response')
+            # data = {
+            #     'secret': GOOGLE_RECAPTCHA_SECRET_KEY,
+            #     'response': recaptcha_response
+            # }
+            # r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)
+            # result = r.json()
+            # ''' End reCAPTCHA validation '''
             email_objects = auth_user.objects.filter(email=user_form.cleaned_data['email'])
             print('WTemail: ', email_objects, user_form.cleaned_data['email'])
             check_email = False
@@ -100,7 +100,8 @@ def register_page2(request):
                     check_email = True
             if check_email:
                 user_form.add_error('email', 'ایمیل تکراری است')
-            if result['success'] and not check_email:
+            # if result['success'] and not check_email:
+            if not check_email:
                 temp = user_form.save()
                 team = team_form.save(commit=False)
                 team.user_team = temp
@@ -168,15 +169,14 @@ def login_page2(request):
                             return HttpResponseRedirect('/setting')
                         return HttpResponseRedirect('/jaam')
                 except auth_user.DoesNotExist:
-                    auth_form.add_error('username', 'نام تیم یا ایمیل تیم ثبت نشده است')
+                    auth_form.add_error('username', 'نام کاربری یا رمز عبور اشتباه است')
             else:
-                authenticate(username=username, password=password)
                 temp_user = authenticate(username=username, password=password)
-                if temp_user is not None:
+                if temp_user is not None and not temp_user.is_superuser:
                     login(request, temp_user)
                     return HttpResponseRedirect('/jaam')
                 else:
-                    auth_form.add_error('username', 'نام تیم یا ایمیل ثبت نشده است')
+                    auth_form.add_error('username', 'نام کاربری یا رمز عبور اشتباه است')
     else:
         auth_form = UserLoginForm()
     template = loader.get_template('register/login.html')
