@@ -28,6 +28,7 @@ ALLOWED_HOSTS = ['185.81.40.213', '127.0.0.1', 'jaam.armankadeh.ir']
 # ALLOWED_HOSTS = []
 # Application definition
 
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     # 'team_setting.apps.TeamSettingConfig',
     'widget_tweaks',
     'setting.apps.SettingConfig',
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [
@@ -58,7 +60,9 @@ ROOT_URLCONF = 'Jam.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'statics', 'templates'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,6 +82,7 @@ WSGI_APPLICATION = 'Jam.wsgi.application'
 
 DATABASES = {
     'default': {
+<<<<<<< HEAD
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         #'ENGINE': 'django.db.backends.mysql',
@@ -89,6 +94,19 @@ DATABASES = {
         #'OPTIONS': {
         #   'read_default_file': 'static/my.cnf'
         #},
+=======
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Jam',
+        'USER': 'root',
+        'PASSWORD': '1234',
+        'HOST': 'localhost',
+        'PORT': '',
+        'OPTIONS': {
+            'read_default_file': 'static/my.cnf'
+        },
+>>>>>>> b94459768239df9e6cda291c6e6782a5c81af5ac
     }
 }
 
@@ -127,6 +145,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 # STATIC_ROOT = os.path.join(BASE_DIR, "statics")
+# TEMPLATE_DIRS = (
+#     os.path.join(BASE_DIR, 'statics', 'templates'),
+# )
+# print(TEMPLATE_DIRS)
 STATIC_URL = '/statics/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "statics")]
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
@@ -140,3 +162,5 @@ const = {
 
 # Google reCAPTCHA Key
 GOOGLE_RECAPTCHA_SECRET_KEY = '6LcdiEUUAAAAAE4dzbtS88EJpq8jqIOMlPmAKjKa'
+RECAPTCHA_PUBLIC_KEY = '6LcdiEUUAAAAAGOBQWMKoLuztCR97rGB9BZs9Sc9'
+RECAPTCHA_PRIVATE_KEY = '6LcdiEUUAAAAAE4dzbtS88EJpq8jqIOMlPmAKjKa'

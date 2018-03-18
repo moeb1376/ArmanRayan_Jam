@@ -1,44 +1,103 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% load static %}
-    {% load staticfiles %}
-    <meta charset="UTF-8">
-    <title>test change username</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <title>{{ user.username }}| پنل مدیریت تیم ها</title>
-
-    <link href='{% static "css/bootstrap.min.css" %}' rel="stylesheet">
-    <!-- Toastr style -->
-    <link href="{% static 'css/plugins/toastr/toastr.min.css' %}" rel="stylesheet">
-
-    <!-- Gritter -->
-    <link href="{% static 'js/plugins/gritter/jquery.gritter.css' %}" rel="stylesheet">
-    <!-- Persian -->
-    <link href='{% static "css/bootstrap-rtl.min.css" %}' rel="stylesheet">
-
-    <link href='{% static "font-awesome/css/font-awesome.css" %}' rel="stylesheet">
-
-    <link href='{% static "css/animate.css" %}' rel="stylesheet">
-    <link href='{% static "css/style.css" %}' rel="stylesheet">
-
-
-    <!--upload-->
-    <link href="{% static 'css/plugins/jasny/jasny-bootstrap.min.css' %}" rel="stylesheet">
-
-</head>
-<body>
-<form method="post" action="test_image_field" enctype="multipart/form-data">
-    {% csrf_token %}
-    <span class="btn btn-default btn-file navy-bg">
-        {{ form.image.label }}
-        {{ form.image }}
-    </span>
-    <img src="{{ form.image.url }}">
-    <button type="submit" class="btn btn-primary block full-width m-b">ذخیره تغییرات</button>
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    {% load static %}#}
+{#    {% load staticfiles %}#}
+{#    <meta charset="UTF-8">#}
+{#    <title>test change username</title>#}
+{#    <meta charset="utf-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+{#    <meta http-equiv="X-UA-Compatible" content="IE=edge">#}
+{##}
+{#    <title>{{ user.username }}| پنل مدیریت تیم ها</title>#}
+{##}
+{#    <link href='{% static "css/bootstrap.min.css" %}' rel="stylesheet">#}
+{#    <!-- Toastr style -->#}
+{#    <link href="{% static 'css/plugins/toastr/toastr.min.css' %}" rel="stylesheet">#}
+{##}
+{#    <!-- Gritter -->#}
+{#    <link href="{% static 'js/plugins/gritter/jquery.gritter.css' %}" rel="stylesheet">#}
+{#    <!-- Persian -->#}
+{#    <link href='{% static "css/bootstrap-rtl.min.css" %}' rel="stylesheet">#}
+{##}
+{#    <link href='{% static "font-awesome/css/font-awesome.css" %}' rel="stylesheet">#}
+{##}
+{#    <link href='{% static "css/animate.css" %}' rel="stylesheet">#}
+{#    <link href='{% static "css/style.css" %}' rel="stylesheet">#}
+{##}
+{##}
+{#    <!--upload-->#}
+{#    <link href="{% static 'css/plugins/jasny/jasny-bootstrap.min.css' %}" rel="stylesheet">#}
+{##}
+{#</head>#}
+{#<body>#}
+{#<form method="post" action="test_image_field" enctype="multipart/form-data">#}
+{#    {% csrf_token %}#}
+{#    <span class="btn btn-default btn-file navy-bg">#}
+{#        {{ form.image.label }}#}
+{#        {{ form.image }}#}
+{#    </span>#}
+{#    <img src="{{ form.image.url }}">#}
+{#    <button type="submit" class="btn btn-primary block full-width m-b">ذخیره تغییرات</button>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+{% load static %}
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<form action="login" method="post" id="login-form">
+    <span class="msg-error error"></span>
+    <div id="recaptcha" class="g-recaptcha" data-sitekey="6LcdiEUUAAAAAGOBQWMKoLuztCR97rGB9BZs9Sc9"></div>
+    <span id="captcha"></span>
+    <input type="button" name="submit_id" id="btn_id" value="Submit by Id" onclick="get_validate()"/>
+    {#    <div class="alert alert-danger alert-dismissible" id='alert-box' hidden>#}
+    {#        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>#}
+    {#        <strong>Success!</strong> This alert box could indicate a successful or positive action.#}
+    {#    </div>#}
+    <p id="testi"></p>
+    <input type="button" onclick="add_alert_box('kjadbkb')" value="test">
 </form>
-</body>
-</html>
+<script src="{% static 'js/recaptcha_validation.js' %}"></script>
+<script type="text/javascript">
+    function add_alert_box(par1) {
+        window.alert(par1);
+        var x = document.getElementById('alert-box');
+        if (x != null) {
+            x.removeAttribute('hidden');
+        }
+        else {
+            window.alert('salam');
+            var d = document.createElement('div');
+            d.addClass = "alert alert-danger alert-dismissible";
+            d.setAttribute("id", "Alert-box");
+            {#            d.setAttribute("hidden",true);#}
+            var a = document.createElement('a');
+            a.addClass="close";
+            a.setAttribute("href", "#");
+            a.setAttribute("data-dismiss", "alert");
+            a.setAttribute("aria-label", "close");
+            a.innerHTML = "&times";
+            var w = document.createElement('p');
+            w.innerHTML = "<strong>Warning</strong>You can't leave Captcha Code empty";
+            d.appendChild(a);
+            d.appendChild(w);
+
+            var element = document.getElementById("login-form");
+            var p = document.getElementById("testi");
+            {#            element.innerHTML = "<strong>salam</strong>";#}
+            p.parentNode.insertBefore(d,p.nextSibling);
+        }
+    }
+</script>
+{#<script type="application/javascript">#}
+{#    function get_action(form) {#}
+{#        var v = grecaptcha.getResponse();#}
+{#        if (v.length == 0) {#}
+{#            document.getElementById('captcha').innerHTML = "You can't leave Captcha Code empty";#}
+{#            return false;#}
+{#        }#}
+{#        else {#}
+{#            document.getElementById('captcha').innerHTML = "Captcha completed";#}
+{#            return true;#}
+{#        }#}
+{#    }#}
+{#</script>#}
