@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-
+from Jam.configDB import database_config
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -82,31 +82,7 @@ WSGI_APPLICATION = 'Jam.wsgi.application'
 
 DATABASES = {
     'default': {
-<<<<<<< HEAD
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        #'ENGINE': 'django.db.backends.mysql',
-        #'NAME': 'Jam',
-        #'USER': 'root',
-        #'PASSWORD': '1234',
-        #'HOST': 'localhost',
-        #'PORT': '',
-        #'OPTIONS': {
-        #   'read_default_file': 'static/my.cnf'
-        #},
-=======
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'Jam',
-        'USER': 'root',
-        'PASSWORD': '1234',
-        'HOST': 'localhost',
-        'PORT': '',
-        'OPTIONS': {
-            'read_default_file': 'static/my.cnf'
-        },
->>>>>>> b94459768239df9e6cda291c6e6782a5c81af5ac
+        database_config
     }
 }
 
