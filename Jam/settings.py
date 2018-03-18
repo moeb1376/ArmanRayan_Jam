@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '4j5lq*s4+7a&ac*3opp5v97u)0=mqw2gw_fc4@1qkzu+b-mezp'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
+# DEBUG = True
 DEBUG = False
 ALLOWED_HOSTS = ['185.81.40.213', '127.0.0.1', 'jaam.armankadeh.ir']
 # ALLOWED_HOSTS = []
@@ -81,9 +81,7 @@ WSGI_APPLICATION = 'Jam.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        database_config
-    }
+    'default': database_config
 }
 
 # Password validation
