@@ -1,7 +1,7 @@
 import os
 from django.conf.urls.static import static
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.template import loader
 from .forms import *
 from django.forms import modelformset_factory
@@ -70,6 +70,16 @@ def setting_page(request):
     return HttpResponse(
         template.render({'test': redirect_flag, 'user_form': user_team_form, 'auth_form': auth_user_setting_form,
                          'team_form': team_setting_form}, request))
+
+
+def test_ajax(request):
+    username = request.GET.get('username')
+    print(request.GET, request.user)
+    data = {
+        'is_taken': auth_user.objects.filter(username=username).exists(),
+        'logo_image': auth_user.objects.filter(username=username)[0].Teams.all()
+    }
+    return JsonResponse(data)
 
 
 def test_change(request):

@@ -55,8 +55,33 @@
     {#    </div>#}
     <p id="testi"></p>
     <input type="button" onclick="add_alert_box('kjadbkb')" value="test">
+    <input type="text" required="" name="username" maxlength="150" id="id_username" autofocus="">
+
 </form>
 <script src="{% static 'js/recaptcha_validation.js' %}"></script>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    $("#id_username").change(function () {
+        var username = $(this).val();
+
+        $.ajax({
+            url: '/test_ajax/',
+            data: {
+                'username': username
+            },
+            dataType: 'json',
+            success: function (data) {
+                if (data.is_taken) {
+                    alert("A user with this username already exists.");
+                }
+                else{
+                    alert("A user with this username already don't exists.")
+                }
+            }
+        });
+
+    });
+</script>
 <script type="text/javascript">
     function add_alert_box(par1) {
         window.alert(par1);
@@ -71,7 +96,7 @@
             d.setAttribute("id", "Alert-box");
             {#            d.setAttribute("hidden",true);#}
             var a = document.createElement('a');
-            a.addClass="close";
+            a.addClass = "close";
             a.setAttribute("href", "#");
             a.setAttribute("data-dismiss", "alert");
             a.setAttribute("aria-label", "close");
@@ -84,7 +109,7 @@
             var element = document.getElementById("login-form");
             var p = document.getElementById("testi");
             {#            element.innerHTML = "<strong>salam</strong>";#}
-            p.parentNode.insertBefore(d,p.nextSibling);
+            p.parentNode.insertBefore(d, p.nextSibling);
         }
     }
 </script>

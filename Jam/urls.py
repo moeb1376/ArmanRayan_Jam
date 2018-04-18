@@ -24,8 +24,8 @@ urlpatterns = [
     path('', include('register.urls')),
     path('', include('SPC_main.urls')),
     # path('', include('team_setting.urls')),
-    path('', include('setting.urls'))
+    path('', include('setting.urls')),
+    path('', include('online_match.urls'))
 ]
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

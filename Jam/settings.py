@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-from Jam.configDB import database_config
+from Jam.configDB import database_config,DEBUG_CONF
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -22,8 +22,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '4j5lq*s4+7a&ac*3opp5v97u)0=mqw2gw_fc4@1qkzu+b-mezp'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = False
+DEBUG = DEBUG_CONF
+# DEBUG = False
 ALLOWED_HOSTS = ['185.81.40.213', '127.0.0.1', 'jaam.armankadeh.ir']
 # ALLOWED_HOSTS = []
 # Application definition
@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     # 'team_setting.apps.TeamSettingConfig',
     'widget_tweaks',
     'setting.apps.SettingConfig',
-    'bootstrap3',
+    'online_match.apps.OnlineMatchConfig'
 ]
 
 MIDDLEWARE = [
@@ -123,6 +123,7 @@ USE_TZ = True
 #     os.path.join(BASE_DIR, 'statics', 'templates'),
 # )
 # print(TEMPLATE_DIRS)
+# STATIC_ROOT = os.path.join(BASE_DIR, "statics")
 STATIC_URL = '/statics/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "statics")]
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
