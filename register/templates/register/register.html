@@ -15,7 +15,8 @@
     <link href='{% static "css/plugins/iCheck/custom.css" %}' rel="stylesheet">
     <link href='{% static "css/animate.css" %}' rel="stylesheet">
     <link href='{% static "css/style.css" %}' rel="stylesheet">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
         @font-face {
             font-family: 'BMitra';
@@ -125,7 +126,34 @@
             <div class="form-group">
                 <h2>{{ team_form.checkbox.errors }}</h2>
                 {#                {{ team_form.checkbox.label }}#}
-                <i></i> تمام <a href="#">شرایط </a>را قبول دارم.
+                <i></i> تمام <a data-toggle="modal" data-target="#myModal">شرایط</a>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">قوانین ثبت نام</h4>
+        </div>
+        <div class="modal-body">
+          <p>
+1-  حداقل یکی از شرکت کنندگان باید دانشجوی یکی از 7 دانشگاه صنعتی شریف، تهران، صنعتی امیرکبیر، علم و صنعت ایران، صنعتی خواجه نصیر طوسی، شهید بهشتی و خوارزمی باشد.
+</p>
+<p>
+2- الف) شرکت کنندگان در بخش اشاره گر های هوشمند "مقدماتی" تنها می توانند دانشجوی ورودی 96 دانشگاه ها باشند.
+</p>
+<p>
+ب) شرکت کنندگان در بخش اشاره گر های هوشمند "پیشرفته" تنها می توانند دانشجوی دوره کارشناسی دانشگاه ها باشند.
+</p>
+<p>3- اگر در هر مرحله از مسابقات تشخیص داده شود که شرکت کننده از اطلاعات غیر واقعی استفاده کرده است از مسابقه حذف خواهد شد.
+</p>
+<p>
+4- هر فرد تنها می تواند در یک بخش " اشاره گر های هوشمند" یا "الگوریتم های هوشمند" شرکت کند و شرکت همزمان در دو بخش برای یک فرد امکان پذیر نمی باشد.
+	</p>
+        </div>
+      </div>
+    </div>را قبول دارم.
                 {% render_field team_form.checkbox class="checkbox i-checks" %}
                 {#                                <div class="checkbox i-checks"><label> <input type="checkbox"><i></i> تمام <a href="index.html">شرایط </a>را قبول دارم. </label></div>#}
             </div>
