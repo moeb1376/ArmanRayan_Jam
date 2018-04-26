@@ -117,7 +117,7 @@
                 {#                </select>#}
             </div>
             <div class="form-group" id="recaptcha">
-                <div class="g-recaptcha" data-sitekey="6LcdiEUUAAAAAGOBQWMKoLuztCR97rGB9BZs9Sc9" ></div>
+                <div class="g-recaptcha" data-sitekey="6LcdiEUUAAAAAGOBQWMKoLuztCR97rGB9BZs9Sc9"></div>
             </div>
             <div class="alert alert-danger alert-dismissible" id='Alert-box' hidden>
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -126,43 +126,52 @@
             <div class="form-group">
                 <h2>{{ team_form.checkbox.errors }}</h2>
                 {#                {{ team_form.checkbox.label }}#}
+                {% render_field team_form.checkbox class="checkbox i-checks" %}
                 <i></i> تمام <a data-toggle="modal" data-target="#myModal">شرایط</a>
 
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">قوانین ثبت نام</h4>
-        </div>
-        <div class="modal-body">
-          <p>
-1-  حداقل یکی از شرکت کنندگان باید دانشجوی یکی از 7 دانشگاه صنعتی شریف، تهران، صنعتی امیرکبیر، علم و صنعت ایران، صنعتی خواجه نصیر طوسی، شهید بهشتی و خوارزمی باشد.
-</p>
-<p>
-2- الف) شرکت کنندگان در بخش اشاره گر های هوشمند "مقدماتی" تنها می توانند دانشجوی ورودی 96 دانشگاه ها باشند.
-</p>
-<p>
-ب) شرکت کنندگان در بخش اشاره گر های هوشمند "پیشرفته" تنها می توانند دانشجوی دوره کارشناسی دانشگاه ها باشند.
-</p>
-<p>3- اگر در هر مرحله از مسابقات تشخیص داده شود که شرکت کننده از اطلاعات غیر واقعی استفاده کرده است از مسابقه حذف خواهد شد.
-</p>
-<p>
-4- هر فرد تنها می تواند در یک بخش " اشاره گر های هوشمند" یا "الگوریتم های هوشمند" شرکت کند و شرکت همزمان در دو بخش برای یک فرد امکان پذیر نمی باشد.
-	</p>
-        </div>
-      </div>
-    </div>را قبول دارم.
-                {% render_field team_form.checkbox class="checkbox i-checks" %}
-                {#                                <div class="checkbox i-checks"><label> <input type="checkbox"><i></i> تمام <a href="index.html">شرایط </a>را قبول دارم. </label></div>#}
-            </div>
-            <button type="button" class="btn btn-primary block full-width m-b" onclick="get_validate('register-form')">ثبت نام</button>
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title" style="font-size: 25px">قوانین ثبت نام</h4>
+                            </div>
+                            <div class="modal-body" style="font-size: 20px">
+                                <p>
+                                    1- حداقل یکی از شرکت کنندگان باید دانشجوی یکی از 7 دانشگاه صنعتی شریف، تهران، صنعتی
+                                    امیرکبیر، علم و صنعت ایران، صنعتی خواجه نصیر طوسی، شهید بهشتی و خوارزمی باشد.
+                                </p>
+                                <p>
+                                    2- الف) شرکت کنندگان در بخش اشاره گر های هوشمند "مقدماتی" تنها می توانند دانشجوی
+                                    ورودی 96 دانشگاه ها باشند.
+                                </p>
+                                <p>
+                                    ب) شرکت کنندگان در بخش اشاره گر های هوشمند "پیشرفته" تنها می توانند دانشجوی دوره
+                                    کارشناسی دانشگاه ها باشند.
+                                </p>
+                                <p>3- اگر در هر مرحله از مسابقات تشخیص داده شود که شرکت کننده از اطلاعات غیر واقعی
+                                    استفاده کرده است از مسابقه حذف خواهد شد.
+                                </p>
+                                <p>
+                                    4- هر فرد تنها می تواند در یک بخش " اشاره گر های هوشمند" یا "الگوریتم های هوشمند"
+                                    شرکت کند و شرکت همزمان در دو بخش برای یک فرد امکان پذیر نمی باشد.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    {#                                <div class="checkbox i-checks"><label> <input type="checkbox"><i></i> تمام <a href="index.html">شرایط </a>را قبول دارم. </label></div>#}
+                </div>
+                را قبول دارم.
+                <br><br>
+                <button type="button" class="btn btn-primary block full-width m-b"
+                        onclick="get_validate('register-form')">ثبت نام
+                </button>
 
-            <p class="text-muted text-center">
-                <small>قبلا ثبت نام کرده اید؟</small>
-            </p>
-            <a class="btn btn-sm btn-white btn-block" href="login">ورود</a>
+                <p class="text-muted text-center">
+                    <small>قبلا ثبت نام کرده اید؟</small>
+                </p>
+                <a class="btn btn-sm btn-white btn-block" href="login">ورود</a>
         </form>
         <p class="m-t">
             <small>ArmanRTO &copy; 2017</small>
