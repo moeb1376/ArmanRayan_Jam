@@ -151,7 +151,7 @@ def login_page2(request):
         print('revalle')
         return HttpResponseRedirect('/jaam')
     if request.method == "POST":
-#        print(request)
+        #        print(request)
         auth_form = UserLoginForm(request.POST)
         print('auth_form is valid ', auth_form.is_valid())
         if auth_form.is_valid():

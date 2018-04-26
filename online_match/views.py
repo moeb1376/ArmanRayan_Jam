@@ -2,10 +2,12 @@ import random
 import subprocess
 
 from django.http import JsonResponse
-from django.shortcuts import render, HttpResponse, loader
+from django.shortcuts import render, HttpResponse, loader, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from register.models import auth_user, Team
 from .models import Match
+from .forms import *
 
 
 # Create your views here.
@@ -13,14 +15,16 @@ from .models import Match
 def online_match(request):
     team = request.user.Teams.all()[0]
     code = team.Team_Code.all()
-    print(code[0].code.name)
     print(code)
-    context = {
-        'team': team,
-        'codes': code
-    }
-    template = loader.get_template('online_match/play.html')
-    return HttpResponse(template.render(context, request))
+    if len(code) == 0:
+        context = {
+            'team': team,
+            'codes': list(code)
+        }
+        template = loader.get_template('online_match/play.html')
+        return HttpResponse(template.render(context, request))
+    else:
+        return HttpResponseRedirect("jaam")
 
 
 @login_required(login_url='/login', redirect_field_name='')
@@ -58,3 +62,36 @@ def play_online_ajax(request):
         m = Match(team1=random_team, team2=request.user.Teams.all()[0], is_running=True)
         m.save()
     return JsonResponse(data)
+
+
+def test(request):
+    template = loader.get_template('online_match/login_se.html')
+    return HttpResponse(template.render({}, request))
+
+
+def upload_view(request):
+    print(request)
+    if request.method == 'POST':
+        form = CodeUploadForm(data=request.POST, files=request.FILES)
+        team = request.user.Teams.all()[0]
+        codes = Code.objects.filter(team=team.id)
+        if len(codes) >= 5:
+            firs_code = min(codes, key=lambda x: x.id)
+            firs_code.delete()
+        last_version = max(codes, key=lambda x: x.version, default=0)
+        if not isinstance(last_version, int):
+            last_version = last_version.version
+        if form.is_valid():
+            f = form.save(commit=False)
+            f.version = last_version + 1
+            f.team = team
+            f.save()
+            return JsonResponse({"success": True})
+        else:
+            print('invalid form')
+            print(form.errors)
+            return JsonResponse({"success": False})
+    elif request.method == "GET":
+        template = loader.get_template('online_match/upload_ajax.html')
+        return HttpResponse(template.render({}, request))
+        # return HttpResponseRedirect("/jaam")

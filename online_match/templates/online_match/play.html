@@ -36,6 +36,8 @@
     <link href='{% static "css/plugins/jasny/jasny-bootstrap.min.css" %}' rel="stylesheet">
     <!-- slick carousel-->
     <script src='{% static "js/plugins/slick/slick.min.js" %}'></script>
+
+    <link href="{% static 'css/plugins/toastr/toastr.min.css' %}" rel="stylesheet">
     <style>
         @font-face {
             font-family: 'BMitra';
@@ -171,7 +173,7 @@
                             </div>
                         </div>
                         <h4 class="media-heading">انتخاب کد</h4>
-                        <select class="form-control m-b" name="codes">
+                        <select class="form-control m-b" name="codes" id="team1_select_list">
                             {% for code in codes %}
                                 <option id="{{ forloop.counter }}">{{ code }}</option>
                             {% endfor %}
@@ -188,11 +190,12 @@
                             </h1>
                         </div>
                     </div>
-                    <a href="#" style="color:white;" class="m-b-md" onclick="ajax_team_data()">
+                    <a href="#" style="color:white;" class="m-b-md" onclick="ajax_team_data()" name="start-btn">
                         <div class="widget  red-bg p-lg text-center">
                             <i class="fa fa-flash fa-6x"></i>
                             <h1 class="font-bold no-margins">
                                 شروع
+                                asdfs
                             </h1>
                         </div>
                     </a>
@@ -240,6 +243,7 @@
             </div>
         </div>
     </div>
+
 </div>
 
 
@@ -261,6 +265,7 @@
 <!-- slick carousel-->
 <script src='{% static "js/plugins/slick/slick.min.js" %}'></script>
 <script src="{% static 'js/ajax_play.js' %}"></script>
+<script src="{% static 'js/plugins/toastr/toastr.min.js' %}"></script>
 <script>
     $(document).ready(function () {
 

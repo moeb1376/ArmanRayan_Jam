@@ -159,13 +159,28 @@
                             <div style="width: 60%;" class="progress-bar progress-bar-danger"></div>
                         </div>
                         <div class="text-center">
-                            <a href="play"><span class="btn btn-default navy-bg">بارگزاری کد جدید</span></a>
-{#                            <div class="fileinput fileinput-new" data-provides="fileinput" style="text-align:center;">#}
-{#							<span class="btn btn-default btn-file navy-bg"><span#}
-{#                                    class="fileinput-new">بارگزاری کد جدید</span>#}
-{#							<span class="fileinput-exists">تغییر</span><input type="file" name="..."></span>#}
-{#                                <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>#}
-{#                            </div>#}
+                            <button type="button" class="btn btn-primary js-upload-photos">
+                                <span class="glyphicon glyphicon-cloud-upload"></span> بارگذاری کد جدید
+                            </button>
+                            <input id="fileupload" type="file" name="code"
+                                   style="display: none;"
+                                   data-url="{% url 'online_match:file_upload_ajax' %}"
+                                   data-form-data='{"csrfmiddlewaretoken": "{{ csrf_token }}"}'>
+                            <!-- Progress bar -->
+                            <div class="modal fade" id="modal-progress" data-backdrop="static" data-keyboard="false">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">بارگذاری .....</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="progress">
+                                                <div class="progress-bar" id="upload_progress_bar" role="progressbar" style="width: 0%;">0%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-4 widget   p-lg">
@@ -179,9 +194,10 @@
                                         <div class="ibox-content">
                                             <h2 class="text-center">اشاره گرهای مقدماتی</h2>
                                             <p class="text-center"><br/>
-جهت اطلاع از نوع بازی بخش مقدماتی و قوانین سرور بازی و نحوه امتیازدهی ها فایل زیر را دانلود کرده و سپس به دقت مطالعه نمایید.
+                                                جهت اطلاع از نوع بازی بخش مقدماتی و قوانین سرور بازی و نحوه امتیازدهی ها
+                                                فایل زیر را دانلود کرده و سپس به دقت مطالعه نمایید.
                                             </p><br/>
-                                           <div class="text-center">
+                                            <div class="text-center">
                                                 <a href="{% static 'download/spc1.pdf' %}" download>
                                                     <button type="button" class="btn btn-w-m btn-primary">
                                                         دانلود فایل
@@ -195,7 +211,7 @@
                                             <h2 class="text-center">سرور مسابقه اشاره‌گرهای مقدماتی</h2>
                                             <p class="text-center"><br/>
                                             </p><br/>
-                                           <div class="text-center">
+                                            <div class="text-center">
                                                 <a href="{% static 'download/Agon/Agon_server_V1.zip' %}" download>
                                                     <button type="button" class="btn btn-w-m btn-primary">
                                                         دانلود فایل سرور
@@ -209,8 +225,9 @@
                                             <h2 class="text-center">کلاینت Python مسابقه اشاره‌گرهای مقدماتی</h2>
                                             <p class="text-center"><br/>
                                             </p><br/>
-                                           <div class="text-center">
-                                                <a href="{% static 'download/Agon/Python_agon_client_V1.zip' %}" download>
+                                            <div class="text-center">
+                                                <a href="{% static 'download/Agon/Python_agon_client_V1.zip' %}"
+                                                   download>
                                                     <button type="button" class="btn btn-w-m btn-primary">
                                                         دانلود فایل کلاینت Python
                                                     </button>
@@ -223,8 +240,9 @@
                                             <h2 class="text-center">کلاینت Java مسابقه اشاره‌گرهای مقدماتی</h2>
                                             <p class="text-center"><br/>
                                             </p><br/>
-                                           <div class="text-center">
-                                                <a href="{% static 'download/Agon/java-agon-client-ver1.rar' %}" download>
+                                            <div class="text-center">
+                                                <a href="{% static 'download/Agon/java-agon-client-ver1.rar' %}"
+                                                   download>
                                                     <button type="button" class="btn btn-w-m btn-primary">
                                                         دانلود فایل کلاینت Java
                                                     </button>
@@ -237,7 +255,7 @@
                                             <h2 class="text-center">کلاینت ++C مسابقه اشاره‌گرهای مقدماتی</h2>
                                             <p class="text-center"><br/>
                                             </p><br/>
-                                           <div class="text-center">
+                                            <div class="text-center">
                                                 <a href="{% static 'download/Agon/C++ Agon Client v1.rar' %}" download>
                                                     <button type="button" class="btn btn-w-m btn-primary">
                                                         دانلود فایل کلاینت ++C
@@ -251,7 +269,8 @@
                                         <div class="ibox-content">
                                             <h2 class="text-center">اشاره گرهای پیشرفته </h2>
                                             <p class="text-center"><br/>
-جهت اطلاع از نوع بازی بخش پیشرفته و قوانین بازی و نحوه امتیازدهی ها فایل زیر را دانلود کرده و سپس به دقت مطالعه نمایید.
+                                                جهت اطلاع از نوع بازی بخش پیشرفته و قوانین بازی و نحوه امتیازدهی ها فایل
+                                                زیر را دانلود کرده و سپس به دقت مطالعه نمایید.
                                             </p><br/>
                                             <div class="text-center">
                                                 <a href="{% static 'download/spc2.pdf' %}" download>
@@ -267,8 +286,9 @@
                                             <h2 class="text-center">سرور مسابقه اشاره‌گرهای پیشرفته</h2>
                                             <p class="text-center"><br/>
                                             </p><br/>
-                                           <div class="text-center">
-                                                <a href="{% static 'download/Abalone/Abalone_server_V1.zip' %}" download>
+                                            <div class="text-center">
+                                                <a href="{% static 'download/Abalone/Abalone_server_V1.zip' %}"
+                                                   download>
                                                     <button type="button" class="btn btn-w-m btn-primary">
                                                         دانلود فایل سرور
                                                     </button>
@@ -281,8 +301,9 @@
                                             <h2 class="text-center">کلاینت Python مسابقه اشاره‌گرهای پیشرفته</h2>
                                             <p class="text-center"><br/>
                                             </p><br/>
-                                           <div class="text-center">
-                                                <a href="{% static 'download/Abalone/Python_abalone_client_V1.zip' %}" download>
+                                            <div class="text-center">
+                                                <a href="{% static 'download/Abalone/Python_abalone_client_V1.zip' %}"
+                                                   download>
                                                     <button type="button" class="btn btn-w-m btn-primary">
                                                         دانلود فایل کلاینت Python
                                                     </button>
@@ -295,8 +316,9 @@
                                             <h2 class="text-center">کلاینت Java مسابقه اشاره‌گرهای پیشرفته</h2>
                                             <p class="text-center"><br/>
                                             </p><br/>
-                                           <div class="text-center">
-                                                <a href="{% static 'download/Abalone/java-abalone-client-ver1.rar' %}" download>
+                                            <div class="text-center">
+                                                <a href="{% static 'download/Abalone/java-abalone-client-ver1.rar' %}"
+                                                   download>
                                                     <button type="button" class="btn btn-w-m btn-primary">
                                                         دانلود فایل کلاینت Java
                                                     </button>
@@ -309,8 +331,9 @@
                                             <h2 class="text-center">کلاینت ++C مسابقه اشاره‌گرهای پیشرفته</h2>
                                             <p class="text-center"><br/>
                                             </p><br/>
-                                           <div class="text-center">
-                                                <a href="{% static 'download/Abalone/C++ Abalone Client v1.rar' %}" download>
+                                            <div class="text-center">
+                                                <a href="{% static 'download/Abalone/C++ Abalone Client v1.rar' %}"
+                                                   download>
                                                     <button type="button" class="btn btn-w-m btn-primary">
                                                         دانلود فایل کلاینت ++C
                                                     </button>
@@ -407,6 +430,11 @@
 <!-- slick carousel-->
 <script src='{% static "js/plugins/slick/slick.min.js" %}'></script>
 
+<!-- Upload Code -->
+<script src="{% static 'js/jQuery-File-Upload-9.14.1/js/vendor/jquery.ui.widget.js' %}"></script>
+<script src="{% static 'js/jQuery-File-Upload-9.14.1/js/jquery.iframe-transport.js' %}"></script>
+<script src="{% static 'js/jQuery-File-Upload-9.14.1/js/jquery.fileupload.js' %}"></script>
+<script src="{% static 'js/photo_upload.js' %}"></script>
 <script>
     $(document).ready(function () {
 

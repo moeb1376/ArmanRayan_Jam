@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponseRedirect, loader, HttpResponse
 from django.contrib.auth import logout
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 
@@ -7,11 +8,12 @@ from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='/login', redirect_field_name='')
 def SPC_main_page(request):
+    print(request.META.get("upload_code", 0))
     print(request.user)
     team = request.user.Teams.all()[0]
     team_member = team.Users.all()
     user_require = 2 if team.competition.competition_level < 3 else 1
-    print(user_require,team.competition.competition_level)
+    print(user_require, team.competition.competition_level)
     if len(team_member) < user_require:
         return HttpResponseRedirect('/setting')
     for member in team_member:
