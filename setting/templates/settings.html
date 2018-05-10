@@ -96,13 +96,38 @@
                     </div>
                 </li>
                 <li>
-                    <a href="play"><i class="fa fa-handshake-o"></i><span class="nav-label" style="font-size:15px">&nbsp; بازی دوستانه</span></a>
+                    <a href="play">
+                        <i class="fa fa-handshake-o"></i>
+                        <span class="nav-label" style="font-size:15px">
+                            &nbsp; بازی دوستانه
+                        </span>
+                    </a>
                 </li>
-
                 <li>
-                    <a href="cup"><i class="fa fa-trophy"></i><span class="nav-label"
-                                                                    style="font-size:15px">&nbsp; جام</span><span
-                            class="pull-right"></span></a>
+                    <a href="log">
+                        <i class="fa fa-bar-chart-o"></i>
+                        <span class="nav-label" style="font-size:15px">
+                            &nbsp; نتایج
+                        </span>
+                        <span c‍lass="pull-right"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="table">
+                        <i class="fa fa-list"></i>
+                        <span class="nav-label" style="font-size:15px">
+                            &nbsp; جدول مسابقات
+                        </span>
+                        <span class="pull-right"></span></a>
+                </li>
+                <li>
+                    <a href="cup">
+                        <i class="fa fa-trophy"></i>
+                        <span class="nav-label" style="font-size:15px">
+                    &nbsp; جام
+                        </span>
+                        <span class="pull-right"></span>
+                    </a>
                 </li>
             </ul>
 
@@ -157,6 +182,18 @@
                                                 <label class="col-lg-1 control-label">{{ auth_form.email.label }}</label>
                                                 <div class="col-lg-6">{% render_field auth_form.email class='form-control' %}</div>
                                             </div>
+                                            <br><br>
+                                            <div class="form-group">
+                                                <h3>{{ team_form.mentor.errors }}</h3>
+                                                <label class="col-lg-1 control-label">{{ team_form.mentor.label }}</label>
+                                                <div class="col-lg-6">
+                                                    {% render_field team_form.mentor class='form-control' oninput="ajax_mentor()" id='mentor-code' %}
+                                                </div>
+                                            </div>
+                                            <div id="div-mentor-icon-span" hidden>
+                                            <span id='mentor-icon-span' class="glyphicon glyphicon-ok"
+                                                  style="color:green" hidden></span>
+                                                </div>
                                             <br><br>
                                             <div class="form-group">
                                                 <h3>{{ team_form.team_bio.errors }}</h3>
@@ -336,6 +373,8 @@
 
 <!-- Toastr -->
 <script src="{% static 'js/plugins/toastr/toastr.min.js' %}"></script>
+<script src="{% static 'js/mentor_check/ajax_mentor.js' %}"></script>
+
 {% if test %}
     <script>
         $(document).ready(function () {

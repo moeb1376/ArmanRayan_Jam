@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponseRedirect, loader, HttpResponse
 from django.contrib.auth import logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from register.models import Team
 
 
 # Create your views here
@@ -34,3 +35,15 @@ def SPC_main_page(request):
 def team_logout(request):
     logout(request)
     return HttpResponseRedirect('/login')
+
+
+def table_view(request):
+    login_team = request.user.Teams.all()[0]
+    teams = Team.objects.filter(competition=login_team.competition)
+    print(len(list(teams)))
+    context = {
+        'login_team': login_team,
+        'teams': teams
+    }
+    template = loader.get_template('SPC_main/table-spc.html')
+    return HttpResponse(template.render(context, request))

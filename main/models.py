@@ -48,7 +48,7 @@ class Language(models.Model):
 class Mentor(models.Model):
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
-    code = models.CharField(max_length=20)
+    code = models.CharField(max_length=6)
     university = models.ForeignKey(University, on_delete=models.CASCADE)
 
     class Meta:

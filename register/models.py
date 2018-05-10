@@ -48,10 +48,16 @@ class Team(models.Model):
     width_field = models.IntegerField(default=0)
     team_bio = models.TextField(default='', blank=True)
     language = models.ForeignKey(Language, on_delete=models.CASCADE)
-    mentor = models.CharField(max_length=20, blank=True, default='')
+    mentor = models.CharField(max_length=6, blank=True, default='')
 
     def __str__(self):
         return self.user_team.username
+
+    def total_games(self):
+        return self.win + self.loose + self.draw
+
+    def get_points(self):
+        return self.win * 3 + self.draw
 
 
 class MyUser(models.Model):

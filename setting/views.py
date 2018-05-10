@@ -82,37 +82,15 @@ def test_ajax(request):
     return JsonResponse(data)
 
 
-def test_change(request):
-    if request.method == 'POST':
-        form = test_change_form(request.POST, instance=request.user)
-        if form.is_valid():
-            print('hoooooraaaaaaay')
-            form.save()
-        else:
-            print(':|:|:|:|:|:|:|:|:|:|:|:|')
-    else:
-        form = test_change_form(instance=request.user)
-    template = loader.get_template('test.html')
-    return HttpResponse(template.render({'form': form}, request))
-
-
-def test_image_field(request):
-    print(settings.BASE_DIR)
-    print(static(settings.STATIC_URL, document_root=settings.STATIC_ROOT))
-    print(settings.STATIC_ROOT)
-    instance = Test.objects.get(id=8)
-    print('instance ', instance.image.url)
-    if request.method == 'POST':
-        form = testForm(request.POST or None, request.FILES or None, instance=instance)
-        if form.is_valid():
-            print('hooray')
-            print(form)
-            form.save()
-        else:
-            print(form.errors)
-            print(':(')
-    else:
-        form = testForm(instance=instance)
-    template = loader.get_template('test.html')
-    print('tahesh ', form.fields['image'])
-    return HttpResponse(template.render({'form': form}, request))
+def mentor_ajax(request):
+    mentor_code = request.GET.get('mentor_code')
+    print(mentor_code)
+    response = {
+        'status': False,
+    }
+    if len(mentor_code) < 6:
+        return JsonResponse(response)
+    if len(Mentor.objects.filter(code=mentor_code)) == 0:
+        return JsonResponse(response)
+    response['status'] = True
+    return JsonResponse(response)

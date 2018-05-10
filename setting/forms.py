@@ -64,14 +64,16 @@ class TeamSettingForm(forms.ModelForm):
     def change_required_field(self):
         self.fields['team_bio'].required = False
         self.fields['logo_image'].required = False
+        self.fields['mentor'].required = False
 
     class Meta:
         model = Team
-        fields = ['university', 'team_bio', 'logo_image']
+        fields = ['university', 'team_bio', 'logo_image', 'mentor']
         labels = {
             'university': 'دانشگاه',
             'team_bio': "بیو",
-            'logo_image': "انتخاب عکس"
+            'logo_image': "انتخاب عکس",
+            'mentor': "کد معرفی",
         }
         widgets = {
             'logo_image': forms.FileInput
@@ -85,8 +87,8 @@ class testForm(forms.ModelForm):
         labels = {
             'image': 'عکس'
         }
-        widgets={
-            'image':forms.FileInput
+        widgets = {
+            'image': forms.FileInput
         }
 
 
