@@ -22,12 +22,14 @@ class TeamForm(forms.ModelForm):
 
     def changed_required_mentor(self):
         self.fields['mentor'].required = False
+        self.fields['phone_number'].required = False
 
     class Meta:
         model = Team
-        fields = {'university', 'competition', 'language', 'mentor'}
+        fields = {'university', 'competition', 'language', 'mentor', 'phone_number'}
         labels = {
-            'mentor': 'کد معرفی(اختیاری)'
+            'mentor': 'کد معرفی(اختیاری)',
+            'phone_number': 'شماره تماس (اختیاری)'
         }
 
 

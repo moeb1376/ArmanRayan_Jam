@@ -10,6 +10,7 @@ from validate_email import validate_email
 from main.models import *
 from .models import *
 from .forms import UserRegisterForm, TeamForm, UserLoginForm
+from main.models import Mentor
 from Jam.settings import GOOGLE_RECAPTCHA_SECRET_KEY
 
 register_failed = False
@@ -83,25 +84,22 @@ def register_page2(request):
         team_form.changed_required_mentor()
         user_form.changed_password_label()
         if user_form.is_valid() and team_form.is_valid():
-            # ''' Begin reCAPTCHA validation '''
-            # recaptcha_response = request.POST.get('g-recaptcha-response')
-            # data = {
-            #     'secret': GOOGLE_RECAPTCHA_SECRET_KEY,
-            #     'response': recaptcha_response
-            # }
-            # r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)
-            # result = r.json()
-            # ''' End reCAPTCHA validation '''
             email_objects = auth_user.objects.filter(email=user_form.cleaned_data['email'])
+            mentor_objects = Mentor.objects.filter(code=team_form.cleaned_data['mentor'])
             print('WTemail: ', email_objects, user_form.cleaned_data['email'])
             check_email = False
+            check_mentor = False
             for e in email_objects:
                 if not e.is_superuser:
                     check_email = True
+            if len(mentor_objects) == 0 and team_form.cleaned_data['mentor'] != '':
+                check_mentor = True
             if check_email:
                 user_form.add_error('email', 'ایمیل تکراری است')
-            # if result['success'] and not check_email:
-            if not check_email:
+            if check_mentor:
+                team_form.add_error('mentor', 'کد منتور صحیح نمی‌باشد')
+                team_form.add_error(None, 'کد منتور صحیح نمی‌باشد')
+            if not (check_email or check_mentor):
                 temp = user_form.save()
                 team = team_form.save(commit=False)
                 team.user_team = temp
@@ -134,6 +132,7 @@ def login_page(request):
     if http_referer == 'login':
         username = request.POST['username']
         password = request.POST['password']
+        print(username,password)
         temp_user = authenticate(username=username, password=password)
         print(temp_user)
         if temp_user is not None:
@@ -172,6 +171,7 @@ def login_page2(request):
                     auth_form.add_error('username', 'نام کاربری یا رمز عبور اشتباه است')
             else:
                 temp_user = authenticate(username=username, password=password)
+                print(temp_user)
                 if temp_user is not None and not temp_user.is_superuser:
                     login(request, temp_user)
                     return HttpResponseRedirect('/jaam')

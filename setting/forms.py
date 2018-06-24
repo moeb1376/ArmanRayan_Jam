@@ -68,31 +68,19 @@ class TeamSettingForm(forms.ModelForm):
 
     class Meta:
         model = Team
-        fields = ['university', 'team_bio', 'logo_image', 'mentor']
+        fields = ['university', 'team_bio', 'logo_image', 'mentor','phone_number']
         labels = {
             'university': 'دانشگاه',
             'team_bio': "بیو",
             'logo_image': "انتخاب عکس",
             'mentor': "کد معرفی",
+            'phone_number':"شماره تماس"
         }
         widgets = {
             'logo_image': forms.FileInput
         }
 
 
-class testForm(forms.ModelForm):
-    class Meta:
-        model = Test
-        fields = ['image']
-        labels = {
-            'image': 'عکس'
-        }
-        widgets = {
-            'image': forms.FileInput
-        }
-
-
-#
 class test_change_form(UserChangeForm):
     class Meta:
         model = auth_user

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    {% load static %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    {#    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">#}
+    <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+            integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+            crossorigin="anonymous"
+    >
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
+    <style>
+        .middle-box {
+            max-width: 400px;
+            z-index: 100;
+            margin: 0 auto;
+            padding-top: 100px
+        }
+    </style>
+
+    <title>Hello, world!</title>
+</head>
+<style></style>
+<body>
+
+<div class="middle-box">
+    <div>
+        <div class="card text-center">
+            <div class="card-header">
+                Login Panel!
+            </div>
+            <form action="login_se.html" method="post" role="form" id="login-panel">
+                <div class="card-body">
+
+                    <div class="form-group">
+                        <input id="mail" type="email" class="form-control" placeholder="Email Address" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input id="pass" type="password" class="form-control" placeholder="Password" required>
+                    </div>
+                    <div align="center" class="g-recaptcha" id="recaptcha"
+                         data-sitekey="6LdIJVUUAAAAALVnoqJDbEOkU3_M2ZC5SPHhRWbJ"></div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-outline-primary"
+                            onclick="get_validate('login-panel')">
+                        Login
+                    </button>
+                    {#                    <button type="submit" hidden id="submit-btn"></button>#}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+<script src="{% static 'js/recaptchaVal.js' %}"></script>
+</body>
+</html>

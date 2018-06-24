@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'dbbackup',
+    'dbbackup_ui',
     'main.apps.MainConfig',
     'register.apps.RegisterConfig',
     'SPC_main.apps.SPCMainConfig',
@@ -62,7 +64,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'statics', 'templates'),
+            os.path.join(BASE_DIR, 'templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -84,7 +86,6 @@ WSGI_APPLICATION = 'Jam.wsgi.application'
 DATABASES = {
     'default': database_config
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
@@ -140,3 +141,19 @@ const = {
 GOOGLE_RECAPTCHA_SECRET_KEY = '6LcdiEUUAAAAAE4dzbtS88EJpq8jqIOMlPmAKjKa'
 RECAPTCHA_PUBLIC_KEY = '6LcdiEUUAAAAAGOBQWMKoLuztCR97rGB9BZs9Sc9'
 RECAPTCHA_PRIVATE_KEY = '6LcdiEUUAAAAAE4dzbtS88EJpq8jqIOMlPmAKjKa'
+# Email
+# EMAIL_HOST = 'armankadeh.ir'
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = 'info@armankadeh.ir'
+# EMAIL_HOST_PASSWORD = 'y(?$xWBaX8(U'
+# EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'ebimosi14@gmail.com'
+EMAIL_HOST_PASSWORD = 'm1M3a7E6'
+EMAIL_USE_TLS = True
+# EMAIL_USE_SSL = False
+# test = [settings.EMAIL_HOST_USER,settings.EMAIL_HOST_PASSWORD,settings.EMAIL_PORT,settings.EMAIL_HOST,settings.EMAIL_USE_TLS]
+# DB_backup
+DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
+DBBACKUP_STORAGE_OPTIONS = {'location': os.path.join(BASE_DIR, "BackUp")}
