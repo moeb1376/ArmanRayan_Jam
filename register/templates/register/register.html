@@ -38,9 +38,7 @@
 <div class="middle-box text-center loginscreen   animated fadeInDown">
     <div>
         <div>
-
             <img alt="image" class="center-block" src='{% static "img/jaam.png" %}'>
-
         </div>
         <h3>صفحه ثبت نام جام آرمانکده</h3>
         <h2 style="background-color:#f44336;color: #FFFFFF;">
@@ -51,70 +49,47 @@
         </h2>
         <form class="m-t" role="form" action="register" method="post" id="register-form">
             {% csrf_token %}
-            {#            {{ form }}#}
-            {{ user_form.non_field_errors }}
-            {{ team_form.non_field_errors }}
+            <h2>{{ user_form.non_field_errors }}</h2>
+            <h2>{{ team_form.non_field_errors }}</h2>
             <div class="form-group">
                 <h2>{{ user_form.username.errors }}</h2>
                 {% render_field user_form.username placeholder=user_form.username.label class='form-control' %}
-                {#                {{ user_form.username|attr:"placeholder:نام تیم"|attr:"class:form-control" }}#}
-                {#                <input type="text" name="team_name" class="form-control" placeholder="نام تیم" required=""#}
-                {#                       value="{{ team_name }}" {% if team_name_color %}style="background-color: #FFC107" {% endif %}>#}
             </div>
 
             <div class="form-group">
                 <h2>{{ user_form.password1.errors }}</h2>
                 {% render_field user_form.password1 placeholder=user_form.password1.label class="form-control" %}
-                {#                <input type="password" name="password" class="form-control" placeholder="رمز عبور" required=""#}
-                {#                       value="{{ password }}">#}
-                {#                {{ user_form.password1|attr:"placeholder:رمز عبور" |attr:"class:form-control"}}#}
             </div>
             <div class="form-group">
                 <h2>{{ user_form.password2.errors }}</h2>
                 {% render_field user_form.password2 placeholder=user_form.password2.label class="form-control" %}
-                {#                {{ user_form.password2|attr:"placeholder:رمز عبور" |attr:"class:form-control" }}#}
             </div>
             <div class="form-group">
                 <h2>{{ user_form.email.errors }}</h2>
                 {% render_field user_form.email placeholder=user_form.email.label class="form-control" %}
-                {#                <input type="email" name="email" class="form-control" placeholder="رایانامه تیم" required=""#}
-                {#                       value="{{ email }}" {% if email_color %}style="background-color: #FFC107" {% endif %}>#}
             </div>
             <div class="form-group">
-                <h2>{{ team_form.mentor.errors }}</h2>
-                {% render_field team_form.mentor class='form-control' placeholder=team_form.mentor.label %}
-                {#                <select class="form-control" name="university">#}
-                {#                    {% for uni in universities %}#}
-                {#                        <option value="{{ uni.id }}">{{ uni.university_name }}</option>#}
-                {#                    {% endfor %}#}
-                {#                </select>#}
+                <h2>{{ team_form.phone_number.errors }}</h2>
+                {% render_field team_form.phone_number placeholder=team_form.phone_number.label class="form-control" %}
             </div>
             <div class="form-group">
                 <h2>{{ team_form.university.errors }}</h2>
                 {% render_field team_form.university class="form-control" %}
-                {#                <select class="form-control" name="university">#}
-                {#                    {% for uni in universities %}#}
-                {#                        <option value="{{ uni.id }}">{{ uni.university_name }}</option>#}
-                {#                    {% endfor %}#}
-                </select>
             </div>
             <div class="form-group">
                 <h2>{{ team_form.competition.errors }}</h2>
-                {% render_field team_form.competition class="form-control" %}
-                {#                <select class="form-control" name="leagues">#}
-                {#                    {% for comp in competition %}#}
-                {#                        <option value="{{ comp.id }}">{{ comp.competition_name }}</option>#}
-                {#                    {% endfor %}#}
-                {#                </select>#}
+                {% render_field team_form.competition class="form-control" onchange='delete_matlab()' %}
             </div>
             <div class="form-group">
                 <h2>{{ team_form.language.errors }}</h2>
                 {% render_field team_form.language class="form-control" %}
-                {#                <select class="form-control" name="lang">#}
-                {#                    {% for lan in languages %}#}
-                {#                        <option dir="ltr" value="{{ lan.id }}">{{ lan.language_name }}</option>#}
-                {#                    {% endfor %}#}
-                {#                </select>#}
+            </div>
+            <div class="form-group" hidden>
+                <h2>{{ team_form.mentor.errors }}</h2>
+                {% render_field team_form.mentor class='form-control' placeholder=team_form.mentor.label oninput="ajax_mentor()" %}
+                <div id="div-mentor-icon-span" hidden>
+                    <span id='mentor-icon-span' class="glyphicon glyphicon-ok" style="color:green" hidden></span>
+                </div>
             </div>
             <div class="form-group" id="recaptcha">
                 <div class="g-recaptcha" data-sitekey="6LcdiEUUAAAAAGOBQWMKoLuztCR97rGB9BZs9Sc9"></div>
@@ -137,7 +112,7 @@
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 <h4 class="modal-title" style="font-size: 25px">قوانین ثبت نام</h4>
                             </div>
-                            <div class="modal-body" style="font-size: 20px">
+                            <div class="modal-body" style="font-size: 20px" align="right">
                                 <p>
                                     1- حداقل یکی از شرکت کنندگان باید دانشجوی یکی از 7 دانشگاه صنعتی شریف، تهران، صنعتی
                                     امیرکبیر، علم و صنعت ایران، صنعتی خواجه نصیر طوسی، شهید بهشتی و خوارزمی باشد.
@@ -147,7 +122,7 @@
                                     ورودی 96 دانشگاه ها باشند.
                                 </p>
                                 <p>
-                                    ب) شرکت کنندگان در بخش اشاره گر های هوشمند "پیشرفته" تنها می توانند دانشجوی دوره
+                                    ۲- ب) شرکت کنندگان در بخش اشاره گر های هوشمند "پیشرفته" تنها می توانند دانشجوی دوره
                                     کارشناسی دانشگاه ها باشند.
                                 </p>
                                 <p>3- اگر در هر مرحله از مسابقات تشخیص داده شود که شرکت کننده از اطلاعات غیر واقعی
@@ -187,6 +162,8 @@
 <!--Recaptcha-->
 <script src="{% static 'js/recaptcha_validation.js' %}"></script>
 <script src='https://www.google.com/recaptcha/api.js'></script>
+<script src="{% static 'js/main_page/language_change.js' %}"></script>
+<script src="{% static 'js/mentor_check/ajax_mentor.js' %}"></script>
 <script>
     $(document).ready(function () {
         $('.i-checks').iCheck({

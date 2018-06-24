@@ -9,18 +9,6 @@ from hashlib import sha256
 
 
 # Create your models here.
-# class MyAuthUser(AbstractUser):
-#     email = models.EmailField(unique=True)
-#
-def upload_test(instance, filename):
-    return 'testi/%s.%s' % (instance.id, filename.split('.')[-1])
-
-
-class Test(models.Model):
-    image = models.ImageField(default=settings.LOGO_DEFAULT, upload_to=upload_test, width_field="width_field",
-                              height_field="height_field", null=True, blank=True)
-    height_field = models.IntegerField(default=0)
-    width_field = models.IntegerField(default=0)
 
 
 def upload_location(instance, filename):
@@ -49,6 +37,7 @@ class Team(models.Model):
     team_bio = models.TextField(default='', blank=True)
     language = models.ForeignKey(Language, on_delete=models.CASCADE)
     mentor = models.CharField(max_length=6, blank=True, default='')
+    phone_number = models.CharField(max_length=11, blank=True, default='')
 
     def __str__(self):
         return self.user_team.username

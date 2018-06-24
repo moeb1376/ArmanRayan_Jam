@@ -86,11 +86,11 @@ def mentor_ajax(request):
     mentor_code = request.GET.get('mentor_code')
     print(mentor_code)
     response = {
-        'status': False,
+        'find_mentor': False,
     }
     if len(mentor_code) < 6:
         return JsonResponse(response)
     if len(Mentor.objects.filter(code=mentor_code)) == 0:
         return JsonResponse(response)
-    response['status'] = True
+    response['find_mentor'] = True
     return JsonResponse(response)

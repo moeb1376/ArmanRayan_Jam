@@ -3,6 +3,7 @@ from register.models import Team
 from django.db.models.signals import post_save, pre_save
 from django.utils.timezone import now, datetime, localdate
 from django.dispatch import receiver
+from django.core.validators import MinValueValidator, MaxValueValidator
 from Jam.settings import MEDIA_ROOT, BASE_DIR, MEDIA_URL
 import os
 from hashlib import sha256
@@ -25,7 +26,8 @@ class Match(models.Model):
     team2 = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="Team2")
     is_running = models.BooleanField(default=False, blank=True)
     log_file = models.FileField(null=True, blank=True, upload_to=upload_match_log)
-    winner = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="Winner_team", blank=True, null=True)
+    # winner = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="Winner_team", blank=True, null=True)
+    winner = models.IntegerField(blank=True, null=True, validators=[MinValueValidator(0), MaxValueValidator(2)])
     date = models.DateField(default=now)
 
     def __str__(self):

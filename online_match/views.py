@@ -1,12 +1,18 @@
 import random
 import subprocess
+import json
 from itertools import chain
-from django.utils.timezone import now
 
+import re
+
+import os
+from django.utils.timezone import now
+from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
-from django.shortcuts import render, HttpResponse, loader, HttpResponseRedirect
+from django.shortcuts import render, HttpResponse, loader, HttpResponseRedirect, Http404
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+from django.conf import settings
 from register.models import auth_user, Team
 from .models import Match
 from .forms import *
@@ -22,7 +28,10 @@ def online_match(request):
         'team': team,
         'codes': list(code)
     }
-    template = loader.get_template('online_match/play.html')
+    if team.competition.competition_level < 3:
+        template = loader.get_template('online_match/play.html')
+    else:
+        template = loader.get_template('online_match/play_iac.html')
     return HttpResponse(template.render(context, request))
 
 
@@ -34,19 +43,25 @@ def play_online_ajax(request):
         return JsonResponse({"status": "Failed",
                              "error": "Game is running"})
     play_mode = request.GET.get('play')
-    print(type(play_mode))
+    selected_code = request.GET.get('team_selected_code')
+    team_name, version = re.search(r'(.*)\ \|\ [vV]([0-9]*)', selected_code).groups()
+    team2_code = Code.objects.filter(team=user_team, version=version)[0]
     loading = "<img src='statics/img/loading_gif/2.gif'>"
     if play_mode == '1':
         print('Armankadeh')
         data = {
             'random_loading': loading
         }
-        t = Team.objects.get(pk=20)
-        print(t)
-        m = Match(team1=Team.objects.get(pk=20), team2=user_team, is_running=True)
+        armankadeh_team_str = "armankadeh_1" if user_team.competition.competition_level == 1 else "armankadeh_2"
+        armankadeh_team = Team.objects.get(user_team__username=armankadeh_team_str)
+        m = Match(team1=armankadeh_team, team2=user_team, is_running=True)
         m.save()
+        bash_file_base_dir = settings.BASE_DIR + '/online_match/ports/5000'
         s = subprocess.Popen(
-            ['bash', '/home/moeb/PycharmProjects/ArmanRayan_Jam/test_bash/Online.sh', str(20), str(user_team.id)])
+            ['bash', bash_file_base_dir + '/Mys.sh', bash_file_base_dir, armankadeh_team.language.language_name,
+             user_team.language.language_name])
+        m.is_running = False
+        m.save()
     else:
         print("Random")
         same_competition_teams = Team.objects.filter(
@@ -64,7 +79,7 @@ def play_online_ajax(request):
             "team_name": random_team.user_team.username,
             "university": random_team.university.university_name,
             'image_url': random_team.logo_image.url,
-            'random_loading': loading % random.randint(1, 3)
+            'random_loading': loading
         }
         # m = Match(team1=random_team, team2=user_team, is_running=True)
         # m.save()
@@ -107,11 +122,27 @@ def upload_view(request):
 def log_view(request):
     template = loader.get_template('online_match/log.html')
     team = request.user.Teams.all()[0]
+    if team.competition.competition_level >= 3:
+        raise Http404('این صفحه مخصوص مسابقات spc است.')
     logs1 = Match.objects.filter(team1=team).only("team2", "is_running", "log_file", "winner", "date")
     logs2 = Match.objects.filter(team2=team).only("team1", "is_running", "log_file", "winner", "date")
     context = {
         'team': team,
         "log_away": logs1,
-        "log_home":logs2,
+        "log_home": logs2,
     }
     return HttpResponse(template.render(context, request))
+
+
+@csrf_exempt
+def online_match_result(request):
+    print(request)
+    s = request.body
+    print(request.body)
+    data = json.loads(s.decode('utf8').replace("\'", "\""))
+    print(data)
+    # m = Match.objects.filter(team1__pk=data['team1'], team2__pk=data['team2'], is_running=True).last()
+    # if m is not None:
+    #     m.is_running = False
+    #     m.save()
+    return JsonResponse({"a": "k"})

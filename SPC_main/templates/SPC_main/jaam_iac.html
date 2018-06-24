@@ -134,15 +134,6 @@
                         <span class="pull-right"></span>
                     </a>
                 </li>
-                <li>
-                    <a href="cup_iac">
-                        <i class="fa fa-trophy"></i>
-                        <span class="nav-label" style="font-size:15px">
-                            &nbsp; جام
-                        </span>
-                        <span class="pull-right"></span>
-                    </a>
-                </li>
             </ul>
         </div>
     </nav>
@@ -194,12 +185,30 @@
                             <div style="width: 60%;" class="progress-bar progress-bar-danger"></div>
                         </div>
                         <div class="text-center">
-                            <a href="play_iac"> <span class="btn btn-default navy-bg">بارگزاری کد جدید</span></a>
-                            {#                            <div class="fileinput fileinput-new" data-provides="fileinput" style="text-align:center;">#}
-                            {#								<span class="btn btn-default btn-file navy-bg"><span class="fileinput-new">بارگزاری کد جدید</span>#}
-                            {#								<span class="fileinput-exists">تغییر</span><input type="file" name="..."></span>#}
-                            {#                                <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>#}
-                            {#                            </div>#}
+                            <button type="button" class="btn btn-primary js-upload-photos">
+                                <span class="glyphicon glyphicon-cloud-upload"></span> بارگذاری کد جدید
+                            </button>
+                            <input id="fileupload" type="file" name="code"
+                                   style="display: none;"
+                                   data-url="{% url 'online_match:file_upload_ajax' %}"
+                                   data-form-data='{"csrfmiddlewaretoken": "{{ csrf_token }}"}'>
+                            <!-- Progress bar -->
+                            <div class="modal fade" id="modal-progress" data-backdrop="static" data-keyboard="false">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">بارگذاری .....</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="progress">
+                                                <div class="progress-bar" id="upload_progress_bar" role="progressbar"
+                                                     style="width: 0%;">0%
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-4 widget   p-lg">
@@ -312,7 +321,11 @@
 <script src='{% static "js/plugins/footable/footable.all.min.js" %}'></script>
 <!-- slick carousel-->
 <script src='{% static "js/plugins/slick/slick.min.js" %}'></script>
-
+<!-- Upload Code -->
+<script src="{% static 'js/jQuery-File-Upload-9.14.1/js/vendor/jquery.ui.widget.js' %}"></script>
+<script src="{% static 'js/jQuery-File-Upload-9.14.1/js/jquery.iframe-transport.js' %}"></script>
+<script src="{% static 'js/jQuery-File-Upload-9.14.1/js/jquery.fileupload.js' %}"></script>
+<script src="{% static 'js/photo_upload.js' %}"></script>
 <script>
     $(document).ready(function () {
 
