@@ -1,8 +1,8 @@
-from django.conf.urls import url
 from django.urls import path
+
 from django.views.generic import RedirectView
 
-from .views import *
+from .views import login_page2, register_page2
 
 app_name = 'register'
 urlpatterns = [
