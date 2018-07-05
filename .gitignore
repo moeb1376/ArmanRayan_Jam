@@ -231,3 +231,6 @@ register/migrations/__pycache__/0027_auto_20180228_2001.cpython-35.pyc
 media/
 online_match/ports/5000/client1/CMakeFiles/CMakeTmp/
 online_match/ports/5000/client2/CMakeFiles/CMakeTmp/
+BackUp/
+DataSet/
+.idea/
