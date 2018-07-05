@@ -6,12 +6,10 @@ from itertools import chain
 import re
 
 import os
-from django.utils.timezone import now
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
-from django.shortcuts import render, HttpResponse, loader, HttpResponseRedirect, Http404
+from django.shortcuts import HttpResponse, loader, Http404
 from django.contrib.auth.decorators import login_required
-from django.db.models import Q
 from django.conf import settings
 from register.models import auth_user, Team
 from .models import Match
@@ -44,7 +42,8 @@ def play_online_ajax(request):
                              "error": "Game is running"})
     play_mode = request.GET.get('play')
     selected_code = request.GET.get('team_selected_code')
-    team_name, version = re.search(r'(.*)\ \|\ [vV]([0-9]*)', selected_code).groups()
+    team_name, version = re.search(
+        r'(.*)\ \|\ [vV]([0-9]*)', selected_code).groups()
     team2_code = Code.objects.filter(team=user_team, version=version)[0]
     loading = "<img src='statics/img/loading_gif/2.gif'>"
     if play_mode == '1':
@@ -53,7 +52,8 @@ def play_online_ajax(request):
             'random_loading': loading
         }
         armankadeh_team_str = "armankadeh_1" if user_team.competition.competition_level == 1 else "armankadeh_2"
-        armankadeh_team = Team.objects.get(user_team__username=armankadeh_team_str)
+        armankadeh_team = Team.objects.get(
+            user_team__username=armankadeh_team_str)
         m = Match(team1=armankadeh_team, team2=user_team, is_running=True)
         m.save()
         bash_file_base_dir = settings.BASE_DIR + '/online_match/ports/5000'
@@ -74,7 +74,8 @@ def play_online_ajax(request):
             random_team = same_competition_teams[random_team_id]
         random_team_last_version = random_team.code_address
         user_team_last_version = user_team.code_address
-        print(random_team_id, random_team, user_team.id, user_team_last_version, random_team_last_version)
+        print(random_team_id, random_team, user_team.id,
+              user_team_last_version, random_team_last_version)
         data = {
             "team_name": random_team.user_team.username,
             "university": random_team.university.university_name,
@@ -124,8 +125,10 @@ def log_view(request):
     team = request.user.Teams.all()[0]
     if team.competition.competition_level >= 3:
         raise Http404('این صفحه مخصوص مسابقات spc است.')
-    logs1 = Match.objects.filter(team1=team).only("team2", "is_running", "log_file", "winner", "date")
-    logs2 = Match.objects.filter(team2=team).only("team1", "is_running", "log_file", "winner", "date")
+    logs1 = Match.objects.filter(team1=team).only(
+        "team2", "is_running", "log_file", "winner", "date")
+    logs2 = Match.objects.filter(team2=team).only(
+        "team1", "is_running", "log_file", "winner", "date")
     context = {
         'team': team,
         "log_away": logs1,
