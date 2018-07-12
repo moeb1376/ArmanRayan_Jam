@@ -21,14 +21,28 @@ from .forms import *
 def online_match(request):
     team = request.user.Teams.all()[0]
     code = team.Team_Code.all()
+    team_competition = team.competition.competition_level
     print(code)
     context = {
         'team': team,
         'codes': list(code)
     }
-    if team.competition.competition_level < 3:
+    if team_competition < 3:
         template = loader.get_template('online_match/play.html')
     else:
+        if team_competition == 4:
+            context['data_set1']= '/media/DataSet/Text/v1-3000.rar'
+            context['data_set2']='#'
+            context['data_set3']='#'
+        elif team_competition == 3:
+            context['data_set1'] = '/media/DataSet/Sound/0.rar'
+            context['data_set2'] = '#'
+            context['data_set3'] = '#'
+            context['help'] = '/media/DataSet/Sound/htkbook.pdf'
+        else:
+            context['data_set1'] = '/media/DataSet/Picture/t1.rar'
+            context['data_set2'] = '#'
+            context['data_set3'] = '#'
         template = loader.get_template('online_match/play_iac.html')
     return HttpResponse(template.render(context, request))
 
