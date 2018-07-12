@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'setting.apps.SettingConfig',
     'online_match.apps.OnlineMatchConfig'
+
 ]
 
 MIDDLEWARE = [
