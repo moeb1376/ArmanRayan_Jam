@@ -30,11 +30,11 @@ def online_match(request):
     if team_competition < 3:
         template = loader.get_template('online_match/play.html')
     else:
-        if team_competition == 4:
+        if team_competition == 3:
             context['data_set1']= '/media/DataSet/Text/v1-3000.rar'
             context['data_set2']='#'
             context['data_set3']='#'
-        elif team_competition == 3:
+        elif team_competition == 4:
             context['data_set1'] = '/media/DataSet/Sound/0.rar'
             context['data_set2'] = '#'
             context['data_set3'] = '#'
