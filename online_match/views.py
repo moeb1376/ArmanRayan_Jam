@@ -20,7 +20,7 @@ from .forms import *
 @login_required(login_url='/login', redirect_field_name='')
 def online_match(request):
     team = request.user.Teams.all()[0]
-    code = team.Team_Code.all()
+    code = team.Team_Code.filter(human_checked=True)
     team_competition = team.competition.competition_level
     print(code)
     context = {
@@ -31,9 +31,9 @@ def online_match(request):
         template = loader.get_template('online_match/play.html')
     else:
         if team_competition == 3:
-            context['data_set1']= '/media/DataSet/Text/v1-3000.rar'
-            context['data_set2']='#'
-            context['data_set3']='#'
+            context['data_set1'] = '/media/DataSet/Text/v1-3000.rar'
+            context['data_set2'] = '#'
+            context['data_set3'] = '#'
         elif team_competition == 4:
             context['data_set1'] = '/media/DataSet/Sound/0.rar'
             context['data_set2'] = '#'
@@ -99,11 +99,6 @@ def play_online_ajax(request):
         # m = Match(team1=random_team, team2=user_team, is_running=True)
         # m.save()
     return JsonResponse(data)
-
-
-def test(request):
-    template = loader.get_template('online_match/login_se.html')
-    return HttpResponse(template.render({}, request))
 
 
 def upload_view(request):

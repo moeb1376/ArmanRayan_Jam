@@ -43,7 +43,7 @@ def team_logout(request):
 
 @login_required(login_url='/login', redirect_field_name='')
 def table_view(request):
-    send_mail('test', 'havij salam', settings.EMAIL_HOST_USER, ['m_mohammadaliebrahim@comp.iust.ac.ir'])
+    # send_mail('test', 'havij salam', settings.EMAIL_HOST_USER, ['m_mohammadaliebrahim@comp.iust.ac.ir'])
     login_team = request.user.Teams.all()[0]
     if login_team.competition.competition_level < 3:
         print('jaam2')

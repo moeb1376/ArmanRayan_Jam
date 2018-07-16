@@ -11,3 +11,10 @@ class Cup(models.Model):
 
     def __str__(self):
         return self.team.user_team.username + str(self.cup_number)
+
+
+class Tournament(models.Model):
+    date = models.DateTimeField()
+    competition = models.ForeignKey(Competition,on_delete=models.CASCADE)
+
+
