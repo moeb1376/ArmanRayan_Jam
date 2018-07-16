@@ -223,8 +223,6 @@ setting/__pycache__/models.cpython-35.pyc
 setting/__pycache__/urls.cpython-35.pyc
 setting/__pycache__/views.cpython-35.pyc
 statics/img/gallery/
-statics/js/jQuery-File-Upload-9.14.1/
-statics/js/recaptchaVal.js
 team_setting/
 test_bash/
 register/migrations/__pycache__/0027_auto_20180228_2001.cpython-35.pyc
