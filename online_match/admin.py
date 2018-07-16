@@ -30,7 +30,7 @@ admin.site.register(Match, MatchModelAdmin)
 
 
 class CodeModelAdmin(admin.ModelAdmin):
-    list_display = ['__str__', 'link_to_team', 'version']
+    list_display = ['__str__','human_checked', 'link_to_team', 'version']
     list_filter = ['team']
 
     def link_to_team(self, obj):
@@ -39,6 +39,7 @@ class CodeModelAdmin(admin.ModelAdmin):
 
     link_to_team.allow_tags = True
     link_to_team.short_description = 'Team'
+
 
     class Meta:
         model = Code

@@ -46,7 +46,7 @@ class Code(models.Model):
     code = models.FileField(null=True, blank=True, upload_to=upload_code_address)
     version = models.IntegerField(default=0, null=True, blank=True)
     team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='Team_Code')
-
+    human_checked = models.BooleanField(blank=True,default=False,verbose_name="Checked")
     def __str__(self):
         return self.team.user_team.username + ' | V' + str(self.version)
 
