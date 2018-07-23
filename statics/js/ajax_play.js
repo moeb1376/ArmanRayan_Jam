@@ -59,7 +59,7 @@ function ajax_team_data() {
     else {
         var start = document.getElementsByName("start-btn");
         msg1 = 'کدی برای تیم شما در سامانه ثبت نشده است';
-        msg2 = 'لطفا برای شرکت در این بخش کد خود را در صفحه اصلی آپلود کنید';
+        msg2 = 'اگر کد خود را آپلود کرده‌اید منتظر تایید آن باشید در \nغیر این صورت،لطفا برای شرکت در این بخش کد خود را در صفحه اصلی آپلود کنید.';
         start.onclick(popup_show(msg1, msg2));
     }
     msg1 = 'بازی در حال اجراست';
@@ -90,14 +90,14 @@ function set_team2_data() {
 function popup_show(msg1, msg2) {
     toastr.options = {
         closeButton: true,
-        progressBar: false,
+        progressBar: true,
         showMethod: 'slideDown',
-        timeOut: 400000,
+        timeOut: 4000,
         positionClass: "toast-top-center"
     };
     // var str = 'کدی برای تیم شما در سامانه ثبت نشده است';
     var result = msg1.fontsize(5);
     // var str1 = 'لطفا برای شرکت در این بخش کد خود را در صفحه اصلی آپلود کنید';
-    var res1 = msg2.fontsize(4);
+    var res1 = msg2.fontsize(3);
     toastr.info(res1, result);
 }
