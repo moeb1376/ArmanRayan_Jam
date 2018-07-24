@@ -7,7 +7,8 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from Jam.settings import MEDIA_ROOT, BASE_DIR, MEDIA_URL
 import os
 from hashlib import sha256
-from datetime import date
+from django.conf import settings
+from django.core.mail import send_mail
 
 
 # Create your models here.
@@ -46,7 +47,8 @@ class Code(models.Model):
     code = models.FileField(null=True, blank=True, upload_to=upload_code_address)
     version = models.IntegerField(default=0, null=True, blank=True)
     team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='Team_Code')
-    human_checked = models.BooleanField(blank=True,default=False,verbose_name="Checked")
+    human_checked = models.BooleanField(blank=True, default=False, verbose_name="Checked")
+
     def __str__(self):
         return self.team.user_team.username + ' | V' + str(self.version)
 
@@ -73,4 +75,8 @@ def set_version(sender, instance, **kwargs):
         first_code = query.first()
         os.remove(os.path.join(MEDIA_ROOT, os.path.relpath(first_code.code.url, MEDIA_URL)))
         first_code.delete()
+    emails = ['v_savabieh@yahoo.com', 'v.savabieh12@gmail.com', 'ebimosi14@gmail.com','j.agheleh@yahoo.com']
+    messages = ['تیم '+instance.team.user_team.username,'در مسابقات '+instance.team.competition.competition_name,'کد آپلود کرد.']
+    message = '\n'.join(messages)
+    send_mail('جام بزرگ آرمانکده', message, settings.EMAIL_HOST_USER, emails)
     print("pre_save", s, instance)
