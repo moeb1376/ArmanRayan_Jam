@@ -6,8 +6,10 @@ from .models import *
 
 
 class TeamModelAdmin(admin.ModelAdmin):
-    list_display = ['user_team','get_email', 'competition', 'university', 'language']
-    def get_email(self,obj):
+    list_display = ['user_team', 'get_email', 'competition', 'university', 'language']
+    list_filter = ['user_team__last_login']
+
+    def get_email(self, obj):
         return obj.user_team.email
 
     get_email.allow_tags = True
