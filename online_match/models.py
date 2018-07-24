@@ -75,8 +75,9 @@ def set_version(sender, instance, **kwargs):
         first_code = query.first()
         os.remove(os.path.join(MEDIA_ROOT, os.path.relpath(first_code.code.url, MEDIA_URL)))
         first_code.delete()
-    emails = ['v_savabieh@yahoo.com', 'v.savabieh12@gmail.com', 'ebimosi14@gmail.com','j.agheleh@yahoo.com']
-    messages = ['تیم '+instance.team.user_team.username,'در مسابقات '+instance.team.competition.competition_name,'کد آپلود کرد.']
+    emails = ['v_savabieh@yahoo.com', 'v.savabieh12@gmail.com', 'ebimosi14@gmail.com', 'j.agheleh@yahoo.com']
+    messages = ['تیم ' + instance.team.user_team.username, 'در مسابقات ' + instance.team.competition.competition_name,
+                'کد آپلود کرد.', instance.team.user_team.email]
     message = '\n'.join(messages)
     send_mail('جام بزرگ آرمانکده', message, settings.EMAIL_HOST_USER, emails)
     print("pre_save", s, instance)
