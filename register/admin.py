@@ -6,15 +6,21 @@ from .models import *
 
 
 class TeamModelAdmin(admin.ModelAdmin):
-    list_display = ['user_team', 'competition', 'university', 'language']
+    list_display = ['user_team','get_email', 'competition', 'university', 'language']
+    def get_email(self,obj):
+        return obj.user_team.email
+
+    get_email.allow_tags = True
+    get_email.short_description = 'Email'
 
     class Meta:
         model = Team
 
 
 class MyUserModelAdmin(admin.ModelAdmin):
-    list_display = ['__str__', 'link_to_team', 'is_head', 'university', 'competition_level', 'entrance_year_show']
-    list_filter = ['university']
+    list_display = ['__str__', 'email', 'link_to_team', 'is_head', 'university', 'grade', 'competition_level',
+                    'entrance_year_show']
+    list_filter = ['university', 'team__competition__competition_name', 'grade']
 
     def entrance_year_show(self, obj):
         return obj.get_normal_entrance_year()
