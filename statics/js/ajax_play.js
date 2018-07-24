@@ -92,8 +92,8 @@ function popup_show(msg1, msg2) {
         closeButton: true,
         progressBar: true,
         showMethod: 'slideDown',
-        timeOut: 4000,
-        positionClass: "toast-top-center"
+        timeOut: 7000,
+        positionClass: "toast-top-center",
     };
     // var str = 'کدی برای تیم شما در سامانه ثبت نشده است';
     var result = msg1.fontsize(5);
