@@ -13,7 +13,7 @@ class TeamModelAdmin(admin.ModelAdmin):
 
 
 class MyUserModelAdmin(admin.ModelAdmin):
-    list_display = ['__str__', 'link_to_team', 'is_head', 'university', 'entrance_year_show']
+    list_display = ['__str__', 'link_to_team', 'is_head', 'university', 'competition_level', 'entrance_year_show']
     list_filter = ['university']
 
     def entrance_year_show(self, obj):
@@ -23,8 +23,13 @@ class MyUserModelAdmin(admin.ModelAdmin):
         link = reverse("admin:register_team_change", args=[obj.team.id])  # model name has to be lowercase
         return format_html("<a href='{}'>{}</a>", link, obj.team.__str__())
 
+    def competition_level(self, obj):
+        return obj.team.competition.competition_name
+
     link_to_team.allow_tags = True
     link_to_team.short_description = 'Team'
+    competition_level.allow_tags = True
+    competition_level.short_description = 'Competition'
     entrance_year_show.allow_tags = True
     entrance_year_show.short_description = 'Entrance_year'
 
