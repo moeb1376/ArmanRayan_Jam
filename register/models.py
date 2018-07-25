@@ -1,3 +1,4 @@
+from django.core.mail import send_mail
 from django.db import models
 from main.models import *
 from Jam.settings import const
@@ -6,6 +7,8 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.models import AbstractUser
 from django.conf import settings
 from hashlib import sha256
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
 
 
 # Create your models here.
@@ -47,6 +50,16 @@ class Team(models.Model):
 
     def get_points(self):
         return self.win * 3 + self.draw
+
+
+@receiver(pre_save, sender=Team)
+def create_team(sender, instance, **kwargs):
+    messages = ['تیم ' + instance.user_team.username,
+                'در مسابقات ' + instance.competition.competition_name,
+                'ثبت نام کرد.', instance.user_team.email]
+    message = '\n'.join(messages)
+    send_mail('جام بزرگ آرمانکده', message, settings.EMAIL_HOST_USER,
+              ['v.savabieh12@gmail.com', 'ebimosi14@gmail.com'])
 
 
 class MyUser(models.Model):
