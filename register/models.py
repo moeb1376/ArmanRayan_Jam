@@ -31,6 +31,7 @@ class Team(models.Model):
     win = models.IntegerField(default=0)
     loose = models.IntegerField(default=0)
     draw = models.IntegerField(default=0)
+    accuracy = models.FloatField(default=0.0)
     logo_image = models.ImageField(null=True, default='unknown.jpg',
                                    width_field="width_field",
                                    height_field="height_field",
@@ -49,7 +50,37 @@ class Team(models.Model):
         return self.win + self.loose + self.draw
 
     def get_points(self):
-        return self.win * 3 + self.draw
+        if self.competition.competition_level < 3:
+            return self.win * 3 + self.draw
+        else:
+            return self.accuracy
+
+    @staticmethod
+    def set_rating():
+        for level in range(3, 6):
+            print(level)
+            objects = Team.objects.filter(competition__competition_level=level).order_by("-accuracy")
+            print('objects', objects)
+            len_objects = len(objects)
+            a = round(len_objects * 0.2)
+            b = a + round(len_objects * 0.5)
+            count = 0
+            while count < b and b != 0:
+                print("\t count", count)
+                temp = objects[count]
+                rate = 1 if count < a else 2
+                temp.rating = rate
+                temp.save()
+                count += 1
+                while count < b and temp == objects[count]:
+                    temp = objects[count]
+                    temp.rating = rate
+                    temp.save()
+                    count += 1
+            for i in range(count, len_objects):
+                temp = objects[i]
+                temp.rating = 3
+                temp.save()
 
 
 @receiver(pre_save, sender=Team)
