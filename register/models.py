@@ -72,7 +72,7 @@ class Team(models.Model):
                 temp.rating = rate
                 temp.save()
                 count += 1
-                while count < b and temp == objects[count]:
+                while count < len_objects and temp.accuracy == objects[count].accuracy:
                     temp = objects[count]
                     temp.rating = rate
                     temp.save()
