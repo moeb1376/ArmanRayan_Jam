@@ -3,8 +3,6 @@ from django.shortcuts import HttpResponseRedirect, loader, HttpResponse
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
-from django.conf import settings
-from django.core.mail import send_mail
 from register.models import Team
 from .models import Cup
 
@@ -29,7 +27,7 @@ def SPC_main_page(request):
     }
     if team.competition.competition_level < 3:
         print('jaam2')
-        template = loader.get_template('SPC_main/jaam2.html')
+        template = loader.get_template('SPC_main/extend_jaam.html')
     else:
         print('jaamiac')
         template = loader.get_template('SPC_main/jaam_iac.html')
@@ -52,10 +50,11 @@ def table_view(request):
     else:
         print('jaamiac')
         template = loader.get_template('SPC_main/table_iac.html')
+        # Team.set_rating()
         teams = dict()
-        teams['picture'] = Team.objects.filter(competition__competition_level=5)
-        teams['sound'] = Team.objects.filter(competition__competition_level=4)
-        teams['text'] = Team.objects.filter(competition__competition_level=3)
+        teams['picture'] = Team.objects.filter(competition__competition_level=5).order_by('accuracy')
+        teams['sound'] = Team.objects.filter(competition__competition_level=4).order_by('accuracy')
+        teams['text'] = Team.objects.filter(competition__competition_level=3).order_by('accuracy')
     context = {
         'login_team': login_team,
         'teams': teams

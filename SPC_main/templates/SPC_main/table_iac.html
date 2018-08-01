@@ -163,8 +163,7 @@
                                     <tr>
                                         <th class="text-center">تیم</th>
                                         <th class="text-center">دانشگاه</th>
-                                        <th class="text-center">بازی</th>
-                                        <th class="text-center">امتیاز</th>
+                                        <th class="text-center">دقت</th>
                                         <th class="text-center">کلاس</th>
                                     </tr>
                                     </thead>
@@ -177,11 +176,18 @@
                                                      height="20"/>&nbsp{{ team.user_team.username }}&nbsp;
                                             </td>
                                             <td>{{ team.university.university_name }}</td>
-                                            <td>{{ team.total_games }}</td>
                                             <td class="text-center">
                                                 {{ team.get_points }}
                                             </td>
-                                            <td class="center">A</td>
+                                            <td class="center">
+                                                {% if team.rating == 1 %}
+                                                    A
+                                                {% elif team.rating == 2 %}
+                                                    B
+                                                {% else %}
+                                                    C
+                                                {% endif %}
+                                            </td>
                                         </tr>
                                     {% endfor %}
                                     </tbody>
@@ -189,8 +195,7 @@
                                     <tr>
                                         <th class="text-center">تیم</th>
                                         <th class="text-center">دانشگاه</th>
-                                        <th class="text-center">بازی</th>
-                                        <th class="text-center">امتیاز</th>
+                                        <th class="text-center">دقت</th>
                                         <th class="text-center">کلاس</th>
                                     </tr>
                                     </tfoot>
@@ -218,8 +223,7 @@
                                     <tr>
                                         <th class="text-center">تیم</th>
                                         <th class="text-center">دانشگاه</th>
-                                        <th class="text-center">بازی</th>
-                                        <th class="text-center">امتیاز</th>
+                                        <th class="text-center">دقت</th>
                                         <th class="text-center">کلاس</th>
                                     </tr>
                                     </thead>
@@ -232,11 +236,18 @@
                                                      height="20"/>&nbsp{{ team.user_team.username }}&nbsp;
                                             </td>
                                             <td>{{ team.university.university_name }}</td>
-                                            <td>{{ team.total_games }}</td>
                                             <td class="text-center">
                                                 {{ team.get_points }}
                                             </td>
-                                            <td class="center">A</td>
+                                            <td class="center">
+                                                {% if team.rating == 1 %}
+                                                    A
+                                                {% elif team.rating == 2 %}
+                                                    B
+                                                {% else %}
+                                                    C
+                                                {% endif %}
+                                            </td>
                                         </tr>
                                     {% endfor %}
                                     </tbody>
@@ -244,8 +255,7 @@
                                     <tr>
                                         <th class="text-center">تیم</th>
                                         <th class="text-center">دانشگاه</th>
-                                        <th class="text-center">بازی</th>
-                                        <th class="text-center">امتیاز</th>
+                                        <th class="text-center">دقت</th>
                                         <th class="text-center">کلاس</th>
                                     </tr>
                                     </tfoot>
@@ -273,8 +283,7 @@
                                     <tr>
                                         <th class="text-center">تیم</th>
                                         <th class="text-center">دانشگاه</th>
-                                        <th class="text-center">بازی</th>
-                                        <th class="text-center">امتیاز</th>
+                                        <th class="text-center">دقت</th>
                                         <th class="text-center">کلاس</th>
                                     </tr>
                                     </thead>
@@ -287,11 +296,18 @@
                                                      height="20"/>&nbsp{{ team.user_team.username }}&nbsp;
                                             </td>
                                             <td>{{ team.university.university_name }}</td>
-                                            <td>{{ team.total_games }}</td>
                                             <td class="text-center">
                                                 {{ team.get_points }}
                                             </td>
-                                            <td class="center">A</td>
+                                            <td class="center">
+                                                {% if team.rating == 1 %}
+                                                    A
+                                                {% elif team.rating == 2 %}
+                                                    B
+                                                {% else %}
+                                                    C
+                                                {% endif %}
+                                            </td>
                                         </tr>
                                     {% endfor %}
                                     </tbody>
@@ -299,8 +315,7 @@
                                     <tr>
                                         <th class="text-center">تیم</th>
                                         <th class="text-center">دانشگاه</th>
-                                        <th class="text-center">بازی</th>
-                                        <th class="text-center">امتیاز</th>
+                                        <th class="text-center">دقت</th>
                                         <th class="text-center">کلاس</th>
                                     </tr>
                                     </tfoot>
