@@ -27,7 +27,7 @@ def SPC_main_page(request):
     }
     if team.competition.competition_level < 3:
         print('jaam2')
-        template = loader.get_template('SPC_main/extend_jaam.html')
+        template = loader.get_template('SPC_main/jaam2.html')
     else:
         print('jaamiac')
         template = loader.get_template('SPC_main/jaam_iac.html')
