@@ -32,7 +32,7 @@ def online_match(request):
     else:
         if team_competition == 3:
             context['data_set1'] = '/media/DataSet/Text/v1-3000.rar'
-            context['data_set2'] = '#'
+            context['data_set2'] = '/media/DataSet/Text/v3001-6000.rar'
             context['data_set3'] = '#'
         elif team_competition == 4:
             context['data_set1'] = '/media/DataSet/Sound/0.rar'
