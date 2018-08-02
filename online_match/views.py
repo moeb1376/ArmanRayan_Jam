@@ -36,12 +36,12 @@ def online_match(request):
             context['data_set3'] = '#'
         elif team_competition == 4:
             context['data_set1'] = '/media/DataSet/Sound/0.rar'
-            context['data_set2'] = '#'
+            context['data_set2'] = '/media/DataSet/Sound/1.rar'
             context['data_set3'] = '#'
             context['help'] = '/media/DataSet/Sound/htkbook.pdf'
         else:
             context['data_set1'] = '/media/DataSet/Picture/t1.rar'
-            context['data_set2'] = '#'
+            context['data_set2'] = '/media/DataSet/Picture/t2.rar'
             context['data_set3'] = '#'
         template = loader.get_template('online_match/play_iac.html')
     return HttpResponse(template.render(context, request))
