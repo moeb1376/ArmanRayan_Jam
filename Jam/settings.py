@@ -28,7 +28,7 @@ from Jam.configDB import database_config, DEBUG_CONF
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = DEBUG_CONF
 # DEBUG = False
-ALLOWED_HOSTS = ['185.81.40.213', '127.0.0.1', 'jaam.armankadeh.ir']
+ALLOWED_HOSTS = ['185.81.40.213', '127.0.0.1', 'jaam.armankadeh.ir', '185.208.77.207']
 # ALLOWED_HOSTS = []
 # Application definition
 
