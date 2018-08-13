@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-from Jam.configDB import database_config, DEBUG_CONF
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -22,6 +22,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '4j5lq*s4+7a&ac*3opp5v97u)0=mqw2gw_fc4@1qkzu+b-mezp'
 # SECRET_KEY = '&cj=c2(%h$tg!bs$5w+t1q3*ieb3%0zsym1cgha3p%fbd)2gf^'
+
+from Jam.configDB import database_config, DEBUG_CONF
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = DEBUG_CONF
@@ -38,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_celery_results',
     'dbbackup',
     'dbbackup_ui',
     'main.apps.MainConfig',
@@ -67,7 +70,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             BASE_TEMPLATE_DIR,
-            os.path.join(BASE_TEMPLATE_DIR,'base'),
+            os.path.join(BASE_TEMPLATE_DIR, 'base'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -160,3 +163,6 @@ EMAIL_USE_TLS = True
 # DB_backup
 DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
 DBBACKUP_STORAGE_OPTIONS = {'location': os.path.join(BASE_DIR, "BackUp")}
+
+# Celery DB
+CELERY_RESULT_BACKEND = 'django-db'
