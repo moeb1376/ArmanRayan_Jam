@@ -7,8 +7,6 @@ from register.models import Team
 from .models import Cup
 
 
-# Create your views here
-
 @login_required(login_url='/login', redirect_field_name='')
 def SPC_main_page(request):
     print(request.META.get("upload_code", 0))
@@ -22,15 +20,15 @@ def SPC_main_page(request):
     for member in team_member:
         print(member.user_lname)
     context = {
-        'team': team,
+        'login_team': team,
         'members': team_member
     }
     if team.competition.competition_level < 3:
         print('jaam2')
-        template = loader.get_template('SPC_main/jaam2.html')
+        template = loader.get_template('SPC_main/extend/jaam_spc.html')
     else:
         print('jaamiac')
-        template = loader.get_template('SPC_main/jaam_iac.html')
+        template = loader.get_template('SPC_main/extend/jaam_iac.html')
     return HttpResponse(template.render(context, request))
 
 
@@ -41,16 +39,14 @@ def team_logout(request):
 
 @login_required(login_url='/login', redirect_field_name='')
 def table_view(request):
-    # send_mail('test', 'havij salam', settings.EMAIL_HOST_USER, ['m_mohammadaliebrahim@comp.iust.ac.ir'])
     login_team = request.user.Teams.all()[0]
     if login_team.competition.competition_level < 3:
         print('jaam2')
         teams = Team.objects.filter(competition=login_team.competition)
-        template = loader.get_template('SPC_main/table-spc.html')
+        template = loader.get_template('SPC_main/extend/table_spc.html')
     else:
         print('jaamiac')
-        template = loader.get_template('SPC_main/table_iac.html')
-        # Team.set_rating()
+        template = loader.get_template('SPC_main/extend/table_iac.html')
         teams = dict()
         teams['picture'] = Team.objects.filter(competition__competition_level=5).order_by('accuracy')
         teams['sound'] = Team.objects.filter(competition__competition_level=4).order_by('accuracy')
@@ -76,9 +72,9 @@ def cup_view(request):
             'is_play': is_play,
         }
         if login_team.competition.competition_level < 3:
-            template = loader.get_template('SPC_main/cup.html')
+            template = loader.get_template('SPC_main/extend/cup_spc.html')
         else:
-            template = loader.get_template('SPC_main/cup_iac.html')
+            template = loader.get_template('SPC_main/extend/cup_iac.html')
         return HttpResponse(template.render(context, request))
     elif request.method == 'POST':
         print("POST", request.POST)

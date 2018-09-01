@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <a href="jaam">
+                        <span>
+								<img alt="image" class="img-circle center-block" src="{{ login_team.logo_image.url }}"
+                                     width="128"
+                                     height="128"/>
+                        </span>
+                    </a>
+                    <a href="jaam">
+								<span class="clear">
+                                    <span class="block m-t-xs text-center">
+                                        <strong style="font-size:25px" class="font-bold">
+                                            {{ user.username }}
+                                        </strong>
+                                    </span>
+                                </span>
+                    </a>
+                </div>
+                <div class="logo-element">
+                    <a href="jaam">
+                        <img alt="image" class="img-circle center-block" src="{{ login_team.logo_image.url }}"
+                             width="40"
+                             height="40"/>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <a href="play_iac">
+                    <i class="fa fa-database"></i>
+                    <span class="nav-label" style="font-size:15px">
+                            &nbsp; مجموعه دادگان
+                        </span>
+                </a>
+            </li>
+            <li>
+                <a href="table_iac">
+                    <i class="fa fa-list"></i>
+                    <span class="nav-label" style="font-size:15px">
+                            &nbsp; جدول مسابقات
+                        </span>
+                    <span class="pull-right"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

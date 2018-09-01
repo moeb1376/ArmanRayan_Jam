@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+{% extends 'base/base.html' %}
+{% block title %}{{ user.username }} | جام{% endblock %}
+{% block head %}
+    {% load static %}
+    <!-- DataTable -->
+    <link href='{% static "css/plugins/dataTables/datatables.min.css" %}' rel="stylesheet">
+{% endblock %}
+{% block content %}
+    <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            {% if login_team.competition.competition_level == 3 %}
+                <h5>جدول لیگ پردازش متن</h5>
+            {% else %}
+                {% if login_team.competition.competition_level == 4 %}
+                    <h5>جدول لیگ پردازش صوت</h5>
+                {% else %}
+                    <h5>جدول لیگ پردازش تصویر</h5>
+                {% endif %}
+            {% endif %}
+            <div class="ibox-tools">
+                <a class="collapse-link">
+                    <i class="fa fa-chevron-up"></i>
+                </a>
+            </div>
+        </div>
+        <div class="ibox-content">
+
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover dataTables-example">
+                    <thead>
+                    <tr>
+                        <th class="text-center">تیم</th>
+                        <th class="text-center">دانشگاه</th>
+                        <th class="text-center">بازی</th>
+                        <th class="text-center">امتیاز</th>
+                        <th class="text-center">کلاس</th>
+                    </tr>
+                    </thead>
+                    <tbody class="text-center">
+                    {% for cup in teams %}
+                        <tr class="gradeC">
+                            <td>
+                                <img alt="image" class="img-circle"
+                                     src="{{ cup.team.logo_image.url }}" width="20"
+                                     height="20"/>&nbsp{{ cup.team.user_team.username }}&nbsp;
+                            </td>
+                            <td>{{ cup.team.university.university_name }}</td>
+                            <td>{{ cup.team.total_games }}</td>
+                            <td class="text-center">
+                                {{ cup.team.get_points }}
+                            </td>
+                            <td class="center">A</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th class="text-center">تیم</th>
+                        <th class="text-center">دانشگاه</th>
+                        <th class="text-center">بازی</th>
+                        <th class="text-center">امتیاز</th>
+                        <th class="text-center">کلاس</th>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="ibox float-e-margins">
+        <div class="ibox-content">
+            <div class="form-group">
+                <div class="checkbox i-checks">
+                    {% if not is_play %}
+                        <button type="button" class="btn btn-w-m btn-primary center-block" onclick="add_team()"
+                                id="add-team-btn">
+                            شرکت در مسابقه
+                        </button>
+                    {% else %}
+                        <button type="button" class="btn btn-w-m btn-primary center-block"
+                                style="background-color: #5e5e5e">
+                            شما ثبت نام کرده‌اید
+                        </button>
+                    {% endif %}
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    {% load static %}
+    <!-- Peity -->
+    <script src='{% static "js/demo/peity-demo.js" %}'></script>
+    <!-- Sparkline demo data  -->
+    <script src='{% static "js/demo/sparkline-demo.js" %}'></script>
+    <!-- DataTable -->
+    <script src='{% static "js/plugins/dataTables/datatables.min.js" %}'></script>
+
+    <script src="{% static 'js/cup/cup.js' %}"></script>
+    <script>
+        $(document).ready(function () {
+            $('.dataTables-example').DataTable({
+                pageLength: 5,
+                responsive: true,
+                dom: '<"html5buttons"B>lTfgitp',
+                buttons: [
+                    {extend: 'copy'},
+                    {extend: 'csv'},
+                    {extend: 'excel', title: 'ExampleFile'},
+                    {extend: 'pdf', title: 'ExampleFile'},
+
+                    {
+                        extend: 'print',
+                        customize: function (win) {
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
+
+                            $(win.document.body).find('table')
+                                .addClass('compact')
+                                .css('font-size', 'inherit');
+                        }
+                    }
+                ]
+
+            });
+
+        });
+
+    </script>
+
+{% endblock %}
+

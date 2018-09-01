@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+{% extends 'base/base.html' %}
+{% block title %}{{ user.username }} | دانلود DataSet {% endblock %}
+{% block head %}
+    {% load static %}
+    <!-- DataTable -->
+    <link href='{% static "css/plugins/dataTables/datatables.min.css" %}' rel="stylesheet">
+{% endblock %}
+{% block content %}
+    <div class="col-lg-3">
+    </div>
+    <div class="col-lg-6">
+        <div class="tabs-container">
+            <ul style="font-size:25px;" class="nav nav-tabs">
+
+                <li class=" pull-left active"><a data-toggle="tab" href="#tab-3" aria-expanded="true">تیر</a>
+                </li>
+                <li class=" pull-left"><a data-toggle="tab" href="#tab-4" aria-expanded="false">مرداد</a></li>
+                <li class=" pull-left"><a data-toggle="tab" href="#tab-5" aria-expanded="false">شهریور</a></li>
+                <li class=" pull-left"><a data-toggle="tab" href="#tab-7" aria-expanded="false">ویژه <img
+                        alt="image" src='{% static "img/new.png" %}' width="40" height="40"/></a></li>
+            </ul>
+            <div class="tab-content">
+                <div id="tab-3" class="tab-pane active">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="ibox float-e-margins">
+                                <br><br>
+                                <div class="ibox-title text-center">
+                                    <h2><strong>ماه تیر</strong></h2>
+
+                                </div>
+                                <a href="{{ data_set1 }}" download>
+                                    <div class="ibox-content text-center">
+                                        <br><br>
+                                        <button type="button" class="btn btn-w-m btn-primary">
+                                            <h3>دانلود فایل این ماه</h3>
+                                        </button>
+                                        <br><br>
+                                    </div>
+                                </a>
+                                {% if help %}
+                                    <a href="{{ help }}" download="">
+                                        <div class="ibox-content text-center">
+                                            <br><br>
+                                            <button type="button" class="btn btn-w-m btn-primary">
+                                                <h3>دانلود فایل راهنما</h3>
+                                            </button>
+                                            <br><br>
+                                        </div>
+                                    </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab-4" class="tab-pane	">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="ibox float-e-margins">
+                                <br><br>
+                                <div class="ibox-title text-center">
+                                    <h2><strong>ماه مرداد</strong></h2>
+
+                                </div>
+                                <a href="{{ data_set2 }}" download>
+                                    <div class="ibox-content text-center">
+                                        <br><br>
+                                        <button type="button" class="btn btn-w-m btn-primary">
+                                            <h3>دانلود فایل این ماه</h3>
+                                        </button>
+                                        <br><br>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab-5" class="tab-pane ">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="ibox float-e-margins">
+                                <br><br>
+                                <div class="ibox-title text-center">
+                                    <h2><strong>ماه شهریور</strong></h2>
+
+                                </div>
+                                <a href="{{ data_set3 }}" download>
+                                    <div class="ibox-content text-center">
+                                        <br><br>
+                                        <button type="button" class="btn btn-w-m btn-primary">
+                                            <h3>دانلود فایل این ماه</h3>
+                                        </button>
+                                        <br><br>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="tab-7" class="tab-pane ">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="ibox float-e-margins">
+                                <br><br>
+                                <div class="ibox-title text-center">
+                                    <h2><strong>DataSet ویژه</strong></h2>
+
+                                </div>
+                                <div class="ibox-content text-center">
+                                    <br><br>
+                                    <button type="button" class="btn btn-w-m btn-primary">
+                                        <h3>دانلود فایل</h3>
+                                    </button>
+                                    <br><br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-3">
+    </div>
+{% endblock %}

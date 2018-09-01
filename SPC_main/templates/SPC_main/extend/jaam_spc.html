@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+{% extends 'base/base.html' %}
+{% block title %}
+    {{ user.username }} | پنل مدیریت تیم
+{% endblock %}
+{% block content %}
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row m-b-lg m-t-lg">
+            <div class="col-lg-12">
+                <div class="col-md-4 widget p-lg text-center">
+                    <div>
+                        <h1 class="no-margins" style="font-size:40px">
+                            {{ user.username }}
+                        </h1>
+                        <br>
+                        <h3 style="font-size:25px">{{ team.university }}</h3>
+                        <br>
+                        <small>
+                            {{ user.email }}
+                        </small>
+                        <br><br>
+                        <small>
+                            {{ team.team_bio }}
+                        </small>
+                    </div>
+
+                </div>
+                <div class="col-md-4 widget  white-bg p-lg">
+                    {% load static %}
+                    <img alt="image" class="img-circle center-block" src='{% static "img/A.png" %}' width="145px"
+                         height="145px"/>
+                    <br>
+                    <div>
+                        <span>امتیاز</span>
+                        <small class="pull-right">1200</small>
+                    </div>
+                    <br>
+                    <div class="progress progress-small">
+                        <div style="width: 60%;" class="progress-bar progress-bar-danger"></div>
+                    </div>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-primary js-upload-photos">
+                            <span class="glyphicon glyphicon-cloud-upload"></span> بارگذاری کد جدید
+                        </button>
+                        <input id="fileupload" type="file" name="code"
+                               style="display: none;"
+                               data-url="{% url 'online_match:file_upload_ajax' %}"
+                               data-form-data='{"csrfmiddlewaretoken": "{{ csrf_token }}"}'>
+                        <!-- Progress bar -->
+                        <div class="modal fade" id="modal-progress" data-backdrop="static" data-keyboard="false">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">بارگذاری .....</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="progress">
+                                            <div class="progress-bar" id="upload_progress_bar" role="progressbar"
+                                                 style="width: 0%;">0%
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 widget   p-lg">
+                    <div class="ibox">
+                        <h1 class="text-center m">
+                            <i class="fa fa-question-circle"></i>&nbsp; راهنما و توضیحات
+                        </h1>
+                        <div class="help">
+                            {% if team.competition.competition_level == 1 %}
+                                <div>
+                                    <div class="ibox-content">
+                                        <h2 class="text-center">اشاره گرهای مقدماتی</h2>
+                                        <p class="text-center"><br/>
+                                            جهت اطلاع از نوع بازی بخش مقدماتی و قوانین سرور بازی و نحوه امتیازدهی ها
+                                            فایل زیر را دانلود کرده و سپس به دقت مطالعه نمایید.
+                                        </p><br/>
+                                        <div class="text-center">
+                                            <a href="{% static 'download/spc1.pdf' %}" download>
+                                                <button type="button" class="btn btn-w-m btn-primary">
+                                                    دانلود فایل
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="ibox-content">
+                                        <h2 class="text-center">سرور مسابقه اشاره‌گرهای مقدماتی</h2>
+                                        <p class="text-center"><br/>
+                                        </p><br/>
+                                        <div class="text-center">
+                                            <a href="{% static 'download/Agon/Agon_server_V1.zip' %}" download>
+                                                <button type="button" class="btn btn-w-m btn-primary">
+                                                    دانلود فایل سرور
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="ibox-content">
+                                        <h2 class="text-center">کلاینت Python مسابقه اشاره‌گرهای مقدماتی</h2>
+                                        <p class="text-center"><br/>
+                                        </p><br/>
+                                        <div class="text-center">
+
+                                            <a href="/media/Download/SPC/Agon/Client/Python_agon_client_V1.zip"
+                                               download>
+                                                <button type="button" class="btn btn-w-m btn-primary">
+                                                    دانلود فایل کلاینت Python
+                                                </button>
+                                            </a>
+                                            <br><br>
+                                            <a href="/media/Download/SPC/Agon/Client/java-agon-client-ver1.rar"
+                                               download>
+                                                <button type="button" class="btn btn-w-m btn-primary">
+                                                    دانلود فایل کلاینت Java
+                                                </button>
+                                            </a>
+                                            <br><br>
+                                            <a href="/media/Download/SPC/Agon/Client/C++%20Agon%20Client%20v1.rar"
+                                               download>
+                                                <button type="button" class="btn btn-w-m btn-primary">
+                                                    دانلود فایل کلاینت ++C
+                                                </button>
+                                            </a>
+                                            <br><br>
+                                            <a href="/media/Download/SPC/Agon/Client/Client_help.zip"
+                                               download>
+                                                <button type="button" class="btn btn-w-m btn-primary">
+                                                    فایل راهنمای کلاینت‌ها
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            {% elif team.competition.competition_level == 2 %}
+                                <div>
+                                    <div class="ibox-content">
+                                        <h2 class="text-center">اشاره گرهای پیشرفته </h2>
+                                        <p class="text-center"><br/>
+                                            جهت اطلاع از نوع بازی بخش پیشرفته و قوانین بازی و نحوه امتیازدهی ها فایل
+                                            زیر را دانلود کرده و سپس به دقت مطالعه نمایید.
+                                        </p><br/>
+                                        <div class="text-center">
+                                            <a href="{% static 'download/spc2.pdf' %}" download>
+                                                <button type="button" class="btn btn-w-m btn-primary">
+                                                    دانلود فایل
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="ibox-content">
+                                        <h2 class="text-center">سرور مسابقه اشاره‌گرهای پیشرفته</h2>
+                                        <p class="text-center"><br/>
+                                        </p><br/>
+                                        <div class="text-center">
+                                            <a href="/media/Download/SPC/Abalone/Server/Abalone_1.1.zip" download>
+                                                <button type="button" class="btn btn-w-m btn-primary">
+                                                    دانلود فایل سرور
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="ibox-content">
+                                        <h2 class="text-center">کلاینت‌های مسابقه اشاره‌گرهای پیشرفته</h2>
+                                        <p class="text-center"><br/>
+                                        </p><br/>
+                                        <div class="text-center">
+                                            <a href="/media/Download/SPC/Abalone/Client/Python_abalone_client_V1.zip"
+                                               download name="python_link">
+                                                <button type="button" class="btn btn-w-m btn-primary"
+                                                        style="width: 60%">
+                                                    دانلود فایل کلاینت Python
+                                                </button>
+                                            </a>
+                                            <br><br>
+                                            <a href="/media/Download/SPC/Abalone/Client/java-abalone-client-ver1.rar"
+                                               download>
+                                                <button type="button" class="btn btn-w-m btn-primary"
+                                                        style="width: 60%">
+                                                    دانلود فایل کلاینت Java
+                                                </button>
+                                            </a>
+                                            <br><br>
+                                            <a href="/media/Download/SPC/Abalone/Client/C++%20Abalone%20Client%20v1.rar"
+                                               download>
+                                                <button type="button" class="btn btn-w-m btn-primary"
+                                                        style="width: 60%">
+                                                    دانلود فایل کلاینت ++C
+                                                </button>
+                                            </a>
+                                            <br><br>
+                                            <a href="/media/Download/SPC/Abalone/Client/Client_help.zip"
+                                               download>
+                                                <button type="button" class="btn btn-w-m btn-primary"
+                                                        style="width: 60%">
+                                                    فایل راهنمای کلاینت‌ها
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>لیست اعضای تیم</h5>
+
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <table class="footable table table-stripped toggle-arrow-tiny">
+                            <thead>
+                            <tr>
+                                <th data-toggle="true">نام خانوادگی</th>
+                                <th>نام</th>
+                                <th>مقطع</th>
+                                <th data-hide="all">رایانامه</th>
+                                <th data-hide="all">ورودی</th>
+                                <th data-hide="all">فارغ التحصیل</th>
+                                <th data-hide="all">توانایی ها</th>
+                                <th>دانشگاه</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for my_user in members %}
+                                {% if my_user.user_fname != '' and my_user.user_lname != '' %}
+                                    <tr>
+                                        <td>&nbsp;&nbsp;{{ my_user.user_lname }}</td>
+                                        <td>{{ my_user.user_fname }}</td>
+                                        <td>{{ my_user.grade }}</td>
+                                        <td>&nbsp;&nbsp;{{ my_user.email }}</td>
+                                        <td>&nbsp;&nbsp;{{ my_user.entrance_year }}</td>
+                                        <td>&nbsp;&nbsp;{{ my_user.graduate_year }}</td>
+                                        <td>&nbsp;&nbsp;{{ my_user.skills }}</td>
+                                        <td>{{ my_user.university }}</td>
+                                    </tr>
+                                {% endif %}
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <!-- Upload Code -->
+    <script src="{% static 'js/jQuery-File-Upload-9.14.1/js/vendor/jquery.ui.widget.js' %}"></script>
+    <script src="{% static 'js/jQuery-File-Upload-9.14.1/js/jquery.iframe-transport.js' %}"></script>
+    <script src="{% static 'js/jQuery-File-Upload-9.14.1/js/jquery.fileupload.js' %}"></script>
+    <script src="{% static 'js/photo_upload.js' %}"></script>
+
+    <script>
+        $(document).ready(function () {
+
+
+            $('.help').slick({
+
+                rtl: true,
+                prevArrow: "<div class='a-left control-c prev slick-prev' src=''>",
+                nextArrow: "<div class='a-right control-c next slick-next' src=''>"
+            });
+
+
+            $('.footable').footable();
+        });
+    </script>
+{% endblock %}

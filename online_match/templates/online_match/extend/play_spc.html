@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+{% extends 'base/base.html' %}
+{% block title %}{{ user.username }} | بازی دوستانه {% endblock %}
+{% block head %}
+    {% load static %}
+    <link href="{% static 'css/plugins/toastr/toastr.min.css' %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="widget-head-color-box navy-bg p-lg text-center">
+                    <div class="m-b-md">
+                        <h2 class="font-bold no-margins">
+                            {{ user.username }}
+                        </h2>
+                        <small>{{ login_team.university }}</small>
+                    </div>
+                    <img src="{{ login_team.logo_image.url }}" class="img-circle circle-border m-b-md" alt="profile"
+                         height="150" width="150">
+                    <h1 class="media-heading">A</h1>
+                </div>
+                <div class="widget-text-box">
+                    <div>
+                        <div>
+                            <span>امتیاز</span>
+                            <span class="pull-right">80</span>
+                        </div>
+                        <div class="progress progress-small">
+                            <div style="width: 50%;" class="progress-bar"></div>
+                        </div>
+                    </div>
+                    <h4 class="media-heading">انتخاب کد</h4>
+                    <select class="form-control m-b" name="codes" id="team1_select_list">
+                        {% for code in codes %}
+                            <option id="{{ forloop.counter }}">{{ code }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="widget p-lg text-center">
+                    <div class="m-b-md " id="game_state" align="center">
+                        <i class="fa fa-trophy fa-larg"></i>
+                        <h1 class="font-bold no-margins">
+                            <i class="fa fa-handshake-o fa-2x"></i>
+                            <br><br>در برابر
+                        </h1>
+                    </div>
+                </div>
+                <a href="#" id="start-link" style="color:white;" class="m-b-md" onclick="ajax_team_data()"
+                   name="start-btn">
+                    <div class="widget  red-bg p-lg text-center" id="start-box">
+                        <i class="fa fa-flash fa-6x"></i>
+                        <h1 class="font-bold no-margins">
+                            شروع
+                        </h1>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4">
+                <div class="widget-head-color-box yellow-bg p-lg text-center">
+                    <div class="m-b-md">
+                        <h2 class="font-bold no-margins" id="h2_team2_name">
+                            آرمانکده
+                        </h2>
+                        <small id="university_small">شرکت آرمان رایان شریف</small>
+                    </div>
+                    <img src="{% static 'img/armankadeh.png' %}" class="img-circle circle-border m-b-md"
+                         alt="profile" height="150" width="150" id="image_team2">
+                    <h1 class="media-heading">A</h1>
+                </div>
+                <div class="widget-text-box">
+                    <div>
+                        <div>
+                            <span>امتیاز</span>
+                            <span class="pull-right">100</span>
+                        </div>
+                        <div class="progress progress-small">
+                            <div style="width: 66%;" class="progress-bar progress-bar-warning"></div>
+                        </div>
+                    </div>
+                    <h4 class="media-heading">انتخاب تیم</h4>
+                    <select class="form-control m-b" name="codes" onchange="set_team2_data()"
+                            id="team2_select_list">
+                        <option value="1">آرمانکده</option>
+                        <option value="2">تصادفی</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script src="{% static 'js/ajax_play.js' %}"></script>
+    <script src="{% static 'js/plugins/toastr/toastr.min.js' %}"></script>
+{% endblock %}
