@@ -241,3 +241,14 @@ online_match/ports/5000/client2/
 online_match/ports/5000/server/__pycache__/
 setting/migrations/
 celery1
+celery1-1.log
+/celery1.log
+/celery1-2.log
+/celery1-4.log
+/celery1-3.log
+/celery1-8.log
+/celery1-5.log
+/celery1-6.log
+/celery1-7.log
+/celery_pid
+/test.json

@@ -1,20 +1,22 @@
-import logic_manager
-import io_manager
-import graphic_manager
-import CONST
+import threading
+
+import online_match.ports.server.logic_manager as logic_manager
+import online_match.ports.server.io_manager as io_manager
+import online_match.ports.server.graphic_manager as graphic_manager
+import online_match.ports.server.CONST as CONST
 import os
 import requests
 
 
 class GameManager:
-    def __init__(self):
+    def __init__(self, condition_variable):
         self.graphic_manager = graphic_manager.GraphicManager()
-        self.io_manager = io_manager.IOManager(self.graphic_manager)
+        self.io_manager = io_manager.IOManager(self.graphic_manager, condition_variable)
         self.logic_manager = logic_manager.LogicManager()
         self.game_finish = -1
-        self.log_file = open('../LogViewer/test.AbaloneLog', 'w')
+        self.log_file = open('online_match/ports/server/test.AbaloneLog', 'w')
 
-    def start(self):
+    def start(self,win):
         self.io_manager.init_IO()
         self.log_file.write(
             self.io_manager.input_manager[0].name + '|' + self.io_manager.input_manager[1].name + '\n')
@@ -32,7 +34,7 @@ class GameManager:
                     output = self.logic_manager.play(input)
                     print("output : ", output)
                     if output.get("Last_Change", {}).get("ID", -2) == 1 or \
-                            output.get("Last_Change", {}).get("ID", -2) == 2:
+                                    output.get("Last_Change", {}).get("ID", -2) == 2:
                         self.logic_manager.round += 0.5
                         self.io_manager.change_input_turn()
                         self.log_file.write(self.creat_log_line(
@@ -66,11 +68,14 @@ class GameManager:
             print(msg % (1, self.io_manager.input_manager[0].name))
             self.log_file.write(
                 msg % (1, self.io_manager.input_manager[0].name) + '\n')
+
         elif self.game_finish == 2:
             print(msg % (2, self.io_manager.input_manager[1].name))
             self.log_file.write(
                 msg % (2, self.io_manager.input_manager[1].name) + '\n')
         self.io_manager.set_output({"ID": 5})
+        win[0] = self.game_finish
+        return self.game_finish
         # self.log_file.close()
 
     def creat_log_line(self, last_change):
@@ -83,8 +88,9 @@ class GameManager:
 
 
 if __name__ == "__main__":
-    print(os.getcwd())
-    game_manager = GameManager()
+    print('WTF', os.getcwd())
+    cv = threading.Condition()
+    game_manager = GameManager(cv)
     game_manager.start()
     # input("press any key to continue")
     url = "http://127.0.0.1:8000/online_match_result"

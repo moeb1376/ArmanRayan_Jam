@@ -1,11 +1,15 @@
 #!/bin/bash
 #cd
+pwd > /home/moeb/Desktop/pwd.txt
+echo $$ > /home/moeb/Desktop/$3.txt
+echo $3
 cd $1
 if [ $2 == 'C++' ]
 then
 	echo c++ is running
 #	cmake -G "Unix Makefiles"
 #	make
+#	./Abalone
 	./Abalone 2>&1 > /dev/null
 elif [ $2 == 'Python3' ]
 then

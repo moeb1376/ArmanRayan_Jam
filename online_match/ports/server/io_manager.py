@@ -3,7 +3,7 @@ import random
 import socket
 import threading
 import time
-import CONST
+import online_match.ports.server.CONST as CONST
 
 
 class MySocket:
@@ -67,7 +67,7 @@ class MySocket:
 
 
 class IOManager:
-    def __init__(self, graphic_manager):
+    def __init__(self, graphic_manager, condition_variable):
         self.graphic_manager = graphic_manager
         self.input_turn = 0
         self.input_manager = []
@@ -75,6 +75,7 @@ class IOManager:
         self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.host = CONST.ServerSocket.SERVER_HOST
         self.port = CONST.ServerSocket.SERVER_PORT
+        self.cv = condition_variable
 
     def init_IO(self):
         self.build_server()
@@ -99,6 +100,8 @@ class IOManager:
                 self.output_manager.append(client_socket)
                 print('client', i + 1, 'with address', socket_address,
                       " and name ", client_socket.name, 'added')
+                with self.cv:
+                    self.cv.notify()
                 # self.graphic_manager.draw_menu_name(client_socket.name)
         self.server_socket.close()
 

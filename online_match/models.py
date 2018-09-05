@@ -1,3 +1,6 @@
+import random
+import time
+
 from django.db import models
 from register.models import Team
 from django.db.models.signals import post_save, pre_save
@@ -26,10 +29,12 @@ class Match(models.Model):
     team1 = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="Team1")
     team2 = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="Team2")
     is_running = models.BooleanField(default=False, blank=True)
-    log_file = models.FileField(null=True, blank=True, upload_to=upload_match_log)
+    log_file = models.CharField(max_length=300, default="", null=True, blank=True)
+    # log_file = models.FileField(null=True, blank=True, upload_to=upload_match_log)
     # winner = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="Winner_team", blank=True, null=True)
     winner = models.IntegerField(blank=True, null=True, validators=[MinValueValidator(0), MaxValueValidator(2)])
     date = models.DateField(default=now)
+    description = models.CharField(blank=True, null=True, max_length=200)
 
     def __str__(self):
         return self.team1.user_team.username + " vs " + self.team2.user_team.username
@@ -39,8 +44,12 @@ def upload_code_address(instance, filename):
     type = filename.split('.')[-1]
     competition_name = 'SPC' if instance.team.competition.competition_level < 3 else 'IAC'
     team_id = instance.team.id
-    logo_name = (str(team_id) + filename.split('.')[0]).encode()
-    return "Codes/%s/%d/%s.%s" % (competition_name, team_id, sha256(logo_name).hexdigest(), type)
+    hash_name = sha256((str(team_id) + filename.split('.')[0]).encode()).hexdigest()
+    random_int = random.randint(0, len(hash_name) - 5)
+    secret_key = hash_name[random_int:random_int + 4]
+    date = time.strftime("%y%m%d_%H%M%S")
+    # return "Codes/%s/%d/%s.%s" % (competition_name, team_id, sha256(logo_name).hexdigest(), type)
+    return "Codes/%s/%d/%d_%s_%s.%s" % (competition_name, team_id, team_id, date, secret_key, type)
 
 
 class Code(models.Model):
@@ -75,6 +84,7 @@ def set_version(sender, instance, **kwargs):
         first_code = query.first()
         os.remove(os.path.join(MEDIA_ROOT, os.path.relpath(first_code.code.url, MEDIA_URL)))
         first_code.delete()
+    # emails = ['ebimosi14@gmail.com']
     emails = ['v_savabieh@yahoo.com', 'v.savabieh12@gmail.com', 'ebimosi14@gmail.com', 'j.agheleh@yahoo.com']
     messages = ['تیم ' + instance.team.user_team.username, 'در مسابقات ' + instance.team.competition.competition_name,
                 'کد آپلود کرد.', instance.team.user_team.email]
