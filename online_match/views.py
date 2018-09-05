@@ -100,7 +100,7 @@ def play_online_ajax(request):
             'random_loading': loading
         }
         random_team_code = Code.objects.filter(team=random_team, human_checked=True).order_by(id)
-        start_game(user_team, random_team, user_team_code, random_team_code)
+        start_game.delay(user_team, random_team, user_team_code, random_team_code)
         # m = Match(team1=random_team, team2=user_team, is_running=True)
         # m.save()
     return JsonResponse(data)
