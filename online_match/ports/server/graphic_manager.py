@@ -1,3 +1,4 @@
+import os
 import pygame
 import sys
 import time
@@ -17,16 +18,17 @@ class GraphicManager:
         self.menu_height = 400
         self.menu_surface = None
         self.name = []
-        self.board = pygame.image.load("abalone_board_game_2.png")
-        self.w_marble = pygame.image.load("white.png")
-        self.b_marble = pygame.image.load('black.png')
+        print(os.getcwd())
+        self.board = pygame.image.load("online_match/ports/server/abalone_board_game_2.png")
+        self.w_marble = pygame.image.load("online_match/ports/server/white.png")
+        self.b_marble = pygame.image.load('online_match/ports/server/black.png')
         self.points_rect = [0, 0]
 
     def set_output(self, msg):
         self.draw(msg)
 
     def draw_name(self, name1, name2):
-        font = pygame.font.Font("IMMORTAL.ttf", 18)
+        font = pygame.font.Font("online_match/ports/server/IMMORTAL.ttf", 18)
         text_surface = font.render(name2, 1, white, black)
         text_rect = text_surface.get_rect()
         text_rect.topright = (self.display_width - 1, 0)
@@ -92,7 +94,7 @@ class GraphicManager:
             (self.menu_width, self.menu_height))
         self.menu_surface.fill(menu_main_color)
         pygame.display.update()
-        font = pygame.font.Font("freesansbold.ttf", 30)
+        font = pygame.font.Font("online_match/ports/server/freesansbold.ttf", 30)
         text_surface = font.render("Waiting...", 1, white, menu_second_color)
         text_rect = text_surface.get_rect()
         text_rect.center = (self.menu_width / 2, self.menu_height / 4)
@@ -103,7 +105,7 @@ class GraphicManager:
 
     def draw_menu_name(self, text):
         self.name.append(text)
-        font = pygame.font.Font("freesansbold.ttf", 30)
+        font = pygame.font.Font("online_match/ports/server/freesansbold.ttf", 30)
         text_surface = font.render(
             text + " is connected", 1, white, menu_second_color)
         text_rect = text_surface.get_rect()
@@ -128,7 +130,7 @@ class GraphicManager:
             pygame.display.update()
 
     def draw_points(self, points):
-        font = pygame.font.Font("IMMORTAL.ttf", 18)
+        font = pygame.font.Font("online_match/ports/server/IMMORTAL.ttf", 18)
         text_surface = font.render("{:<5}".format(
             str(points[0])), 1, (255, 255, 255), (0, 0, 0))
         text_rect = text_surface.get_rect()

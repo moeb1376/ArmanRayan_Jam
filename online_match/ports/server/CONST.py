@@ -2,10 +2,10 @@ class ServerSocket:
     SERVER_HOST = '127.0.0.1'
     SERVER_PORT = 5000
     CLIENT_NUMBER = CLIENT_SOCKET_NUMBER = 2
-    TIME_OUT = 4
+    TIME_OUT = 400
     MAX_DATA_RECV_SIZE = 2048
     MAX_DATA_SEND_SIZE = 2048
-    MAX_TIME_RECV = 180
+    MAX_TIME_RECV = 1800
 
 
 class EstablishConnection:
@@ -37,7 +37,8 @@ class IOMsg:
 
 class Game:
     MARBLE_WIN = 8
-    MAX_ROUND = 150.0
+    # MAX_ROUND = 2.0
+    MAX_ROUND = 5.0
 
 
 def convert_coordinate(coordinate):

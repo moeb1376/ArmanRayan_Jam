@@ -1,1 +1,2694 @@
-[{"model": "contenttypes.contenttype", "pk": 1, "fields": {"app_label": "admin", "model": "logentry"}}, {"model": "contenttypes.contenttype", "pk": 2, "fields": {"app_label": "auth", "model": "permission"}}, {"model": "contenttypes.contenttype", "pk": 3, "fields": {"app_label": "auth", "model": "group"}}, {"model": "contenttypes.contenttype", "pk": 4, "fields": {"app_label": "auth", "model": "user"}}, {"model": "contenttypes.contenttype", "pk": 5, "fields": {"app_label": "contenttypes", "model": "contenttype"}}, {"model": "contenttypes.contenttype", "pk": 6, "fields": {"app_label": "sessions", "model": "session"}}, {"model": "contenttypes.contenttype", "pk": 7, "fields": {"app_label": "main", "model": "competition"}}, {"model": "contenttypes.contenttype", "pk": 8, "fields": {"app_label": "main", "model": "grade"}}, {"model": "contenttypes.contenttype", "pk": 9, "fields": {"app_label": "main", "model": "university"}}, {"model": "contenttypes.contenttype", "pk": 10, "fields": {"app_label": "main", "model": "language"}}, {"model": "contenttypes.contenttype", "pk": 11, "fields": {"app_label": "main", "model": "mentor"}}, {"model": "contenttypes.contenttype", "pk": 12, "fields": {"app_label": "register", "model": "test"}}, {"model": "contenttypes.contenttype", "pk": 13, "fields": {"app_label": "register", "model": "team"}}, {"model": "contenttypes.contenttype", "pk": 14, "fields": {"app_label": "register", "model": "myuser"}}, {"model": "contenttypes.contenttype", "pk": 15, "fields": {"app_label": "online_match", "model": "code"}}, {"model": "contenttypes.contenttype", "pk": 16, "fields": {"app_label": "online_match", "model": "match"}}, {"model": "contenttypes.contenttype", "pk": 17, "fields": {"app_label": "SPC_main", "model": "cup"}}, {"model": "sessions.session", "pk": "75ocmcmtj04ge95z5ujhuo4y4unufdt1", "fields": {"session_data": "MWEwOTgwMDAxZGZjN2VjZWFjZjkzMTRhMzJmYzhkMDA2ZmRkZGIwZDp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI3Mjc0ODljNzQ5NGQyYmUyNzg4OTI3OWMwYWJmZWQyNDMxMWI3YmE1In0=", "expire_date": "2018-05-30T04:43:17.969Z"}}, {"model": "sessions.session", "pk": "fyufjuc7dvx4x8ggyn7vq0963zrs5pia", "fields": {"session_data": "NGVmYmI0ODFlNDg2OWJlYWIxYWY2YWE1M2M0OThiMzkwZTQwMzg4MDp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIyYjFmYzFlY2MyODRhOGNjNmViMTllYWU0NTAzOTY1YjQyOWMyZTVlIn0=", "expire_date": "2018-06-07T10:37:18.928Z"}}, {"model": "sessions.session", "pk": "y0yvo6dd4foe52pqdxzaws2ml0qt74e8", "fields": {"session_data": "NWM0OGNhNjBlNDhkMjA0NmVhZWRkZDA2ZmZlYjMwMTExNzcyNjc0Mjp7Il9hdXRoX3VzZXJfaWQiOiI1IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI1NzY3MDc1MzFlYzc3M2ZlMmRkNmIzMTkxMDA4NzE3YzM3YmNiZDcyIn0=", "expire_date": "2018-06-23T10:41:21.075Z"}}, {"model": "sessions.session", "pk": "zlc37f1wv0ghw4g71yyzj8c4ynjm5fvr", "fields": {"session_data": "YzNkZDY0ZmIzNDZmNzgzOTdkZGU0Mzc1NzI3M2FiM2IyMjdkMDQ4NDp7Il9hdXRoX3VzZXJfaWQiOiI0IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI0YWU4YTkxMzc5YjM5NzkwYjg5YjZlMTgxYTBhZGUxNGNlMmE4NDU1In0=", "expire_date": "2018-06-02T13:14:46.870Z"}}, {"model": "main.competition", "pk": 1, "fields": {"competition_name": "\u0647\u0648\u0634 \u0628\u0627\u0632\u06cc- SPC \u0645\u0642\u062f\u0645\u0627\u062a\u06cc", "competition_level": 1}}, {"model": "main.competition", "pk": 2, "fields": {"competition_name": "\u0647\u0648\u0634 \u0628\u0627\u0632\u06cc- SPC \u067e\u06cc\u0634\u0631\u0641\u062a\u0647", "competition_level": 2}}, {"model": "main.competition", "pk": 3, "fields": {"competition_name": "\u067e\u0631\u062f\u0627\u0632\u0634 \u062a\u0635\u0648\u06cc\u0631 IAC-IP", "competition_level": 5}}, {"model": "main.competition", "pk": 4, "fields": {"competition_name": "\u067e\u0631\u062f\u0627\u0632\u0634 \u0635\u0648\u062a IAC-SP", "competition_level": 4}}, {"model": "main.competition", "pk": 5, "fields": {"competition_name": "\u067e\u0631\u062f\u0627\u0632\u0634 \u0645\u062a\u0646 IAC-TP", "competition_level": 3}}, {"model": "main.grade", "pk": 1, "fields": {"grade_name": "\u06a9\u0627\u0631\u0634\u0646\u0627\u0633\u06cc"}}, {"model": "main.grade", "pk": 2, "fields": {"grade_name": "\u06a9\u0627\u0631\u0634\u0646\u0627\u0633\u06cc\u200c\u0627\u0631\u0634\u062f"}}, {"model": "main.grade", "pk": 3, "fields": {"grade_name": "\u062f\u06a9\u062a\u0631\u0627"}}, {"model": "main.university", "pk": 1, "fields": {"university_name": "\u062a\u0647\u0631\u0627\u0646", "university_city": "\u062a\u0647\u0631\u0627\u0646"}}, {"model": "main.university", "pk": 2, "fields": {"university_name": "\u0635\u0646\u0639\u062a\u06cc \u0634\u0631\u06cc\u0641", "university_city": "\u062a\u0647\u0631\u0627\u0646"}}, {"model": "main.university", "pk": 3, "fields": {"university_name": "\u0639\u0644\u0645\u200c\u0648\u200c\u0635\u0646\u0639\u062a", "university_city": "\u062a\u0647\u0631\u0627\u0646"}}, {"model": "main.university", "pk": 4, "fields": {"university_name": "\u0635\u0646\u0639\u062a\u06cc \u0627\u0645\u06cc\u0631\u06a9\u0628\u06cc\u0631", "university_city": "\u062a\u0647\u0631\u0627\u0646"}}, {"model": "main.university", "pk": 5, "fields": {"university_name": "\u0634\u0647\u06cc\u062f \u0628\u0647\u0634\u062a\u06cc", "university_city": "\u062a\u0647\u0631\u0627\u0646"}}, {"model": "main.university", "pk": 6, "fields": {"university_name": "\u062e\u0648\u0627\u0631\u0632\u0645\u06cc", "university_city": "\u062a\u0647\u0631\u0627\u0646"}}, {"model": "main.university", "pk": 7, "fields": {"university_name": "\u0635\u0646\u0639\u062a\u06cc \u062e\u0648\u0627\u062c\u0647\u200c\u0646\u0635\u06cc\u0631\u0627\u0644\u062f\u06cc\u0646 \u0637\u0648\u0633\u06cc", "university_city": "\u062a\u0647\u0631\u0627\u0646"}}, {"model": "main.language", "pk": 1, "fields": {"language_name": "Python3"}}, {"model": "main.language", "pk": 2, "fields": {"language_name": "C++"}}, {"model": "main.language", "pk": 3, "fields": {"language_name": "Java"}}, {"model": "main.language", "pk": 4, "fields": {"language_name": "Matlab"}}, {"model": "register.myuser", "pk": 1, "fields": {"user_fname": "\u0645\u0635\u0637\u0641\u06cc", "user_lname": "\u0627\u0628\u0631\u0627\u0647\u06cc\u0645\u06cc", "team": 1, "is_head": true, "email": "ebimosi14@gmail.com", "grade": 1, "skills": "", "university": 3, "entrance_year": 1394, "graduate_year": 1398}}, {"model": "register.myuser", "pk": 2, "fields": {"user_fname": "\u0633\u0631\u0648\u0634", "user_lname": "\u063a\u0644\u0627\u0645\u06cc", "team": 1, "is_head": false, "email": "s_gholami@gmail.com", "grade": 1, "skills": "", "university": 3, "entrance_year": 1394, "graduate_year": 1398}}, {"model": "register.myuser", "pk": 3, "fields": {"user_fname": "\u0645\u0635\u0637\u0641\u06cc", "user_lname": "\u0627\u0628\u0631\u0627\u0647\u06cc\u0645\u06cc", "team": 2, "is_head": true, "email": "ebimosi14@gmail.com", "grade": 1, "skills": "", "university": 3, "entrance_year": 1394, "graduate_year": 1398}}, {"model": "register.myuser", "pk": 4, "fields": {"user_fname": "\u0639\u0644\u06cc", "user_lname": "\u0627\u0628\u0631\u0627\u062e\u06cc\u0645\u06cc", "team": 3, "is_head": true, "email": "sv@dfsa.ca", "grade": 3, "skills": "", "university": 1, "entrance_year": 1396, "graduate_year": 1400}}, {"model": "register.myuser", "pk": 5, "fields": {"user_fname": "\u0642\u0644\u06cc", "user_lname": "\u0642\u0644\u06cc\u0627\u0646", "team": 4, "is_head": true, "email": "gholi@gholi.gholi", "grade": 1, "skills": "", "university": 1, "entrance_year": 1396, "graduate_year": 1400}}, {"model": "register.myuser", "pk": 6, "fields": {"user_fname": "\u062a\u0642\u06cc", "user_lname": "\u062a\u0642\u06cc\u0627\u0646", "team": 4, "is_head": false, "email": "taghi@taghi.taghi", "grade": 1, "skills": "", "university": 1, "entrance_year": 1396, "graduate_year": 1400}}, {"model": "SPC_main.cup", "pk": 2, "fields": {"cup_number": 1, "competition": 1, "team": 4}}, {"model": "SPC_main.cup", "pk": 5, "fields": {"cup_number": 1, "competition": 5, "team": 3}}, {"model": "online_match.match", "pk": 7, "fields": {"team1": 5, "team2": 4, "is_running": false, "log_file": "", "winner": null, "date": "2018-05-30"}}, {"model": "online_match.match", "pk": 8, "fields": {"team1": 5, "team2": 4, "is_running": false, "log_file": "", "winner": null, "date": "2018-05-31"}}, {"model": "online_match.match", "pk": 9, "fields": {"team1": 5, "team2": 4, "is_running": false, "log_file": "", "winner": null, "date": "2018-05-31"}}, {"model": "online_match.match", "pk": 10, "fields": {"team1": 5, "team2": 4, "is_running": false, "log_file": "", "winner": null, "date": "2018-05-31"}}, {"model": "online_match.match", "pk": 11, "fields": {"team1": 5, "team2": 4, "is_running": false, "log_file": "", "winner": null, "date": "2018-05-31"}}, {"model": "online_match.code", "pk": 1, "fields": {"code": "Codes/SPC/1/f5730165bd6df46e447e5ce2140b3d866a2a1976f942211481fe37b5f91c1f69.pdf", "version": 0, "team": 1}}, {"model": "online_match.code", "pk": 2, "fields": {"code": "Codes/SPC/1/38a4a3c5d2bde1400b7e1f1aa85b8035b7aa81695145a38a6fe76c8c79b06f83.pdf", "version": 1, "team": 1}}, {"model": "online_match.code", "pk": 3, "fields": {"code": "Codes/IAC/2/7930b2e3889f5d290d212eb66ac1854e2677c71ad65cacc309fa8c322ebc6fad.ppt", "version": 0, "team": 2}}, {"model": "online_match.code", "pk": 4, "fields": {"code": "Codes/SPC/4/1460bd13c86c880d20c11b70a61c7d9d6b5924db4169e93988a2d7e0ee6d4813.pdf", "version": 0, "team": 4}}, {"model": "online_match.code", "pk": 5, "fields": {"code": "Codes/SPC/5/a4be07c43060dd2dd684844307b35afe64d7d4463fcff0e70123cd64b50912ae.pdf", "version": 0, "team": 5}}, {"model": "auth.permission", "pk": 1, "fields": {"name": "Can add log entry", "content_type": 1, "codename": "add_logentry"}}, {"model": "auth.permission", "pk": 2, "fields": {"name": "Can change log entry", "content_type": 1, "codename": "change_logentry"}}, {"model": "auth.permission", "pk": 3, "fields": {"name": "Can delete log entry", "content_type": 1, "codename": "delete_logentry"}}, {"model": "auth.permission", "pk": 4, "fields": {"name": "Can add permission", "content_type": 2, "codename": "add_permission"}}, {"model": "auth.permission", "pk": 5, "fields": {"name": "Can change permission", "content_type": 2, "codename": "change_permission"}}, {"model": "auth.permission", "pk": 6, "fields": {"name": "Can delete permission", "content_type": 2, "codename": "delete_permission"}}, {"model": "auth.permission", "pk": 7, "fields": {"name": "Can add group", "content_type": 3, "codename": "add_group"}}, {"model": "auth.permission", "pk": 8, "fields": {"name": "Can change group", "content_type": 3, "codename": "change_group"}}, {"model": "auth.permission", "pk": 9, "fields": {"name": "Can delete group", "content_type": 3, "codename": "delete_group"}}, {"model": "auth.permission", "pk": 10, "fields": {"name": "Can add user", "content_type": 4, "codename": "add_user"}}, {"model": "auth.permission", "pk": 11, "fields": {"name": "Can change user", "content_type": 4, "codename": "change_user"}}, {"model": "auth.permission", "pk": 12, "fields": {"name": "Can delete user", "content_type": 4, "codename": "delete_user"}}, {"model": "auth.permission", "pk": 13, "fields": {"name": "Can add content type", "content_type": 5, "codename": "add_contenttype"}}, {"model": "auth.permission", "pk": 14, "fields": {"name": "Can change content type", "content_type": 5, "codename": "change_contenttype"}}, {"model": "auth.permission", "pk": 15, "fields": {"name": "Can delete content type", "content_type": 5, "codename": "delete_contenttype"}}, {"model": "auth.permission", "pk": 16, "fields": {"name": "Can add session", "content_type": 6, "codename": "add_session"}}, {"model": "auth.permission", "pk": 17, "fields": {"name": "Can change session", "content_type": 6, "codename": "change_session"}}, {"model": "auth.permission", "pk": 18, "fields": {"name": "Can delete session", "content_type": 6, "codename": "delete_session"}}, {"model": "auth.permission", "pk": 19, "fields": {"name": "Can add competition", "content_type": 7, "codename": "add_competition"}}, {"model": "auth.permission", "pk": 20, "fields": {"name": "Can change competition", "content_type": 7, "codename": "change_competition"}}, {"model": "auth.permission", "pk": 21, "fields": {"name": "Can delete competition", "content_type": 7, "codename": "delete_competition"}}, {"model": "auth.permission", "pk": 22, "fields": {"name": "Can add grade", "content_type": 8, "codename": "add_grade"}}, {"model": "auth.permission", "pk": 23, "fields": {"name": "Can change grade", "content_type": 8, "codename": "change_grade"}}, {"model": "auth.permission", "pk": 24, "fields": {"name": "Can delete grade", "content_type": 8, "codename": "delete_grade"}}, {"model": "auth.permission", "pk": 25, "fields": {"name": "Can add university", "content_type": 9, "codename": "add_university"}}, {"model": "auth.permission", "pk": 26, "fields": {"name": "Can change university", "content_type": 9, "codename": "change_university"}}, {"model": "auth.permission", "pk": 27, "fields": {"name": "Can delete university", "content_type": 9, "codename": "delete_university"}}, {"model": "auth.permission", "pk": 28, "fields": {"name": "Can add language", "content_type": 10, "codename": "add_language"}}, {"model": "auth.permission", "pk": 29, "fields": {"name": "Can change language", "content_type": 10, "codename": "change_language"}}, {"model": "auth.permission", "pk": 30, "fields": {"name": "Can delete language", "content_type": 10, "codename": "delete_language"}}, {"model": "auth.permission", "pk": 31, "fields": {"name": "Can add mentor", "content_type": 11, "codename": "add_mentor"}}, {"model": "auth.permission", "pk": 32, "fields": {"name": "Can change mentor", "content_type": 11, "codename": "change_mentor"}}, {"model": "auth.permission", "pk": 33, "fields": {"name": "Can delete mentor", "content_type": 11, "codename": "delete_mentor"}}, {"model": "auth.permission", "pk": 34, "fields": {"name": "Can add test", "content_type": 12, "codename": "add_test"}}, {"model": "auth.permission", "pk": 35, "fields": {"name": "Can change test", "content_type": 12, "codename": "change_test"}}, {"model": "auth.permission", "pk": 36, "fields": {"name": "Can delete test", "content_type": 12, "codename": "delete_test"}}, {"model": "auth.permission", "pk": 37, "fields": {"name": "Can add team", "content_type": 13, "codename": "add_team"}}, {"model": "auth.permission", "pk": 38, "fields": {"name": "Can change team", "content_type": 13, "codename": "change_team"}}, {"model": "auth.permission", "pk": 39, "fields": {"name": "Can delete team", "content_type": 13, "codename": "delete_team"}}, {"model": "auth.permission", "pk": 40, "fields": {"name": "Can add my user", "content_type": 14, "codename": "add_myuser"}}, {"model": "auth.permission", "pk": 41, "fields": {"name": "Can change my user", "content_type": 14, "codename": "change_myuser"}}, {"model": "auth.permission", "pk": 42, "fields": {"name": "Can delete my user", "content_type": 14, "codename": "delete_myuser"}}, {"model": "auth.permission", "pk": 43, "fields": {"name": "Can add code", "content_type": 15, "codename": "add_code"}}, {"model": "auth.permission", "pk": 44, "fields": {"name": "Can change code", "content_type": 15, "codename": "change_code"}}, {"model": "auth.permission", "pk": 45, "fields": {"name": "Can delete code", "content_type": 15, "codename": "delete_code"}}, {"model": "auth.permission", "pk": 46, "fields": {"name": "Can add match", "content_type": 16, "codename": "add_match"}}, {"model": "auth.permission", "pk": 47, "fields": {"name": "Can change match", "content_type": 16, "codename": "change_match"}}, {"model": "auth.permission", "pk": 48, "fields": {"name": "Can delete match", "content_type": 16, "codename": "delete_match"}}, {"model": "auth.permission", "pk": 49, "fields": {"name": "Can add cup", "content_type": 17, "codename": "add_cup"}}, {"model": "auth.permission", "pk": 50, "fields": {"name": "Can change cup", "content_type": 17, "codename": "change_cup"}}, {"model": "auth.permission", "pk": 51, "fields": {"name": "Can delete cup", "content_type": 17, "codename": "delete_cup"}}, {"model": "auth.user", "pk": 1, "fields": {"password": "pbkdf2_sha256$100000$gdXomYX9cjAV$eAR8EyysNgq6wqJi/LgttH3ZKemrTxWv2ZPTW3Kga/A=", "last_login": "2018-05-24T10:37:18.925Z", "is_superuser": true, "username": "moeb", "first_name": "", "last_name": "", "email": "ebimosi14@gmail.com", "is_staff": true, "is_active": true, "date_joined": "2018-05-16T04:42:37.399Z", "groups": [], "user_permissions": []}}, {"model": "auth.user", "pk": 2, "fields": {"password": "pbkdf2_sha256$100000$0XcRufLT7Fmq$5wtO2cj+M93eRZlUuVmqUrllcZNeHLZIBZSHb6dpOFo=", "last_login": "2018-05-24T10:37:03.778Z", "is_superuser": false, "username": "GoHappy", "first_name": "", "last_name": "", "email": "ebimosi14@gmail.com", "is_staff": false, "is_active": true, "date_joined": "2018-05-16T06:08:39.781Z", "groups": [], "user_permissions": []}}, {"model": "auth.user", "pk": 3, "fields": {"password": "pbkdf2_sha256$100000$toIvuPa3PzYk$WOCv6M79qlTbhu+J3DRghFcKMi6tFPsLvwdUv+yZXSY=", "last_login": "2018-05-16T06:34:03.242Z", "is_superuser": false, "username": "GoHappy_iac", "first_name": "", "last_name": "", "email": "ebimosi14_iac@gmail.com", "is_staff": false, "is_active": true, "date_joined": "2018-05-16T06:10:46.579Z", "groups": [], "user_permissions": []}}, {"model": "auth.user", "pk": 4, "fields": {"password": "pbkdf2_sha256$100000$5nOAWu8uBca5$b4I/qFo2zo0W/ZGDA5xVPWLM78FT91JAfj9/rN1wkwA=", "last_login": "2018-06-09T10:13:19.537Z", "is_superuser": false, "username": "testiac", "first_name": "", "last_name": "", "email": "testiac@gmail.com", "is_staff": false, "is_active": true, "date_joined": "2018-05-16T18:11:56.767Z", "groups": [], "user_permissions": []}}, {"model": "auth.user", "pk": 5, "fields": {"password": "pbkdf2_sha256$100000$ToHtO6CW4pWR$ryhJG7UllYOjQ8wsbYCH9DPdk7dL6YWieZ2q5/8dXAQ=", "last_login": "2018-06-09T10:41:21.072Z", "is_superuser": false, "username": "testspc", "first_name": "", "last_name": "", "email": "testspc@gmail.com", "is_staff": false, "is_active": true, "date_joined": "2018-05-17T08:32:53.067Z", "groups": [], "user_permissions": []}}, {"model": "auth.user", "pk": 6, "fields": {"password": "pbkdf2_sha256$100000$xr2lIz75jsdk$JeZXPkVt+1tvMufIG/bTg1x8sSFOJEGv7zJl92epoiY=", "last_login": null, "is_superuser": false, "username": "armankadeh_1", "first_name": "", "last_name": "", "email": "armankadeh1@gmail.com", "is_staff": false, "is_active": true, "date_joined": "2018-05-21T10:38:55.433Z", "groups": [], "user_permissions": []}}, {"model": "auth.user", "pk": 7, "fields": {"password": "pbkdf2_sha256$100000$znKwj6t4By2Y$zcOSylvbilwh31bux8OcdFXGnlhzakUpMTgOmW3Fgz8=", "last_login": null, "is_superuser": false, "username": "armankadeh_2", "first_name": "", "last_name": "", "email": "armankadeh2@gmail.com", "is_staff": false, "is_active": true, "date_joined": "2018-05-21T10:39:37.915Z", "groups": [], "user_permissions": []}}
+[
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+      "app_label": "auth",
+      "model": "user"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+      "app_label": "main",
+      "model": "competition"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+      "app_label": "main",
+      "model": "grade"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+      "app_label": "main",
+      "model": "university"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+      "app_label": "main",
+      "model": "language"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+      "app_label": "main",
+      "model": "mentor"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": {
+      "app_label": "register",
+      "model": "team"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields": {
+      "app_label": "register",
+      "model": "myuser"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 14,
+    "fields": {
+      "app_label": "SPC_main",
+      "model": "cup"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 15,
+    "fields": {
+      "app_label": "online_match",
+      "model": "match"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 16,
+    "fields": {
+      "app_label": "online_match",
+      "model": "code"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 17,
+    "fields": {
+      "app_label": "SPC_main",
+      "model": "tournament"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 18,
+    "fields": {
+      "app_label": "django_celery_results",
+      "model": "taskresult"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "0ayh5umx09hzxktaazj8bjwhqiigbkjy",
+    "fields": {
+      "session_data": "YmJkOWJmOTAzNzYwYWY3YTQ2MDg4ZThkYTMxNDI3NDZkMTcyMjI1MTp7Il9hdXRoX3VzZXJfaWQiOiIyIiwiX2F1dGhfdXNlcl9oYXNoIjoiZTUwNjJmNDA4YjdkOTVmYTU4M2NkMTQxZTdmMDU2OGY0OTdmMzBjYyIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+      "expire_date": "2018-08-18T05:18:21.513Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "2myyqrrlze8csexynto5861wofxfqh7d",
+    "fields": {
+      "session_data": "MTI4MDkxODNhN2Y0NmIzMTgxNGM1ZmVjOWMyNDM2OWI1N2M0YWU0ZDp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiZTUwNjJmNDA4YjdkOTVmYTU4M2NkMTQxZTdmMDU2OGY0OTdmMzBjYyIsIl9hdXRoX3VzZXJfaWQiOiIyIn0=",
+      "expire_date": "2018-07-18T08:20:38.843Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "37ela013lqde2ytf22mp9iu7zx453066",
+    "fields": {
+      "session_data": "MmRlZjI2MTRhNmE1NTg0ODgxZDA5Zjg3MDMyOWY5OWIzMjc0YzVmYzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiZTgyYTAzY2U0NmY1NDUxZTM0YjU0NmNjZGY4NmVkYTNlZjdiMDgyZCIsIl9hdXRoX3VzZXJfaWQiOiIxIn0=",
+      "expire_date": "2018-07-28T10:43:45.372Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "722qa6ecnyegyuj1mpee0egqsvd997fv",
+    "fields": {
+      "session_data": "ZWJiN2IxZTE5ZjhmODJiYjdmZDNhZGQ3YTg2MTU0YzIyNzg0MjdhYzp7Il9hdXRoX3VzZXJfaGFzaCI6ImU1MDYyZjQwOGI3ZDk1ZmE1ODNjZDE0MWU3ZjA1NjhmNDk3ZjMwY2MiLCJfYXV0aF91c2VyX2lkIjoiMiIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+      "expire_date": "2018-07-02T14:49:44.077Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "gg2h9j62n0swbx83xartm058ofu6vlq1",
+    "fields": {
+      "session_data": "YTcxZWIzYWEzODQ5ZjdmYTUxM2ExNDhlZjM3NjRjYWFhZDY4NDQ2Mzp7Il9hdXRoX3VzZXJfaWQiOiIyIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJlNTA2MmY0MDhiN2Q5NWZhNTgzY2QxNDFlN2YwNTY4ZjQ5N2YzMGNjIn0=",
+      "expire_date": "2018-08-18T08:31:19.452Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "mria3e1hf8xzzzztx0hg00ebrar5nv28",
+    "fields": {
+      "session_data": "YzEyNGRmZjgxOWZmNTNmZjgxZDg2YzgxNjZiNDBkMjkyMTE1ZmMzZTp7Il9hdXRoX3VzZXJfaGFzaCI6ImU4MmEwM2NlNDZmNTQ1MWUzNGI1NDZjY2RmODZlZGEzZWY3YjA4MmQiLCJfYXV0aF91c2VyX2lkIjoiMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+      "expire_date": "2018-06-23T13:28:51.290Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "tb7aczqn52lp637ac86mopz81ltzeus9",
+    "fields": {
+      "session_data": "YzEyNGRmZjgxOWZmNTNmZjgxZDg2YzgxNjZiNDBkMjkyMTE1ZmMzZTp7Il9hdXRoX3VzZXJfaGFzaCI6ImU4MmEwM2NlNDZmNTQ1MWUzNGI1NDZjY2RmODZlZGEzZWY3YjA4MmQiLCJfYXV0aF91c2VyX2lkIjoiMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=",
+      "expire_date": "2018-08-13T12:01:55.945Z"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 1,
+    "fields": {
+      "task_id": "7325f34c-db8e-4da6-a408-7bfb4f2e4847",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "null",
+      "date_done": "2018-07-28T08:52:13.621Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 2,
+    "fields": {
+      "task_id": "18b6042e-4d08-494f-b519-385912996b0f",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "null",
+      "date_done": "2018-07-28T08:52:14.698Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 3,
+    "fields": {
+      "task_id": "61c2d40d-4850-439e-9d98-48ad447471dd",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "null",
+      "date_done": "2018-07-28T08:52:41.903Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 4,
+    "fields": {
+      "task_id": "30d6589b-3981-4c50-9c2c-c5bc825d2514",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "null",
+      "date_done": "2018-07-28T08:55:40.888Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 5,
+    "fields": {
+      "task_id": "8e243b6c-0408-49f0-a014-d7869c3ba813",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "null",
+      "date_done": "2018-07-28T08:56:26.099Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 6,
+    "fields": {
+      "task_id": "6f6b527a-59bc-48a2-8bea-e61b3af8a7f5",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "null",
+      "date_done": "2018-07-28T08:56:50.487Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 7,
+    "fields": {
+      "task_id": "72096e31-acf0-4c55-9406-e408b8c50c0d",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "null",
+      "date_done": "2018-07-28T08:56:50.496Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 8,
+    "fields": {
+      "task_id": "5a9e1005-8cf8-42c1-9cb8-38e2c734b154",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "null",
+      "date_done": "2018-07-28T08:57:19.295Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 9,
+    "fields": {
+      "task_id": "5f63db69-6385-4194-8c12-82c0743f524c",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "null",
+      "date_done": "2018-07-28T08:57:44.929Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 10,
+    "fields": {
+      "task_id": "2583ad5f-1329-4478-8388-2fb13fef6d39",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "null",
+      "date_done": "2018-07-28T08:58:04.728Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 11,
+    "fields": {
+      "task_id": "02866cd7-af09-40c3-b118-ca3a2a5a1879",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "null",
+      "date_done": "2018-07-28T08:58:53.327Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 12,
+    "fields": {
+      "task_id": "f0bc2231-f485-4345-9ceb-e3c22cff63f2",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "null",
+      "date_done": "2018-07-28T08:58:57.068Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 13,
+    "fields": {
+      "task_id": "28bf0f5b-fdbe-4921-b8a9-3c0c2e7b81ee",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "null",
+      "date_done": "2018-07-28T08:59:02.468Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 14,
+    "fields": {
+      "task_id": "ad99a9e2-a72b-420c-a618-6020dce09742",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "null",
+      "date_done": "2018-07-28T08:59:58.443Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 15,
+    "fields": {
+      "task_id": "21b100dc-caeb-4eda-b9da-351953745992",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "null",
+      "date_done": "2018-07-28T09:38:04.596Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 16,
+    "fields": {
+      "task_id": "18e731b8-8a6d-4e66-8059-6f4c838447dc",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "null",
+      "date_done": "2018-07-28T09:38:04.600Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 17,
+    "fields": {
+      "task_id": "5b3ab93b-419a-4010-b952-a1493a3c0181",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "null",
+      "date_done": "2018-07-28T09:38:42.910Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 18,
+    "fields": {
+      "task_id": "6d6b2de3-d254-4047-9ff1-07247741d0b2",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "null",
+      "date_done": "2018-07-28T09:38:44.555Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 19,
+    "fields": {
+      "task_id": "5b9614fa-89f4-4a7e-ae6a-910ad80385ad",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "null",
+      "date_done": "2018-07-28T09:40:32.064Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 20,
+    "fields": {
+      "task_id": "64359707-9a08-475b-b45f-6fea6e6b9093",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "null",
+      "date_done": "2018-07-28T09:44:28.388Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 21,
+    "fields": {
+      "task_id": "d5a2507c-05d6-4777-b4b8-f3e31e150855",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "null",
+      "date_done": "2018-07-28T09:44:57.328Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 22,
+    "fields": {
+      "task_id": "c2a37992-0dc4-40cc-8d2d-47c61781f1e6",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "1",
+      "date_done": "2018-07-28T09:45:36.676Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 23,
+    "fields": {
+      "task_id": "339e915d-f254-415f-b457-4e83ae68d7ac",
+      "status": "FAILURE",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "{\"exc_message\": [\"__init__() missing 1 required positional argument: 'condition_variable'\"], \"exc_type\": \"TypeError\", \"exc_module\": \"builtins\"}",
+      "date_done": "2018-07-30T11:16:42.336Z",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/moeb/.local/lib/python3.5/site-packages/celery/app/trace.py\", line 382, in trace_task\n    R = retval = fun(*args, **kwargs)\n  File \"/home/moeb/.local/lib/python3.5/site-packages/celery/app/trace.py\", line 641, in __protected_call__\n    return self.run(*args, **kwargs)\n  File \"/home/moeb/PycharmProjects/ArmanRayan_Jam/online_match/tasks.py\", line 13, in test_celery\n    game_manager = server.GameManager()\nTypeError: __init__() missing 1 required positional argument: 'condition_variable'\n",
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 24,
+    "fields": {
+      "task_id": "ae1936a5-dac7-44b0-b96e-213af5e1baff",
+      "status": "FAILURE",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "{\"exc_type\": \"timeout\", \"exc_message\": [\"timed out\"], \"exc_module\": \"socket\"}",
+      "date_done": "2018-07-30T11:50:59.787Z",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/moeb/.local/lib/python3.5/site-packages/celery/app/trace.py\", line 382, in trace_task\n    R = retval = fun(*args, **kwargs)\n  File \"/home/moeb/.local/lib/python3.5/site-packages/celery/app/trace.py\", line 641, in __protected_call__\n    return self.run(*args, **kwargs)\n  File \"/home/moeb/PycharmProjects/ArmanRayan_Jam/online_match/tasks.py\", line 16, in test_celery\n    game_manager.start()\n  File \"/home/moeb/PycharmProjects/ArmanRayan_Jam/online_match/ports/server/server.py\", line 20, in start\n    self.io_manager.init_IO()\n  File \"/home/moeb/PycharmProjects/ArmanRayan_Jam/online_match/ports/server/io_manager.py\", line 82, in init_IO\n    self.build_client()\n  File \"/home/moeb/PycharmProjects/ArmanRayan_Jam/online_match/ports/server/io_manager.py\", line 95, in build_client\n    socket_obj, socket_address = self.server_socket.accept()\n  File \"/usr/lib/python3.5/socket.py\", line 195, in accept\n    fd, addr = self._accept()\nsocket.timeout: timed out\n",
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 25,
+    "fields": {
+      "task_id": "88256d06-96fb-4027-8dc8-4319bf195f8c",
+      "status": "FAILURE",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "{\"exc_message\": [\"Worker exited prematurely: signal 15 (SIGTERM).\"], \"exc_module\": \"billiard.exceptions\", \"exc_type\": \"WorkerLostError\"}",
+      "date_done": "2018-07-30T11:53:00.328Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 26,
+    "fields": {
+      "task_id": "2f323fb6-1ad4-400e-89ef-bd4e754a3dc3",
+      "status": "FAILURE",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "{\"exc_message\": [\"group argument must be None for now\"], \"exc_type\": \"AssertionError\", \"exc_module\": \"builtins\"}",
+      "date_done": "2018-07-30T11:53:45.452Z",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/moeb/.local/lib/python3.5/site-packages/celery/app/trace.py\", line 382, in trace_task\n    R = retval = fun(*args, **kwargs)\n  File \"/home/moeb/.local/lib/python3.5/site-packages/celery/app/trace.py\", line 641, in __protected_call__\n    return self.run(*args, **kwargs)\n  File \"/home/moeb/PycharmProjects/ArmanRayan_Jam/online_match/tasks.py\", line 16, in test_celery\n    t = Thread(game_manager.start)\n  File \"/usr/lib/python3.5/threading.py\", line 778, in __init__\n    assert group is None, \"group argument must be None for now\"\nAssertionError: group argument must be None for now\n",
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 27,
+    "fields": {
+      "task_id": "7ab221bf-77eb-4e6c-9d15-400dcd65b448",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "1",
+      "date_done": "2018-07-30T11:54:18.407Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 28,
+    "fields": {
+      "task_id": "a7509fab-8820-4528-84af-cb0510f92fa8",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "1",
+      "date_done": "2018-07-30T12:00:17.548Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 29,
+    "fields": {
+      "task_id": "785228bb-6ca8-4123-9ff6-4c12cbd3173b",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "1",
+      "date_done": "2018-07-30T12:00:31.015Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 30,
+    "fields": {
+      "task_id": "592fd0e9-4ebb-41b8-b034-2cdfba6d7c3c",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "1",
+      "date_done": "2018-07-30T12:02:28.344Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 31,
+    "fields": {
+      "task_id": "1fea4d33-1d71-4e56-b561-c48aa7a1cfb5",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "1",
+      "date_done": "2018-07-30T12:13:05.946Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 32,
+    "fields": {
+      "task_id": "302f78b4-b5f7-41ca-bfa6-00f381db2f75",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "1",
+      "date_done": "2018-07-30T12:20:12.577Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 33,
+    "fields": {
+      "task_id": "ec74422b-fd16-4cdc-bede-9b522c3d8275",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "1",
+      "date_done": "2018-08-04T05:41:57.603Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 34,
+    "fields": {
+      "task_id": "6d9232d4-3fa6-4580-8fdd-722d84268461",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "1",
+      "date_done": "2018-08-04T05:42:12.347Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 35,
+    "fields": {
+      "task_id": "f1bc826f-ea02-4f60-9c64-ff0f175f833f",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "1",
+      "date_done": "2018-08-04T08:27:12.758Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 36,
+    "fields": {
+      "task_id": "b605f54c-dd69-40a5-add8-12262e47dbc2",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "1",
+      "date_done": "2018-08-04T08:49:29.184Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 37,
+    "fields": {
+      "task_id": "7fae9842-32c6-40a3-a9fc-88228d6e186c",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "1",
+      "date_done": "2018-08-04T08:50:36.486Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 38,
+    "fields": {
+      "task_id": "e06e4ff4-462d-46ca-83c7-4de7dfeef5e6",
+      "status": "FAILURE",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "{\"exc_module\": \"builtins\", \"exc_type\": \"AttributeError\", \"exc_message\": [\"'int' object has no attribute 'user_team'\"]}",
+      "date_done": "2018-08-05T08:10:22.834Z",
+      "traceback": "Traceback (most recent call last):\n  File \"/home/moeb/.local/lib/python3.5/site-packages/celery/app/trace.py\", line 382, in trace_task\n    R = retval = fun(*args, **kwargs)\n  File \"/home/moeb/.local/lib/python3.5/site-packages/celery/app/trace.py\", line 641, in __protected_call__\n    return self.run(*args, **kwargs)\n  File \"/home/moeb/PycharmProjects/ArmanRayan_Jam/online_match/tasks.py\", line 18, in test_celery\n    print(team1.user_team.username,team2.user_team.username)\nAttributeError: 'int' object has no attribute 'user_team'\n",
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 39,
+    "fields": {
+      "task_id": "668dfa68-b257-40e8-9a32-675ee80102c6",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "1",
+      "date_done": "2018-08-05T08:12:45.592Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 40,
+    "fields": {
+      "task_id": "a88c2416-3b30-4606-81c8-1290b8fd473d",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "1",
+      "date_done": "2018-08-05T08:14:03.615Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 41,
+    "fields": {
+      "task_id": "3a14bc9e-9b6a-4767-8562-7ddfb3be8ea2",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "1",
+      "date_done": "2018-08-06T13:35:09.982Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 42,
+    "fields": {
+      "task_id": "760dac1e-0748-43bd-b615-4e8f937389b2",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "1",
+      "date_done": "2018-08-07T07:55:25.686Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 43,
+    "fields": {
+      "task_id": "4fa2854d-93ad-4b6d-9a58-688c8262fe70",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "1",
+      "date_done": "2018-08-07T08:37:08.778Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 44,
+    "fields": {
+      "task_id": "9e473a5b-b09c-4ad3-a5b9-fca3297f2bce",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "1",
+      "date_done": "2018-08-07T08:38:05.676Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 45,
+    "fields": {
+      "task_id": "9c783e6d-c4bb-436a-a02a-ab943bca38a7",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "1",
+      "date_done": "2018-08-07T08:39:07.904Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 46,
+    "fields": {
+      "task_id": "5f7c5b8c-5599-4e21-8d22-edba7e5ff885",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "1",
+      "date_done": "2018-08-07T08:48:18.041Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "django_celery_results.taskresult",
+    "pk": 47,
+    "fields": {
+      "task_id": "87bfcedf-42fd-4989-9c9c-50e7bc2d2320",
+      "status": "SUCCESS",
+      "content_type": "application/json",
+      "content_encoding": "utf-8",
+      "result": "1",
+      "date_done": "2018-08-07T10:55:11.442Z",
+      "traceback": null,
+      "hidden": false,
+      "meta": "{\"children\": []}"
+    }
+  },
+  {
+    "model": "main.competition",
+    "pk": 1,
+    "fields": {
+      "competition_name": "\u0647\u0648\u0634 \u0628\u0627\u0632\u06cc- SPC \u0645\u0642\u062f\u0645\u0627\u062a\u06cc",
+      "competition_level": 1
+    }
+  },
+  {
+    "model": "main.competition",
+    "pk": 2,
+    "fields": {
+      "competition_name": "\u0647\u0648\u0634 \u0628\u0627\u0632\u06cc- SPC \u067e\u06cc\u0634\u0631\u0641\u062a\u0647",
+      "competition_level": 2
+    }
+  },
+  {
+    "model": "main.competition",
+    "pk": 3,
+    "fields": {
+      "competition_name": "\u067e\u0631\u062f\u0627\u0632\u0634 \u062a\u0635\u0648\u06cc\u0631 IAC-IP",
+      "competition_level": 5
+    }
+  },
+  {
+    "model": "main.competition",
+    "pk": 4,
+    "fields": {
+      "competition_name": "\u067e\u0631\u062f\u0627\u0632\u0634 \u0635\u0648\u062a IAC-SP",
+      "competition_level": 4
+    }
+  },
+  {
+    "model": "main.competition",
+    "pk": 5,
+    "fields": {
+      "competition_name": "\u067e\u0631\u062f\u0627\u0632\u0634 \u0645\u062a\u0646 IAC-TP",
+      "competition_level": 3
+    }
+  },
+  {
+    "model": "main.grade",
+    "pk": 1,
+    "fields": {
+      "grade_name": "\u06a9\u0627\u0631\u0634\u0646\u0627\u0633\u06cc"
+    }
+  },
+  {
+    "model": "main.grade",
+    "pk": 2,
+    "fields": {
+      "grade_name": "\u06a9\u0627\u0631\u0634\u0646\u0627\u0633\u06cc\u200c\u0627\u0631\u0634\u062f"
+    }
+  },
+  {
+    "model": "main.grade",
+    "pk": 3,
+    "fields": {
+      "grade_name": "\u062f\u06a9\u062a\u0631\u0627"
+    }
+  },
+  {
+    "model": "main.university",
+    "pk": 1,
+    "fields": {
+      "university_name": "\u062a\u0647\u0631\u0627\u0646",
+      "university_city": "\u062a\u0647\u0631\u0627\u0646"
+    }
+  },
+  {
+    "model": "main.university",
+    "pk": 2,
+    "fields": {
+      "university_name": "\u0635\u0646\u0639\u062a\u06cc \u0634\u0631\u06cc\u0641",
+      "university_city": "\u062a\u0647\u0631\u0627\u0646"
+    }
+  },
+  {
+    "model": "main.university",
+    "pk": 3,
+    "fields": {
+      "university_name": "\u0639\u0644\u0645\u200c\u0648\u200c\u0635\u0646\u0639\u062a",
+      "university_city": "\u062a\u0647\u0631\u0627\u0646"
+    }
+  },
+  {
+    "model": "main.university",
+    "pk": 4,
+    "fields": {
+      "university_name": "\u0635\u0646\u0639\u062a\u06cc \u0627\u0645\u06cc\u0631\u06a9\u0628\u06cc\u0631",
+      "university_city": "\u062a\u0647\u0631\u0627\u0646"
+    }
+  },
+  {
+    "model": "main.university",
+    "pk": 5,
+    "fields": {
+      "university_name": "\u0634\u0647\u06cc\u062f \u0628\u0647\u0634\u062a\u06cc",
+      "university_city": "\u062a\u0647\u0631\u0627\u0646"
+    }
+  },
+  {
+    "model": "main.university",
+    "pk": 6,
+    "fields": {
+      "university_name": "\u062e\u0648\u0627\u0631\u0632\u0645\u06cc",
+      "university_city": "\u062a\u0647\u0631\u0627\u0646"
+    }
+  },
+  {
+    "model": "main.university",
+    "pk": 7,
+    "fields": {
+      "university_name": "\u0635\u0646\u0639\u062a\u06cc \u062e\u0648\u0627\u062c\u0647\u200c\u0646\u0635\u06cc\u0631\u0627\u0644\u062f\u06cc\u0646 \u0637\u0648\u0633\u06cc",
+      "university_city": "\u062a\u0647\u0631\u0627\u0646"
+    }
+  },
+  {
+    "model": "main.language",
+    "pk": 1,
+    "fields": {
+      "language_name": "Python3"
+    }
+  },
+  {
+    "model": "main.language",
+    "pk": 2,
+    "fields": {
+      "language_name": "C++"
+    }
+  },
+  {
+    "model": "main.language",
+    "pk": 3,
+    "fields": {
+      "language_name": "Java"
+    }
+  },
+  {
+    "model": "main.language",
+    "pk": 4,
+    "fields": {
+      "language_name": "Matlab"
+    }
+  },
+  {
+    "model": "main.mentor",
+    "pk": 1,
+    "fields": {
+      "first_name": "\u0645\u0635\u0637\u0641\u0627",
+      "last_name": "\u0627\u0628\u0631\u0627\u0647\u06cc\u0645\u06cc",
+      "code": "q12345",
+      "university": 3
+    }
+  },
+  {
+    "model": "register.myuser",
+    "pk": 1,
+    "fields": {
+      "user_fname": "\u0645\u0635\u0637\u0641\u06cc",
+      "user_lname": "\u0627\u0628\u0631\u0627\u0647\u06cc\u0645\u06cc",
+      "team": 1,
+      "is_head": true,
+      "email": "ebimosi14@gmail.com",
+      "grade": 1,
+      "skills": "",
+      "university": 3,
+      "entrance_year": 1394,
+      "graduate_year": 1398
+    }
+  },
+  {
+    "model": "register.myuser",
+    "pk": 2,
+    "fields": {
+      "user_fname": "\u0633\u0631\u0648\u0634",
+      "user_lname": "\u063a\u0644\u0627\u0645\u06cc",
+      "team": 1,
+      "is_head": false,
+      "email": "s_gholami@gmail.com",
+      "grade": 1,
+      "skills": "",
+      "university": 3,
+      "entrance_year": 1394,
+      "graduate_year": 1398
+    }
+  },
+  {
+    "model": "register.myuser",
+    "pk": 3,
+    "fields": {
+      "user_fname": "mostafa",
+      "user_lname": "ebrahimi",
+      "team": 4,
+      "is_head": true,
+      "email": "ebimosi14@gmail.com",
+      "grade": 1,
+      "skills": "",
+      "university": 1,
+      "entrance_year": 1396,
+      "graduate_year": 1400
+    }
+  },
+  {
+    "model": "register.myuser",
+    "pk": 4,
+    "fields": {
+      "user_fname": "ali",
+      "user_lname": "gholi",
+      "team": 5,
+      "is_head": true,
+      "email": "gholi_ali@yahoo.com",
+      "grade": 1,
+      "skills": "",
+      "university": 1,
+      "entrance_year": 1396,
+      "graduate_year": 1400
+    }
+  },
+  {
+    "model": "register.myuser",
+    "pk": 5,
+    "fields": {
+      "user_fname": "moli",
+      "user_lname": "choli",
+      "team": 5,
+      "is_head": false,
+      "email": "choli_moli@yahoo.com",
+      "grade": 3,
+      "skills": "",
+      "university": 1,
+      "entrance_year": 1396,
+      "graduate_year": 1400
+    }
+  },
+  {
+    "model": "SPC_main.cup",
+    "pk": 1,
+    "fields": {
+      "cup_number": 1,
+      "competition": 2,
+      "team": 1
+    }
+  },
+  {
+    "model": "SPC_main.cup",
+    "pk": 2,
+    "fields": {
+      "cup_number": 1,
+      "competition": 2,
+      "team": 5
+    }
+  },
+  {
+    "model": "online_match.code",
+    "pk": 2,
+    "fields": {
+      "code": "Codes/SPC/1/672a5d32ac05d26d8c4034ed7677a6570882e4dee47b0fe04bf6a728b013b2ae.png",
+      "version": 3,
+      "team": 1,
+      "human_checked": true
+    }
+  },
+  {
+    "model": "online_match.code",
+    "pk": 3,
+    "fields": {
+      "code": "Codes/SPC/1/2726ff76d5e90dc7c1340e499db0d2973bd2a7dec2e33641c286160a8befd178.txt",
+      "version": 4,
+      "team": 1,
+      "human_checked": false
+    }
+  },
+  {
+    "model": "online_match.code",
+    "pk": 4,
+    "fields": {
+      "code": "Codes/SPC/1/b08a7420cc8c62c27dc0f60b3ed719d4f84bb3fb4b9d63260f9eba045df35538.pdf",
+      "version": 5,
+      "team": 1,
+      "human_checked": false
+    }
+  },
+  {
+    "model": "online_match.code",
+    "pk": 5,
+    "fields": {
+      "code": "Codes/SPC/1/4a44dc15364204a80fe80e9039455cc1608281820fe2b24f1e5233ade6af1dd5.rar",
+      "version": 6,
+      "team": 1,
+      "human_checked": false
+    }
+  },
+  {
+    "model": "online_match.code",
+    "pk": 6,
+    "fields": {
+      "code": "Codes/SPC/1/b08a7420cc8c62c27dc0f60b3ed719d4f84bb3fb4b9d63260f9eba045df35538_cvqlnP7.pdf",
+      "version": 7,
+      "team": 1,
+      "human_checked": false
+    }
+  },
+  {
+    "model": "online_match.code",
+    "pk": 7,
+    "fields": {
+      "code": "Codes/SPC/3/ce5ed98e51432ead021e25447ee0681d3e690772ccbf0468e24389fac6a14bee.png",
+      "version": 0,
+      "team": 3,
+      "human_checked": true
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": 1,
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": 1,
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": 1,
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+      "name": "Can add user",
+      "content_type": 2,
+      "codename": "add_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+      "name": "Can change user",
+      "content_type": 2,
+      "codename": "change_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+      "name": "Can delete user",
+      "content_type": 2,
+      "codename": "delete_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+      "name": "Can add group",
+      "content_type": 3,
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 3,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 3,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+      "name": "Can add permission",
+      "content_type": 4,
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+      "name": "Can change permission",
+      "content_type": 4,
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": 4,
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 5,
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 5,
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 5,
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+      "name": "Can add session",
+      "content_type": 6,
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+      "name": "Can change session",
+      "content_type": 6,
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+      "name": "Can delete session",
+      "content_type": 6,
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+      "name": "Can add competition",
+      "content_type": 7,
+      "codename": "add_competition"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+      "name": "Can change competition",
+      "content_type": 7,
+      "codename": "change_competition"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+      "name": "Can delete competition",
+      "content_type": 7,
+      "codename": "delete_competition"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+      "name": "Can add grade",
+      "content_type": 8,
+      "codename": "add_grade"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+      "name": "Can change grade",
+      "content_type": 8,
+      "codename": "change_grade"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+      "name": "Can delete grade",
+      "content_type": 8,
+      "codename": "delete_grade"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+      "name": "Can add university",
+      "content_type": 9,
+      "codename": "add_university"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+      "name": "Can change university",
+      "content_type": 9,
+      "codename": "change_university"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+      "name": "Can delete university",
+      "content_type": 9,
+      "codename": "delete_university"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+      "name": "Can add language",
+      "content_type": 10,
+      "codename": "add_language"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+      "name": "Can change language",
+      "content_type": 10,
+      "codename": "change_language"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+      "name": "Can delete language",
+      "content_type": 10,
+      "codename": "delete_language"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+      "name": "Can add mentor",
+      "content_type": 11,
+      "codename": "add_mentor"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+      "name": "Can change mentor",
+      "content_type": 11,
+      "codename": "change_mentor"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+      "name": "Can delete mentor",
+      "content_type": 11,
+      "codename": "delete_mentor"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+      "name": "Can add team",
+      "content_type": 12,
+      "codename": "add_team"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+      "name": "Can change team",
+      "content_type": 12,
+      "codename": "change_team"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+      "name": "Can delete team",
+      "content_type": 12,
+      "codename": "delete_team"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+      "name": "Can add my user",
+      "content_type": 13,
+      "codename": "add_myuser"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+      "name": "Can change my user",
+      "content_type": 13,
+      "codename": "change_myuser"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+      "name": "Can delete my user",
+      "content_type": 13,
+      "codename": "delete_myuser"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+      "name": "Can add cup",
+      "content_type": 14,
+      "codename": "add_cup"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+      "name": "Can change cup",
+      "content_type": 14,
+      "codename": "change_cup"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+      "name": "Can delete cup",
+      "content_type": 14,
+      "codename": "delete_cup"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+      "name": "Can add match",
+      "content_type": 15,
+      "codename": "add_match"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+      "name": "Can change match",
+      "content_type": 15,
+      "codename": "change_match"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+      "name": "Can delete match",
+      "content_type": 15,
+      "codename": "delete_match"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+      "name": "Can add code",
+      "content_type": 16,
+      "codename": "add_code"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+      "name": "Can change code",
+      "content_type": 16,
+      "codename": "change_code"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+      "name": "Can delete code",
+      "content_type": 16,
+      "codename": "delete_code"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+      "name": "Can add tournament",
+      "content_type": 17,
+      "codename": "add_tournament"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+      "name": "Can change tournament",
+      "content_type": 17,
+      "codename": "change_tournament"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+      "name": "Can delete tournament",
+      "content_type": 17,
+      "codename": "delete_tournament"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+      "name": "Can add task result",
+      "content_type": 18,
+      "codename": "add_taskresult"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 53,
+    "fields": {
+      "name": "Can change task result",
+      "content_type": 18,
+      "codename": "change_taskresult"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 54,
+    "fields": {
+      "name": "Can delete task result",
+      "content_type": 18,
+      "codename": "delete_taskresult"
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$100000$Oo4Yn0Tnqa8s$dsPWcV9ZCQq6m/EI2sixuXCX3Ii/JZtyPyuriJjf1ME=",
+      "last_login": "2018-07-30T12:01:55.942Z",
+      "is_superuser": true,
+      "username": "moeb",
+      "first_name": "",
+      "last_name": "",
+      "email": "ebimosi14@gmail.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2018-06-09T13:28:35.148Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$100000$2SkMAp4C3seU$k1XamWTKS2IyALqzsZ2t73Pu1d204kXnope5nRXKNqI=",
+      "last_login": "2018-08-04T08:31:19.449Z",
+      "is_superuser": false,
+      "username": "GoHappy",
+      "first_name": "",
+      "last_name": "",
+      "email": "gohappy@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2018-06-13T13:34:27.320Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$100000$HrlHt5CizdVX$WlaIaC8dI8tb01xQK2j9ztkU26TXTnLbMK5l4F0rPjU=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "armankadeh_1",
+      "first_name": "",
+      "last_name": "",
+      "email": "armankadeh1@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2018-06-18T14:48:46.283Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$100000$Hw3WuO0arChJ$PcTdv4ogoGGEq/3WKM5YBaoBDCJbEdPdhtpSGtzucVc=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "armankadeh_2",
+      "first_name": "",
+      "last_name": "",
+      "email": "armankadeh2@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2018-06-18T14:49:23.879Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$100000$5Nyu87Hl4ndD$cRsYw6ZRqcG3dIqs8zgjTTZpnnd+HbQOQkY0FZA+Z60=",
+      "last_login": "2018-08-01T21:01:23.800Z",
+      "is_superuser": false,
+      "username": "GoHappy_iac",
+      "first_name": "",
+      "last_name": "",
+      "email": "ebimosi15@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2018-07-12T15:05:38.896Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$100000$uITEuLynq4mx$OM/UDGGWlXTg6N8aqEjGgxXkvpzoWKQpa81IbqYY78U=",
+      "last_login": "2018-07-14T10:42:27.285Z",
+      "is_superuser": false,
+      "username": "test_spc",
+      "first_name": "",
+      "last_name": "",
+      "email": "ebimori13@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2018-07-14T10:42:10.311Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 9,
+    "fields": {
+      "password": "pbkdf2_sha256$100000$mjKYxLdbEvF5$katMkqdSmbn2vuR/9wUpGb+z0fqGJDENOolpPPQXI/0=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "test_email",
+      "first_name": "",
+      "last_name": "",
+      "email": "test@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2018-07-25T10:33:51.973Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 10,
+    "fields": {
+      "password": "pbkdf2_sha256$100000$P6lNAdCht6mk$LfD2NuSF8W99xSuS5CorlLcx3ZbpcYqNiB0MZyAAPt4=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "testiac1",
+      "first_name": "",
+      "last_name": "",
+      "email": "test1@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2018-08-01T21:00:40.863Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 11,
+    "fields": {
+      "password": "pbkdf2_sha256$100000$gJVFzJJo3cAC$KqzWiin87WM5wrUuBoUAzLA8hYX+kaDeSrQEZhpuBFg=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "testiac2",
+      "first_name": "",
+      "last_name": "",
+      "email": "test2@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2018-08-01T21:01:09.369Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "register.team",
+    "pk": 1,
+    "fields": {
+      "user_team": 2,
+      "rating": 3,
+      "competition": 2,
+      "code_address": "Codes/SPC/1/b08a7420cc8c62c27dc0f60b3ed719d4f84bb3fb4b9d63260f9eba045df35538_cvqlnP7.pdf",
+      "university": 3,
+      "win": 0,
+      "loose": 0,
+      "draw": 0,
+      "accuracy": 0.0,
+      "logo_image": "unknown.jpg",
+      "height_field": 200,
+      "width_field": 200,
+      "team_bio": "",
+      "language": 1,
+      "mentor": "qwe111",
+      "phone_number": ""
+    }
+  },
+  {
+    "model": "register.team",
+    "pk": 2,
+    "fields": {
+      "user_team": 3,
+      "rating": 3,
+      "competition": 1,
+      "code_address": "",
+      "university": 2,
+      "win": 0,
+      "loose": 0,
+      "draw": 0,
+      "accuracy": 0.0,
+      "logo_image": "unknown.jpg",
+      "height_field": 200,
+      "width_field": 200,
+      "team_bio": "",
+      "language": 2,
+      "mentor": "",
+      "phone_number": ""
+    }
+  },
+  {
+    "model": "register.team",
+    "pk": 3,
+    "fields": {
+      "user_team": 4,
+      "rating": 3,
+      "competition": 2,
+      "code_address": "Codes/SPC/3/ce5ed98e51432ead021e25447ee0681d3e690772ccbf0468e24389fac6a14bee.png",
+      "university": 2,
+      "win": 0,
+      "loose": 0,
+      "draw": 0,
+      "accuracy": 0.0,
+      "logo_image": "unknown.jpg",
+      "height_field": 200,
+      "width_field": 200,
+      "team_bio": "",
+      "language": 2,
+      "mentor": "",
+      "phone_number": ""
+    }
+  },
+  {
+    "model": "register.team",
+    "pk": 4,
+    "fields": {
+      "user_team": 5,
+      "rating": 1,
+      "competition": 5,
+      "code_address": "",
+      "university": 6,
+      "win": 0,
+      "loose": 0,
+      "draw": 0,
+      "accuracy": 55.0,
+      "logo_image": "unknown.jpg",
+      "height_field": 200,
+      "width_field": 200,
+      "team_bio": "",
+      "language": 4,
+      "mentor": "",
+      "phone_number": ""
+    }
+  },
+  {
+    "model": "register.team",
+    "pk": 5,
+    "fields": {
+      "user_team": 6,
+      "rating": 3,
+      "competition": 2,
+      "code_address": "",
+      "university": 1,
+      "win": 0,
+      "loose": 0,
+      "draw": 0,
+      "accuracy": 0.0,
+      "logo_image": "unknown.jpg",
+      "height_field": 200,
+      "width_field": 200,
+      "team_bio": "",
+      "language": 3,
+      "mentor": "",
+      "phone_number": ""
+    }
+  },
+  {
+    "model": "register.team",
+    "pk": 6,
+    "fields": {
+      "user_team": 9,
+      "rating": 3,
+      "competition": 1,
+      "code_address": "",
+      "university": 6,
+      "win": 0,
+      "loose": 0,
+      "draw": 0,
+      "accuracy": 0.0,
+      "logo_image": "unknown.jpg",
+      "height_field": 200,
+      "width_field": 200,
+      "team_bio": "",
+      "language": 2,
+      "mentor": "",
+      "phone_number": ""
+    }
+  },
+  {
+    "model": "register.team",
+    "pk": 7,
+    "fields": {
+      "user_team": 10,
+      "rating": 2,
+      "competition": 5,
+      "code_address": "",
+      "university": 6,
+      "win": 0,
+      "loose": 0,
+      "draw": 0,
+      "accuracy": 20.0,
+      "logo_image": "unknown.jpg",
+      "height_field": 200,
+      "width_field": 200,
+      "team_bio": "",
+      "language": 2,
+      "mentor": "",
+      "phone_number": ""
+    }
+  },
+  {
+    "model": "register.team",
+    "pk": 8,
+    "fields": {
+      "user_team": 11,
+      "rating": 2,
+      "competition": 5,
+      "code_address": "",
+      "university": 1,
+      "win": 0,
+      "loose": 0,
+      "draw": 0,
+      "accuracy": 0.0,
+      "logo_image": "unknown.jpg",
+      "height_field": 200,
+      "width_field": 200,
+      "team_bio": "",
+      "language": 2,
+      "mentor": "",
+      "phone_number": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+      "action_time": "2018-06-13T13:10:11.662Z",
+      "user": 1,
+      "content_type": 11,
+      "object_id": "1",
+      "object_repr": "\u0645\u0635\u0637\u0641\u0627 \u0627\u0628\u0631\u0627\u0647\u06cc\u0645\u06cc|\u0639\u0644\u0645\u200c\u0648\u200c\u0635\u0646\u0639\u062a",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+      "action_time": "2018-06-13T13:29:10.066Z",
+      "user": 1,
+      "content_type": 11,
+      "object_id": "1",
+      "object_repr": "\u0645\u0635\u0637\u0641\u0627 \u0627\u0628\u0631\u0627\u0647\u06cc\u0645\u06cc|\u0639\u0644\u0645\u200c\u0648\u200c\u0635\u0646\u0639\u062a",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"code\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+      "action_time": "2018-06-18T14:50:59.503Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "1",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"is_running\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+      "action_time": "2018-07-14T10:44:14.360Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "5",
+      "object_repr": "test_spc",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"competition\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+      "action_time": "2018-07-14T10:44:43.660Z",
+      "user": 1,
+      "content_type": 14,
+      "object_id": "2",
+      "object_repr": "test_spc1",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"competition\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+      "action_time": "2018-07-23T07:52:45.843Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "25",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+      "action_time": "2018-07-23T07:52:45.849Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "24",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+      "action_time": "2018-07-23T07:52:45.851Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "23",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+      "action_time": "2018-07-23T07:52:45.854Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "22",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+      "action_time": "2018-07-23T07:52:45.856Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "21",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+      "action_time": "2018-07-23T07:52:45.858Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "20",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+      "action_time": "2018-07-23T07:52:45.860Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "19",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+      "action_time": "2018-07-23T07:52:45.863Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "18",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+      "action_time": "2018-07-23T07:52:45.865Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "17",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+      "action_time": "2018-07-23T07:52:45.867Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "16",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+      "action_time": "2018-07-23T07:52:45.870Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "15",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+      "action_time": "2018-07-23T07:52:45.873Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "14",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+      "action_time": "2018-07-23T07:52:45.876Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "13",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+      "action_time": "2018-07-23T07:52:45.879Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "12",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+      "action_time": "2018-07-23T07:52:45.882Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "11",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+      "action_time": "2018-07-23T07:52:45.885Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "10",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+      "action_time": "2018-07-23T07:52:45.889Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "9",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+      "action_time": "2018-07-23T07:52:45.892Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "8",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+      "action_time": "2018-07-23T07:52:45.895Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "7",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 25,
+    "fields": {
+      "action_time": "2018-07-23T07:52:45.899Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "6",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 26,
+    "fields": {
+      "action_time": "2018-07-23T07:52:45.902Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "5",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 27,
+    "fields": {
+      "action_time": "2018-07-23T07:52:45.905Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "4",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 28,
+    "fields": {
+      "action_time": "2018-07-23T07:52:45.908Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "3",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 29,
+    "fields": {
+      "action_time": "2018-07-23T07:52:45.911Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "2",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 30,
+    "fields": {
+      "action_time": "2018-07-23T07:52:45.913Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "1",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 31,
+    "fields": {
+      "action_time": "2018-07-24T08:10:34.999Z",
+      "user": 1,
+      "content_type": 16,
+      "object_id": "2",
+      "object_repr": "GoHappy | V2",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"human_checked\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 32,
+    "fields": {
+      "action_time": "2018-07-24T08:10:36.885Z",
+      "user": 1,
+      "content_type": 16,
+      "object_id": "2",
+      "object_repr": "GoHappy | V3",
+      "action_flag": 2,
+      "change_message": "[]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 33,
+    "fields": {
+      "action_time": "2018-07-25T10:32:32.077Z",
+      "user": 1,
+      "content_type": 2,
+      "object_id": "7",
+      "object_repr": "test_email",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 34,
+    "fields": {
+      "action_time": "2018-07-25T10:33:40.950Z",
+      "user": 1,
+      "content_type": 2,
+      "object_id": "8",
+      "object_repr": "test_email",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 35,
+    "fields": {
+      "action_time": "2018-08-01T21:04:18.477Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "4",
+      "object_repr": "GoHappy_iac",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"win\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 36,
+    "fields": {
+      "action_time": "2018-08-01T21:04:35.156Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "7",
+      "object_repr": "testiac1",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"win\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 37,
+    "fields": {
+      "action_time": "2018-08-01T22:19:08.488Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "7",
+      "object_repr": "testiac1",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"win\", \"accuracy\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 38,
+    "fields": {
+      "action_time": "2018-08-01T22:19:39.975Z",
+      "user": 1,
+      "content_type": 12,
+      "object_id": "4",
+      "object_repr": "GoHappy_iac",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"win\", \"accuracy\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 39,
+    "fields": {
+      "action_time": "2018-08-05T12:39:49.023Z",
+      "user": 1,
+      "content_type": 16,
+      "object_id": "7",
+      "object_repr": "armankadeh_2 | V0",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 40,
+    "fields": {
+      "action_time": "2018-08-07T12:44:36.988Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "36",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 41,
+    "fields": {
+      "action_time": "2018-08-07T12:44:36.995Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "35",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 42,
+    "fields": {
+      "action_time": "2018-08-07T12:44:36.998Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "34",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 43,
+    "fields": {
+      "action_time": "2018-08-07T12:44:37.001Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "33",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 44,
+    "fields": {
+      "action_time": "2018-08-07T12:44:37.004Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "32",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 45,
+    "fields": {
+      "action_time": "2018-08-07T12:44:37.007Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "31",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 46,
+    "fields": {
+      "action_time": "2018-08-07T12:44:37.011Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "30",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 47,
+    "fields": {
+      "action_time": "2018-08-07T12:44:37.013Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "29",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 48,
+    "fields": {
+      "action_time": "2018-08-07T12:44:37.016Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "28",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 49,
+    "fields": {
+      "action_time": "2018-08-07T12:44:37.019Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "27",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 50,
+    "fields": {
+      "action_time": "2018-08-07T12:44:37.023Z",
+      "user": 1,
+      "content_type": 15,
+      "object_id": "26",
+      "object_repr": "armankadeh_2 vs GoHappy",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  }
+]
