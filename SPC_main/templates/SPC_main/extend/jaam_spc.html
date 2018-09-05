@@ -13,14 +13,14 @@
                             {{ user.username }}
                         </h1>
                         <br>
-                        <h3 style="font-size:25px">{{ team.university }}</h3>
+                        <h3 style="font-size:25px">{{ login_team.university }}</h3>
                         <br>
                         <small>
                             {{ user.email }}
                         </small>
                         <br><br>
                         <small>
-                            {{ team.team_bio }}
+                            {{ login_team.team_bio }}
                         </small>
                     </div>
 
@@ -71,7 +71,7 @@
                             <i class="fa fa-question-circle"></i>&nbsp; راهنما و توضیحات
                         </h1>
                         <div class="help">
-                            {% if team.competition.competition_level == 1 %}
+                            {% if login_team.competition.competition_level == 1 %}
                                 <div>
                                     <div class="ibox-content">
                                         <h2 class="text-center">اشاره گرهای مقدماتی</h2>
@@ -140,7 +140,7 @@
                                     </div>
                                 </div>
 
-                            {% elif team.competition.competition_level == 2 %}
+                            {% elif login_team.competition.competition_level == 2 %}
                                 <div>
                                     <div class="ibox-content">
                                         <h2 class="text-center">اشاره گرهای پیشرفته </h2>
