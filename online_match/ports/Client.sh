@@ -1,8 +1,4 @@
 #!/bin/bash
-#cd
-pwd > /home/moeb/Desktop/pwd.txt
-echo $$ > /home/moeb/Desktop/$3.txt
-echo $3
 cd $1
 if [ $2 == 'C++' ]
 then

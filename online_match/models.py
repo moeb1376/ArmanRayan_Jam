@@ -19,7 +19,7 @@ from django.core.mail import send_mail
 def upload_match_log(instance, filename):
     type = filename.split('.')[-1]
     competition_name = 'SPC' if instance.team1.competition.competition_level < 3 else 'IAC'
-    team_id = str(instance.team1.id) + "VS"
+    team_id = str(instance.team1.id) + "_VS_"
     team_id += str(instance.team2.id)
     logo_name = (str(team_id) + filename.split('.')[0]).encode()
     return "Logs/%s/%s/%s.%s" % (competition_name, team_id, sha256(logo_name).hexdigest(), type)
@@ -30,8 +30,6 @@ class Match(models.Model):
     team2 = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="Team2")
     is_running = models.BooleanField(default=False, blank=True)
     log_file = models.CharField(max_length=300, default="", null=True, blank=True)
-    # log_file = models.FileField(null=True, blank=True, upload_to=upload_match_log)
-    # winner = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="Winner_team", blank=True, null=True)
     winner = models.IntegerField(blank=True, null=True, validators=[MinValueValidator(0), MaxValueValidator(2)])
     date = models.DateField(default=now)
     description = models.CharField(blank=True, null=True, max_length=200)
@@ -48,7 +46,6 @@ def upload_code_address(instance, filename):
     random_int = random.randint(0, len(hash_name) - 5)
     secret_key = hash_name[random_int:random_int + 4]
     date = time.strftime("%y%m%d_%H%M%S")
-    # return "Codes/%s/%d/%s.%s" % (competition_name, team_id, sha256(logo_name).hexdigest(), type)
     return "Codes/%s/%d/%d_%s_%s.%s" % (competition_name, team_id, team_id, date, secret_key, type)
 
 

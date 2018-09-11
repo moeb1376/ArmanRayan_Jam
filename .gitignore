@@ -139,7 +139,6 @@ media/picture/
 media/testi/
 online_match/__pycache__/
 online_match/migrations/
-online_match/templates/online_match/login_se.html
 online_match/templates/online_match/upload_ajax.html
 register/__pycache__/__init__.cpython-35.pyc
 register/__pycache__/admin.cpython-35.pyc
@@ -233,14 +232,8 @@ BackUp/
 DataSet/
 .idea/
 **/migrations/
-main/urls.py
 datadump.json
-online_match/ports/5000/LogViewer/
-online_match/ports/5000/client1/
-online_match/ports/5000/client2/
-online_match/ports/5000/server/__pycache__/
-setting/migrations/
-celery1
+
 celery1-1.log
 /celery1.log
 /celery1-2.log

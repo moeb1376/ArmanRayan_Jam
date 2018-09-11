@@ -1,17 +1,11 @@
 from django.core.mail import send_mail
-from django.db import models
 from main.models import *
-from Jam.settings import const
 from django.contrib.auth.models import User as auth_user
-from django.contrib.auth import authenticate
 from django.contrib.auth.models import AbstractUser
 from django.conf import settings
 from hashlib import sha256
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
-
-
-# Create your models here.
 
 
 def upload_location(instance, filename):
@@ -94,7 +88,6 @@ def create_team(sender, instance, **kwargs):
 
 
 class MyUser(models.Model):
-    #  id = models.IntegerField(primary_key=True)
     user_fname = models.CharField(max_length=200, blank=True)
     user_lname = models.CharField(max_length=200, blank=True)
     team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='Users', blank=True)
