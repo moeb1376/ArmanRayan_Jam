@@ -88,19 +88,7 @@ class GameManager:
 
 
 if __name__ == "__main__":
-    print('WTF', os.getcwd())
     cv = threading.Condition()
     game_manager = GameManager(cv)
     game_manager.start()
     # input("press any key to continue")
-    url = "http://127.0.0.1:8000/online_match_result"
-
-    payload = "{\"team1\":12,\"team2\":10,\"log_address\":\"/home/moeb/AppData/\",\"winner\":1}"
-    headers = {
-        'Accept': "application/json",
-        'Content-Type': "application/json",
-        'Cache-Control': "no-cache",
-        'Postman-Token': "90eb631e-deaf-4397-a0ac-0e52fbbb30b7"
-    }
-
-    response = requests.request("POST", url, data=payload, headers=headers)

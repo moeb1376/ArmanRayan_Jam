@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'register.apps.RegisterConfig',
     'SPC_main.apps.SPCMainConfig',
-    # 'team_setting.apps.TeamSettingConfig',
     'widget_tweaks',
     'setting.apps.SettingConfig',
     'online_match.apps.OnlineMatchConfig'
@@ -139,9 +138,7 @@ LOGO_DEFAULT = os.path.join(MEDIA_ROOT, 'unknown.jpg')
 const = {
     'CODE_DIRECTORY': '/%d' + '/%s' + '/code',
     'LOGO_DIRECTORY': '/%d' + '/%s' + '/logo',
-}  # % (competition_id, team_name)
-# SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
-
+}
 # Google reCAPTCHA Key
 GOOGLE_RECAPTCHA_SECRET_KEY = '6LcdiEUUAAAAAE4dzbtS88EJpq8jqIOMlPmAKjKa'
 RECAPTCHA_PUBLIC_KEY = '6LcdiEUUAAAAAGOBQWMKoLuztCR97rGB9BZs9Sc9'
@@ -158,7 +155,7 @@ EMAIL_HOST_USER = 'ebimosi14@gmail.com'
 EMAIL_HOST_PASSWORD = 'm1M3a7E6'
 EMAIL_USE_TLS = True
 # EMAIL_USE_SSL = False
-# test = [settings.EMAIL_HOST_USER,settings.EMAIL_HOST_PASSWORD,settings.EMAIL_PORT,settings.EMAIL_HOST,settings.EMAIL_USE_TLS]
+
 # DB_backup
 DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
 DBBACKUP_STORAGE_OPTIONS = {'location': os.path.join(BASE_DIR, "BackUp")}

@@ -24,12 +24,10 @@ from dbbackup_ui.views import BackupView
 
 urlpatterns = [
     path('auth/admin/superuser/', admin.site.urls),
-    # url(r'^auth/admin/superuser/backups/', include('dbbackup_ui.urls')),
     path('auth/admin/superuser/backup', BackupView.as_view(), name='backup_view'),
     path('', include('main.urls')),
     path('', include('register.urls')),
     path('', include('SPC_main.urls')),
-    # path('', include('team_setting.urls')),
     path('', include('setting.urls')),
     path('', include('online_match.urls')),
     path('reset-password', password_reset, name='reset_password'),

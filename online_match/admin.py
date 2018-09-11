@@ -4,9 +4,8 @@ from django.urls import reverse
 from django.utils.html import format_html
 
 
-# Register your models here.
 class MatchModelAdmin(admin.ModelAdmin):
-    list_display = ['__str__', 'link_to_team1', 'link_to_team2', 'is_running', 'log_file', 'winner','date']
+    list_display = ['__str__', 'link_to_team1', 'link_to_team2', 'is_running', 'log_file', 'winner', 'date']
     list_filter = ['is_running', 'winner']
 
     def link_to_team1(self, obj):
@@ -30,7 +29,7 @@ admin.site.register(Match, MatchModelAdmin)
 
 
 class CodeModelAdmin(admin.ModelAdmin):
-    list_display = ['__str__','human_checked', 'link_to_team', 'version']
+    list_display = ['__str__', 'human_checked', 'link_to_team', 'version']
     list_filter = ['team']
 
     def link_to_team(self, obj):
@@ -39,7 +38,6 @@ class CodeModelAdmin(admin.ModelAdmin):
 
     link_to_team.allow_tags = True
     link_to_team.short_description = 'Team'
-
 
     class Meta:
         model = Code

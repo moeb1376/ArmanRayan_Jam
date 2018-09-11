@@ -1,17 +1,11 @@
-import json
 import random
 import re
-import subprocess
 
-from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import Http404, HttpResponse, loader
-from django.views.decorators.csrf import csrf_exempt
 
 from register.models import Team
-
-
 from .models import Match
 from .tasks import start_game
 from .forms import *
@@ -19,11 +13,9 @@ from .forms import *
 counter = 0
 
 
-# Create your views here.
 @login_required(login_url='/login', redirect_field_name='')
 def online_match(request):
     team = request.user.Teams.all()[0]
-    # test_celery.delay(team.id, armankadeh_team.id)
     code = team.Team_Code.filter(human_checked=True)
     team_competition = team.competition.competition_level
     print(code)
@@ -101,8 +93,6 @@ def play_online_ajax(request):
         }
         random_team_code = Code.objects.filter(team=random_team, human_checked=True).order_by(id)
         start_game.delay(user_team, random_team, user_team_code, random_team_code)
-        # m = Match(team1=random_team, team2=user_team, is_running=True)
-        # m.save()
     return JsonResponse(data)
 
 
@@ -131,7 +121,6 @@ def upload_view(request):
     elif request.method == "GET":
         template = loader.get_template('online_match/upload_ajax.html')
         return HttpResponse(template.render({}, request))
-        # return HttpResponseRedirect("/jaam")
 
 
 def log_view(request):
@@ -149,17 +138,3 @@ def log_view(request):
         "log_home": logs2,
     }
     return HttpResponse(template.render(context, request))
-
-
-@csrf_exempt
-def online_match_result(request):
-    print(request)
-    s = request.body
-    print(request.body)
-    data = json.loads(s.decode('utf8').replace("\'", "\""))
-    print(data)
-    # m = Match.objects.filter(team1__pk=data['team1'], team2__pk=data['team2'], is_running=True).last()
-    # if m is not None:
-    #     m.is_running = False
-    #     m.save()
-    return JsonResponse({"a": "k"})

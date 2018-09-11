@@ -45,6 +45,5 @@ class MyUserModelAdmin(admin.ModelAdmin):
         model = MyUser
 
 
-# Register your models here.
 admin.site.register(Team, TeamModelAdmin)
 admin.site.register(MyUser, MyUserModelAdmin)

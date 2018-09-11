@@ -28,7 +28,7 @@ def loading_teams_code(src_team1, src_team2):
         shutil.rmtree(client_base_dir_template % 2)
     client_dst = [client_base_dir_template % 1, client_base_dir_template % 2]
     shutil.copytree(os.path.join(settings.MEDIA_ROOT, src1), client_dst[0])
-    shutil.copytree(os.path.join(settings.MEDIA_ROOT, src1), client_dst[1])
+    shutil.copytree(os.path.join(settings.MEDIA_ROOT, src2), client_dst[1])
     return client_dst
 
 
