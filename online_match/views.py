@@ -7,7 +7,7 @@ from django.shortcuts import Http404, HttpResponse, loader
 
 from register.models import Team
 from .models import Match
-from .tasks import start_game
+# from .tasks import start_game
 from .forms import *
 
 counter = 0
@@ -63,8 +63,8 @@ def play_online_ajax(request):
         }
         armankadeh_team_str = "armankadeh_1" if user_team.competition.competition_level == 1 else "armankadeh_2"
         armankadeh_team = Team.objects.get(user_team__username=armankadeh_team_str)
-        result = start_game.delay(user_team.id, armankadeh_team.id, user_team_code.code.path,
-                                  armankadeh_team.code_address)
+        # result = start_game.delay(user_team.id, armankadeh_team.id, user_team_code.code.path,
+        #                           armankadeh_team.code_address)
     else:
         print("Random")
         same_competition_teams = Team.objects.filter(
@@ -92,7 +92,7 @@ def play_online_ajax(request):
             'random_loading': loading
         }
         random_team_code = Code.objects.filter(team=random_team, human_checked=True).order_by(id)
-        start_game.delay(user_team, random_team, user_team_code, random_team_code)
+        # start_game.delay(user_team, random_team, user_team_code, random_team_code)
     return JsonResponse(data)
 
 
