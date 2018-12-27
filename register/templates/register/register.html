@@ -2,177 +2,186 @@
 <html>
 
 <head>
-  {% load static %} {% load widget_tweaks %}
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %} {% load widget_tweaks %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>آرمانکده| ثبت نام</title>
+    <title>آرمانکده| ثبت نام</title>
 
-  <link href='{% static "css/bootstrap.min.css" %}' rel="stylesheet">
-  <link href='{% static "css/bootstrap-rtl.min.css" %}' rel="stylesheet">
-  <link href='{% static "font-awesome/css/font-awesome.css" %}' rel="stylesheet">
-  <link href='{% static "css/plugins/iCheck/custom.css" %}' rel="stylesheet">
-  <link href='{% static "css/animate.css" %}' rel="stylesheet">
-  <link href='{% static "css/style.css" %}' rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style>
-    @font-face {
-      font-family: 'BMitra';
-      src: url("{% static 'fonts/BMitra.woff'%}") format('woff'),
-      url("{% static 'fonts/BMitra.ttf'%}") format('truetype'),
-      url("{% static 'fonts/BMitra.svg#BMitra'%}") format('svg');
-    }
+    <link href='{% static "css/bootstrap.min.css" %}' rel="stylesheet">
+    <link href='{% static "css/bootstrap-rtl.min.css" %}' rel="stylesheet">
+    <link href='{% static "font-awesome/css/font-awesome.css" %}' rel="stylesheet">
+    <link href='{% static "css/plugins/iCheck/custom.css" %}' rel="stylesheet">
+    <link href='{% static "css/animate.css" %}' rel="stylesheet">
+    <link href='{% static "css/style.css" %}' rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        @font-face {
+            font-family: 'BMitra';
+            src: url("{% static 'fonts/BMitra.woff'%}") format('woff'),
+            url("{% static 'fonts/BMitra.ttf'%}") format('truetype'),
+            url("{% static 'fonts/BMitra.svg#BMitra'%}") format('svg');
+        }
 
-    select,
-    option,
-    input,
-    div,
-    button,
-    small,
-    label,
-    p,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    a,
-    th,
-    tr,
-    td {
-      font-family: 'BMitra';
-      direction: rtl;
-    }
-  </style>
+        select,
+        option,
+        input,
+        div,
+        button,
+        small,
+        label,
+        p,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        a,
+        th,
+        tr,
+        td {
+            font-family: 'BMitra';
+            direction: rtl;
+        }
+    </style>
 
 </head>
 
 <body class="rtls gray-bg">
 
-  <div class="middle-box text-center loginscreen   animated fadeInDown">
+<div class="middle-box text-center loginscreen   animated fadeInDown">
     <div>
-      <div>
-        <img alt="image" class="center-block" src='{% static "img/jaam.png" %}'>
-      </div>
-      <h3>صفحه ثبت نام جام آرمانکده</h3>
-      <h2 style="background-color:#f44336;color: #FFFFFF;">
+        <div>
+            <img alt="image" class="center-block" src='{% static "img/jaam.png" %}'>
+        </div>
+        <h3>صفحه ثبت نام جام آرمانکده</h3>
+        <h2 style="background-color:#f44336;color: #FFFFFF;">
             {% for msg in my_messages %}
                 {{ msg }}
                 <br>
             {% endfor %}
         </h2>
-      <form class="m-t" role="form" action="register" method="post" id="register-form">
-        {% csrf_token %}
-        <h2>{{ user_form.non_field_errors }}</h2>
-        <h2>{{ team_form.non_field_errors }}</h2>
-        <div class="form-group">
-          <h2>{{ user_form.username.errors }}</h2> {% render_field user_form.username placeholder=user_form.username.label class='form-control' %}
-        </div>
-
-        <div class="form-group">
-          <h2>{{ user_form.password1.errors }}</h2> {% render_field user_form.password1 placeholder=user_form.password1.label class="form-control" %}
-        </div>
-        <div class="form-group">
-          <h2>{{ user_form.password2.errors }}</h2> {% render_field user_form.password2 placeholder=user_form.password2.label class="form-control" %}
-        </div>
-        <div class="form-group">
-          <h2>{{ user_form.email.errors }}</h2> {% render_field user_form.email placeholder=user_form.email.label class="form-control" %}
-        </div>
-        <div class="form-group">
-          <h2>{{ team_form.phone_number.errors }}</h2> {% render_field team_form.phone_number placeholder=team_form.phone_number.label class="form-control" %}
-        </div>
-        <div class="form-group">
-          <h2>{{ team_form.university.errors }}</h2> {% render_field team_form.university class="form-control" %}
-        </div>
-        <div class="form-group">
-          <h2>{{ team_form.competition.errors }}</h2> {% render_field team_form.competition class="form-control" onchange='delete_matlab()' %}
-        </div>
-        <div class="form-group">
-          <h2>{{ team_form.language.errors }}</h2> {% render_field team_form.language class="form-control" %}
-        </div>
-        <div class="form-group" hidden>
-          <h2>{{ team_form.mentor.errors }}</h2> {% render_field team_form.mentor class='form-control' placeholder=team_form.mentor.label oninput="ajax_mentor()" %}
-          <div id="div-mentor-icon-span" hidden>
-            <span id='mentor-icon-span' class="glyphicon glyphicon-ok" style="color:green" hidden></span>
-          </div>
-        </div>
-        <div class="form-group" id="recaptcha">
-          <div class="g-recaptcha" data-sitekey="6LcdiEUUAAAAAGOBQWMKoLuztCR97rGB9BZs9Sc9"></div>
-        </div>
-        <div class="alert alert-danger alert-dismissible" id='Alert-box' hidden>
-          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          <p id="alert-msg"></p>
-        </div>
-        <div class="form-group">
-          <h2>{{ team_form.checkbox.errors }}</h2> {# {{ team_form.checkbox.label }}#} {% render_field team_form.checkbox class="checkbox i-checks" %}
-          <i></i> تمام <a data-toggle="modal" data-target="#myModal">شرایط</a>
-
-          <!-- Modal -->
-          <div class="modal fade" id="myModal" role="dialog">
-            <div class="modal-dialog modal-lg">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title" style="font-size: 25px">قوانین ثبت نام</h4>
-                </div>
-                <div class="modal-body" style="font-size: 20px" align="right">
-                  <p>
-                    1- حداقل یکی از شرکت کنندگان باید دانشجوی یکی از 7 دانشگاه صنعتی شریف، تهران، صنعتی امیرکبیر، علم و صنعت ایران، صنعتی خواجه نصیر طوسی، شهید بهشتی و خوارزمی باشد.
-                  </p>
-                  <p>
-                    2- الف) شرکت کنندگان در بخش اشاره گر های هوشمند "مقدماتی" تنها می توانند دانشجوی ورودی 96 دانشگاه ها باشند.
-                  </p>
-                  <p>
-                    ۲- ب) شرکت کنندگان در بخش اشاره گر های هوشمند "پیشرفته" تنها می توانند دانشجوی دوره کارشناسی دانشگاه ها باشند.
-                  </p>
-                  <p>3- اگر در هر مرحله از مسابقات تشخیص داده شود که شرکت کننده از اطلاعات غیر واقعی استفاده کرده است از مسابقه حذف خواهد شد.
-                  </p>
-                  <p>
-                    4- هر فرد تنها می تواند در یک بخش " اشاره گر های هوشمند" یا "الگوریتم های هوشمند" شرکت کند و شرکت همزمان در دو بخش برای یک فرد امکان پذیر نمی باشد.
-                  </p>
-                </div>
-              </div>
+        <form class="m-t" role="form" action="register" method="post" id="register-form">
+            {% csrf_token %}
+            <h2>{{ user_form.non_field_errors }}</h2>
+            <h2>{{ team_form.non_field_errors }}</h2>
+            <div class="form-group">
+                <h2>{{ user_form.username.errors }}</h2> {% render_field user_form.username placeholder=user_form.username.label class='form-control' %}
             </div>
-            {#
-            <div class="checkbox i-checks"><label> <input type="checkbox"><i></i> تمام <a href="index.html">شرایط </a>را قبول دارم. </label></div>#}
-          </div>
-          را قبول دارم.
-          <br><br>
-          <button type="button" class="btn btn-primary block full-width m-b" onclick="get_validate('register-form')">ثبت نام
-                </button>
-          <a href="reset-password">
-                  <small>رمز عبور خود را فراموش کرده اید؟</small>
-          </a>
-          <p class="text-muted text-center">
-            <small>قبلا ثبت نام کرده اید؟</small>
-          </p>
-          <a class="btn btn-sm btn-white btn-block" href="login">ورود</a>
-      </form>
-      <p class="m-t">
-        <small>ArmanRTO &copy; 2017</small>
-      </p>
-      </div>
-    </div>
 
-    <!-- Mainly scripts -->
-    <script src='{% static "js/jquery-3.1.1.min.js" %}'></script>
-    <script src='{% static "js/bootstrap.min.js" %}'></script>
-    <!-- iCheck -->
-    <script src='{% static "js/plugins/iCheck/icheck.min.js" %}'></script>
-    <!--Recaptcha-->
-    <script src="{% static 'js/recaptcha_validation.js' %}"></script>
-    <script src='https://www.google.com/recaptcha/api.js'></script>
-    <script src="{% static 'js/main_page/language_change.js' %}"></script>
-    <script src="{% static 'js/mentor_check/ajax_mentor.js' %}"></script>
-    <script>
-      $(document).ready(function() {
+            <div class="form-group">
+                <h2>{{ user_form.password1.errors }}</h2> {% render_field user_form.password1 placeholder=user_form.password1.label class="form-control" %}
+            </div>
+            <div class="form-group">
+                <h2>{{ user_form.password2.errors }}</h2> {% render_field user_form.password2 placeholder=user_form.password2.label class="form-control" %}
+            </div>
+            <div class="form-group">
+                <h2>{{ user_form.email.errors }}</h2> {% render_field user_form.email placeholder=user_form.email.label class="form-control" %}
+            </div>
+            <div class="form-group">
+                <h2>{{ team_form.phone_number.errors }}</h2> {% render_field team_form.phone_number placeholder=team_form.phone_number.label class="form-control" %}
+            </div>
+            <div class="form-group">
+                <h2>{{ team_form.university.errors }}</h2> {% render_field team_form.university class="form-control" %}
+            </div>
+            <div class="form-group">
+                <h2>{{ team_form.competition.errors }}</h2> {% render_field team_form.competition class="form-control" onchange='delete_matlab()' %}
+            </div>
+            <div class="form-group">
+                <h2>{{ team_form.language.errors }}</h2> {% render_field team_form.language class="form-control" %}
+            </div>
+            <div class="form-group" hidden>
+                <h2>{{ team_form.mentor.errors }}</h2> {% render_field team_form.mentor class='form-control' placeholder=team_form.mentor.label oninput="ajax_mentor()" %}
+                <div id="div-mentor-icon-span" hidden>
+                    <span id='mentor-icon-span' class="glyphicon glyphicon-ok" style="color:green" hidden></span>
+                </div>
+            </div>
+            <div class="form-group" id="recaptcha">
+                <div class="g-recaptcha" data-sitekey="6LcdiEUUAAAAAGOBQWMKoLuztCR97rGB9BZs9Sc9"></div>
+            </div>
+            <div class="alert alert-danger alert-dismissible" id='Alert-box' hidden>
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <p id="alert-msg"></p>
+            </div>
+            <div class="form-group">
+                <h2>{{ team_form.checkbox.errors }}</h2>
+                {# {{ team_form.checkbox.label }}#} {% render_field team_form.checkbox class="checkbox i-checks" %}
+                <i></i> تمام <a data-toggle="modal" data-target="#myModal">شرایط</a>
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title" style="font-size: 25px">قوانین ثبت نام</h4>
+                            </div>
+                            <div class="modal-body" style="font-size: 20px" align="right">
+                                <p>
+                                    1- حداقل یکی از شرکت کنندگان باید دانشجوی یکی از 7 دانشگاه صنعتی شریف، تهران، صنعتی
+                                    امیرکبیر، علم و صنعت ایران، صنعتی خواجه نصیر طوسی، شهید بهشتی و خوارزمی باشد.
+                                </p>
+                                <p>
+                                    2- الف) شرکت کنندگان در بخش اشاره گر های هوشمند "مقدماتی" تنها می توانند دانشجوی
+                                    ورودی 96 دانشگاه ها باشند.
+                                </p>
+                                <p>
+                                    ۲- ب) شرکت کنندگان در بخش اشاره گر های هوشمند "پیشرفته" تنها می توانند دانشجوی دوره
+                                    کارشناسی دانشگاه ها باشند.
+                                </p>
+                                <p>3- اگر در هر مرحله از مسابقات تشخیص داده شود که شرکت کننده از اطلاعات غیر واقعی
+                                    استفاده کرده است از مسابقه حذف خواهد شد.
+                                </p>
+                                <p>
+                                    4- هر فرد تنها می تواند در یک بخش " اشاره گر های هوشمند" یا "الگوریتم های هوشمند"
+                                    شرکت کند و شرکت همزمان در دو بخش برای یک فرد امکان پذیر نمی باشد.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    {#
+                    <div class="checkbox i-checks"><label> <input type="checkbox"><i></i> تمام <a href="index.html">شرایط </a>را
+                        قبول دارم. </label></div>
+                    #}
+                </div>
+                را قبول دارم.
+                <br><br>
+                <button type="button" class="btn btn-primary block full-width m-b"
+                        onclick="get_validate('register-form')">ثبت نام
+                </button>
+                <a href="reset-password">
+                    <small>رمز عبور خود را فراموش کرده اید؟</small>
+                </a>
+                <p class="text-muted text-center">
+                    <small>قبلا ثبت نام کرده اید؟</small>
+                </p>
+                <a class="btn btn-sm btn-white btn-block" href="login">ورود</a>
+        </form>
+        <p class="m-t">
+            <small>ArmanRTO &copy; 2017</small>
+        </p>
+    </div>
+</div>
+
+<!-- Mainly scripts -->
+<script src='{% static "js/jquery-3.1.1.min.js" %}'></script>
+<script src='{% static "js/bootstrap.min.js" %}'></script>
+<!-- iCheck -->
+<script src='{% static "js/plugins/iCheck/icheck.min.js" %}'></script>
+<!--Recaptcha-->
+<script src="{% static 'js/recaptcha_validation.js' %}"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<script src="{% static 'js/main_page/language_change.js' %}"></script>
+<script src="{% static 'js/mentor_check/ajax_mentor.js' %}"></script>
+<script>
+    $(document).ready(function () {
         $('.i-checks').iCheck({
-          checkboxClass: 'icheckbox_square-green',
-          radioClass: 'iradio_square-green',
+            checkboxClass: 'icheckbox_square-green',
+            radioClass: 'iradio_square-green',
         });
-      });
-    </script>
+    });
+</script>
 </body>
 
 </html>
