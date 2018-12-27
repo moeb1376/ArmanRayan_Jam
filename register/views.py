@@ -1,11 +1,13 @@
 from builtins import len
 from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import redirect
 from django.template import loader
 from django.contrib.auth import authenticate, login
 from validate_email import validate_email
 from .models import *
 from .forms import UserRegisterForm, TeamForm, UserLoginForm
 from main.models import Mentor
+from SPC_main.views import SPC_main_page
 
 register_failed = False
 register_context = {}
@@ -13,7 +15,7 @@ register_context = {}
 
 def register_page2(request):
     if request.user.is_authenticated and not request.user.is_superuser:
-        return HttpResponseRedirect('/jaam')
+        return redirect("SPC_main:SPC_main_page")
     print('request register page : ', request)
     if request.method == 'POST':
         team_form = TeamForm(request.POST)
@@ -41,7 +43,7 @@ def register_page2(request):
                 team = team_form.save(commit=False)
                 team.user_team = temp
                 team.save()
-                return HttpResponseRedirect('/login')
+                return redirect("register:login")
     else:
         user_form = UserRegisterForm()
         team_form = TeamForm()
@@ -58,7 +60,7 @@ def register_page2(request):
 def login_page2(request):
     if request.user.is_authenticated and not request.user.is_superuser:
         print('revalle')
-        return HttpResponseRedirect('/jaam')
+        return redirect('SPC_main:SPC_main_page')
     if request.method == "POST":
         #        print(request)
         auth_form = UserLoginForm(request.POST)
@@ -91,3 +93,69 @@ def login_page2(request):
         auth_form = UserLoginForm()
     template = loader.get_template('register/login.html')
     return HttpResponse(template.render({'auth_form': auth_form}, request))
+
+
+def new_login(request):
+    valid_option = {
+        "username": "validate ",
+        "password": "validate "
+    }
+    if request.user.is_authenticated and not request.user.is_superuser:
+        return redirect('SPC_main:SPC_main_page')
+    if request.method == "POST":
+        auth_form = UserLoginForm(request.POST)
+
+        print('auth_form is valid ', auth_form.is_valid())
+        if auth_form.is_valid():
+            username = auth_form.cleaned_data['username']
+            password = auth_form.cleaned_data['password']
+            email_login = validate_email(username)
+            print('username : %s password : %s email_login ' % (username, password), email_login)
+            if email_login:
+                try:
+                    temp_user = auth_user.objects.get(email=username)
+                    if temp_user.check_password(password):
+                        login(request, temp_user)
+                        if len(temp_user.Teams.all()[0].Users.all()) < 2:
+                            return redirect('setting:setting')
+                        return redirect('SPC_main:SPC_main_page')
+                except auth_user.DoesNotExist:
+                    auth_form.add_error('username', 'نام کاربری یا رمز عبور اشتباه است')
+                    valid_option['username'] += "invalid"
+            else:
+                temp_user = authenticate(username=username, password=password)
+                print(temp_user)
+                if temp_user is not None and not temp_user.is_superuser:
+                    login(request, temp_user)
+                    return redirect("SPC_main:SPC_main_page")
+                else:
+                    auth_form.add_error('username', 'نام کاربری یا رمز عبور اشتباه است')
+                    valid_option['username'] += "invalid"
+    else:
+        auth_form = UserLoginForm()
+
+    context = {
+        'auth_form': auth_form,
+        "validate": valid_option
+    }
+    template = loader.get_template('new_register/login.html')
+    return HttpResponse(template.render(context, request))
+
+
+def new_register_page(request):
+    if request.user.is_authenticated and not request.user.is_superuser:
+        return redirect("SPC_main:SPC_main_page")
+    user_form = UserRegisterForm()
+    team_form = TeamForm()
+    # from django.forms.models import ModelChoiceField
+    # ModelChoiceField.
+    user_form.changed_password_label()
+    team_form.changed_required_mentor()
+    team_form.change_empty_label()
+    print(team_form.fields['university'].disabled)
+    context = {
+        'user_form': user_form,
+        'team_form': team_form,
+    }
+    template = loader.get_template('new_register/signup.html')
+    return HttpResponse(template.render(context, request))

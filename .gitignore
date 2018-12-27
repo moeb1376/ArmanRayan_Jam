@@ -245,3 +245,15 @@ celery1-1.log
 /celery1-7.log
 /celery_pid
 /test.json
+/Jaam_env
+/.idea
+/.vscode
+/register/__pycache__/*
+Jam/__pycache__/celery.cpython-36.pyc
+Jam/__pycache__/configDB.cpython-36.pyc
+/New_UI
+__pycache__/
+assets/
+register/templates/new_register/
+requirment.txt
+/media
