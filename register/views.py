@@ -22,6 +22,7 @@ def register_page2(request):
         user_form = UserRegisterForm(request.POST)
         team_form.changed_required_mentor()
         user_form.changed_password_label()
+        team_form.change_empty_label()
         if user_form.is_valid() and team_form.is_valid():
             email_objects = auth_user.objects.filter(email=user_form.cleaned_data['email'])
             mentor_objects = Mentor.objects.filter(code=team_form.cleaned_data['mentor'])
@@ -49,6 +50,7 @@ def register_page2(request):
         team_form = TeamForm()
     user_form.changed_password_label()
     team_form.changed_required_mentor()
+    team_form.change_empty_label()
     template = loader.get_template('register/register.html')
     context = {
         'user_form': user_form,
@@ -145,17 +147,44 @@ def new_login(request):
 def new_register_page(request):
     if request.user.is_authenticated and not request.user.is_superuser:
         return redirect("SPC_main:SPC_main_page")
-    user_form = UserRegisterForm()
-    team_form = TeamForm()
-    # from django.forms.models import ModelChoiceField
-    # ModelChoiceField.
+    print('request register page : ', request)
+    if request.method == 'POST':
+        team_form = TeamForm(request.POST)
+        user_form = UserRegisterForm(request.POST)
+        team_form.changed_required_mentor()
+        user_form.changed_password_label()
+        team_form.change_empty_label()
+        if user_form.is_valid() and team_form.is_valid():
+            email_objects = auth_user.objects.filter(email=user_form.cleaned_data['email'])
+            # mentor_objects = Mentor.objects.filter(code=team_form.cleaned_data['mentor'])
+            print('WTemail: ', email_objects, user_form.cleaned_data['email'])
+            check_email = False
+            check_mentor = False
+            for e in email_objects:
+                if not e.is_superuser:
+                    check_email = True
+            # if len(mentor_objects) == 0 and team_form.cleaned_data['mentor'] != '':
+            #     check_mentor = True
+            if check_email:
+                user_form.add_error('email', 'ایمیل تکراری است')
+            if check_mentor:
+                team_form.add_error('mentor', 'کد منتور صحیح نمی‌باشد')
+                team_form.add_error(None, 'کد منتور صحیح نمی‌باشد')
+            if not (check_email or check_mentor):
+                temp = user_form.save()
+                team = team_form.save(commit=False)
+                team.user_team = temp
+                team.save()
+                return redirect("register:login")
+    else:
+        user_form = UserRegisterForm()
+        team_form = TeamForm()
     user_form.changed_password_label()
     team_form.changed_required_mentor()
     team_form.change_empty_label()
-    print(team_form.fields['university'].disabled)
+    template = loader.get_template('new_register/signup.html')
     context = {
         'user_form': user_form,
         'team_form': team_form,
     }
-    template = loader.get_template('new_register/signup.html')
     return HttpResponse(template.render(context, request))
