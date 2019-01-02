@@ -1,0 +1,169 @@
+<html>
+
+<head>
+	<title>
+		پنل مدیریت | جام آرمانکده
+	</title>
+	<link rel="stylesheet" href="assets/css/materialize.css">
+	<link rel="stylesheet" href="assets/css/style-global.css">
+	<link rel="stylesheet" href="assets/css/style-index.css">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,target-densitydpi=device-dpi, user-scalable=no" />
+	<meta charset="utf-8">
+</head>
+
+<body>
+
+
+
+	<div class="row cnt" style="direction: rtl">
+		<div class="col s12 m12 l1 xl1  push-l11 push-xl11 side">
+			<img src="assets/img/jaam.png" style="width: 70%; margin-right: 15%; margin-top: 20px;" class="hide-on-med-and-down">
+			<img src="assets/img/jaam.png" style="height: 70%; margin-right: 20px; margin-top: 10px ;" class="show-on-medium-and-down hide-on-large-only hide-on-extra-large-only">
+
+
+			<div class="menu-items hide-on-med-and-down">
+				<a href="index.html">
+					<span class="menu-icon icon-info tooltipped" data-position="left" data-tooltip="اطلاعات تیم"></span>
+				</a>
+				<a href="friendly.html">
+					<span class="menu-icon icon-friendly tooltipped" data-position="left" data-tooltip="بازی دوستانه"></span>
+				</a>
+				<a href="#">
+					<span class="menu-icon icon-cup tooltipped icon-active" data-position="left" data-tooltip="جام"></span>
+				</a>
+				<a href="log.html">
+					<span class="menu-icon icon-competition tooltipped" data-position="left" data-tooltip="جدول رقابت ها"></span>
+				</a>
+				<a href="result.html">
+					<span class="menu-icon icon-result tooltipped" data-position="left" data-tooltip="نتایج"></span>
+				</a>
+
+			</div>
+			<div class="menu-items-mob hide-on-med-and-up show-on-medium">
+
+				<a href="index.html" class="inline">
+					<span class="menu-icon-mob icon-info tooltipped" data-position="bottom" data-tooltip="اطلاعات تیم"></span>
+				</a>
+				<a href="friendly.html" class="inline">
+					<span class="menu-icon-mob icon-friendly tooltipped" data-position="bottom" data-tooltip="بازی دوستانه"></span>
+				</a>
+				<a href="#" class="inline">
+					<span class="menu-icon-mob icon-cup tooltipped icon-active" data-position="bottom" data-tooltip="جام"></span>
+				</a>
+				<a href="log.html" class="inline">
+					<span class="menu-icon-mob icon-competition tooltipped" data-position="bottom" data-tooltip="جدول رقابت ها"></span>
+				</a>
+				<a href="result.html" class="inline">
+					<span class="menu-icon-mob icon-result tooltipped" data-position="bottom" data-tooltip="نتایج"></span>
+				</a>
+
+
+			</div>
+
+
+
+
+
+
+		</div>
+
+
+		<div class="col s12 m12 l3 xl3  push-l7 push-xl7 info">
+
+			<div class="row" style="height: 100%;">
+				<div>
+					<img src="assets/img/avatar-team.png" class="team-avatar">
+				</div>
+				<div class="team-info">
+					نام . ایمیل تیم
+				</div>
+				<div class="team-quote">
+					خواستن توانستن است، کافیست به توانایی های خود ایمان داشته باشید
+				</div>
+
+			</div>
+
+		</div>
+
+
+		<div class="col s12 m12 l8 xl8  pull-l4 pull-xl4 content">
+			<div class="nav-menu" style="z-index: 2000;">
+				<div class="logout">
+					<span class="icon-logout"></span><label>خروج</label>
+				</div>
+				<div class="edit-info">
+					<label onclick="location.href= 'edit.html'">ویرایش اطلاعات</label>
+				</div>
+			</div>
+
+			<div class="section table-container">
+				<h3 class="center">
+					جدول لیگ اشاره گر مقدماتی
+				</h3>
+				<table class="highlight centered responsive-table">
+					<thead>
+						<tr>
+							<th>تیم</th>
+							<th>دانشگاه</th>
+							<th>بازی</th>
+							<th>امتیاز</th>
+							<th>کلاس</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr>
+							<td>آرمان</td>
+							<td>امیرکبیر</td>
+							<td>10</td>
+							<td>107</td>
+							<td>A</td>
+						</tr>
+						<tr>
+							<td>آرمان</td>
+							<td>امیرکبیر</td>
+							<td>10</td>
+							<td>107</td>
+							<td>A</td>
+						</tr>
+						<tr>
+							<td>آرمان</td>
+							<td>امیرکبیر</td>
+							<td>10</td>
+							<td>107</td>
+							<td>A</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+
+		</div>
+
+	</div>
+
+
+
+
+
+
+	<script>
+		window.onload = function() {
+			var x = document.getElementById("filledProgress1").innerHTML;
+			document.getElementById("filledProgress1").innerHTML = "";
+			document.getElementById("filledProgress1").style.width = x + "%";
+
+			var y = document.getElementById("filledProgress2").innerHTML;
+			document.getElementById("filledProgress2").innerHTML = "";
+			document.getElementById("filledProgress2").style.width = y + "%";
+		}
+
+	</script>
+	s <script src="assets/js/bin/materialize.js"></script>
+	<script>
+		M.AutoInit();
+
+	</script>
+</body>
+
+</html>
