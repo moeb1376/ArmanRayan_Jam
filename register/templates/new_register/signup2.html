@@ -1,0 +1,136 @@
+<html>
+
+<head>
+    <title>
+        ورود | جام آرمانکده
+    </title>
+    {% load static %}
+    {% load widget_tweaks %}
+    <link rel="stylesheet" href="{% static 'css/materialize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style-global.css' %}">
+    <link rel="stylesheet" href='{% static "css/style-login.css" %}'>
+    <meta name="viewport"
+          content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,target-densitydpi=device-dpi, user-scalable=no"/>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+<div class="row container">
+    <div class="card col s12 m12 l8 xl8 offset-l2 offset-xl2">
+        <div class="section center-align typo-p">
+            <img src='{% static "img/jaam.png" %}' style="height: 150px;">
+            <div style="margin-top: 10px;">
+                ایجاد حساب کاربری
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="section">
+            <form role="form" action="{% url "register:register" %}" method="post" id="register-form">
+                {% csrf_token %}
+
+                <div class="row">
+                    <div class="col s12 m12 l6 xl6">
+                        <div class="input-field">
+                            {% render_field user_form.username name='user-name'  %}
+                            {#                            <input type="text" name="user-name" id="user-name">#}
+                            <label for="user-name">{{ user_form.username.label }}</label>
+                        </div>
+                        <div class="input-field">
+                            {% render_field user_form.password1 name='password1' %}
+                            {#                            <input type="password" name="password1" id="password">#}
+                            <label for="password1">{{ user_form.password1.label }}</label>
+                        </div>
+                        <div class="input-field">
+                            {% render_field user_form.password2 name='password2' %}
+                            {#                            <input type="password" name="password" id="password">#}
+                            <label for="password2">{{ user_form.password2.label }}</label>
+                        </div>
+                        <div class="input-field">
+                            {% render_field user_form.email name='email' %}
+                            {#                            <input type="password" name="password" id="password">#}
+                            <label for="email">{{ user_form.email.label }}</label>
+                        </div>
+
+                        <div class="input-field">
+                            {% render_field team_form.phone_number name='phone_number' %}
+                            {#                            <input type="password" name="password" id="password">#}
+                            <label for="phone_number">{{ team_form.phone_number.label }}</label>
+                        </div>
+                    </div>
+                    <div class="col s12 m12 l6 xl6">
+                        <div class="input-field col s12">
+                            {% render_field team_form.university %}
+                            {#                            <select>#}
+                            {#                                <option value="" disabled selected>دانشگاه</option>#}
+                            {#                                <option value="1">صنعتی امیرکبیر</option>#}
+                            {#                                <option value="2">صنعتی شریف</option>#}
+                            {#                                <option value="3">علم و صنعت</option>#}
+                            {#                            </select>#}
+
+                        </div>
+                        <div class="input-field col s12">
+                            {% render_field team_form.competition  %}
+                            {#                            <select>#}
+                            {#                                <option value="" disabled selected>مسابقه</option>#}
+                            {#                                <option value="1">پیشرفته SPC هوش بازی</option>#}
+                            {#                                <option value="2">مقدماتی SPC هوش بازی</option>#}
+                            {#                                <option value="3">IAC-TP پردازش متن</option>#}
+                            {#                                <option value="4">IAC-SP پردازش صوت</option>#}
+                            {#                                <option value="5">IAC-IP پردازش تصویر</option>#}
+                            {#                            </select>#}
+                        </div>
+                        <div class="input-field col s12">
+                            {% render_field team_form.language %}
+                            {#                            <select>#}
+                            {#                                <option value="" disabled selected>زبان برنامه نویسی</option>#}
+                            {#                                <option value="1">C++</option>#}
+                            {#                                <option value="2">Python</option>#}
+                            {#                                <option value="3">Java</option>#}
+                            {#                            </select>#}
+
+                        </div>
+                        <div class="col s12">
+                            <p>
+                                <label>
+                                    <input type="checkbox"/>
+                                    <span>تمامی شرایط و قوانین شرکت در رقابت را می پذیرم</span>
+                                </label>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col s12 m12 l6 xl6 center" style="margin:5px 0px;">
+                        <a href="{% url "register:login" %}" class="btn-flat waves-effect">ورود به حساب کاربری</a>
+
+                    </div>
+                    <div class="col s12 m12 l6 xl6 center" style="margin:5px 0px;">
+                        <button type="submit" class="btn waves-effect waves-light">ایجاد حساب کاربری
+                            <i class="material-icons right">face</i>
+                        </button>
+                    </div>
+                </div>
+
+
+            </form>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+<script src='{% static "js/bin/anime.min.js" %}'></script>
+<script src="{% static 'js/main_page/language_change.js' %}"></script>
+<script>
+    M.AutoInit();
+
+</script>
+
+</body>
+
+</html>
