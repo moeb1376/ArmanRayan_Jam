@@ -11,8 +11,7 @@ function validate() {
         // alert("You can't leave Captcha Code empty");
         add_alert();
         return false;
-    }
-    else {
+    } else {
         return true;
     }
 }
@@ -22,13 +21,12 @@ function add_alert() {
     if (alert_box) {
         alert_box.removeAttribute('hidden');
         document.getElementById('alert-msg').innerHTML = "<strong>Warning</strong>You can't leave Captcha Code empty";
-    }
-    else {
+    } else {
         alert_box = document.createElement('div');
-        alert_box.setAttribute("class","alert alert-danger alert-dismissible");
+        alert_box.setAttribute("class", "alert alert-danger alert-dismissible");
         alert_box.setAttribute("id", "Alert-box");
         var a = document.createElement('a');
-        a.setAttribute("class","close");
+        a.setAttribute("class", "close");
         a.setAttribute("href", "#");
         a.setAttribute("data-dismiss", "alert");
         a.setAttribute("aria-label", "close");
@@ -38,6 +36,6 @@ function add_alert() {
         alert_box.appendChild(a);
         alert_box.appendChild(msg);
         var p = document.getElementById("recaptcha");
-        p.parentNode.insertBefore(alert_box,p.nextSibling);
+        p.parentNode.insertBefore(alert_box, p.nextSibling);
     }
 }
