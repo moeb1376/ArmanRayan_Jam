@@ -251,9 +251,6 @@ celery1-1.log
 /register/__pycache__/*
 Jam/__pycache__/celery.cpython-36.pyc
 Jam/__pycache__/configDB.cpython-36.pyc
-/New_UI
-__pycache__/
-assets/
-register/templates/new_register/
-requirment.txt
+/__pycache__/
 /media
+db.sqlite3
