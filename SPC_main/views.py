@@ -3,7 +3,9 @@ from django.shortcuts import HttpResponseRedirect, loader, HttpResponse
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
+from django.shortcuts import redirect
 from register.models import Team
+from django.urls import reverse
 from .models import Cup
 
 
@@ -26,6 +28,31 @@ def SPC_main_page(request):
     if team.competition.competition_level < 3:
         print('jaam2')
         template = loader.get_template('SPC_main/extend/jaam_spc.html')
+    else:
+        print('jaamiac')
+        template = loader.get_template('SPC_main/extend/jaam_iac.html')
+    return HttpResponse(template.render(context, request))
+
+
+@login_required(login_url="/login", redirect_field_name='')
+def new_SPC_main_page(request):
+    print(request.META.get("upload_code", 0))
+    print(request.user)
+    team = request.user.Teams.all()[0]
+    team_member = team.Users.all()
+    user_require = 2 if team.competition.competition_level < 3 else 1
+    print(user_require, team.competition.competition_level)
+    if len(team_member) < user_require:
+        return redirect("setting:setting")
+    for member in team_member:
+        print(member.user_lname)
+    context = {
+        'login_team': team,
+        'members': team_member
+    }
+    if team.competition.competition_level < 3:
+        print('jaam2')
+        template = loader.get_template('new_SPC_main/index.html')
     else:
         print('jaamiac')
         template = loader.get_template('SPC_main/extend/jaam_iac.html')
