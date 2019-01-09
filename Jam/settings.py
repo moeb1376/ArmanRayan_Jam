@@ -69,6 +69,7 @@ TEMPLATES = [
         'DIRS': [
             BASE_TEMPLATE_DIR,
             os.path.join(BASE_TEMPLATE_DIR, 'base'),
+            os.path.join(BASE_TEMPLATE_DIR, 'base2_0'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
