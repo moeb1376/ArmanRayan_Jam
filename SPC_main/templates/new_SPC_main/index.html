@@ -1,297 +1,192 @@
-<html>
-
-<head>
-    <title>
-        پنل مدیریت | جام آرمانکده
-    </title>
-    {% load static %}
-    {% load widget_tweaks %}
-    <link rel="stylesheet" href="{% static 'css/materialize.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style-global.css' %}">
-    <link rel="stylesheet" href='{% static "css/style-login.css" %}'>
-
-    <meta name="viewport"
-          content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,target-densitydpi=device-dpi, user-scalable=no"/>
-    <meta charset="utf-8">
-</head>
-
-<body>
-
-
-<div class="row cnt" style="direction: rtl">
-    <div class="col s12 m12 l1 xl1  push-l11 push-xl11 side">
-        <img src="{% static 'img/jaam.png' %}" style="width: 70%; margin-right: 15%; margin-top: 20px;"
-             class="hide-on-med-and-down">
-        <img src='{% static "img/jaam.png"%}' style="height: 70%; margin-right: 20px; margin-top: 10px ;"
-             class="show-on-medium-and-down hide-on-large-only hide-on-extra-large-only">
-
-
-        <div class="menu-items hide-on-med-and-down">
-            <a href="#">
-                <span class="menu-icon icon-info tooltipped icon-active" data-position="left"
-                      data-tooltip="اطلاعات تیم"></span>
-            </a>
-            <a href="{% url 'online_match:online_match' %}">
-                <span class="menu-icon icon-friendly tooltipped" data-position="left"
-                      data-tooltip="بازی دوستانه"></span>
-            </a>
-            <a href="{% url 'SPC_main:cup-view' %}">
-                <span class="menu-icon icon-cup tooltipped" data-position="left" data-tooltip="جام"></span>
-            </a>
-            <a href="log.html">
-                <span class="menu-icon icon-competition tooltipped" data-position="left"
-                      data-tooltip="جدول رقابت ها"></span>
-            </a>
-            <a href="result.html">
-                <span class="menu-icon icon-result tooltipped" data-position="left" data-tooltip="نتایج"></span>
-            </a>
-
-        </div>
-        <div class="menu-items-mob hide-on-med-and-up show-on-medium">
-
-            <a href="#" class="inline">
-                <span class="menu-icon-mob icon-info tooltipped" data-position="bottom"
-                      data-tooltip="اطلاعات تیم"></span>
-            </a>
-            <a href="friendly.html" class="inline">
-                <span class="menu-icon-mob icon-friendly tooltipped" data-position="bottom"
-                      data-tooltip="بازی دوستانه"></span>
-            </a>
-            <a href="cup.html" class="inline">
-                <span class="menu-icon-mob icon-cup tooltipped" data-position="bottom" data-tooltip="جام"></span>
-            </a>
-            <a href="log.html" class="inline">
-                <span class="menu-icon-mob icon-competition tooltipped" data-position="bottom"
-                      data-tooltip="جدول رقابت ها"></span>
-            </a>
-            <a href="result.html" class="inline">
-                <span class="menu-icon-mob icon-result tooltipped" data-position="bottom" data-tooltip="نتایج"></span>
-            </a>
-
-
-        </div>
-
-
-    </div>
-
-
-    <div class="col s12 m12 l3 xl3  push-l7 push-xl7 info">
-
-        <div class="row" style="height: 100%;">
-            <div>
-                <img src="../assets/img/avatar-team.png" class="team-avatar">
-            </div>
-            <div class="team-info">
-                نام . ایمیل تیم
-            </div>
-            <div class="team-quote">
-                خواستن توانستن است، کافیست به توانایی های خود ایمان داشته باشید
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="col s12 m12 l8 xl8  pull-l4 pull-xl4 content" id="container">
-
-
-        <div class="nav-menu" style="z-index: 2000;">
-            <div class="logout">
-                <span class="icon-logout"></span><label>خروج</label>
-            </div>
-            <div class="edit-info">
-                <label onclick="location.href= 'edit.html'">ویرایش اطلاعات</label>
-            </div>
-        </div>
-
-        <div class="row" style="padding: 15px;">
-            <div class="col s12 m12 l4 xl4" style="position: relative;">
-                <div class="card team-summary">
-                    <h1>A</h1>
-                    <div class="puan">
-                        <label>امتیاز تیم</label>
-                        <label>1400</label>
-                    </div>
-                    <div class="progress-bar">
-                        <span class="progressed" id="filledProgress">70</span>
-                    </div>
-                    <div class="btn waves-effect new-code" id="selectFileButton">
-                        بارگذاری کد جدید
-                        <input type="file"
-                               style="opacity: 0;position: absolute; left: 0; height: 50px; top: 0px; width: 220px; cursor: pointer"
-                               id="selectFile">
-                    </div>
+{% extends 'base2_0/base.html' %}
+{% load static from staticfiles %}
+{% block title %}
+    {{ user.username }} | میدیریت تیم
+{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/style-index.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="row" style="padding: 15px;">
+        <div class="col s12 m12 l4 xl4" style="position: relative;">
+            <div class="card team-summary">
+                <h1>A</h1>
+                <div class="puan">
+                    <label>امتیاز تیم</label>
+                    <label>1400</label>
                 </div>
-                <div class="card member" style="background-color: #3a6073; top: -13px; direction: ltr">
+                <div class="progress-bar">
+                    <span class="progressed" id="filledProgress">70</span>
+                </div>
+                <div class="btn waves-effect new-code" id="selectFileButton">
+                    بارگذاری کد جدید
+                    <input type="file"
+                           style="opacity: 0;position: absolute; left: 0; height: 50px; top: 0px; width: 220px; cursor: pointer"
+                           id="selectFile">
+                </div>
+            </div>
+            <div class="card member" style="background-color: #3a6073; top: -13px; direction: ltr">
 
 
-                    <!--						carousel-->
+                <!--						carousel-->
 
 
-                    <div class="carousele my-carousel carousel--translate">
-                        <input class="carousel__activator" type="radio" name="carousel" id="F" checked="checked"/>
-                        <input class="carousel__activator" type="radio" name="carousel" id="G"/>
-                        <input class="carousel__activator" type="radio" name="carousel" id="H"/>
-                        <input class="carousel__activator" type="radio" name="carousel" id="I"/>
-                        <input class="carousel__activator" type="radio" name="carousel" id="J"/>
-                        <div class="carousel__controls">
-                            <label class="carousel__control carousel__control--backward" for="J"></label>
-                            <label class="carousel__control carousel__control--forward" for="G"></label>
-                        </div>
-                        <div class="carousel__controls">
-                            <label class="carousel__control carousel__control--backward" for="F"></label>
-                            <label class="carousel__control carousel__control--forward" for="H"></label>
-                        </div>
-                        <div class="carousel__controls">
-                            <label class="carousel__control carousel__control--backward" for="G"></label>
-                            <label class="carousel__control carousel__control--forward" for="I"></label>
-                        </div>
-                        <div class="carousel__controls">
-                            <label class="carousel__control carousel__control--backward" for="H"></label>
-                            <label class="carousel__control carousel__control--forward" for="J"></label>
-                        </div>
-                        <div class="carousel__controls">
-                            <label class="carousel__control carousel__control--backward" for="I"></label>
-                            <label class="carousel__control carousel__control--forward" for="F"></label>
-                        </div>
-                        <div class="carousel__track">
-                            <li class="carousel__slide">
-                                <img src="../assets/img/help-web-button.svg" style="width: 30px;">
-                                <label class="tip-title">راهنما و توضیحات</label>
-                                <span class="text-article" style="top: 40%;">اشاره گر های مقدماتی</span>
-                                <span class="text-sub center" style="top: 55%;">توضیحات لازم را از فایل زیر دانلود نمایید</span>
-                                <div class="btn waves-effect yellow lighten-5 download-btn">
-                                    دانلود فایل
-                                </div>
-                            </li>
-                            <li class="carousel__slide">
-                                <img src="../assets/img/help-web-button.svg" style="width: 30px;">
-                                <label class="tip-title">راهنما و توضیحات</label>
-                                <span class="text-article center" style="top: 40%;">اشاره گر های پیشرفته</span>
-                                <span class="text-sub center" style="top: 55%;">توضیحات لازم را از فایل زیر دانلود نمایید</span>
-                                <div class="btn waves-effect yellow lighten-5 download-btn">
-                                    دانلود فایل
-                                </div>
-                            </li>
-                            <li class="carousel__slide">
-                                <img src="../assets/img/help-web-button.svg" style="width: 30px;">
-                                <label class="tip-title">راهنما و توضیحات</label>
-                                <span class="text-article center" style="top: 40%;">فایل های کلاینت</span>
-                                <span class="text-sub center" style="top: 55%;left: 50%">
+                <div class="carousele my-carousel carousel--translate">
+                    <input class="carousel__activator" type="radio" name="carousel" id="F" checked="checked"/>
+                    <input class="carousel__activator" type="radio" name="carousel" id="G"/>
+                    <input class="carousel__activator" type="radio" name="carousel" id="H"/>
+                    <input class="carousel__activator" type="radio" name="carousel" id="I"/>
+                    <input class="carousel__activator" type="radio" name="carousel" id="J"/>
+                    <div class="carousel__controls">
+                        <label class="carousel__control carousel__control--backward" for="J"></label>
+                        <label class="carousel__control carousel__control--forward" for="G"></label>
+                    </div>
+                    <div class="carousel__controls">
+                        <label class="carousel__control carousel__control--backward" for="F"></label>
+                        <label class="carousel__control carousel__control--forward" for="H"></label>
+                    </div>
+                    <div class="carousel__controls">
+                        <label class="carousel__control carousel__control--backward" for="G"></label>
+                        <label class="carousel__control carousel__control--forward" for="I"></label>
+                    </div>
+                    <div class="carousel__controls">
+                        <label class="carousel__control carousel__control--backward" for="H"></label>
+                        <label class="carousel__control carousel__control--forward" for="J"></label>
+                    </div>
+                    <div class="carousel__controls">
+                        <label class="carousel__control carousel__control--backward" for="I"></label>
+                        <label class="carousel__control carousel__control--forward" for="F"></label>
+                    </div>
+                    <div class="carousel__track">
+                        <li class="carousel__slide">
+                            <img src="../assets/img/help-web-button.svg" style="width: 30px;">
+                            <label class="tip-title">راهنما و توضیحات</label>
+                            <span class="text-article" style="top: 40%;">اشاره گر های مقدماتی</span>
+                            <span class="text-sub center"
+                                  style="top: 55%;">توضیحات لازم را از فایل زیر دانلود نمایید</span>
+                            <div class="btn waves-effect yellow lighten-5 download-btn">
+                                دانلود فایل
+                            </div>
+                        </li>
+                        <li class="carousel__slide">
+                            <img src="../assets/img/help-web-button.svg" style="width: 30px;">
+                            <label class="tip-title">راهنما و توضیحات</label>
+                            <span class="text-article center" style="top: 40%;">اشاره گر های پیشرفته</span>
+                            <span class="text-sub center"
+                                  style="top: 55%;">توضیحات لازم را از فایل زیر دانلود نمایید</span>
+                            <div class="btn waves-effect yellow lighten-5 download-btn">
+                                دانلود فایل
+                            </div>
+                        </li>
+                        <li class="carousel__slide">
+                            <img src="../assets/img/help-web-button.svg" style="width: 30px;">
+                            <label class="tip-title">راهنما و توضیحات</label>
+                            <span class="text-article center" style="top: 40%;">فایل های کلاینت</span>
+                            <span class="text-sub center" style="top: 55%;left: 50%">
 
 									</span>
-                                <div class="btn waves-effect yellow lighten-5 download-btn">
-                                    دانلود فایل
-                                </div>
-                            </li>
-                            <li class="carousel__slide">
-                                <h1>I</h1>
-                            </li>
-                            <li class="carousel__slide">
-                                <h1>J</h1>
-                            </li>
-                        </div>
-                        <div class="carousel__indicators">
-                            <label class="carousel__indicator" for="F"></label>
-                            <label class="carousel__indicator" for="G"></label>
-                            <label class="carousel__indicator" for="H"></label>
-                            <label class="carousel__indicator" for="I"></label>
-                            <label class="carousel__indicator" for="J"></label>
-                        </div>
+                            <div class="btn waves-effect yellow lighten-5 download-btn">
+                                دانلود فایل
+                            </div>
+                        </li>
+                        <li class="carousel__slide">
+                            <h1>I</h1>
+                        </li>
+                        <li class="carousel__slide">
+                            <h1>J</h1>
+                        </li>
                     </div>
-
-
-                    <!--						end carousel-->
-
-
+                    <div class="carousel__indicators">
+                        <label class="carousel__indicator" for="F"></label>
+                        <label class="carousel__indicator" for="G"></label>
+                        <label class="carousel__indicator" for="H"></label>
+                        <label class="carousel__indicator" for="I"></label>
+                        <label class="carousel__indicator" for="J"></label>
+                    </div>
                 </div>
+
+
+                <!--						end carousel-->
+
 
             </div>
-            <div class="col s12 m12 l4 xl4" style="position: relative;">
-                <div class="card member yellow lighten-4">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <div class="pattern-back teal darken-2 waves-effect activator"></div>
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i>نام عضو</span>
-                        <p><a href="#"></a></p>
-                    </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">نام عضو<i
-                                class="material-icons right">close</i></span>
-                        <p>توضیحات کوتاه در مورد عضو</p>
-                    </div>
+
+        </div>
+        <div class="col s12 m12 l4 xl4" style="position: relative;">
+            <div class="card member yellow lighten-4">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <div class="pattern-back teal darken-2 waves-effect activator"></div>
                 </div>
-                <div class="card member">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <div class="pattern-back teal darken-2 waves-effect activator"></div>
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i>نام عضو</span>
-                        <p><a href="#"></a></p>
-                    </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">نام عضو<i
-                                class="material-icons right">close</i></span>
-                        <p>توضیحات کوتاه در مورد عضو</p>
-                    </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4"><i
+                            class="material-icons right">more_vert</i>نام عضو</span>
+                    <p><a href="#"></a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">نام عضو<i
+                            class="material-icons right">close</i></span>
+                    <p>توضیحات کوتاه در مورد عضو</p>
                 </div>
             </div>
-            <div class="col s12 m12 l4 xl4" style="position: relative;">
-                <div class="card member">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <div class="pattern-back teal darken-2 waves-effect activator">
-                            <img src="../assets/img/pp.jpg" class="activator">
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i>نام عضو</span>
-                        <p><a href="#"></a></p>
-                    </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">نام عضو<i
-                                class="material-icons right">close</i></span>
-                        <p>توضیحات کوتاه در مورد عضو</p>
-                    </div>
+            <div class="card member">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <div class="pattern-back teal darken-2 waves-effect activator"></div>
                 </div>
-                <div class="card member">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <div class="pattern-back teal darken-2 waves-effect activator"></div>
-                    </div>
-                    <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4"><i class="material-icons right">more_vert</i>نام عضو</span>
-                        <p><a href="#"></a></p>
-                    </div>
-                    <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">نام عضو<i
-                                class="material-icons right">close</i></span>
-                        <p>توضیحات کوتاه در مورد عضو</p>
-                    </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4"><i
+                            class="material-icons right">more_vert</i>نام عضو</span>
+                    <p><a href="#"></a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">نام عضو<i
+                            class="material-icons right">close</i></span>
+                    <p>توضیحات کوتاه در مورد عضو</p>
                 </div>
             </div>
         </div>
-
-
+        <div class="col s12 m12 l4 xl4" style="position: relative;">
+            <div class="card member">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <div class="pattern-back teal darken-2 waves-effect activator">
+                        <img src="../assets/img/pp.jpg" class="activator">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4"><i
+                            class="material-icons right">more_vert</i>نام عضو</span>
+                    <p><a href="#"></a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">نام عضو<i
+                            class="material-icons right">close</i></span>
+                    <p>توضیحات کوتاه در مورد عضو</p>
+                </div>
+            </div>
+            <div class="card member">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <div class="pattern-back teal darken-2 waves-effect activator"></div>
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4"><i
+                            class="material-icons right">more_vert</i>نام عضو</span>
+                    <p><a href="#"></a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">نام عضو<i
+                            class="material-icons right">close</i></span>
+                    <p>توضیحات کوتاه در مورد عضو</p>
+                </div>
+            </div>
+        </div>
     </div>
+{% endblock %}
+{% block scripts %}
+    <script>
+        window.onload = function () {
+            var x = document.getElementById("filledProgress").innerHTML;
+            document.getElementById("filledProgress").innerHTML = "";
+            document.getElementById("filledProgress").style.width = x + "%";
+        }
 
-</div>
-
-
-<script>
-    window.onload = function () {
-        var x = document.getElementById("filledProgress").innerHTML;
-        document.getElementById("filledProgress").innerHTML = "";
-        document.getElementById("filledProgress").style.width = x + "%";
-    }
-
-</script>
-s
-<script src="../assets/js/bin/materialize.js"></script>
-<script>
-    M.AutoInit();
-
-</script>
-</body>
-
-</html>
+    </script>
+{% endblock %}
