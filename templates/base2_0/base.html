@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    {% load staticfiles %}
+    {% load widget_tweaks %}
+    <link rel="stylesheet" href="{% static 'css/materialize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style-global.css' %}">
+
+    {#    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,target-densitydpi=device-dpi, user-scalable=no"/>#}
+    <meta name="viewport"
+          content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,target-densitydpi=device-dpi, user-scalable=no"/>
+    <meta charset="utf-8">
+    {% block head %}
+    {% endblock %}
+
+
+</head>
+<body>
+<div class="row cnt" style="direction: rtl">
+    {% include 'base2_0/menu_item.html' %}
+    {% include 'base2_0/menu_team_discription.html' %}
+    <div class="col s12 m12 l8 xl8  pull-l4 pull-xl4 content" id="container">
+        {% include 'base2_0/navbar.html' %}
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</div>
+
+{% block scripts %}{% endblock %}
+<script src="{% static '/js/bin/materialize.js' %}"></script>
+<script>
+    M.AutoInit();
+
+</script>
+
+</body>
+</html>
