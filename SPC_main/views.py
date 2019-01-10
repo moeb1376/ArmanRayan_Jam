@@ -5,7 +5,6 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import redirect
 from register.models import Team
-from django.urls import reverse
 from .models import Cup
 
 
@@ -52,7 +51,7 @@ def new_SPC_main_page(request):
     }
     if team.competition.competition_level < 3:
         print('jaam2')
-        template = loader.get_template('new_SPC_main/index.html')
+        template = loader.get_template('included/index.html')
     else:
         print('jaamiac')
         template = loader.get_template('SPC_main/extend/jaam_iac.html')
@@ -69,8 +68,31 @@ def table_view(request):
     login_team = request.user.Teams.all()[0]
     if login_team.competition.competition_level < 3:
         print('jaam2')
-        teams = Team.objects.filter(competition=login_team.competition)
+        teams = Team.objects.filter(competition=login_team.competition.competition_level).all()
+        teams = sorted(teams, key=lambda x: x.get_points(), reverse=True)
         template = loader.get_template('SPC_main/extend/table_spc.html')
+    else:
+        print('jaamiac')
+        template = loader.get_template('SPC_main/extend/table_iac.html')
+        teams = dict()
+        teams['picture'] = Team.objects.filter(competition__competition_level=5).order_by('accuracy')
+        teams['sound'] = Team.objects.filter(competition__competition_level=4).order_by('accuracy')
+        teams['text'] = Team.objects.filter(competition__competition_level=3).order_by('accuracy')
+    context = {
+        'login_team': login_team,
+        'teams': teams
+    }
+    return HttpResponse(template.render(context, request))
+
+
+@login_required(login_url='/login', redirect_field_name='')
+def new_table_view(request):
+    login_team = request.user.Teams.all()[0]
+    if login_team.competition.competition_level < 3:
+        print('jaam2')
+        teams = Team.objects.filter(competition=1).all()
+        teams = sorted(teams, key=lambda x: x.get_points(), reverse=True)
+        template = loader.get_template('included/cup_table.html')
     else:
         print('jaamiac')
         template = loader.get_template('SPC_main/extend/table_iac.html')
@@ -105,6 +127,23 @@ def cup_view(request):
         return HttpResponse(template.render(context, request))
     elif request.method == 'POST':
         print("POST", request.POST)
+
+
+@login_required(login_url='/login', redirect_field_name='')
+def jaam_table_view(request):
+    login_team = request.user.Teams.all()[0]
+    teams = dict()
+    temp = Team.objects.filter(competition=1).all()
+    teams['SPC'] = sorted(temp, key=lambda x: x.get_points())
+    teams['picture'] = Team.objects.filter(competition__competition_level=5).order_by('accuracy')
+    teams['sound'] = Team.objects.filter(competition__competition_level=4).order_by('accuracy')
+    teams['text'] = Team.objects.filter(competition__competition_level=3).order_by('accuracy')
+    template = loader.get_template('included/jaam_tables.html')
+    context = {
+        'teams': teams,
+        'login_team': login_team
+    }
+    return HttpResponse(template.render(context, request))
 
 
 @csrf_exempt
