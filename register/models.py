@@ -83,8 +83,8 @@ def create_team(sender, instance, **kwargs):
                 'در مسابقات ' + instance.competition.competition_name,
                 'ثبت نام کرد.', instance.user_team.email]
     message = '\n'.join(messages)
-    send_mail('جام بزرگ آرمانکده', message, settings.EMAIL_HOST_USER,
-              ['v.savabieh12@gmail.com', 'ebimosi14@gmail.com'])
+    # send_mail('جام بزرگ آرمانکده', message, settings.EMAIL_HOST_USER,
+    #           ['v.savabieh12@gmail.com', 'ebimosi14@gmail.com'])
 
 
 class MyUser(models.Model):
@@ -101,6 +101,9 @@ class MyUser(models.Model):
 
     def get_normal_entrance_year(self):
         return self.entrance_year % 100
+
+    def get_fname_lname(self):
+        return self.user_fname+' '+self.user_lname
 
     def __str__(self):
         return self.user_fname + ' ' + self.user_lname

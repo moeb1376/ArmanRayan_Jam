@@ -254,3 +254,4 @@ Jam/__pycache__/configDB.cpython-36.pyc
 /__pycache__/
 /media
 db.sqlite3
+/db.sqlite3

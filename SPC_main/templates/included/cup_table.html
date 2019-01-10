@@ -1,0 +1,71 @@
+<html>
+
+<head>
+    <title>
+        {{ user.username }} |
+    </title>
+    {% load static %}
+    <link rel="stylesheet" href='{% static "css/materialize.css" %}'>
+    <link rel="stylesheet" href='{% static "css/style-global.css" %}'>
+    <link rel="stylesheet" href='{% static "css/style-index.css" %}'>
+    <meta name="viewport"
+          content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,target-densitydpi=device-dpi, user-scalable=no"/>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+
+<div class="row cnt" style="direction: rtl">
+    {% include 'base2_0/menu_item.html' %}
+
+
+    {% include 'base2_0/menu_team_discription.html' %}
+
+
+    <div class="col s12 m12 l8 xl8  pull-l4 pull-xl4 content">
+        {% include 'base2_0/navbar.html' %}
+
+        <div class="section table-container">
+            <h3 class="center">
+                جدول لیگ اشاره گر مقدماتی
+            </h3>
+            <table class="highlight centered responsive-table">
+                <thead>
+                <tr>
+                    <th>تیم</th>
+                    <th>دانشگاه</th>
+                    <th>بازی</th>
+                    <th>امتیاز</th>
+                    <th>کلاس</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {% for team in teams %}
+                <tr>
+                    <td>{{ team.user_team.username }}</td>
+                    <td>{{ team.university.university_name }}</td>
+                    <td>{{ team.total_games }}</td>
+                    <td>{{ team.get_points }}</td>
+                    <td>A</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+</div>
+<script src='{% static "js/jquery-3.1.1.min.js" %}'></script>
+<script src="{% static 'js/jaam/item_active.js' %}"></script>
+<script src='{% static "js/bin/materialize.js" %}'></script>
+<script>
+    M.AutoInit();
+
+</script>
+</body>
+
+</html>
