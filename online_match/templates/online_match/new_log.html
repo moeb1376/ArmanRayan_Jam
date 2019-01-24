@@ -1,0 +1,112 @@
+<html>
+
+<head>
+    <title>
+        {{ user.username }} | نتایج
+    </title>
+    {% load static from staticfiles %}
+    <link rel="stylesheet" href='{% static "css/materialize.css" %}'>
+    <link rel="stylesheet" href='{% static "css/style-global.css" %}'>
+    <link rel="stylesheet" href='{% static "css/style-index.css" %}'>
+
+    <meta name="viewport"
+          content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,target-densitydpi=device-dpi, user-scalable=no"/>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+
+<div class="row cnt" style="direction: rtl">
+    {% include 'base2_0/menu_item.html' %}
+
+    {% include 'base2_0/menu_team_discription.html' %}
+
+
+    <div class="col s12 m12 l8 xl8  pull-l4 pull-xl4 content">
+        {% include 'base2_0/navbar.html' %}
+
+        <div class="section table-container">
+            <h3 class="center">
+                تاریخچه نتایج بازی ها
+            </h3>
+            <table class="highlight centered responsive-table">
+                <thead>
+                <tr>
+                    <th>تیم حریف</th>
+                    <th>تاریخ</th>
+                    <th>نتیجه</th>
+                    <th>لاگ بازی</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {% for match in log_home %}
+                    <tr>
+                        <td>
+                            {{ match.team1.user_team.username }}&nbsp;
+                        </td>
+                        <td>{{ match.date }}</td>
+                        {% if match.winner == 1 %}
+                            <td>{{ user.username }}</td>
+                        {% elif match.winner == 2 %}
+                            <td>{{ match.team1.user_team.username }}</td>
+                        {% else %}
+                            <td>تساوی</td>
+
+                        {% endif %}
+                        {% if not match.is_running %}
+                            {% if match.log_file %}
+                                <td><a href="{{ match.log_file }}" download>log</a></td>
+                            {% else %}
+                                <td></td>
+                            {% endif %}
+
+                        {% else %}
+                            <td><h5>در حال اجرا</h5></td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+                {% for match in log_away %}
+                    <tr>
+                        <td>
+                            {{ match.team2.user_team.username }}&nbsp;
+                        </td>
+                        <td>{{ match.date }}</td>
+                        {% if match.winner == 2 %}
+                            <td>{{ user.username }}</td>
+                        {% elif match.winner == 1 %}
+                            <td>{{ match.team2.user_team.username }}</td>
+                        {% else %}
+                            <td>تساوی</td>
+
+                        {% endif %}
+                        {% if not match.is_running %}
+                            {% if match.log_file %}
+                                <td><a href="{{ match.log_file }}" download>log</a></td>
+                            {% else %}
+                                <td></td>
+                            {% endif %}
+                        {% else %}
+                            <td><h5>در حال اجرا</h5></td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<script src='{% static "js/bin/materialize.js" %}'></script>
+<script>
+    M.AutoInit();
+
+</script>
+</body>
+
+</html>

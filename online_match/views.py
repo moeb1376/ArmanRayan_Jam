@@ -24,7 +24,10 @@ def online_match(request):
         'codes': list(code)
     }
     if team_competition < 3:
-        template = loader.get_template('online_match/extend/play_spc.html')
+        if request.get_full_path() == '/new_play':
+            template = loader.get_template('online_match/friendly.html')
+        else:
+            template = loader.get_template('online_match/extend/play_spc.html')
     else:
         if team_competition == 3:
             context['data_set1'] = '/media/DataSet/Text/v1-3000.rar'
@@ -124,7 +127,10 @@ def upload_view(request):
 
 
 def log_view(request):
-    template = loader.get_template('online_match/extend/log.html')
+    if request.get_full_path() == '/log':
+        template = loader.get_template('online_match/extend/log.html')
+    else:
+        template = loader.get_template('online_match/new_log.html')
     team = request.user.Teams.all()[0]
     if team.competition.competition_level >= 3:
         raise Http404('این صفحه مخصوص مسابقات spc است.')
