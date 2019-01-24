@@ -185,7 +185,8 @@
                 </div>
             </div>
             <div class="col s12 m12 l4 xl4" style="position: relative;">
-                {% if members.3 %}
+
+                {% if members.2 %}
                     <div class="card member">
                         <div class="card-image waves-effect waves-block waves-light">
                             <div class="pattern-back teal darken-2 waves-effect activator"></div>
@@ -193,18 +194,18 @@
                         <div class="card-content">
                         <span class="card-title activator grey-text text-darken-4">
                             <i class="material-icons right">more_vert</i>
-                            {{ members.0.get_fname_lname }}
+                            {{ members.2.get_fname_lname }}
                         </span>
                             <p><a href="#"></a></p>
                         </div>
                         <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">{{ members.0.get_fname_lname }}
+                        <span class="card-title grey-text text-darken-4">{{ members.2.get_fname_lname }}
                             <i class="material-icons right">close</i>
                         </span>
-                            <p>{{ members.0.skills }}</p>
+                            <p>{{ members.2.skills }}</p>
                         </div>
                     </div>
-                    {% if members.4 %}
+                    {% if members.3 %}
                         <div class="card member">
                             <div class="card-image waves-effect waves-block waves-light">
                                 <div class="pattern-back teal darken-2 waves-effect activator"></div>
@@ -212,15 +213,35 @@
                             <div class="card-content">
                         <span class="card-title activator grey-text text-darken-4">
                             <i class="material-icons right">more_vert</i>
-                            {{ members.1.get_fname_lname }}
+                            {{ members.3.get_fname_lname }}
                         </span>
                                 <p><a href="#"></a></p>
                             </div>
                             <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">
-                            {{ members.1.get_fname_lname }}
+                            {{ members.3.get_fname_lname }}
                             <i class="material-icons right">close</i></span>
-                                <p>{{ members.1.skills }}</p>
+                                <p>{{ members.3.skills }}</p>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="card member">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <div class="pattern-back teal darken-2 waves-effect activator"></div>
+                            </div>
+                            <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">
+                                <i class="material-icons right">more_vert</i>
+                                نام عضو جدید
+                            </span>
+                                <p><a href="#"></a></p>
+                            </div>
+                            <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">
+                            نام عضو
+                            <i class="material-icons right">close</i>
+                        </span>
+                                <p>توضیحات کوتاه در مورد عضو جدید</p>
                             </div>
                         </div>
                     {% endif %}
