@@ -31,7 +31,7 @@
                 <div class="row">
                     <div class="col s12 m12 l12 xl12">
                         <div class="input-field">
-                            {% render_field user_form.username name='user-name' %}
+                            {% render_field user_form.username name='user-name' id="user-name" %}
                             {#                            <input type="text" name="user-name" id="user-name">#}
                             <label for="user-name">{{ user_form.username.label }}</label>
                         </div>
@@ -39,26 +39,26 @@
 
                     <div class="col s12 m12 l6 xl6">
                         <div class="input-field">
-                            {% render_field user_form.email name='email' %}
+                            {% render_field user_form.email name='email' id="mail" %}
                             {#                            <input type="email" name="mail" id="mail">#}
                             <label for="mail">{{ user_form.email.label }}</label>
                         </div>
                         <div class="input-field">
-                            {% render_field team_form.phone_number name='phone_number' %}
+                            {% render_field team_form.phone_number name='phone_number' id="number" %}
                             {#                            <input type="text" name="number" id="number">#}
-                            <label for="phone_number">{{ team_form.phone_number.label }}</label>
+                            <label for="number">{{ team_form.phone_number.label }}</label>
                         </div>
                     </div>
                     <div class="col s12 m12 l6 xl6">
                         <div class="input-field">
-                            {% render_field user_form.password1 name='password1' %}
+                            {% render_field user_form.password1 name='password1' id="password" %}
                             {#                            <input type="password" name="password" id="password">#}
                             <label for="password">{{ user_form.password1.label }}</label>
                         </div>
                         <div class="input-field">
-                            {% render_field user_form.password2 name='password2' %}
+                            {% render_field user_form.password2 name='password2' id="password-rep" %}
                             {#                            <input type="password" name="password-rep" id="password-rep">#}
-                            <label for="password2">{{ user_form.password2.label }}</label>
+                            <label for="password-rep">{{ user_form.password2.label }}</label>
                         </div>
                     </div>
 
