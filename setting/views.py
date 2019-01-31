@@ -42,7 +42,7 @@ def setting_page(request):
                 print('user fname:', user_team.cleaned_data)
             else:
                 if user_team.cleaned_data.get('user_fname', '') == '' and \
-                                user_team.cleaned_data.get('user_lname', '') == '':
+                        user_team.cleaned_data.get('user_lname', '') == '':
                     continue
                 temp = user_team.save(commit=False)
                 temp.is_head = True if index == 0 else False
@@ -58,18 +58,21 @@ def setting_page(request):
         auth_user_setting_form = UserTeamSettingForm(request.POST or None, instance=request.user)
         team_setting_form = TeamSettingForm(instance=team_change)
         team_setting_form.change_required_field()
+        team_setting_form.change_empty_label()
         user_team_form = user_formset_factory(queryset=team_change.Users.all())
     team = request.user.Teams.all()[0]
     if team.competition.competition_level < 3:
         template = loader.get_template('settings.html')
     else:
         template = loader.get_template('settings_iac.html')
+    if request.method == "GET":
+        template = loader.get_template("new/setting.html")
     user_require = 2 if team.competition.competition_level < 3 else 1
     redirect_flag = False if len(team_change.Users.all()) >= user_require else True
     print('redirect ', redirect_flag, user_require)
     return HttpResponse(
         template.render({'test': redirect_flag, 'user_form': user_team_form, 'auth_form': auth_user_setting_form,
-                         'team_form': team_setting_form}, request))
+                         'team_form': team_setting_form, "login_team": team_change}, request))
 
 
 def test_ajax(request):

@@ -1,0 +1,350 @@
+<html>
+
+<head>
+    <title>
+        {{ user.username }} | ویرایش اطلاعات
+    </title>
+    {% load static from staticfiles %}
+    {% load widget_tweaks %}
+    <link rel="stylesheet" href='{% static "css/materialize.css" %}'>
+    <link rel="stylesheet" href='{% static "css/style-global.css" %}'>
+    <link rel="stylesheet" href='{% static "css/style-index.css" %}'>
+
+    <meta name="viewport"
+          content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,target-densitydpi=device-dpi, user-scalable=no"/>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+
+<div class="row cnt" style="direction: rtl">
+    {% include 'base2_0/menu_item.html' %}
+
+
+    {% include 'base2_0/menu_team_discription.html' %}
+
+
+    <div class="col s12 m12 l8 xl8  pull-l4 pull-xl4 content">
+        {% include "base2_0/navbar.html" %}
+        <form action="setting" method="post" enctype="multipart/form-data">
+            <ul class="collapsible white" style="direction: ltr">
+                <li>
+                    <div class="collapsible-header lighten-5" style="direction: rtl"><i class="material-icons">supervisor_account
+                    </i>اطلاعات تیم
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="row">
+                            <div class="input-field col s12 m12 l6 xl6">
+{#                                <h3>{{ auth_form.username.errors }}</h3>#}
+{#                                <input type="text" name="team-name" id="team-name">#}
+                                {% render_field auth_form.username name="team-name" %}
+                                <label for="team-name">{{ auth_form.username.label }}</label>
+                            </div>
+                            <div class="input-field col s12 m12 l6 xl6">
+{#                                <input type="email" name="team-email" id="team-email">#}
+                                {% render_field auth_form.email name="team-email" %}
+                                <label for="team-email">{{ auth_form.email.label }}</label>
+                            </div>
+                            <div class="input-field col s12 m12 l6 xl6">
+{#                                <input type="text" name="team-phone" id="team-phone">#}
+                                {% render_field team_form.phone_number name="team-phone" %}
+                                <label for="team-phone">{{ team_form.phone_number.label }}</label>
+                            </div>
+                            <div class="input-field col s12 m12 l6 xl6">
+{#                                <input type="text" name="team-linker" id="team-linker">#}
+                                {% render_field team_form.mentor name="team-linker" %}
+                                <label for="team-linker">{{ team_form.mentor.label }}</label>
+                            </div>
+                            <div class="input-field col s12 m12 l12 xl12" style="direction: ltr;">
+                                {% render_field team_form.university %}
+
+                            </div>
+                            <div class="input-field col s12">
+{#                                <textarea id="team-bio" class="materialize-textarea"></textarea>#}
+                                {% render_field team_form.team_bio name='team-bio' class="materialize-textarea" %}
+                                <label for="team-bio">{{ team_form.team_bio.label }}</label>
+                            </div>
+                            <a class="btn-flat waves-effect col s12 m12 l4 xl4 offset-l2 offset-xl2">
+                                <i class="material-icons right">photo</i>
+                                تغییر آواتار
+                                <input type="file"
+                                       style="opacity: 0;position: absolute; left: 0; height: 50px; top: 0px; width: 100%; cursor: pointer"
+                                       id="selectFile1">
+                            </a>
+                            <a class="btn waves-effect waves-light col s12 m12 l4 xl4 offset-l1 offset-xl1">
+                                <i class="material-icons right">save</i>
+                                ذخیره</a>
+
+
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header lighten-5" style="direction: rtl"><i class="material-icons">assignment_ind</i>مشخصات
+                        ادمین
+                    </div>
+                    <div class="collapsible-body">
+                        <form>
+                            <div class="row">
+                                <div class="input-field col s12 m12 l6 xl6">
+                                    <input type="text" name="admin-name" id="admin-name">
+                                    <label for="admin-name">نام</label>
+                                </div>
+                                <div class="input-field col s12 m12 l6 xl6">
+                                    <input type="text" name="admin-lname" id="admin-lname">
+                                    <label for="admin-lname">نام خانوادگی</label>
+                                </div>
+                                <div class="input-field col s12 m12 l6 xl6">
+                                    <input type="email" name="admin-email" id="admin-email">
+                                    <label for="admin-email">ایمیل</label>
+                                </div>
+                                <div class="input-field col s12 m12 l6 xl6">
+                                    <input type="text" name="admin-degree" id="admin-degree">
+                                    <label for="admin-degree">مقطع تحصیلی</label>
+                                </div>
+                                <div class="input-field col s12 m12 l6 xl6">
+                                    <input type="text" name="admin-uni-enter" id="admin-uni-enter">
+                                    <label for="admin-uni-enter">سال ورودی</label>
+                                </div>
+                                <div class="input-field col s12 m12 l6 xl6">
+                                    <input type="text" name="admin-uni-graduate" id="admin-uni-graduate">
+                                    <label for="admin-uni-graduate"> فارغ التحصیل</label>
+                                </div>
+                                <div class="input-field col s12 m12 l12 xl12" style="direction: ltr;">
+                                    <select>
+                                        <option value="" disabled selected>دانشگاه</option>
+                                        <option value="1">صنعتی امیرکبیر</option>
+                                        <option value="2">صنعتی شریف</option>
+                                        <option value="3">علم و صنعت</option>
+                                    </select>
+
+                                </div>
+                                <div class="input-field col s12">
+                                    <textarea id="admin-skills" class="materialize-textarea"></textarea>
+                                    <label for="admin-skills">توانایی ها</label>
+                                </div>
+                                <a class="btn-flat waves-effect col s12 m12 l4 xl4 offset-l2 offset-xl2">
+                                    <i class="material-icons right">photo</i>
+                                    تغییر آواتار
+                                    <input type="file"
+                                           style="opacity: 0;position: absolute; left: 0; height: 50px; top: 0px; width: 100%; cursor: pointer"
+                                           id="selectFile2">
+                                </a>
+                                <a class="btn waves-effect waves-light col s12 m12 l4 xl4 offset-l1 offset-xl1">
+                                    <i class="material-icons right">save</i>
+                                    ذخیره</a>
+
+
+                            </div>
+                        </form>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header lighten-5" style="direction: rtl"><i class="material-icons">account_circle</i>مشخصات
+                        عضو اول
+                    </div>
+                    <div class="collapsible-body">
+                        <form>
+                            <div class="row">
+                                <div class="input-field col s12 m12 l6 xl6">
+                                    <input type="text" name="m1-name" id="m1-name">
+                                    <label for="m1-name">نام</label>
+                                </div>
+                                <div class="input-field col s12 m12 l6 xl6">
+                                    <input type="text" name="m1-lname" id="m1-lname">
+                                    <label for="m1-lname">نام خانوادگی</label>
+                                </div>
+                                <div class="input-field col s12 m12 l6 xl6">
+                                    <input type="email" name="m1-email" id="m1-email">
+                                    <label for="m1-email">ایمیل</label>
+                                </div>
+                                <div class="input-field col s12 m12 l6 xl6">
+                                    <input type="text" name="m1-degree" id="m1-degree">
+                                    <label for="m1-degree">مقطع تحصیلی</label>
+                                </div>
+                                <div class="input-field col s12 m12 l6 xl6">
+                                    <input type="text" name="m1-uni-enter" id="m1-uni-enter">
+                                    <label for="m1-uni-enter">سال ورودی</label>
+                                </div>
+                                <div class="input-field col s12 m12 l6 xl6">
+                                    <input type="text" name="m1-uni-graduate" id="m1-uni-graduate">
+                                    <label for="m1-uni-graduate"> فارغ التحصیل</label>
+                                </div>
+                                <div class="input-field col s12 m12 l12 xl12" style="direction: ltr;">
+                                    <select>
+                                        <option value="" disabled selected>دانشگاه</option>
+                                        <option value="1">صنعتی امیرکبیر</option>
+                                        <option value="2">صنعتی شریف</option>
+                                        <option value="3">علم و صنعت</option>
+                                    </select>
+
+                                </div>
+                                <div class="input-field col s12">
+                                    <textarea id="m1-skills" class="materialize-textarea"></textarea>
+                                    <label for="m1-skills">توانایی ها</label>
+                                </div>
+                                <a class="btn-flat waves-effect col s12 m12 l4 xl4 offset-l2 offset-xl2">
+                                    <i class="material-icons right">photo</i>
+                                    تغییر آواتار
+                                    <input type="file"
+                                           style="opacity: 0;position: absolute; left: 0; height: 50px; top: 0px; width: 100%; cursor: pointer"
+                                           id="selectFile3">
+                                </a>
+                                <a class="btn waves-effect waves-light col s12 m12 l4 xl4 offset-l1 offset-xl1">
+                                    <i class="material-icons right">save</i>
+                                    ذخیره</a>
+
+
+                            </div>
+                        </form>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header lighten-5" style="direction: rtl"><i class="material-icons">account_circle</i>مشخصات
+                        عضو دوم
+                    </div>
+                    <div class="collapsible-body">
+                        <form>
+                            <div class="row">
+                                <div class="input-field col s12 m12 l6 xl6">
+                                    <input type="text" name="m2-name" id="m2-name">
+                                    <label for="m2-name">نام</label>
+                                </div>
+                                <div class="input-field col s12 m12 l6 xl6">
+                                    <input type="text" name="m2-lname" id="m2-lname">
+                                    <label for="m2-lname">نام خانوادگی</label>
+                                </div>
+                                <div class="input-field col s12 m12 l6 xl6">
+                                    <input type="email" name="m2-email" id="m2-email">
+                                    <label for="m2-email">ایمیل</label>
+                                </div>
+                                <div class="input-field col s12 m12 l6 xl6">
+                                    <input type="text" name="m2-degree" id="m2-degree">
+                                    <label for="m2-degree">مقطع تحصیلی</label>
+                                </div>
+                                <div class="input-field col s12 m12 l6 xl6">
+                                    <input type="text" name="m2-uni-enter" id="m2-uni-enter">
+                                    <label for="m2-uni-enter">سال ورودی</label>
+                                </div>
+                                <div class="input-field col s12 m12 l6 xl6">
+                                    <input type="text" name="m2-uni-graduate" id="m2-uni-graduate">
+                                    <label for="m2-uni-graduate"> فارغ التحصیل</label>
+                                </div>
+                                <div class="input-field col s12 m12 l12 xl12" style="direction: ltr;">
+                                    <select>
+                                        <option value="" disabled selected>دانشگاه</option>
+                                        <option value="1">صنعتی امیرکبیر</option>
+                                        <option value="2">صنعتی شریف</option>
+                                        <option value="3">علم و صنعت</option>
+                                    </select>
+
+                                </div>
+                                <div class="input-field col s12">
+                                    <textarea id="m2-skills" class="materialize-textarea"></textarea>
+                                    <label for="m2-skills">توانایی ها</label>
+                                </div>
+                                <a class="btn-flat waves-effect col s12 m12 l4 xl4 offset-l2 offset-xl2">
+                                    <i class="material-icons right">photo</i>
+                                    تغییر آواتار
+                                    <input type="file"
+                                           style="opacity: 0;position: absolute; left: 0; height: 50px; top: 0px; width: 100%; cursor: pointer"
+                                           id="selectFile4">
+                                </a>
+                                <a class="btn waves-effect waves-light col s12 m12 l4 xl4 offset-l1 offset-xl1">
+                                    <i class="material-icons right">save</i>
+                                    ذخیره</a>
+
+
+                            </div>
+                        </form>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header lighten-5" style="direction: rtl"><i class="material-icons">account_circle</i>مشخصات
+                        عضو سوم
+                    </div>
+                    <div class="collapsible-body">
+                        <form>
+                            <div class="row">
+                                <div class="input-field col s12 m12 l6 xl6">
+                                    <input type="text" name="m3-name" id="m3-name">
+                                    <label for="m3-name">نام</label>
+                                </div>
+                                <div class="input-field col s12 m12 l6 xl6">
+                                    <input type="text" name="m3-lname" id="m3-lname">
+                                    <label for="m3-lname">نام خانوادگی</label>
+                                </div>
+                                <div class="input-field col s12 m12 l6 xl6">
+                                    <input type="email" name="m3-email" id="m3-email">
+                                    <label for="m3-email">ایمیل</label>
+                                </div>
+                                <div class="input-field col s12 m12 l6 xl6">
+                                    <input type="text" name="m3-degree" id="m3-degree">
+                                    <label for="m3-degree">مقطع تحصیلی</label>
+                                </div>
+                                <div class="input-field col s12 m12 l6 xl6">
+                                    <input type="text" name="m3-uni-enter" id="m3-uni-enter">
+                                    <label for="m3-uni-enter">سال ورودی</label>
+                                </div>
+                                <div class="input-field col s12 m12 l6 xl6">
+                                    <input type="text" name="m3-uni-graduate" id="m3-uni-graduate">
+                                    <label for="m3-uni-graduate"> فارغ التحصیل</label>
+                                </div>
+                                <div class="input-field col s12 m12 l12 xl12" style="direction: ltr;">
+                                    <select>
+                                        <option value="" disabled selected>دانشگاه</option>
+                                        <option value="1">صنعتی امیرکبیر</option>
+                                        <option value="2">صنعتی شریف</option>
+                                        <option value="3">علم و صنعت</option>
+                                    </select>
+
+                                </div>
+                                <div class="input-field col s12">
+                                    <textarea id="m3-skills" class="materialize-textarea"></textarea>
+                                    <label for="m3-skills">توانایی ها</label>
+                                </div>
+                                <a class="btn-flat waves-effect col s12 m12 l4 xl4 offset-l2 offset-xl2">
+                                    <i class="material-icons right">photo</i>
+                                    تغییر آواتار
+                                    <input type="file"
+                                           style="opacity: 0;position: absolute; left: 0; height: 50px; top: 0px; width: 100%; cursor: pointer"
+                                           id="selectFile5">
+                                </a>
+                                <a class="btn waves-effect waves-light col s12 m12 l4 xl4 offset-l1 offset-xl1">
+                                    <i class="material-icons right">save</i>
+                                    ذخیره</a>
+
+
+                            </div>
+                        </form>
+                    </div>
+                </li>
+            </ul>
+        </form>
+
+    </div>
+
+</div>
+
+
+<script>
+    window.onload = function () {
+        var x = document.getElementById("filledProgress1").innerHTML;
+        document.getElementById("filledProgress1").innerHTML = "";
+        document.getElementById("filledProgress1").style.width = x + "%";
+
+        var y = document.getElementById("filledProgress2").innerHTML;
+        document.getElementById("filledProgress2").innerHTML = "";
+        document.getElementById("filledProgress2").style.width = y + "%";
+    }
+
+</script>
+<script src='{% static "js/bin/materialize.js" %}'></script>
+<script>
+    M.AutoInit();
+
+</script>
+</body>
+
+</html>

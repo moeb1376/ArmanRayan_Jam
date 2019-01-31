@@ -66,6 +66,9 @@ class TeamSettingForm(forms.ModelForm):
         self.fields['logo_image'].required = False
         self.fields['mentor'].required = False
 
+    def change_empty_label(self):
+        self.fields['university'].empty_label = "دانشگاه"
+
     class Meta:
         model = Team
         fields = ['university', 'team_bio', 'logo_image', 'mentor','phone_number']
