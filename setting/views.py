@@ -62,11 +62,14 @@ def setting_page(request):
         user_team_form = user_formset_factory(queryset=team_change.Users.all())
     team = request.user.Teams.all()[0]
     if team.competition.competition_level < 3:
-        template = loader.get_template('settings.html')
+        if request.get_full_path() == '/setting':
+            template = loader.get_template('Old/settings.html')
+        else:
+            template = loader.get_template("setting.html")
     else:
-        template = loader.get_template('settings_iac.html')
+        template = loader.get_template('Old/settings_iac.html')
     if request.method == "GET":
-        template = loader.get_template("new/setting.html")
+        template = loader.get_template("setting.html")
     user_require = 2 if team.competition.competition_level < 3 else 1
     redirect_flag = False if len(team_change.Users.all()) >= user_require else True
     print('redirect ', redirect_flag, user_require)
