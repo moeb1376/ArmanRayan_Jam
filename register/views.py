@@ -13,7 +13,7 @@ register_failed = False
 register_context = {}
 
 
-def register_page2(request):
+def old_register_page(request):
     if request.user.is_authenticated and not request.user.is_superuser:
         return redirect("SPC_main:SPC_main_page")
     print('request register page : ', request)
@@ -51,7 +51,7 @@ def register_page2(request):
     user_form.changed_password_label()
     team_form.changed_required_mentor()
     team_form.change_empty_label()
-    template = loader.get_template('register/register.html')
+    template = loader.get_template('Old/register.html')
     context = {
         'user_form': user_form,
         'team_form': team_form,
@@ -59,7 +59,7 @@ def register_page2(request):
     return HttpResponse(template.render(context, request))
 
 
-def login_page2(request):
+def old_login_page(request):
     if request.user.is_authenticated and not request.user.is_superuser:
         print('revalle')
         return redirect('SPC_main:SPC_main_page')
@@ -93,11 +93,11 @@ def login_page2(request):
                     auth_form.add_error('username', 'نام کاربری یا رمز عبور اشتباه است')
     else:
         auth_form = UserLoginForm()
-    template = loader.get_template('register/login.html')
+    template = loader.get_template('Old/login.html')
     return HttpResponse(template.render({'auth_form': auth_form}, request))
 
 
-def new_login(request):
+def login_page(request):
     valid_option = {
         "username": "validate ",
         "password": "validate "
@@ -140,11 +140,11 @@ def new_login(request):
         'auth_form': auth_form,
         "validate": valid_option
     }
-    template = loader.get_template('new_register/login.html')
+    template = loader.get_template('login.html')
     return HttpResponse(template.render(context, request))
 
 
-def new_register_page(request):
+def register_page(request):
     if request.user.is_authenticated and not request.user.is_superuser:
         return redirect("SPC_main:SPC_main_page")
     print('request register page : ', request)
@@ -182,7 +182,7 @@ def new_register_page(request):
     user_form.changed_password_label()
     team_form.changed_required_mentor()
     team_form.change_empty_label()
-    template = loader.get_template('new_register/signup.html')
+    template = loader.get_template('signup.html')
     context = {
         'user_form': user_form,
         'team_form': team_form,

@@ -1,0 +1,182 @@
+<html>
+
+<head>
+    <title>
+        ورود | جام آرمانکده
+    </title>
+    {% load static %}
+    {% load widget_tweaks %}
+    <link rel="stylesheet" href="{% static 'css/materialize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style-global.css' %}">
+    <link rel="stylesheet" href='{% static "css/style-login.css" %}'>
+    <meta name="viewport"
+          content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,target-densitydpi=device-dpi, user-scalable=no"/>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+<div class="row container">
+    <div class="card col s12 m12 l8 xl8 login offset-l2 offset-xl2">
+        <div class="section center-align typo-p">
+            <img src='{% static "img/jaam.png" %}' style="height: 150px;">
+            <div style="margin-top: 10px;">
+                ایجاد حساب کاربری
+            </div>
+        </div>
+
+        <div class="section side-pad">
+            <form role="form" action="{% url "register:register" %}" method="post" id="register-form">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col s12 m12 l12 xl12">
+                        <div class="input-field">
+                            {% render_field user_form.username name='user-name' id="user-name" %}
+                            {#                            <input type="text" name="user-name" id="user-name">#}
+                            <label for="user-name">{{ user_form.username.label }}</label>
+                        </div>
+                    </div>
+
+                    <div class="col s12 m12 l6 xl6">
+                        <div class="input-field">
+                            {% render_field user_form.email name='email' id="mail" %}
+                            {#                            <input type="email" name="mail" id="mail">#}
+                            <label for="mail">{{ user_form.email.label }}</label>
+                        </div>
+                        <div class="input-field">
+                            {% render_field team_form.phone_number name='phone_number' id="number" %}
+                            {#                            <input type="text" name="number" id="number">#}
+                            <label for="number">{{ team_form.phone_number.label }}</label>
+                        </div>
+                    </div>
+                    <div class="col s12 m12 l6 xl6">
+                        <div class="input-field">
+                            {% render_field user_form.password1 name='password1' id="password" %}
+                            {#                            <input type="password" name="password" id="password">#}
+                            <label for="password">{{ user_form.password1.label }}</label>
+                        </div>
+                        <div class="input-field">
+                            {% render_field user_form.password2 name='password2' id="password-rep" %}
+                            {#                            <input type="password" name="password-rep" id="password-rep">#}
+                            <label for="password-rep">{{ user_form.password2.label }}</label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col s12 m12 l4 xl4">
+                        <div class="input-field">
+                            {% render_field team_form.university %}
+                            {#                            <select>#}
+                            {#                                <option value="" disabled selected>دانشگاه</option>#}
+                            {#                                <option value="1">صنعتی امیرکبیر</option>#}
+                            {#                                <option value="2">صنعتی شریف</option>#}
+                            {#                                <option value="3">علم و صنعت</option>#}
+                            {#                            </select>#}
+
+                        </div>
+                    </div>
+                    <div class="col s12 m12 l4 xl4">
+                        <div class="input-field">
+                            {% render_field team_form.competition %}
+                            {#                            <select>#}
+                            {#                                <option value="" disabled selected>مسابقه</option>#}
+                            {#                                <option value="1">پیشرفته SPC هوش بازی</option>#}
+                            {#                                <option value="2">مقدماتی SPC هوش بازی</option>#}
+                            {#                                <option value="3">IAC-TP پردازش متن</option>#}
+                            {#                                <option value="4">IAC-SP پردازش صوت</option>#}
+                            {#                                <option value="5">IAC-IP پردازش تصویر</option>#}
+                            {#                            </select>#}
+                        </div>
+                    </div>
+                    <div class="col s12 m12 l4 xl4">
+                        <div class="input-field">
+                            {{ team_form.language }}
+                            {#                            <select>#}
+                            {#                                <option value="" disabled selected>زبان برنامه نویسی</option>#}
+                            {#                                <option value="1">C++</option>#}
+                            {#                                <option value="2">Python</option>#}
+                            {#                                <option value="3">Java</option>#}
+                            {#                            </select>#}
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col s12 m12 l12 xl12">
+                            <p style="display: block; text-align: center;">
+                                <label>
+                                    {{ team_form.checkbox }}
+                                    {#										<input type="checkbox" />#}
+                                    <span>
+											تمامی
+											<a class="modal-trigger" href="#policy-modal">شرایط و قوانین</a>
+											شرکت در رقابت را می پذیرم
+
+										</span>
+                                </label>
+                            </p>
+                        </div>
+                    </div>
+                    <div id="policy-modal" class="modal" style="width: 100%;">
+                        <div class="modal-content">
+                            <h4 class="center">شرایط و قوانین</h4>
+                            <p style="direction: rtl; text-align: justify">
+                                1- حداقل یکی از شرکت کنندگان باید دانشجوی یکی از 7 دانشگاه صنعتی شریف، تهران، صنعتی
+                                امیرکبیر، علم و صنعت ایران، صنعتی خواجه نصیر طوسی، شهید بهشتی و خوارزمی باشد.
+                                <br>
+                                2- شرکت کنندگان در بخش اشاره گر های هوشمند تنها می توانند دانشجوی دوره
+                                کارشناسی دانشگاه ها باشند.
+                                <br>
+                                3- اگر در هر مرحله از مسابقات تشخیص داده شود که شرکت کننده از اطلاعات غیر واقعی استفاده
+                                کرده است از مسابقه حذف خواهد شد.
+                                <br>
+                                4- هر فرد تنها می تواند در یک بخش " اشاره گر های هوشمند" یا "الگوریتم های هوشمند" شرکت
+                                کند و شرکت همزمان در دو بخش برای یک فرد امکان پذیر نمی باشد.
+                                <br>
+                                <br>
+                                <br>
+                                توجه: توصیه ما بر این است که دانشجویان کارشناسی ارشد در مسابقات الگوریتم های هوشمند (IAC) و
+                                دانشجویان کارشناسی در مسابقه اشاره گر های هوشمند (SPC) شرکت کنند.
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#!" class="modal-close waves-effect waves-notransition btn-flat">بستن</a>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col s12 m12 l6 xl6 center" style="margin:5px 0px;">
+                        <a href="{% url 'register:login' %}" class="btn-flat waves-effect">ورود به حساب کاربری</a>
+
+                    </div>
+                    <div class="col s12 m12 l6 xl6 center" style="margin:5px 0px;">
+                        <button type="submit" class="btn waves-effect waves-light">ایجاد حساب کاربری
+                            <i class="material-icons right">face</i>
+                        </button>
+                    </div>
+                </div>
+
+
+            </form>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+<script src='{% static "js/bin/anime.min.js" %}'></script>
+<script>
+    M.AutoInit();
+
+</script>
+
+</body>
+
+</html>
