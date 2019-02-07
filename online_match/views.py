@@ -24,10 +24,10 @@ def online_match(request):
         'codes': list(code)
     }
     if team_competition < 3:
-        if request.get_full_path() == '/new_play':
-            template = loader.get_template('online_match/friendly.html')
+        if request.get_full_path() == '/old_play':
+            template = loader.get_template('Old/extend/play_spc.html')
         else:
-            template = loader.get_template('online_match/extend/play_spc.html')
+            template = loader.get_template('friendly.html')
     else:
         if team_competition == 3:
             context['data_set1'] = '/media/DataSet/Text/v1-3000.rar'
@@ -42,7 +42,7 @@ def online_match(request):
             context['data_set1'] = '/media/DataSet/Picture/t1.rar'
             context['data_set2'] = '/media/DataSet/Picture/t2.rar'
             context['data_set3'] = '#'
-        template = loader.get_template('online_match/extend/play_iac.html')
+        template = loader.get_template('Old/extend/play_iac.html')
     return HttpResponse(template.render(context, request))
 
 
@@ -122,15 +122,15 @@ def upload_view(request):
             print(form.errors)
             return JsonResponse({"success": False})
     elif request.method == "GET":
-        template = loader.get_template('online_match/upload_ajax.html')
+        template = loader.get_template('online_match/templates/upload_ajax.html')
         return HttpResponse(template.render({}, request))
 
 
 def log_view(request):
-    if request.get_full_path() == '/log':
-        template = loader.get_template('online_match/extend/log.html')
+    if request.get_full_path() == '/old_log':
+        template = loader.get_template('Old/extend/log.html')
     else:
-        template = loader.get_template('online_match/new_log.html')
+        template = loader.get_template('log.html')
     team = request.user.Teams.all()[0]
     if team.competition.competition_level >= 3:
         raise Http404('این صفحه مخصوص مسابقات spc است.')

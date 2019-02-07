@@ -139,7 +139,7 @@ media/picture/
 media/testi/
 online_match/__pycache__/
 online_match/migrations/
-online_match/templates/online_match/upload_ajax.html
+online_match/templates/upload_ajax.html
 register/__pycache__/__init__.cpython-35.pyc
 register/__pycache__/admin.cpython-35.pyc
 register/__pycache__/apps.cpython-35.pyc
