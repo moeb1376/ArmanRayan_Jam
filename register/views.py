@@ -7,7 +7,7 @@ from validate_email import validate_email
 from .models import *
 from .forms import UserRegisterForm, TeamForm, UserLoginForm
 from main.models import Mentor
-from SPC_main.views import SPC_main_page
+
 
 register_failed = False
 register_context = {}
@@ -15,7 +15,7 @@ register_context = {}
 
 def old_register_page(request):
     if request.user.is_authenticated and not request.user.is_superuser:
-        return redirect("SPC_main:SPC_main_page")
+        return redirect("SPC_main:old_SPC_main_page")
     print('request register page : ', request)
     if request.method == 'POST':
         team_form = TeamForm(request.POST)
@@ -61,8 +61,7 @@ def old_register_page(request):
 
 def old_login_page(request):
     if request.user.is_authenticated and not request.user.is_superuser:
-        print('revalle')
-        return redirect('SPC_main:SPC_main_page')
+        return redirect('SPC_main:old_SPC_main_page')
     if request.method == "POST":
         #        print(request)
         auth_form = UserLoginForm(request.POST)

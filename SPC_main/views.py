@@ -9,7 +9,7 @@ from .models import Cup
 
 
 @login_required(login_url='/login', redirect_field_name='')
-def SPC_main_page(request):
+def old_SPC_main_page(request):
     print(request.META.get("upload_code", 0))
     print(request.user)
     team = request.user.Teams.all()[0]
@@ -25,16 +25,14 @@ def SPC_main_page(request):
         'members': team_member
     }
     if team.competition.competition_level < 3:
-        print('jaam2')
-        template = loader.get_template('SPC_main/extend/jaam_spc.html')
+        template = loader.get_template('Old/extend/jaam_spc.html')
     else:
-        print('jaamiac')
-        template = loader.get_template('SPC_main/extend/jaam_iac.html')
+        template = loader.get_template('Old/extend/jaam_iac.html')
     return HttpResponse(template.render(context, request))
 
 
 @login_required(login_url="/login", redirect_field_name='')
-def new_SPC_main_page(request):
+def SPC_main_page(request):
     print(request.META.get("upload_code", 0))
     print(request.user)
     team = request.user.Teams.all()[0]
@@ -51,10 +49,10 @@ def new_SPC_main_page(request):
     }
     if team.competition.competition_level < 3:
         print('jaam2')
-        template = loader.get_template('included/index.html')
+        template = loader.get_template('index.html')
     else:
         print('jaamiac')
-        template = loader.get_template('SPC_main/extend/jaam_iac.html')
+        template = loader.get_template('SPC_main/templates/Old/extend/jaam_iac.html')
     return HttpResponse(template.render(context, request))
 
 
@@ -64,16 +62,16 @@ def team_logout(request):
 
 
 @login_required(login_url='/login', redirect_field_name='')
-def table_view(request):
+def old_table_view(request):
     login_team = request.user.Teams.all()[0]
     if login_team.competition.competition_level < 3:
         print('jaam2')
         teams = Team.objects.filter(competition=login_team.competition.competition_level).all()
         teams = sorted(teams, key=lambda x: x.get_points(), reverse=True)
-        template = loader.get_template('SPC_main/extend/table_spc.html')
+        template = loader.get_template('Old/extend/table_spc.html')
     else:
         print('jaamiac')
-        template = loader.get_template('SPC_main/extend/table_iac.html')
+        template = loader.get_template('Old/extend/table_iac.html')
         teams = dict()
         teams['picture'] = Team.objects.filter(competition__competition_level=5).order_by('accuracy')
         teams['sound'] = Team.objects.filter(competition__competition_level=4).order_by('accuracy')
@@ -86,16 +84,16 @@ def table_view(request):
 
 
 @login_required(login_url='/login', redirect_field_name='')
-def new_table_view(request):
+def table_view(request):
     login_team = request.user.Teams.all()[0]
     if login_team.competition.competition_level < 3:
         print('jaam2')
         teams = Team.objects.filter(competition=1).all()
         teams = sorted(teams, key=lambda x: x.get_points(), reverse=True)
-        template = loader.get_template('included/cup_table.html')
+        template = loader.get_template('cup_table.html')
     else:
         print('jaamiac')
-        template = loader.get_template('SPC_main/extend/table_iac.html')
+        template = loader.get_template('Old/extend/table_iac.html')
         teams = dict()
         teams['picture'] = Team.objects.filter(competition__competition_level=5).order_by('accuracy')
         teams['sound'] = Team.objects.filter(competition__competition_level=4).order_by('accuracy')
@@ -121,9 +119,9 @@ def cup_view(request):
             'is_play': is_play,
         }
         if login_team.competition.competition_level < 3:
-            template = loader.get_template('SPC_main/extend/cup_spc.html')
+            template = loader.get_template('SPC_main/templates/Old/extend/cup_spc.html')
         else:
-            template = loader.get_template('SPC_main/extend/cup_iac.html')
+            template = loader.get_template('SPC_main/templates/Old/extend/cup_iac.html')
         return HttpResponse(template.render(context, request))
     elif request.method == 'POST':
         print("POST", request.POST)
@@ -138,7 +136,7 @@ def jaam_table_view(request):
     teams['picture'] = Team.objects.filter(competition__competition_level=5).order_by('accuracy')
     teams['sound'] = Team.objects.filter(competition__competition_level=4).order_by('accuracy')
     teams['text'] = Team.objects.filter(competition__competition_level=3).order_by('accuracy')
-    template = loader.get_template('included/jaam_tables.html')
+    template = loader.get_template('jaam_tables.html')
     context = {
         'teams': teams,
         'login_team': login_team
