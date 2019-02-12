@@ -27,6 +27,10 @@ class UserSettingForm(forms.ModelForm):
         self.fields['graduate_year'].required = False
         self.fields['skills'].required = False
 
+    def change_empty_label(self):
+        self.fields['university'].empty_label = "دانشگاه"
+        self.fields['grade'].empty_label = "مقطع"
+
     class Meta:
         model = MyUser
         exclude = ['is_head', 'team']
