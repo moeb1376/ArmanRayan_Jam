@@ -60,6 +60,8 @@ def setting_page(request):
         team_setting_form.change_required_field()
         team_setting_form.change_empty_label()
         user_team_form = user_formset_factory(queryset=team_change.Users.all())
+        for i in user_team_form:
+            i.change_empty_label()
     team = request.user.Teams.all()[0]
     if team.competition.competition_level < 3:
         if request.get_full_path() == '/setting':
