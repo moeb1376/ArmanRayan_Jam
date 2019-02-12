@@ -35,7 +35,7 @@ class Team(models.Model):
     team_bio = models.TextField(default='', blank=True)
     language = models.ForeignKey(Language, on_delete=models.CASCADE)
     mentor = models.CharField(max_length=6, blank=True, default='')
-    phone_number = models.CharField(max_length=11, blank=True, default='')
+    phone_number = models.CharField(max_length=11,default='')
 
     def __str__(self):
         return self.user_team.username
