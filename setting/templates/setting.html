@@ -13,6 +13,8 @@
     <meta name="viewport"
           content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,target-densitydpi=device-dpi, user-scalable=no"/>
     <meta charset="utf-8">
+    <script src='{% static "js/jquery-3.1.1.min.js" %}'></script>
+
 </head>
 
 <body>
@@ -27,12 +29,12 @@
 
     <div class="col s12 m12 l8 xl8  pull-l4 pull-xl4 content">
         {% include "base2_0/navbar.html" %}
-        <form action="{% url 'setting:setting' %}" method="post" enctype="multipart/form-data">
+        <form action="{% url 'setting:setting' 0 %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ user_form.non_field_errors }}
             {{ auth_form.non_field_errors }}
             {{ team_form.non_field_errors }}
-            <ul class="collapsible white" style="direction: ltr">
+            <ul class="collapsible white" id="setting_collapsible" style="direction: ltr">
                 <li>
                     <div class="collapsible-header lighten-5" style="direction: rtl"><i class="material-icons">supervisor_account
                     </i>اطلاعات تیم
@@ -84,16 +86,18 @@
                         </div>
                     </div>
                 </li>
-                {{ user_form.managment_form }}
+                {{ user_form.management_form }}
                 {% for form in user_form %}
                     {{ form.id }}
                     <li>
                         {% if forloop.counter == 1 %}
-                            <div class="collapsible-header lighten-5" style="direction: rtl"><i class="material-icons">assignment_ind</i>مشخصات
+                            <div class="collapsible-header lighten-5" style="direction: rtl"><i
+                                    class="material-icons">assignment_ind</i>مشخصات
                                 ادمین
                             </div>
                         {% else %}
-                            <div class="collapsible-header lighten-5" style="direction: rtl"><i class="material-icons">account_circle</i>
+                            <div class="collapsible-header lighten-5" style="direction: rtl"><i
+                                    class="material-icons">account_circle</i>
                                 {% if forloop.counter == 2 %}
                                     مشخصات عضو اول
                                 {% elif forloop.counter == 3 %}
@@ -111,28 +115,28 @@
                                     <label>{{ form.user_fname.label }}</label>
                                 </div>
                                 <div class="input-field col s12 m12 l6 xl6">
-{#                                    <input type="text" name="admin-lname" id="admin-lname">#}
+                                    {#                                    <input type="text" name="admin-lname" id="admin-lname">#}
                                     {{ form.user_lname }}
                                     <label>{{ form.user_lname.label }}</label>
                                 </div>
                                 <div class="input-field col s12 m12 l6 xl6">
-{#                                    <input type="email" name="admin-email" id="admin-email">#}
+                                    {#                                    <input type="email" name="admin-email" id="admin-email">#}
                                     {{ form.email }}
                                     <label>{{ form.email.label }}</label>
                                 </div>
                                 <div class="input-field col s12 m12 l6 xl6">
-{#                                    <input type="text" name="admin-degree" id="admin-degree">#}
+                                    {#                                    <input type="text" name="admin-degree" id="admin-degree">#}
                                     {{ form.grade }}
                                     <label>{{ form.grade.label }}</label>
                                 </div>
                                 <div class="input-field col s12 m12 l6 xl6">
-{#                                    <input type="text" name="admin-uni-enter" id="admin-uni-enter">#}
+                                    {#                                    <input type="text" name="admin-uni-enter" id="admin-uni-enter">#}
                                     {{ form.entrance_year }}
                                     <label>{{ form.entrance_year.label }}</label>
                                 </div>
                                 <div class="input-field col s12 m12 l6 xl6">
-{#                                    <input type="text" name="admin-uni-graduate" id="admin-uni-graduate">#}
-                                    {{ form.graduate_year}}
+                                    {#                                    <input type="text" name="admin-uni-graduate" id="admin-uni-graduate">#}
+                                    {{ form.graduate_year }}
                                     <label>{{ form.graduate_year.label }}</label>
                                 </div>
                                 <div class="input-field col s12 m12 l12 xl12" style="direction: ltr;">
@@ -140,28 +144,37 @@
 
                                 </div>
                                 <div class="input-field col s12">
-{#                                    <textarea id="admin-skills" class="materialize-textarea"></textarea>#}
+                                    {#                                    <textarea id="admin-skills" class="materialize-textarea"></textarea>#}
                                     {{ form.skills|attr:"class:materialize-textarea" }}
                                     <label>{{ form.skills.label }}</label>
                                 </div>
-                                <a class="btn-flat waves-effect col s12 m12 l4 xl4 offset-l2 offset-xl2">
-                                    <i class="material-icons right">photo</i>
-                                    تغییر آواتار
-                                    <input type="file"
-                                           style="opacity: 0;position: absolute; left: 0; height: 50px; top: 0px; width: 100%; cursor: pointer"
-                                           id="selectFile2">
-                                </a>
-                                <a class="btn waves-effect waves-light col s12 m12 l4 xl4 offset-l1 offset-xl1">
-                                    <i class="material-icons right">save</i>
-                                    ذخیره</a>
+                                {#                                <a class="btn-flat waves-effect col s12 m12 l4 xl4 offset-l2 offset-xl2">#}
+                                {#                                    <i class="material-icons right">photo</i>#}
+                                {#                                    تغییر آواتار#}
+                                {#                                    <input type="file"#}
+                                {#                                           style="opacity: 0;position: absolute; left: 0; height: 50px; top: 0px; width: 100%; cursor: pointer"#}
+                                {#                                           id="selectFile2">#}
+                                {#                                </a>#}
+                                {#                                <a class="btn waves-effect waves-light col s12 m12 l4 xl4 offset-l1 offset-xl1">#}
+                                {#                                    <i class="material-icons right">save</i>#}
+                                {#                                    ذخیره</a>#}
                             </div>
                         </div>
                     </li>
                 {% endfor %}
-            </ul>
-        </form>
 
+            </ul>
+            <br><br><br>
+            <button type="submit" class="col s12 m8 offset-m2 btn waves-effect waves-light">
+                ذخیره تغییرات
+            </button>
+        </form>
     </div>
+<script >
+    let active_field = $("#setting_collapsible").children("li")[{{ active_member }}];
+    active_field.classList.add("active");
+    console.log(active_field[0]);
+</script>
 
 </div>
 
@@ -179,6 +192,7 @@
 
 </script>
 <script src='{% static "js/bin/materialize.js" %}'></script>
+<script src='{% static "js/jaam/item_active.js" %}'></script>
 <script>
     M.AutoInit();
 

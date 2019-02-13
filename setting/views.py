@@ -10,7 +10,7 @@ from django.conf import settings
 
 # Create your views here.
 @login_required(login_url='/login', redirect_field_name='')
-def setting_page(request):
+def setting_page(request, active_member=0):
     team_change = request.user.Teams.all()[0]
     user_formset_factory = modelformset_factory(MyUser, extra=3, max_num=3, form=UserSettingForm)
     if request.method == 'POST':
@@ -64,20 +64,22 @@ def setting_page(request):
             i.change_empty_label()
     team = request.user.Teams.all()[0]
     if team.competition.competition_level < 3:
-        if request.get_full_path() == '/setting':
+        if request.get_full_path() == '/old_setting':
             template = loader.get_template('Old/settings.html')
         else:
             template = loader.get_template("setting.html")
     else:
         template = loader.get_template('Old/settings_iac.html')
-    if request.method == "GET":
-        template = loader.get_template("setting.html")
+
     user_require = 2 if team.competition.competition_level < 3 else 1
     redirect_flag = False if len(team_change.Users.all()) >= user_require else True
     print('redirect ', redirect_flag, user_require)
+    active_member = active_member if active_member else 0
+    print(active_member)
     return HttpResponse(
         template.render({'test': redirect_flag, 'user_form': user_team_form, 'auth_form': auth_user_setting_form,
-                         'team_form': team_setting_form, "login_team": team_change}, request))
+                         'team_form': team_setting_form, "login_team": team_change, "active_member": active_member},
+                        request))
 
 
 def test_ajax(request):
