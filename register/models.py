@@ -13,7 +13,7 @@ def upload_location(instance, filename):
     competition_name = 'SPC' if instance.competition.competition_level < 3 else 'IAC'
     team_id = instance.id
     logo_name = (str(team_id) + filename.split('.')[0]).encode()
-    return "%s/%d/logo/%s.%s" % (competition_name, team_id, sha256(logo_name).hexdigest(), type)
+    return "%s/%d/logo/%s.%s" % (competition_name, team_id, sha256(logo_name).hexdigest()[:6], type)
 
 
 class Team(models.Model):
@@ -32,10 +32,10 @@ class Team(models.Model):
                                    upload_to=upload_location)
     height_field = models.IntegerField(default=0)
     width_field = models.IntegerField(default=0)
-    team_bio = models.TextField(default='', blank=True)
+    team_bio = models.TextField(default='', blank=True, null=True)
     language = models.ForeignKey(Language, on_delete=models.CASCADE)
     mentor = models.CharField(max_length=6, blank=True, default='')
-    phone_number = models.CharField(max_length=11,default='')
+    phone_number = models.CharField(max_length=11, default='')
 
     def __str__(self):
         return self.user_team.username
@@ -103,7 +103,7 @@ class MyUser(models.Model):
         return self.entrance_year % 100
 
     def get_fname_lname(self):
-        return self.user_fname+' '+self.user_lname
+        return self.user_fname + ' ' + self.user_lname
 
     def __str__(self):
         return self.user_fname + ' ' + self.user_lname

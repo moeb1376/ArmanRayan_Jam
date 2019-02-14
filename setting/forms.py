@@ -24,7 +24,7 @@ class UserSettingForm(forms.ModelForm):
         self.fields['university'].required = False
         self.fields['grade'].required = False
         self.fields['entrance_year'].required = False
-        self.fields['graduate_year'].required = False
+        # self.fields['graduate_year'].required = False
         self.fields['skills'].required = False
 
     def change_empty_label(self):
@@ -33,7 +33,7 @@ class UserSettingForm(forms.ModelForm):
 
     class Meta:
         model = MyUser
-        exclude = ['is_head', 'team']
+        exclude = ['is_head', 'team' , 'graduate_year']
         labels = {
             'user_fname': 'نام',
             'user_lname': "نام خانوادگی",
@@ -41,7 +41,7 @@ class UserSettingForm(forms.ModelForm):
             'university': 'دانشگاه',
             'grade': 'مقطع',
             'entrance_year': 'ورودی',
-            'graduate_year': "فارغ‌التحصیل",
+            # 'graduate_year': "فارغ‌التحصیل",
             'skills': "توانایی‌ها"
         }
 
@@ -75,17 +75,29 @@ class TeamSettingForm(forms.ModelForm):
 
     class Meta:
         model = Team
-        fields = ['university', 'team_bio', 'logo_image', 'mentor','phone_number']
+        fields = ['university', 'team_bio', 'logo_image', 'mentor', 'phone_number']
         labels = {
             'university': 'دانشگاه',
             'team_bio': "بیو",
             'logo_image': "انتخاب عکس",
             'mentor': "کد معرفی",
-            'phone_number':"شماره تماس"
+            'phone_number': "شماره تماس"
         }
         widgets = {
             'logo_image': forms.FileInput
         }
+
+
+class UploadFormTest(forms.ModelForm):
+    def change_required_field(self):
+        # self.fields['team_bio'].required = False
+        # self.fields['university'].required = False
+        # self.fields['phone_number'].required = False
+        # self.fields['mentor'].required = False
+        pass
+    class Meta:
+        model = Team
+        fields = ['logo_image']
 
 
 class test_change_form(UserChangeForm):

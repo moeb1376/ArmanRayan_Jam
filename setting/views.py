@@ -25,6 +25,7 @@ def setting_page(request, active_member=0):
         previous_logo_image = '/'.join(team_change.logo_image.url.split('/')[2:])
         team_setting_form = TeamSettingForm(request.POST or None, request.FILES or None, instance=team_change)
         team_setting_form.change_required_field()
+        team_setting_form.change_empty_label()
         print(settings.LOGO_DEFAULT, os.path.join(settings.MEDIA_ROOT, previous_logo_image), previous_logo_image)
         if team_setting_form.is_valid():
             print('team setting form is valid ')
