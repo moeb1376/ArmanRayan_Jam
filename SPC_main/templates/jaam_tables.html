@@ -25,14 +25,7 @@
 
 
     <div class="col s12 m12 l8 xl8  pull-l4 pull-xl4 content">
-        <div class="nav-menu" style="z-index: 2000;">
-            <div class="logout">
-                <span class="icon-logout"></span><label>خروج</label>
-            </div>
-            <div class="edit-info">
-                <label onclick="location.href= 'edit.html'">ویرایش اطلاعات</label>
-            </div>
-        </div>
+        {% include 'base2_0/navbar.html' %}
 
         <div class="section table-container">
             <h3 class="center">
@@ -71,8 +64,7 @@
                 <tr>
                     <th>تیم</th>
                     <th>دانشگاه</th>
-                    <th>بازی</th>
-                    <th>امتیاز</th>
+                    <th>دقت</th>
                     <th>کلاس</th>
                 </tr>
                 </thead>
@@ -82,8 +74,7 @@
                     <tr>
                         <td>{{ team.user_team.username }}</td>
                         <td>{{ team.university.university_name }}</td>
-                        <td>{{ team.total_games }}</td>
-                        <td>{{ team.get_points }}</td>
+                        <td>{{ team.accuracy }}</td>
                         <td>A</td>
                     </tr>
                 {% endfor %}
@@ -99,8 +90,7 @@
                 <tr>
                     <th>تیم</th>
                     <th>دانشگاه</th>
-                    <th>بازی</th>
-                    <th>امتیاز</th>
+                    <th>دقت</th>
                     <th>کلاس</th>
                 </tr>
                 </thead>
@@ -110,8 +100,7 @@
                     <tr>
                         <td>{{ team.user_team.username }}</td>
                         <td>{{ team.university.university_name }}</td>
-                        <td>{{ team.total_games }}</td>
-                        <td>{{ team.get_points }}</td>
+                        <td>{{ team.accuracy }}</td>
                         <td>A</td>
                     </tr>
                 {% endfor %}
@@ -127,8 +116,7 @@
                 <tr>
                     <th>تیم</th>
                     <th>دانشگاه</th>
-                    <th>بازی</th>
-                    <th>امتیاز</th>
+                    <th>دقت</th>
                     <th>کلاس</th>
                 </tr>
                 </thead>
@@ -138,8 +126,7 @@
                     <tr>
                         <td>{{ team.user_team.username }}</td>
                         <td>{{ team.university.university_name }}</td>
-                        <td>{{ team.total_games }}</td>
-                        <td>{{ team.get_points }}</td>
+                        <td>{{ team.accuracy}}</td>
                         <td>A</td>
                     </tr>
                 {% endfor %}
