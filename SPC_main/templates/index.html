@@ -37,30 +37,38 @@
                     <div class="progress-bar">
                         <span class="progressed" id="filledProgress">70</span>
                     </div>
-                    <div class="btn waves-effect new-code" id="selectFileButton">
+                    <button type="button" class="btn waves-effect new-code js-upload-photos">
                         بارگذاری کد
-                        <input type="file"
-                               style="opacity: 0;position: absolute; left: 0; height: 50px; top: 0px; width: 220px; cursor: pointer"
-                               id="fileupload" name="code"
-                               data-url="{% url 'online_match:file_upload_ajax' %}"
-                               data-form-data='{"csrfmiddlewaretoken": "{{ csrf_token }}"}'>
-                        {#                        <div class="modal fade" id="modal-progress" data-backdrop="static" data-keyboard="false">#}
-                        {#                            <div class="modal-dialog">#}
-                        {#                                <div class="modal-content">#}
-                        {#                                    <div class="modal-header">#}
-                        {#                                        <h4 class="modal-title">بارگذاری .....</h4>#}
-                        {#                                    </div>#}
-                        {#                                    <div class="modal-body">#}
-                        {#                                        <div class="progress">#}
-                        {#                                            <div class="progress-bar" id="upload_progress_bar" role="progressbar"#}
-                        {#                                                 style="width: 0%;">0%#}
-                        {#                                            </div>#}
-                        {#                                        </div>#}
-                        {#                                    </div>#}
-                        {#                                </div>#}
-                        {#                            </div>#}
-                        {#                        </div>#}
-                    </div>
+                    </button>
+                    <input id="fileupload" type="file" name="code"
+                           style="display: none;"
+                           data-url="{% url 'online_match:file_upload_ajax' %}"
+                           data-form-data='{"csrfmiddlewaretoken": "{{ csrf_token }}"}'>
+                    {#                    <div class="btn waves-effect new-code" id="selectFileButton">#}
+                    {##}
+                    {#                        بارگذاری کد#}
+                    {#                        <input type="file"#}
+                    {#                               style="opacity: 0;position: absolute; left: 0; height: 50px; top: 0px; width: 220px; cursor: pointer"#}
+                    {#                               id="fileupload" name="code"#}
+                    {#                               data-url="{% url 'online_match:file_upload_ajax' %}"#}
+                    {#                               data-form-data='{"csrfmiddlewaretoken": "{{ csrf_token }}"}'>#}
+                    {#                        <div class="modal fade" id="modal-progress" data-backdrop="static" data-keyboard="false">#}
+                    {#                            <div class="modal-dialog">#}
+                    {#                                <div class="modal-content">#}
+                    {#                                    <div class="modal-header">#}
+                    {#                                        <h4 class="modal-title">بارگذاری .....</h4>#}
+                    {#                                    </div>#}
+                    {#                                    <div class="modal-body">#}
+                    {#                                        <div class="progress">#}
+                    {#                                            <div class="progress-bar" id="upload_progress_bar" role="progressbar"#}
+                    {#                                                 style="width: 0%;">0%#}
+                    {#                                            </div>#}
+                    {#                                        </div>#}
+                    {#                                    </div>#}
+                    {#                                </div>#}
+                    {#                            </div>#}
+                    {#                        </div>#}
+                    {#                    </div>#}
                 </div>
                 <div class="card member" style="background-color: #3a6073; top: -13px; direction: ltr">
                     <!--carousel-->
@@ -244,11 +252,12 @@
 </script>
 <script src='{% static "js/jquery-3.1.1.min.js" %}'></script>
 <script src="{% static 'js/jaam/item_active.js' %}"></script>
+<script src='{% static "js/bin/materialize.js" %}'></script>
+<!-- upload -->
 <script src="{% static 'js/jQuery-File-Upload-9.14.1/js/vendor/jquery.ui.widget.js' %}"></script>
 <script src="{% static 'js/jQuery-File-Upload-9.14.1/js/jquery.iframe-transport.js' %}"></script>
 <script src="{% static 'js/jQuery-File-Upload-9.14.1/js/jquery.fileupload.js' %}"></script>
 <script src="{% static 'js/photo_upload.js' %}"></script>
-<script src='{% static "js/bin/materialize.js" %}'></script>
 <script>
     M.AutoInit();
 
