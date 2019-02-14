@@ -63,7 +63,8 @@
                                 <label for="team-linker">{{ team_form.mentor.label }}</label>
                             </div>
                             <div class="input-field col s12 m12 l12 xl12" style="direction: ltr;">
-                                {% render_field team_form.university %}
+                                {% render_field team_form.university name="team_university" %}
+                                <label for="team_university">{{ team_form.university.label }}</label>
 
                             </div>
                             <div class="input-field col s12">
@@ -71,16 +72,12 @@
                                 {% render_field team_form.team_bio name='team-bio' class="materialize-textarea" %}
                                 <label for="team-bio">{{ team_form.team_bio.label }}</label>
                             </div>
-                            <a class="btn-flat waves-effect col s12 m12 l4 xl4 offset-l2 offset-xl2">
+                            <label class="btn waves-effect waves-light col s12 m12 l4 xl4 offset-l1 offset-xl1">
                                 <i class="material-icons right">photo</i>
                                 تغییر آواتار
-                                <input type="file"
-                                       style="opacity: 0;position: absolute; left: 0; height: 50px; top: 0px; width: 100%; cursor: pointer"
-                                       id="selectFile1">
-                            </a>
-                            <a class="btn waves-effect waves-light col s12 m12 l4 xl4 offset-l1 offset-xl1">
-                                <i class="material-icons right">save</i>
-                                ذخیره</a>
+
+                                {% render_field team_form.logo_image style="display:none" %}
+                            </label>
 
 
                         </div>
@@ -134,13 +131,14 @@
                                     {{ form.entrance_year }}
                                     <label>{{ form.entrance_year.label }}</label>
                                 </div>
-                                <div class="input-field col s12 m12 l6 xl6">
+{#                                <div class="input-field col s12 m12 l6 xl6">#}
                                     {#                                    <input type="text" name="admin-uni-graduate" id="admin-uni-graduate">#}
-                                    {{ form.graduate_year }}
-                                    <label>{{ form.graduate_year.label }}</label>
-                                </div>
-                                <div class="input-field col s12 m12 l12 xl12" style="direction: ltr;">
+{#                                    {{ form.graduate_year }}#}
+{#                                    <label>{{ form.graduate_year.label }}</label>#}
+{#                                </div>#}
+                                <div class="input-field col s12 m12 l6 xl6" style="direction: ltr;">
                                     {{ form.university }}
+                                    <label>{{ form.university.label }}</label>
 
                                 </div>
                                 <div class="input-field col s12">

@@ -122,7 +122,7 @@ def upload_view(request):
             print(form.errors)
             return JsonResponse({"success": False})
     elif request.method == "GET":
-        template = loader.get_template('online_match/templates/upload_ajax.html')
+        template = loader.get_template('upload_ajax.html')
         return HttpResponse(template.render({}, request))
 
 
