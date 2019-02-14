@@ -205,72 +205,30 @@
                             <p>{{ members.2.skills }}</p>
                         </div>
                     </div>
-                    {% if members.3 %}
+                {% else %}
+                    <a href="{% url 'setting:setting' 3 %}">
                         <div class="card member">
                             <div class="card-image waves-effect waves-block waves-light">
                                 <div class="pattern-back teal darken-2 waves-effect activator">
+                                    <i class="large material-icons black-text">add_circle</i>
                                 </div>
                             </div>
                             <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">
-                            <i class="material-icons right">more_vert</i>
-                            {{ members.3.get_fname_lname }}
-                        </span>
+                            <span class="card-title activator grey-text text-darken-4">
+                                <i class="material-icons right">more_vert</i>
+                                نام عضو جدید
+                            </span>
                                 <p><a href="#"></a></p>
                             </div>
                             <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">
-                            {{ members.3.get_fname_lname }}
-                            <i class="material-icons right">close</i></span>
-                                <p>{{ members.3.skills }}</p>
-                            </div>
-                        </div>
-                    {% else %}
-                        <a href="{% url 'setting:setting' 3 %}">
-                            <div class="card member">
-                                <div class="card-image waves-effect waves-block waves-light">
-                                    <div class="pattern-back teal darken-2 waves-effect activator center-align">
-                                        <i class="large material-icons black-text" >add_circle</i>
-
-                                    </div>
-                                </div>
-                                <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">
-                                <i class="material-icons right">more_vert</i>
-                                نام عضو جدید
-                            </span>
-                                    <p><a href="{% url 'setting:setting' 3 %}"></a></p>
-                                </div>
-                                <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">
                             نام عضو
                             <i class="material-icons right">close</i>
                         </span>
-                                    <p>توضیحات کوتاه در مورد عضو جدید</p>
-                                </div>
+                                <p>توضیحات کوتاه در مورد عضو جدید</p>
                             </div>
-                        </a>
-                    {% endif %}
-                {% else %}
-                    <div class="card member">
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <div class="pattern-back teal darken-2 waves-effect activator"></div>
                         </div>
-                        <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">
-                                <i class="material-icons right">more_vert</i>
-                                نام عضو جدید
-                            </span>
-                            <p><a href="#"></a></p>
-                        </div>
-                        <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">
-                            نام عضو
-                            <i class="material-icons right">close</i>
-                        </span>
-                            <p>توضیحات کوتاه در مورد عضو جدید</p>
-                        </div>
-                    </div>
+                    </a>
                 {% endif %}
             </div>
         </div>

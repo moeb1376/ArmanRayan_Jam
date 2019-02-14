@@ -17,7 +17,7 @@ def old_SPC_main_page(request):
     user_require = 2 if team.competition.competition_level < 3 else 1
     print(user_require, team.competition.competition_level)
     if len(team_member) < user_require:
-        return HttpResponseRedirect('/setting')
+        return redirect("setting:setting", None)
     for member in team_member:
         print(member.user_lname)
     context = {
@@ -40,7 +40,7 @@ def SPC_main_page(request):
     user_require = 2 if team.competition.competition_level < 3 else 1
     print(user_require, team.competition.competition_level)
     if len(team_member) < user_require:
-        return redirect("setting:setting")
+        return redirect("setting:setting", len(team_member) + 1)
     for member in team_member:
         print(member.user_lname)
     context = {
