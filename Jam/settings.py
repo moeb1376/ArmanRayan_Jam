@@ -22,12 +22,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '4j5lq*s4+7a&ac*3opp5v97u)0=mqw2gw_fc4@1qkzu+b-mezp'
 # SECRET_KEY = '&cj=c2(%h$tg!bs$5w+t1q3*ieb3%0zsym1cgha3p%fbd)2gf^'
 
-from Jam.configDB import DEBUG_CONF,database_config
+from Jam.configDB import DEBUG_CONF, database_config
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = DEBUG_CONF
 # DEBUG = False
-ALLOWED_HOSTS = ['185.81.40.213', '127.0.0.1', 'jaam.armankadeh.ir', '185.208.77.207']
+ALLOWED_HOSTS = ['185.81.40.213', '127.0.0.1', 'jaam.armankadeh.ir', '185.208.77.207', "cup.armankadeh.ir"]
 # ALLOWED_HOSTS = []
 # Application definition
 
@@ -134,8 +134,8 @@ USE_TZ = True
 STATIC_URL = '/statics/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "statics"),
-    os.path.join(BASE_DIR,"assets")
-    ]
+    os.path.join(BASE_DIR, "assets")
+]
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = '/media/'
 LOGO_DEFAULT = os.path.join(MEDIA_ROOT, 'unknown.jpg')
