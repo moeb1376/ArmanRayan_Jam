@@ -9,7 +9,7 @@
 	position: absolute;
 	height: auto;
 	width: 100%;
-	top: 60%;
+	top: 65%;
 	transform: translate(0, -50%);
 	right: 0;
 }
@@ -133,6 +133,7 @@ a {
 	width: 70%;
 	left: 15%;
 	top: 5%;
+	border-radius: 50%;
 }
 
 .team-quote {
@@ -224,7 +225,8 @@ a {
 }
 
 .carousele {
-	height: 300px !important;
+	/* height: auto; */
+	height: 350px !important;
 	width: 100% !important;
 }
 
@@ -335,7 +337,7 @@ a {
 }
 .download-btn{
 	position: absolute;
-	top: 210px; 
+	bottom: 50px; 
 	left: 50%;
 	transform: translate(-50%,0);
 	color: #3a6073;
@@ -635,7 +637,7 @@ a {
 .carousel__slide {
 	height: 100%;
 	position: absolute;
-	overflow-y: auto;
+	overflow-y:scroll;
 	opacity: 0;
 }
 
