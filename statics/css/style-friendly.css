@@ -1,0 +1,40 @@
+.content{
+	padding: 60px 60px !important;
+}
+lighten-5{
+	background-color: #fffcfb !important;
+}
+.card{
+	height: 90%;
+}
+.card img{
+	width: 50%;
+	padding: 20px;
+	
+}
+.content{
+	overflow-x: hidden;
+}
+h3, h5{
+	position: static;
+	text-align: center;
+}
+.section{
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.progress-bar{
+	position: relative;
+	top: 30px;
+}
+@media only screen and (max-width: 992px){
+	.content{
+		padding: 10px !important;
+		padding-top: 50px !important;
+		height: 100%;
+	}
+	.card{
+		height: auto;
+		min-height: 700px;
+	}
+}
