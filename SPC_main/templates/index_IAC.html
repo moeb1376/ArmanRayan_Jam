@@ -1,0 +1,261 @@
+
+    </title>
+    {% load static from staticfiles %}
+    <link rel="stylesheet" href='{% static "css/materialize.css" %}'>
+    <link rel="stylesheet" href='{% static "css/style-global.css" %}'>
+    <link rel="stylesheet" href='{% static "css/style-index.css" %}'>
+
+    <meta name="viewport"
+          content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,target-densitydpi=device-dpi, user-scalable=no"/>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+
+<div class="row cnt" style="direction: rtl">
+    {% include 'base2_0/menu_item.html' %}
+    {% include 'base2_0/menu_team_discription.html' %}
+
+    <div class="col s12 m12 l8 xl8  pull-l4 pull-xl4 content" id="container">
+        {% include 'base2_0/navbar.html' %}
+
+        <div class="row" style="padding: 15px;">
+            <div class="col s12 m12 l4 xl4" style="position: relative;">
+                <div class="card team-summary">
+                    <h1>A</h1>
+                    <div class="puan">
+                        <label>دقت تیم</label>
+                        <label>75٪</label>
+                    </div>
+                    <div class="progress-bar">
+                        <span class="progressed" id="filledProgress">70</span>
+                    </div>
+                    <button type="button" class="btn waves-effect new-code js-upload-photos">
+                        بارگذاری کد
+                    </button>
+                    <input id="fileupload" type="file" name="code"
+                           style="display: none;"
+                           data-url="{% url 'online_match:file_upload_ajax' %}"
+                           data-form-data='{"csrfmiddlewaretoken": "{{ csrf_token }}"}'>
+                    {#                    <div class="btn waves-effect new-code" id="selectFileButton">#}
+                    {##}
+                    {#                        بارگذاری کد#}
+                    {#                        <input type="file"#}
+                    {#                               style="opacity: 0;position: absolute; left: 0; height: 50px; top: 0px; width: 220px; cursor: pointer"#}
+                    {#                               id="fileupload" name="code"#}
+                    {#                               data-url="{% url 'online_match:file_upload_ajax' %}"#}
+                    {#                               data-form-data='{"csrfmiddlewaretoken": "{{ csrf_token }}"}'>#}
+                    {#                        <div class="modal fade" id="modal-progress" data-backdrop="static" data-keyboard="false">#}
+                    {#                            <div class="modal-dialog">#}
+                    {#                                <div class="modal-content">#}
+                    {#                                    <div class="modal-header">#}
+                    {#                                        <h4 class="modal-title">بارگذاری .....</h4>#}
+                    {#                                    </div>#}
+                    {#                                    <div class="modal-body">#}
+                    {#                                        <div class="progress">#}
+                    {#                                            <div class="progress-bar" id="upload_progress_bar" role="progressbar"#}
+                    {#                                                 style="width: 0%;">0%#}
+                    {#                                            </div>#}
+                    {#                                        </div>#}
+                    {#                                    </div>#}
+                    {#                                </div>#}
+                    {#                            </div>#}
+                    {#                        </div>#}
+                    {#                    </div>#}
+                </div>
+                <div class="card member" style="background-color: #3a6073; top: -13px; direction: ltr">
+                    <!--carousel-->
+                    <div class="carousele my-carousel carousel--translate">
+                        <input class="carousel__activator" type="radio" name="carousel" id="Detail" checked="checked"/>
+                        <input class="carousel__activator" type="radio" name="carousel" id="Server"/>
+                        <input class="carousel__activator" type="radio" name="carousel" id="Clients"/>
+                        <div class="carousel__controls">
+                            <label class="carousel__control carousel__control--backward" for="Clients"></label>
+                            <label class="carousel__control carousel__control--forward" for="Server"></label>
+                        </div>
+                        <div class="carousel__controls">
+                            <label class="carousel__control carousel__control--backward" for="Detail"></label>
+                            <label class="carousel__control carousel__control--forward" for="Clients"></label>
+                        </div>
+                        <div class="carousel__controls">
+                            <label class="carousel__control carousel__control--backward" for="Server"></label>
+                            <label class="carousel__control carousel__control--forward" for="Detail"></label>
+                        </div>
+                        <div class="carousel__track">
+                            <li class="carousel__slide">
+                                <img src='{% static "img/help-web-button.svg" %}' style="width: 30px;">
+                                <label class="tip-title">راهنما و توضیحات</label>
+                                <span class="text-article" style="top: 40%;">اشاره‌گرهای هوشمند</span>
+                                <span class="text-sub center" style="top: 55%;">
+                                            جهت اطلاع از نوع بازی بخش پیشرفته و قوانین بازی و نحوه امتیازدهی ها فایل
+                                            زیر را دانلود کرده و سپس به دقت مطالعه نمایید.</span>
+                                <a href="{% static 'download/spc2.pdf' %}" download>
+                                    <div class="btn waves-effect yellow lighten-5 download-btn">
+                                        دانلود فایل
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="carousel__slide">
+                                <img src='{% static "img/help-web-button.svg" %}' style="width: 30px;">
+                                <label class="tip-title">راهنما و توضیحات</label>
+                                <span class="text-article center" style="top: 40%;">سرور اشاره‌گرهای هوشمند</span>
+                                <span class="text-sub center" style="top: 55%;"></span>
+                                <a href="/media/Download/SPC/Abalone/Server/Abalone_1.1.zip" download>
+                                    <div class="btn waves-effect yellow lighten-5 download-btn">
+                                        دانلود فایل
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="carousel__slide">
+                                <img src='{% static "img/help-web-button.svg" %}' style="width: 30px;">
+                                <label class="tip-title">راهنما و توضیحات</label>
+                                <span class="text-article center" style="top: 40%;">فایل‌های کلاینت</span>
+                                <span class="text-sub center" style="top: 55%;left: 50%"></span>
+                                <a href="/media/Download/SPC/Abalone/Client/Python_abalone_client_V1.zip"
+                                   download name="python_link">
+                                    <div class="btn waves-effect yellow lighten-5 download-btn">
+                                        دانلود فایل کلاینت پایتون
+                                    </div>
+                                </a>
+                                <a href="/media/Download/SPC/Abalone/Client/C++%20Abalone%20Client%20v1.rar"
+                                   download name="python_link">
+                                    <div class="btn waves-effect yellow lighten-5 download-btn">
+                                        دانلود فایل کلاینت C++
+                                    </div>
+                                </a>
+                                <a href="/media/Download/SPC/Abalone/Client/java-abalone-client-ver1.rar"
+                                   download name="python_link">
+                                    <div class="btn waves-effect yellow lighten-5 download-btn">
+                                        دانلود فایل کلاینت Java
+                                    </div>
+                                </a>
+                                <a href="/media/Download/SPC/Abalone/Client/Client_help.zip"
+                                   download name="python_link">
+                                    <div class="btn waves-effect yellow lighten-5 download-btn">
+                                        فایل راهنمای کلاینت‌ها
+                                    </div>
+                                </a>
+
+                            </li>
+                        </div>
+                        <div class="carousel__indicators">
+                            <label class="carousel__indicator" for="Detail"></label>
+                            <label class="carousel__indicator" for="Server"></label>
+                            <label class="carousel__indicator" for="Clients"></label>
+                        </div>
+                    </div>
+                    <!--end carousel-->
+                </div>
+            </div>
+            <div class="col s12 m12 l4 xl4" style="position: relative;">
+                <div class="card member yellow lighten-4">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <div class="pattern-back teal darken-2 waves-effect activator"></div>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">
+                            <i class="material-icons right">more_vert</i>
+                            {{ members.0.get_fname_lname }}
+                        </span>
+                        <p><a href="#"></a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">{{ members.0.get_fname_lname }}
+                            <i class="material-icons right">close</i>
+                        </span>
+                        <p>{{ members.0.skills }}</p>
+                    </div>
+                </div>
+{#                <div class="card member">#}
+{#                    <div class="card-image waves-effect waves-block waves-light">#}
+{#                        <div class="pattern-back teal darken-2 waves-effect activator"></div>#}
+{#                    </div>#}
+{#                    <div class="card-content">#}
+{#                        <span class="card-title activator grey-text text-darken-4">#}
+{#                            <i class="material-icons right">more_vert</i>#}
+{#                            {{ members.1.get_fname_lname }}#}
+{#                        </span>#}
+{#                        <p><a href="#"></a></p>#}
+{#                    </div>#}
+{#                    <div class="card-reveal">#}
+{#                        <span class="card-title grey-text text-darken-4">#}
+{#                            {{ members.1.get_fname_lname }}#}
+{#                            <i class="material-icons right">close</i></span>#}
+{#                        <p>{{ members.1.skills }}</p>#}
+{#                    </div>#}
+{#                </div>#}
+            </div>
+            <div class="col s12 m12 l4 xl4" style="position: relative;">
+
+                {% if members.2 %}
+                    <div class="card member">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <div class="pattern-back teal darken-2 waves-effect activator"></div>
+                        </div>
+                        <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">
+                            <i class="material-icons right">more_vert</i>
+                            {{ members.2.get_fname_lname }}
+                        </span>
+                            <p><a href="#"></a></p>
+                        </div>
+                        <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">{{ members.2.get_fname_lname }}
+                            <i class="material-icons right">close</i>
+                        </span>
+                            <p>{{ members.2.skills }}</p>
+                        </div>
+                    </div>
+                {% else %}
+                    <a href="{% url 'setting:setting' 3 %}">
+                        <div class="card member">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <div class="pattern-back teal darken-2 waves-effect activator center-align">
+                                    <i class="large material-icons black-text">add_circle</i>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">
+                                <i class="material-icons right">more_vert</i>
+                                نام عضو جدید
+                            </span>
+                                <p><a href="#"></a></p>
+                            </div>
+                            <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">
+                            نام عضو
+                            <i class="material-icons right">close</i>
+                        </span>
+                                <p>توضیحات کوتاه در مورد عضو جدید</p>
+                            </div>
+                        </div>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    window.onload = function () {
+        var x = document.getElementById("filledProgress").innerHTML;
+        document.getElementById("filledProgress").innerHTML = "";
+        document.getElementById("filledProgress").style.width = x + "%";
+    }
+
+</script>
+<script src='{% static "js/jquery-3.1.1.min.js" %}'></script>
+<script src="{% static 'js/jaam/item_active.js' %}"></script>
+<script src='{% static "js/bin/materialize.js" %}'></script>
+<!-- upload -->
+<script src="{% static 'js/jQuery-File-Upload-9.14.1/js/vendor/jquery.ui.widget.js' %}"></script>
+<script src="{% static 'js/jQuery-File-Upload-9.14.1/js/jquery.iframe-transport.js' %}"></script>
+<script src="{% static 'js/jQuery-File-Upload-9.14.1/js/jquery.fileupload.js' %}"></script>
+<script src="{% static 'js/photo_upload.js' %}"></script>
+<script>
+    M.AutoInit();
+
+</script>
+</body>
+
+</html>
