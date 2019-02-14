@@ -1,4 +1,4 @@
-<html>
+<html lang="fa">
 
 <head>
     <title>
@@ -72,14 +72,11 @@
                                 {% render_field team_form.team_bio name='team-bio' class="materialize-textarea" %}
                                 <label for="team-bio">{{ team_form.team_bio.label }}</label>
                             </div>
-                            <label class="btn waves-effect waves-light col s12 m12 l4 xl4 offset-l1 offset-xl1">
+                            <label class="btn waves-effect waves-light col s12 m12 l6 xl6 offset-l3 offset-xl3">
                                 <i class="material-icons right">photo</i>
                                 تغییر آواتار
-
                                 {% render_field team_form.logo_image style="display:none" %}
                             </label>
-
-
                         </div>
                     </div>
                 </li>
@@ -131,11 +128,11 @@
                                     {{ form.entrance_year }}
                                     <label>{{ form.entrance_year.label }}</label>
                                 </div>
-{#                                <div class="input-field col s12 m12 l6 xl6">#}
-                                    {#                                    <input type="text" name="admin-uni-graduate" id="admin-uni-graduate">#}
-{#                                    {{ form.graduate_year }}#}
-{#                                    <label>{{ form.graduate_year.label }}</label>#}
-{#                                </div>#}
+                                {#                                <div class="input-field col s12 m12 l6 xl6">#}
+                                {#                                    <input type="text" name="admin-uni-graduate" id="admin-uni-graduate">#}
+                                {#                                    {{ form.graduate_year }}#}
+                                {#                                    <label>{{ form.graduate_year.label }}</label>#}
+                                {#                                </div>#}
                                 <div class="input-field col s12 m12 l6 xl6" style="direction: ltr;">
                                     {{ form.university }}
                                     <label>{{ form.university.label }}</label>
@@ -168,11 +165,11 @@
             </button>
         </form>
     </div>
-<script >
-    let active_field = $("#setting_collapsible").children("li")[{{ active_member }}];
-    active_field.classList.add("active");
-    console.log(active_field[0]);
-</script>
+    <script>
+        let active_field = $("#setting_collapsible").children("li")[{{ active_member }}];
+        active_field.classList.add("active");
+        console.log(active_field[0]);
+    </script>
 
 </div>
 
