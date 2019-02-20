@@ -34,7 +34,7 @@
                     <div class="progress-bar">
                         <span class="progressed" id="filledProgress">70</span>
                     </div>
-                    <button type="button" class="btn waves-effect new-code js-upload-photos modal-trigger" >
+                    <button type="button" class="btn waves-effect new-code js-upload-photos modal-trigger">
                         بارگذاری کد
                     </button>
                     <input id="fileupload" type="file" name="code"
@@ -42,8 +42,8 @@
                            data-url="{% url 'online_match:file_upload_ajax' %}"
                            data-form-data='{"csrfmiddlewaretoken": "{{ csrf_token }}"}'>
 
-{#                    <!-- Modal Trigger -->#}
-{#                    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>#}
+                    {#                    <!-- Modal Trigger -->#}
+                    {#                    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>#}
 
                     <!-- Modal Structure -->
                     <div id="modal1" class="modal bottom-sheet">
@@ -53,7 +53,8 @@
                             <div class="progress">
                                 <div class="determinate" style="width: 70%"></div>
                             </div>
-                            <p class="center green-text text-darken-4" id="upload-message" hidden>بارگذاری با موفقیت انجام شد</p>
+                            <p class="center green-text text-darken-4" id="upload-message" hidden>بارگذاری با موفقیت
+                                انجام شد</p>
                         </div>
                         <div class="modal-footer">
                             <a href="#!" class="modal-close waves-effect waves-green btn-flat">بستن</a>
@@ -108,29 +109,9 @@
                                 <label class="tip-title">راهنما و توضیحات</label>
                                 <span class="text-article center" style="top: 40%;">فایل‌های کلاینت</span>
                                 <span class="text-sub center" style="top: 55%;left: 50%"></span>
-                                <a href="/media/Download/SPC/Abalone/Client/Python_abalone_client_V1.zip"
-                                   download name="python_link">
-                                    <div class="btn waves-effect yellow lighten-5 download-btn">
-                                        دانلود فایل کلاینت پایتون
-                                    </div>
-                                </a>
-                                <a href="/media/Download/SPC/Abalone/Client/C++%20Abalone%20Client%20v1.rar"
-                                   download name="python_link">
-                                    <div class="btn waves-effect yellow lighten-5 download-btn">
-                                        دانلود فایل کلاینت C++
-                                    </div>
-                                </a>
-                                <a href="/media/Download/SPC/Abalone/Client/java-abalone-client-ver1.rar"
-                                   download name="python_link">
-                                    <div class="btn waves-effect yellow lighten-5 download-btn">
-                                        دانلود فایل کلاینت Java
-                                    </div>
-                                </a>
-                                <a href="/media/Download/SPC/Abalone/Client/Client_help.zip"
-                                   download name="python_link">
-                                    <div class="btn waves-effect yellow lighten-5 download-btn">
-                                        فایل راهنمای کلاینت‌ها
-                                    </div>
+
+                                <a class="waves-effect btn yellow lighten-5 download-btn modal-trigger" href="#modal2">
+                                    دانلود فایل‌ها
                                 </a>
 
                             </li>
@@ -144,6 +125,41 @@
                     <!--end carousel-->
                 </div>
             </div>
+            <div id="modal2" class="modal">
+                <div class="modal-content">
+                    <h4>فایل‌های مربوط به کلاینت</h4>
+                        <a  href="/media/Download/SPC/Abalone/Client/Python_abalone_client_V1.zip"
+                           download name="python_link" class="center-align row">
+                            <div class="btn waves-effect ">
+                                 فایل کلاینت پایتون
+                            </div>
+                        </a>
+                    <a href="/media/Download/SPC/Abalone/Client/C++%20Abalone%20Client%20v1.rar"
+                       download name="python_link" class="center-align row">
+                        <div class="btn waves-effect">
+                             فایل کلاینت ++C
+                        </div>
+                    </a>
+                    <a href="/media/Download/SPC/Abalone/Client/java-abalone-client-ver1.rar"
+                       download name="python_link" class="center-align row">
+                        <div class="btn waves-effect">
+                             فایل کلاینت Java
+                        </div>
+                    </a>
+                    <a href="/media/Download/SPC/Abalone/Client/client_protocole.zip    "
+                       download name="python_link" class="center-align row">
+                        <div class="btn waves-effect ">
+                             راهنمای کلاینت‌ها
+                        </div>
+                    </a>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">
+                        بستن
+                    </a>
+                </div>
+            </div>
+
             <div class="col s12 m12 l4 xl4" style="position: relative;">
                 <div class="card member yellow lighten-4">
                     <div class="card-image waves-effect waves-block waves-light">
