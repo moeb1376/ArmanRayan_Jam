@@ -13,6 +13,7 @@
     <meta name="viewport"
           content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,target-densitydpi=device-dpi, user-scalable=no"/>
     <meta charset="utf-8">
+    <link type="image/png" rel="icon" href="{% static 'img/jaam.png' %}">
 </head>
 
 <body>
@@ -49,11 +50,9 @@
                 <div class="card team-summary">
                     <h1 style="font-size: 30px">دادگان مسابقه</h1>
                     <h1 style="font-size: 20px;color: black">سری اول دادگان</h1>
-                    <form action="">
-                        <button type="submit" class="btn waves-effect new-code js-upload-photos">
-                            دانلود دادگان
-                        </button>
-                    </form>
+                    <a class="btn waves-effect new-code js-upload-photos" href="{{ data_set1 }}" download>
+                        دانلود دادگان
+                    </a>
 
                 </div>
             </div>

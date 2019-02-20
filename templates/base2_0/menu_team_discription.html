@@ -1,3 +1,4 @@
+{% load static %}
 <div class="col s12 m12 l3 xl3  push-l7 push-xl7 info">
     <div class="hide-on-med-and-down">
         <div class="row" style="height: 100%;">
@@ -6,14 +7,14 @@
 
             </div>
             <div class="team-info">
-                <h3 style="direction: ltr">
-                    {{ user.username|truncatechars:15 }}
+                <h3 style="direction: ltr" id="username">
+                    {{ user.username }}
                 </h3>
-                <h6>
+                <h6 id="email">
                     {{ user.email|truncatechars:25 }}
                 </h6>
             </div>
-            <span >
+            <span>
             <div class="team-quote">
                 <h6>
                     {{ login_team.team_bio|truncatewords:30 }}
@@ -31,15 +32,16 @@
 
             </div>
             <div class="team-info" style="margin-right: 5px">
-                <h4 style="direction: ltr">
+                <h4 style="direction: ltr" id="username-mobile">
                     {{ user.username|truncatechars:10 }}
                 </h4>
-                <h6>
+                <h6 id="email-mobile">
                     {{ user.email|truncatechars:25 }}
                 </h6>
             </div>
         </div>
     </div>
-
+    <script src='{% static "js/jquery-3.1.1.min.js" %}'></script>
+    <script src="{% static 'js/jaam/dynamic_font.js' %}"></script>
 
 </div>
