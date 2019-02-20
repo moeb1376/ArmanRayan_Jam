@@ -22,18 +22,20 @@
 
     </div>
     <div class="menu-items-mob hide-on-med-and-up show-on-medium">
-
-        <a href="{% url 'SPC_main:SPC_main_page' %}" class="inline">
-                <span class="menu-icon-mob icon-info tooltipped" data-position="bottom"
-                      data-tooltip="اطلاعات تیم" id="team_detail_mobile_item"></span>
+        <a href="{% url 'SPC_main:jaam-tables-view' %}" class="inline">
+                <span class="menu-icon-mob icon-competition tooltipped" data-position="bottom"
+                      data-tooltip="جدول رقابت ها" id="table_jaam_mobile_item"></span>
         </a>
         <a href="{% url 'online_match:online_match' %}" class="inline">
             <span class="menu-icon-mob icon-result tooltipped" data-position="bottom"
                   data-tooltip="مجموعه دادگان" id="friendly_mobile_item"></span>
         </a>
-        <a href="{% url 'SPC_main:jaam-tables-view' %}" class="inline">
-                <span class="menu-icon-mob icon-competition tooltipped" data-position="bottom"
-                      data-tooltip="جدول رقابت ها" id="table_jaam_mobile_item"></span>
+
+        <a href="{% url 'SPC_main:SPC_main_page' %}" class="inline">
+                <span class="menu-icon-mob icon-info tooltipped" data-position="bottom"
+                      data-tooltip="اطلاعات تیم" id="team_detail_mobile_item"></span>
         </a>
+
+
     </div>
 </div>
