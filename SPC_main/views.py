@@ -52,7 +52,7 @@ def SPC_main_page(request):
         template = loader.get_template('index.html')
     else:
         print('jaamiac')
-        template = loader.get_template('Old/extend/jaam_iac.html')
+        template = loader.get_template('index_IAC.html')
     return HttpResponse(template.render(context, request))
 
 

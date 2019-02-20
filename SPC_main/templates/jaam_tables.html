@@ -18,11 +18,12 @@
 
 
 <div class="row cnt" style="direction: rtl">
-    {% include 'base2_0/menu_item.html' %}
-
-
+    {% if login_team.competition.competition_level < 3 %}
+        {% include 'base2_0/menu_item.html' %}
+    {% else %}
+        {% include 'base2_0/menu_item_IAC.html' %}
+    {% endif %}
     {% include 'base2_0/menu_team_discription.html' %}
-
 
     <div class="col s12 m12 l8 xl8  pull-l4 pull-xl4 content">
         {% include 'base2_0/navbar.html' %}

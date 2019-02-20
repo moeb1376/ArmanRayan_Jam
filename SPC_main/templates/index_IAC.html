@@ -1,4 +1,8 @@
+<html>
 
+<head>
+    <title>
+        {{ user.username }} | پنل مدیریت تیم
     </title>
     {% load static from staticfiles %}
     <link rel="stylesheet" href='{% static "css/materialize.css" %}'>
@@ -14,9 +18,8 @@
 
 
 <div class="row cnt" style="direction: rtl">
-    {% include 'base2_0/menu_item.html' %}
+    {% include 'base2_0/menu_item_IAC.html' %}
     {% include 'base2_0/menu_team_discription.html' %}
-
     <div class="col s12 m12 l8 xl8  pull-l4 pull-xl4 content" id="container">
         {% include 'base2_0/navbar.html' %}
 
@@ -86,11 +89,9 @@
                             <li class="carousel__slide">
                                 <img src='{% static "img/help-web-button.svg" %}' style="width: 30px;">
                                 <label class="tip-title">راهنما و توضیحات</label>
-                                <span class="text-article" style="top: 40%;">اشاره‌گرهای هوشمند</span>
-                                <span class="text-sub center" style="top: 55%;">
-                                            جهت اطلاع از نوع بازی بخش پیشرفته و قوانین بازی و نحوه امتیازدهی ها فایل
-                                            زیر را دانلود کرده و سپس به دقت مطالعه نمایید.</span>
-                                <a href="{% static 'download/spc2.pdf' %}" download>
+                                <span class="text-article" style="top: 40%;">الگوریتم های هوشمند</span>
+                                <span class="text-sub center" style="top: 55%;">سوال مسابقات و نحوه داوری ها</span>
+                                <a href="{% static 'download/iac.pdf' %}" download>
                                     <div class="btn waves-effect yellow lighten-5 download-btn">
                                         دانلود فایل
                                     </div>
@@ -99,41 +100,23 @@
                             <li class="carousel__slide">
                                 <img src='{% static "img/help-web-button.svg" %}' style="width: 30px;">
                                 <label class="tip-title">راهنما و توضیحات</label>
-                                <span class="text-article center" style="top: 40%;">سرور اشاره‌گرهای هوشمند</span>
+                                <span class="text-article center" style="top: 40%;">دانلود دادگان مورد نیاز</span>
                                 <span class="text-sub center" style="top: 55%;"></span>
-                                <a href="/media/Download/SPC/Abalone/Server/Abalone_1.1.zip" download>
+                                <a href="/play/">
                                     <div class="btn waves-effect yellow lighten-5 download-btn">
-                                        دانلود فایل
+                                        دانلود
                                     </div>
                                 </a>
                             </li>
                             <li class="carousel__slide">
                                 <img src='{% static "img/help-web-button.svg" %}' style="width: 30px;">
                                 <label class="tip-title">راهنما و توضیحات</label>
-                                <span class="text-article center" style="top: 40%;">فایل‌های کلاینت</span>
+                                <span class="text-article center" style="top: 40%;">لینک کانال جام</span>
                                 <span class="text-sub center" style="top: 55%;left: 50%"></span>
-                                <a href="/media/Download/SPC/Abalone/Client/Python_abalone_client_V1.zip"
+                                <a href="http://t.me/jaam_armankadeh"
                                    download name="python_link">
                                     <div class="btn waves-effect yellow lighten-5 download-btn">
-                                        دانلود فایل کلاینت پایتون
-                                    </div>
-                                </a>
-                                <a href="/media/Download/SPC/Abalone/Client/C++%20Abalone%20Client%20v1.rar"
-                                   download name="python_link">
-                                    <div class="btn waves-effect yellow lighten-5 download-btn">
-                                        دانلود فایل کلاینت C++
-                                    </div>
-                                </a>
-                                <a href="/media/Download/SPC/Abalone/Client/java-abalone-client-ver1.rar"
-                                   download name="python_link">
-                                    <div class="btn waves-effect yellow lighten-5 download-btn">
-                                        دانلود فایل کلاینت Java
-                                    </div>
-                                </a>
-                                <a href="/media/Download/SPC/Abalone/Client/Client_help.zip"
-                                   download name="python_link">
-                                    <div class="btn waves-effect yellow lighten-5 download-btn">
-                                        فایل راهنمای کلاینت‌ها
+                                        ورود
                                     </div>
                                 </a>
 
@@ -167,24 +150,24 @@
                         <p>{{ members.0.skills }}</p>
                     </div>
                 </div>
-{#                <div class="card member">#}
-{#                    <div class="card-image waves-effect waves-block waves-light">#}
-{#                        <div class="pattern-back teal darken-2 waves-effect activator"></div>#}
-{#                    </div>#}
-{#                    <div class="card-content">#}
-{#                        <span class="card-title activator grey-text text-darken-4">#}
-{#                            <i class="material-icons right">more_vert</i>#}
-{#                            {{ members.1.get_fname_lname }}#}
-{#                        </span>#}
-{#                        <p><a href="#"></a></p>#}
-{#                    </div>#}
-{#                    <div class="card-reveal">#}
-{#                        <span class="card-title grey-text text-darken-4">#}
-{#                            {{ members.1.get_fname_lname }}#}
-{#                            <i class="material-icons right">close</i></span>#}
-{#                        <p>{{ members.1.skills }}</p>#}
-{#                    </div>#}
-{#                </div>#}
+                {#                <div class="card member">#}
+                {#                    <div class="card-image waves-effect waves-block waves-light">#}
+                {#                        <div class="pattern-back teal darken-2 waves-effect activator"></div>#}
+                {#                    </div>#}
+                {#                    <div class="card-content">#}
+                {#                        <span class="card-title activator grey-text text-darken-4">#}
+                {#                            <i class="material-icons right">more_vert</i>#}
+                {#                            {{ members.1.get_fname_lname }}#}
+                {#                        </span>#}
+                {#                        <p><a href="#"></a></p>#}
+                {#                    </div>#}
+                {#                    <div class="card-reveal">#}
+                {#                        <span class="card-title grey-text text-darken-4">#}
+                {#                            {{ members.1.get_fname_lname }}#}
+                {#                            <i class="material-icons right">close</i></span>#}
+                {#                        <p>{{ members.1.skills }}</p>#}
+                {#                    </div>#}
+                {#                </div>#}
             </div>
             <div class="col s12 m12 l4 xl4" style="position: relative;">
 
