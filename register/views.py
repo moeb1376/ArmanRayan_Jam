@@ -8,7 +8,6 @@ from .models import *
 from .forms import UserRegisterForm, TeamForm, UserLoginForm
 from main.models import Mentor
 
-
 register_failed = False
 register_context = {}
 
@@ -144,6 +143,8 @@ def login_page(request):
 
 
 def register_page(request):
+    validate_option = {}
+
     if request.user.is_authenticated and not request.user.is_superuser:
         return redirect("SPC_main:SPC_main_page")
     print('request register page : ', request)
@@ -151,8 +152,9 @@ def register_page(request):
         team_form = TeamForm(request.POST)
         user_form = UserRegisterForm(request.POST)
         team_form.changed_required_mentor()
-        user_form.changed_password_label()
         team_form.change_empty_label()
+        user_form.changed_password_label()
+        user_form.change_required_fields()
         if user_form.is_valid() and team_form.is_valid():
             email_objects = auth_user.objects.filter(email=user_form.cleaned_data['email'])
             # mentor_objects = Mentor.objects.filter(code=team_form.cleaned_data['mentor'])
@@ -175,15 +177,35 @@ def register_page(request):
                 team.user_team = temp
                 team.save()
                 return redirect("register:login")
+        for field in user_form.fields:
+            if field in user_form.errors:
+                validate_option[field] = "validate invalid"
+            else:
+                validate_option[field] = "validate valid"
+        for field in team_form.fields:
+            if field in team_form.errors:
+                validate_option[field] = "validate invalid"
+            else:
+                validate_option[field] = "validate valid"
+        for e in team_form.errors:
+            print(e)
+        for e in user_form.errors:
+            print(e)
     else:
         user_form = UserRegisterForm()
         team_form = TeamForm()
+        for field in user_form.fields:
+            validate_option[field] = "validate"
+        for field in team_form.fields:
+            validate_option[field] = "validate"
     user_form.changed_password_label()
     team_form.changed_required_mentor()
     team_form.change_empty_label()
+    user_form.change_required_fields()
     template = loader.get_template('signup.html')
     context = {
         'user_form': user_form,
         'team_form': team_form,
+        'validate_option': validate_option
     }
     return HttpResponse(template.render(context, request))

@@ -14,6 +14,8 @@
           content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,target-densitydpi=device-dpi, user-scalable=no"/>
     <meta charset="utf-8">
     <script src="{% static 'js/jaam/reCAPTCHA_invisible.js' %}"></script>
+    <script src='{% static "js/jaam/validate_class.js" %}'></script>
+
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
@@ -38,34 +40,43 @@
                 <div class="row">
                     <div class="col s12 m12 l12 xl12">
                         <div class="input-field">
-                            {% render_field user_form.username name='user-name' id="user-name" %}
+                            {% render_field user_form.username name='user-name' id="user-name" class=validate_option.username %}
                             {#                            <input type="text" name="user-name" id="user-name">#}
                             <label for="user-name">{{ user_form.username.label }}</label>
+                            <span class="helper-text" data-error="{{ user_form.username.errors.as_text }}"></span>
                         </div>
                     </div>
 
                     <div class="col s12 m12 l6 xl6">
                         <div class="input-field">
-                            {% render_field user_form.email name='email' id="mail" %}
+                            {% render_field user_form.email name='email' id="mail" class=validate_option.email %}
                             {#                            <input type="email" name="mail" id="mail">#}
                             <label for="mail">{{ user_form.email.label }}</label>
+                            <span class="helper-text" data-error="{{ user_form.email.errors.as_text }}"></span>
+
                         </div>
                         <div class="input-field">
-                            {% render_field team_form.phone_number name='phone_number' id="number" %}
+                            {% render_field team_form.phone_number name='phone_number' id="number" class=validate_option.phone_number %}
                             {#                            <input type="text" name="number" id="number">#}
                             <label for="number">{{ team_form.phone_number.label }}</label>
+                            <span class="helper-text" data-error="{{ team_form.phone_number.errors.as_text }}"></span>
+
                         </div>
                     </div>
                     <div class="col s12 m12 l6 xl6">
                         <div class="input-field">
-                            {% render_field user_form.password1 name='password1' id="password" %}
+                            {% render_field user_form.password1 name='password1' id="password" class=validate_option.password1 %}
                             {#                            <input type="password" name="password" id="password">#}
                             <label for="password">{{ user_form.password1.label }}</label>
+                            <span class="helper-text" data-error="{{ user_form.password1.errors.as_text }}"></span>
+
                         </div>
                         <div class="input-field">
-                            {% render_field user_form.password2 name='password2' id="password-rep" %}
+                            {% render_field user_form.password2 name='password2' id="password-rep" class=validate_option.password2 %}
                             {#                            <input type="password" name="password-rep" id="password-rep">#}
                             <label for="password-rep">{{ user_form.password2.label }}</label>
+                            <span class="helper-text" data-error="{{ user_form.password2.errors.as_text }}"></span>
+
                         </div>
                     </div>
 
@@ -75,38 +86,19 @@
                     <div class="col s12 m12 l4 xl4">
                         <div class="input-field">
                             {% render_field team_form.university %}
-                            {#                            <select>#}
-                            {#                                <option value="" disabled selected>دانشگاه</option>#}
-                            {#                                <option value="1">صنعتی امیرکبیر</option>#}
-                            {#                                <option value="2">صنعتی شریف</option>#}
-                            {#                                <option value="3">علم و صنعت</option>#}
-                            {#                            </select>#}
-
+                            <span class="helper-text" data-error="{{ team_form.university.errors.as_text }}"></span>
                         </div>
                     </div>
                     <div class="col s12 m12 l4 xl4">
                         <div class="input-field">
-                            {% render_field team_form.competition %}
-                            {#                            <select>#}
-                            {#                                <option value="" disabled selected>مسابقه</option>#}
-                            {#                                <option value="1">پیشرفته SPC هوش بازی</option>#}
-                            {#                                <option value="2">مقدماتی SPC هوش بازی</option>#}
-                            {#                                <option value="3">IAC-TP پردازش متن</option>#}
-                            {#                                <option value="4">IAC-SP پردازش صوت</option>#}
-                            {#                                <option value="5">IAC-IP پردازش تصویر</option>#}
-                            {#                            </select>#}
+                            {% render_field team_form.competition onchange="delete_matlab_jquery()" %}
+                            <span class="helper-text" data-error="{{ team_form.competition.errors.as_text }}"></span>
                         </div>
                     </div>
                     <div class="col s12 m12 l4 xl4">
                         <div class="input-field">
                             {{ team_form.language }}
-                            {#                            <select>#}
-                            {#                                <option value="" disabled selected>زبان برنامه نویسی</option>#}
-                            {#                                <option value="1">C++</option>#}
-                            {#                                <option value="2">Python</option>#}
-                            {#                                <option value="3">Java</option>#}
-                            {#                            </select>#}
-
+                            <span class="helper-text" data-error="{{ team_form.language.errors.as_text }}"></span>
                         </div>
                     </div>
 
@@ -171,7 +163,7 @@
 
 
             </form>
-            <script>recaptcha_onload("register-submit-button","register-form")</script>
+            <script>recaptcha_onload("register-submit-button", "register-form")</script>
 
         </div>
 
@@ -181,11 +173,16 @@
 
 
 <script src='{% static "js/bin/anime.min.js" %}'></script>
+<script src='{% static "js/jquery-3.1.1.min.js" %}'></script>
+<script src='{% static "js/main_page/language_change.js" %}'></script>
 <script>
     M.AutoInit();
 
 </script>
 
 </body>
+<script>add_validate_option("university", "{{ validate_option.university }}");</script>
+<script>add_validate_option("competition", "{{ validate_option.competition }}");</script>
+<script>add_validate_option("language", "{{ validate_option.language }}");</script>
 
 </html>

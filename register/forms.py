@@ -8,6 +8,10 @@ class UserRegisterForm(UserCreationForm):
         self.fields['password1'].label = 'رمز عبور'
         self.fields['password2'].label = 'تکرار رمز عبور'
 
+    def change_required_fields(self):
+        self.fields['email'].required = True
+        self.fields['password1'].required = True
+
     class Meta:
         model = auth_user
         fields = ['username', 'email', 'password1', 'password2']
@@ -22,7 +26,7 @@ class TeamForm(forms.ModelForm):
 
     def changed_required_mentor(self):
         self.fields['mentor'].required = False
-        self.fields['phone_number'].required = False
+        self.fields['university'].required = True
 
     def change_empty_label(self):
         self.fields['university'].empty_label = "دانشگاه"
