@@ -12,10 +12,12 @@ from django.conf import settings
 @login_required(login_url='/login', redirect_field_name='')
 def setting_page(request, active_member=0):
     team_change = request.user.Teams.all()[0]
-    user_formset_factory = modelformset_factory(MyUser, extra=3, max_num=3, form=UserSettingForm)
+    if(team_change.competition.competition_level <3):
+        user_formset_factory = modelformset_factory(MyUser, extra=3, max_num=3, form=UserSettingForm)
+    else:
+        user_formset_factory = modelformset_factory(MyUser, extra=2, max_num=2, form=UserSettingForm)
     if request.method == 'POST':
         print(request.POST)
-
         auth_user_setting_form = UserTeamSettingForm(request.POST, instance=request.user)
         if auth_user_setting_form.is_valid():
             print('auth user is valid ')
