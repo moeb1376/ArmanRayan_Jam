@@ -13,11 +13,17 @@
     <meta name="viewport"
           content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,target-densitydpi=device-dpi, user-scalable=no"/>
     <meta charset="utf-8">
+    <script src="{% static 'js/jaam/reCAPTCHA_invisible.js' %}"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
 
 <div class="row container">
+    <div id='recaptcha' class="g-recaptcha hide-on-med-and-down"
+         data-sitekey="6Le-6pIUAAAAACMO2rfqwGZh5YsKAIN24x16KDIb"
+         data-callback="onSubmit"
+         data-size="invisible"></div>
     <div class="card col s12 m12 l8 xl8 offset-l2 offset-xl2">
         <div class="section center-align typo-p">
             <img src='{% static "img/jaam.png" %}' style="height: 150px;">
@@ -138,7 +144,8 @@
                                 <br>
                                 <br>
                                 <br>
-                                توجه: توصیه ما بر این است که دانشجویان کارشناسی ارشد در مسابقات الگوریتم های هوشمند (IAC) و
+                                توجه: توصیه ما بر این است که دانشجویان کارشناسی ارشد در مسابقات الگوریتم های هوشمند
+                                (IAC) و
                                 دانشجویان کارشناسی در مسابقه اشاره گر های هوشمند (SPC) شرکت کنند.
                             </p>
                         </div>
@@ -156,7 +163,7 @@
 
                     </div>
                     <div class="col s12 m12 l6 xl6 center" style="margin:5px 0px;">
-                        <button type="submit" class="btn waves-effect waves-light">ایجاد حساب کاربری
+                        <button id="register-submit-button" class="btn waves-effect waves-light">ایجاد حساب کاربری
                             <i class="material-icons right">face</i>
                         </button>
                     </div>
@@ -164,6 +171,7 @@
 
 
             </form>
+            <script>recaptcha_onload("register-submit-button","register-form")</script>
 
         </div>
 
