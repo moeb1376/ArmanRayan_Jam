@@ -16,6 +16,7 @@
     <meta charset="utf-8">
     <script src='{% static "js/jquery-3.1.1.min.js" %}'></script>
 
+
 </head>
 
 <body>
@@ -166,9 +167,23 @@
 
             </ul>
             <br><br><br>
-            <button type="submit" class="col s12 m8 offset-m2 btn waves-effect waves-light">
+            <button   type="submit" class="col s12 m8 offset-m2 btn waves-effect waves-light waves-effect waves-light btn modal-trigger" href="#modal1">
                 ذخیره تغییرات
             </button>
+
+  <!-- Modal Trigger -->
+{#  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>#}
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>توجه</h4>
+      <p>تعداد اعضای شرکت کننده در مسابقات اشاره گرهای هوشمند حداقل 2 و حداکثر 3 نفراست</p>
+    </div>
+    <div class="modal-footer">
+      <a  href="#!" class="modal-close waves-effect waves-green btn-flat left ">متوجه شدم</a>
+    </div>
+  </div>
         </form>
     </div>
     <script>
@@ -196,6 +211,7 @@
 <script src='{% static "js/jaam/item_active.js" %}'></script>
 <script>
     M.AutoInit();
+
 
 </script>
 </body>
