@@ -14,5 +14,6 @@ function delete_matlab() {
 }
 function delete_matlab_jquery() {
     let matlab = $("span:contains('Matlab')").parent();
-    matlab.css("display","none");
+    let competition = $("#id_competition");
+    matlab.attr('hidden',competition[0].selectedIndex<3);
 }
