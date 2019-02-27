@@ -42,6 +42,7 @@ def online_match(request):
             context['data_set1'] = '/media/DataSet/Picture/t1.rar'
             context['data_set2'] = '/media/DataSet/Picture/t2.rar'
             context['data_set3'] = '#'
+            context['public_test'] = '/media/DataSet/Picture/challenge.tar.gz'
         if request.get_full_path() == '/old_play':
             template = loader.get_template('Old/extend/play_iac.html')
         else:
