@@ -12,7 +12,7 @@ from django.conf import settings
 @login_required(login_url='/login', redirect_field_name='')
 def setting_page(request, active_member=0):
     team_change = request.user.Teams.all()[0]
-    if(team_change.competition.competition_level <3):
+    if team_change.competition.competition_level < 3:
         user_formset_factory = modelformset_factory(MyUser, extra=3, max_num=3, form=UserSettingForm)
     else:
         user_formset_factory = modelformset_factory(MyUser, extra=2, max_num=2, form=UserSettingForm)
@@ -52,10 +52,6 @@ def setting_page(request, active_member=0):
                 temp.team = team_change
                 temp.save()
                 print('temp:', temp, temp.id)
-        if user_team_form.is_valid():
-            print("Pashm")
-        else:
-            print(user_team_form.errors)
         user_team_form = user_formset_factory(queryset=team_change.Users.all())
     else:
         auth_user_setting_form = UserTeamSettingForm(request.POST or None, instance=request.user)
@@ -65,6 +61,13 @@ def setting_page(request, active_member=0):
         user_team_form = user_formset_factory(queryset=team_change.Users.all())
         for i in user_team_form:
             i.change_empty_label()
+        for field in auth_user_setting_form.fields:
+            auth_user_setting_form.fields[field].widget.attrs['class'] = "validate"
+        for field in team_setting_form.fields:
+            team_setting_form.fields[field].widget.attrs['class'] = "validate"
+        for user_form in user_team_form:
+            for field in user_form.fields:
+                user_form.fields[field].widget.attrs["class"] = "validate"
     team = request.user.Teams.all()[0]
     if team.competition.competition_level < 3:
         if request.get_full_path() == '/old_setting':
@@ -82,10 +85,16 @@ def setting_page(request, active_member=0):
     print('redirect ', redirect_flag, user_require)
     active_member = active_member if active_member else 0
     print(active_member)
+    context = {
+        'test': redirect_flag,
+        'user_form': user_team_form,
+        'auth_form': auth_user_setting_form,
+        'team_form': team_setting_form,
+        "login_team": team_change,
+        "active_member": active_member,
+    }
     return HttpResponse(
-        template.render({'test': redirect_flag, 'user_form': user_team_form, 'auth_form': auth_user_setting_form,
-                         'team_form': team_setting_form, "login_team": team_change, "active_member": active_member},
-                        request))
+        template.render(context, request))
 
 
 def test_ajax(request):

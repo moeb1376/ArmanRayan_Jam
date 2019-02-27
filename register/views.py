@@ -158,7 +158,6 @@ def register_page(request):
         if user_form.is_valid() and team_form.is_valid():
             email_objects = auth_user.objects.filter(email=user_form.cleaned_data['email'])
             # mentor_objects = Mentor.objects.filter(code=team_form.cleaned_data['mentor'])
-            print('WTemail: ', email_objects, user_form.cleaned_data['email'])
             check_email = False
             check_mentor = False
             for e in email_objects:
@@ -187,10 +186,6 @@ def register_page(request):
                 validate_option[field] = "validate invalid"
             else:
                 validate_option[field] = "validate valid"
-        for e in team_form.errors:
-            print(e)
-        for e in user_form.errors:
-            print(e)
     else:
         user_form = UserRegisterForm()
         team_form = TeamForm()
