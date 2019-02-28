@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+from decouple import config, Csv
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -19,16 +20,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '4j5lq*s4+7a&ac*3opp5v97u)0=mqw2gw_fc4@1qkzu+b-mezp'
+SECRET_KEY = config('SECRET_KEY')
 # SECRET_KEY = '&cj=c2(%h$tg!bs$5w+t1q3*ieb3%0zsym1cgha3p%fbd)2gf^'
 
 from Jam.configDB import DEBUG_CONF, database_config
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = DEBUG_CONF
+DEBUG = config("DEBUG", default=False, cast=bool)
 # DEBUG = False
-ALLOWED_HOSTS = ['185.81.40.213', '127.0.0.1', 'jaam.armankadeh.ir', '185.208.77.207', "cup.armankadeh.ir"]
-# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config("ALLOWED_HOSTS").split()
 # Application definition
 
 
@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'SPC_main.apps.SPCMainConfig',
     'widget_tweaks',
     'setting.apps.SettingConfig',
-    'online_match.apps.OnlineMatchConfig'
+    'online_match.apps.OnlineMatchConfig',
+    'django_smtp_ssl',
 
 ]
 
@@ -144,21 +145,19 @@ const = {
     'LOGO_DIRECTORY': '/%d' + '/%s' + '/logo',
 }
 # Google reCAPTCHA Key
-GOOGLE_RECAPTCHA_SECRET_KEY = '6LcdiEUUAAAAAE4dzbtS88EJpq8jqIOMlPmAKjKa'
-RECAPTCHA_PUBLIC_KEY = '6LcdiEUUAAAAAGOBQWMKoLuztCR97rGB9BZs9Sc9'
-RECAPTCHA_PRIVATE_KEY = '6LcdiEUUAAAAAE4dzbtS88EJpq8jqIOMlPmAKjKa'
+GOOGLE_RECAPTCHA_SECRET_KEY = config("GOOGLE_RECAPTCHA_SECRET_KEY")
+RECAPTCHA_PUBLIC_KEY = config("RECAPTCHA_PUBLIC_KEY")
+RECAPTCHA_PRIVATE_KEY = config("RECAPTCHA_PRIVATE_KEY")
 # Email
-# EMAIL_HOST = 'armankadeh.ir'
-# EMAIL_PORT = 587
-# EMAIL_HOST_USER = 'info@armankadeh.ir'
-# EMAIL_HOST_PASSWORD = 'y(?$xWBaX8(U'
-# EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'ebimosi14@gmail.com'
-EMAIL_HOST_PASSWORD = 'm1M3a7E6'
-EMAIL_USE_TLS = True
-# EMAIL_USE_SSL = False
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
+EMAIL_HOST = config("EMAIL_HOST", default="smtp.google.com")
+EMAIL_PORT = config("EMAIL_PORT", default=587, cast=int)
+EMAIL_HOST_USER = config("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
+EMAIL_USE_TLS = config("EMAIL_USE_TLS")
+ACCOUNT_EMAIL_VERIFICATION = config("ACCOUNT_EMAIL_VERIFICATION")
 
 # DB_backup
 DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
