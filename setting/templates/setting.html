@@ -106,10 +106,8 @@
                             <div class="collapsible-header lighten-5" style="direction: rtl"><i
                                     class="material-icons">account_circle</i>
                                 {% if forloop.counter == 2 %}
-                                    مشخصات عضو اول
-                                {% elif forloop.counter == 3 %}
                                     مشخصات عضو دوم
-                                {% elif forloop.counter == 4 %}
+                                {% elif forloop.counter == 3 and login_team.competition.competitiom_level < 3 %}
                                     مشخصات عضو سوم
                                 {% endif %}
                             </div>
@@ -154,7 +152,7 @@
                                 </div>
                                 <div class="input-field col s12">
                                     {#                                    <textarea id="admin-skills" class="materialize-textarea"></textarea>#}
-{#                                    {{ form.skills|attr:"class:materialize-textarea" }}#}
+                                    {#                                    {{ form.skills|attr:"class:materialize-textarea" }}#}
                                     {% render_field form.skills class+="materialize-textarea" %}
                                     <label>{{ form.skills.label }}</label>
                                 </div>
@@ -186,7 +184,11 @@
             <div id="modal1" class="modal">
                 <div class="modal-content">
                     <h4>توجه</h4>
-                    <p>تعداد اعضای شرکت کننده در مسابقات اشاره گرهای هوشمند حداقل 2 و حداکثر 3 نفراست</p>
+                    {% if login_team.competition.competitiom_level < 3 %}
+                        <p>تعداد اعضای شرکت کننده در مسابقات اشاره گرهای هوشمند حداقل ۲ و حداکثر ۳ نفر است</p>
+                    {% else %}
+                        <p>تعداد اعضای شرکت کننده در مسابقات اشاره گرهای هوشمند حداقل ۱ و حداکثر ۲ نفر است</p>
+                    {% endif %}
                 </div>
                 <div class="modal-footer">
                     <a href="#!" class="modal-close waves-effect waves-green btn-flat left ">متوجه شدم</a>
@@ -207,6 +209,12 @@
 <script src='{% static "js/jaam/item_active.js" %}'></script>
 <script>
     M.AutoInit();
+    let elem = document.getElementById("modal1");
+    let options = {dismissible: true, inDuration: 600};
+    let instance = M.Modal.init(elem, options);
+    {% if test %}
+        instance.open();
+    {% endif %}
 
 </script>
 </body>
