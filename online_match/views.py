@@ -16,15 +16,13 @@ counter = 0
 @login_required(login_url='/login', redirect_field_name='')
 def online_match(request):
     team = request.user.Teams.all()[0]
-    code = team.Team_Code.filter(human_checked=True)
     team_competition = team.competition.competition_level
-    print(code)
-    context = {
-        'login_team': team,
-        'codes': list(code)
-    }
+    context = {'login_team': team}
     if team_competition < 3:
-        if request.get_full_path() == '/old_play':
+        code = team.Team_Code.filter(human_checked=True)
+        print(code)
+        context['codes'] = code
+        if request.get_full_path() == '/old_play/':
             template = loader.get_template('Old/extend/play_spc.html')
         else:
             template = loader.get_template('friendly.html')
@@ -110,8 +108,8 @@ def upload_view(request):
         team = request.user.Teams.all()[0]
         codes = Code.objects.filter(team=team.id)
         if len(codes) >= 5:
-            firs_code = min(codes, key=lambda x: x.id)
-            firs_code.delete()
+            first_code = min(codes, key=lambda x: x.id)
+            first_code.delete()
         last_version = max(codes, key=lambda x: x.version, default=0)
         if not isinstance(last_version, int):
             last_version = last_version.version

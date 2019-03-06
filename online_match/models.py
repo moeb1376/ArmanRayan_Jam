@@ -86,5 +86,5 @@ def set_version(sender, instance, **kwargs):
     messages = ['تیم ' + instance.team.user_team.username, 'در مسابقات ' + instance.team.competition.competition_name,
                 'کد آپلود کرد.', instance.team.user_team.email]
     message = '\n'.join(messages)
-    send_mail('جام بزرگ آرمانکده', message, settings.EMAIL_HOST_USER, emails)
+    # send_mail('جام بزرگ آرمانکده', message, settings.EMAIL_HOST_USER, emails)
     print("pre_save", s, instance)
