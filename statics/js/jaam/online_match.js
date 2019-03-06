@@ -3,13 +3,15 @@ let opponent = 0;
 function set_second_team_data(opponent_id, team_data) {
     console.log(team_data);
     console.log(typeof team_data);
-    console.log("card lighten-5".split(" "));
+    console.log("lighten-5".split(" "));
     opponent = opponent_id;
     let main_card = document.createElement("div");
-    "card lighten-5".split(" ").forEach(item => main_card.classList.add(item));
+    "lighten-5".split(" ").forEach(item => main_card.classList.add(item));
     let image = document.createElement("img");
     image.classList.add("center-block");
     image.classList.add("circle");
+    image.style.width='50%'
+    image.style. padding= '20px';
     image.setAttribute("src", team_data.image);
     main_card.appendChild(image);
     let child_div = document.createElement("div");

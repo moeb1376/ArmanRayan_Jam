@@ -13,6 +13,13 @@
     <meta name="viewport"
           content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,target-densitydpi=device-dpi, user-scalable=no"/>
     <meta charset="utf-8">
+    <style>
+        {#change size logo in friendly page  #}
+         .logo-f {
+             width: 50%;
+             padding: 20px;
+         }
+    </style>
 </head>
 
 <body>
@@ -45,9 +52,9 @@
         {#        </div>#}
 
         <div class="row">
-            <div class="col s12 m10 l5 xl5  offset-m1" style="display: inline">
-                <div class="card lighten-5">
-                    <img src='{{ login_team.logo_image.url }}' class="center-block circle">
+            <div class="col s12 m10 l5 xl5  offset-m1  " style="display: inline">
+                <div class="lighten-5">
+                    <img src='{{ login_team.logo_image.url }}' class="center-block circle logo-friend logo-f" >
                     <div class="section">
                         <h3>
                             {{ user.username }}
@@ -61,35 +68,41 @@
                         <div class="progress-bar">
                             <span class="progressed" id="filledProgress1">70</span>
                         </div>
-                        <div class="input-field" style="direction: ltr; padding: 0 20px; position: relative; top: 60px">
+                        <div class="input-field" style="direction:ltr; margin: 13% 13%; position: relative; top: 5px">
                             <select>
-                                <option value="" disabled selected>انتخاب کد</option>
+                                <option  disabled selected>انتخاب کد</option>
                                 {% for code in codes %}
                                     <option id="{{ forloop.counter }}">{{ code }}</option>
                                 {% endfor %}
                             </select>
 
                         </div>
+{#                        <div class="input-field " style="direction:ltr;">#}
+{#          <select >#}
+{#        <option value="" disabled selected >انتخاب کد</option>#}
+{#      <option value="1">Option 1</option>#}
+{#      <option value="2">Option 2</option>#}
+{#      <option value="3">Option 3</option>#}
+{#    </select>#}
+{#  </div>#}
                     </div>
 
                 </div>
             </div>
             <div class="col s12 m10 l5 xl5 offset-m1 offset-xl2 offset-l2 " style="display: inline" id="second_team">
-                <div class="card lighten-5" id="opponent-select">
+                <div class=" lighten-5" id="opponent-select">
 
                     <button class="btn waves-effect waves-light disabled grey darken-3 "
                             style="width: 90%; right: 5%; height: 30%; margin: 50px 0px;"
                             onclick="opponent=1">
                         بازی تصادفی
                     </button>
-
                     <div class="divider"></div>
                     <button class="btn waves-effect waves-light"
                             style="width: 90%; right: 5%; height: 30%; margin: 50px 0px;"
                             onclick="set_second_team_data(2,{image:'{% static 'img/Armankadeh_logo_300.png' %}',team_name:'آرمانکده',class:'A',university:'آرمان رایان شریف'})">
                         بازی با هوش آرمان
                     </button>
-
 
                 </div>
             </div>
