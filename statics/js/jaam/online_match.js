@@ -10,7 +10,6 @@ function set_second_team_data(opponent_id, team_data) {
     let image = document.createElement("img");
     image.classList.add("center-block");
     image.classList.add("circle");
-    image.style.height = "137.52px";
     image.setAttribute("src", team_data.image);
     main_card.appendChild(image);
     let child_div = document.createElement("div");

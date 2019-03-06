@@ -6,6 +6,7 @@ from django.template import loader
 from .forms import *
 from django.forms import modelformset_factory
 from django.conf import settings
+from PIL import Image
 
 
 # Create your views here.
@@ -35,7 +36,8 @@ def setting_page(request, active_member=0):
                 previous_logo_image_path = os.path.join(settings.MEDIA_ROOT, previous_logo_image)
                 if os.path.isfile(previous_logo_image_path) and previous_logo_image_path != settings.LOGO_DEFAULT:
                     os.remove(previous_logo_image_path)
-            team_setting_form.save()
+            s = team_setting_form.save()
+            crop_image(s.logo_image.path)
         else:
             print(team_setting_form.errors)
         user_team_form = user_formset_factory(request.POST, queryset=team_change.Users.all())
@@ -95,6 +97,17 @@ def setting_page(request, active_member=0):
     }
     return HttpResponse(
         template.render(context, request))
+
+
+def crop_image(image_path):
+    image = Image.open(image_path)
+    width, height = image.size
+    if min(width, height) == height:
+        temp = image.crop(((width - height) / 2, 0, (width + height) / 2, height))
+    else:
+        temp = image.crop((0, (height - width) / 2, width, (height + width) / 2))
+    print(temp)
+    temp.resize((300, 300)).save(image_path)
 
 
 def test_ajax(request):
