@@ -30,8 +30,8 @@ class Team(models.Model):
                                    width_field="width_field",
                                    height_field="height_field",
                                    upload_to=upload_location)
-    height_field = models.IntegerField(default=0)
-    width_field = models.IntegerField(default=0)
+    height_field = models.IntegerField(default=200)
+    width_field = models.IntegerField(default=200)
     team_bio = models.TextField(default='', blank=True, null=True)
     language = models.ForeignKey(Language, on_delete=models.CASCADE)
     mentor = models.CharField(max_length=6, blank=True, default='')

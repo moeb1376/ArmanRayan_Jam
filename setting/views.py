@@ -36,8 +36,13 @@ def setting_page(request, active_member=0):
                 previous_logo_image_path = os.path.join(settings.MEDIA_ROOT, previous_logo_image)
                 if os.path.isfile(previous_logo_image_path) and previous_logo_image_path != settings.LOGO_DEFAULT:
                     os.remove(previous_logo_image_path)
+            print(team_setting_form )
             s = team_setting_form.save()
-            crop_image(s.logo_image.path)
+            if 'logo_image' in team_setting_form.changed_data:
+                print(s.logo_image.path)
+                crop_image(s.logo_image.path)
+            else:
+                print(s.logo_image.path)
         else:
             print(team_setting_form.errors)
         user_team_form = user_formset_factory(request.POST, queryset=team_change.Users.all())
