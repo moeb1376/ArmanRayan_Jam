@@ -1,12 +1,10 @@
 {% load static %}
-<div class="col s12 m12 l1 xl1  push-l11 push-xl11 side">
-    <img src="{% static 'img/jaam.png' %}" style="width: 70%; margin-right: 15%; margin-top: 20px;"
-         class="hide-on-med-and-down">
-    <img src='{% static "img/jaam.png" %}' style="height: 70%; margin-right: 20px; margin-top: 10px ;"
-         class="show-on-medium-and-down hide-on-large-only hide-on-extra-large-only ">
-
+<div class="hide-on-med-and-down col s12 m12 l1 xl1  push-l11 push-xl11 content">
 
     <div class="menu-items hide-on-med-and-down">
+        <img src="{% static 'img/jaam.png' %}"
+             style="width: 70%; margin-right: 15%;"
+             class="hide-on-med-and-down">
         <a href="{% url 'SPC_main:SPC_main_page' %}">
                 <span class="menu-icon icon-info tooltipped" data-position="left"
                       data-tooltip="اطلاعات تیم" id="team_detail_item"></span>
@@ -29,6 +27,10 @@
         </a>
 
     </div>
+</div>
+<div class="show-on-medium-and-down hide-on-large-only hide-on-extra-large-only col s12 m12 l1 xl1  push-l11 push-xl11 side ">
+    <img src='{% static "img/jaam.png" %}' style="height: 70%; margin-right: 20px; margin-top: 10px ;"
+         class="show-on-medium-and-down hide-on-large-only hide-on-extra-large-only ">
     <div class="menu-items-mob hide-on-med-and-up show-on-medium">
         <a href="{% url 'online_match:log' %}" class="inline">
             <span class="menu-icon-mob icon-result tooltipped" data-position="bottom"
