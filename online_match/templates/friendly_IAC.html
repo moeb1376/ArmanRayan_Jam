@@ -29,7 +29,7 @@
         <div class="row" style="padding: 15px;">
             <div class="col s12 m12 l4 xl4" style="position: relative;">
                 <div class="card member" style="background-color: #3a6073;">
-                    <div class="carousele my-carousel carousel--translate"></div>
+                    <div class="carousele my-carousel carousel--translate" style="position: unset"></div>
                     <h1 style="	position: absolute;	top: 0%; right: 25%; color: #fffcfb !important; font-size: 20px;">
                         راهنما و توضیحات
                     </h1>
@@ -50,6 +50,7 @@
                     </a>
 
                 </div>
+                {% if login_team.competition.competition_level > 4 %}
                 <div class="card team-summary">
                     <h1 style="font-size: 30px">دادگان آزمایشی</h1>
                     <h1 style="font-size: 20px;color: black">دادگان عمومی به منظور بررسی دقت الگوریتم</h1>
@@ -58,6 +59,8 @@
                     </a>
 
                 </div>
+                {% endif %}
+
             </div>
             <div class="col s12 m12 l4 xl4" style="position: relative;">
                 <div class="card team-summary">
