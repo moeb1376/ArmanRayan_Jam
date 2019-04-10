@@ -15,10 +15,10 @@
     <meta charset="utf-8">
     <style>
         {#change size logo in friendly page  #}
-         .logo-f {
-             width: 50%;
-             padding: 20px;
-         }
+        .logo-f {
+            width: 50%;
+            padding: 20px;
+        }
     </style>
 </head>
 
@@ -29,113 +29,114 @@
     {% include 'base2_0/menu_item.html' %}
     {% include 'base2_0/menu_team_discription.html' %}
 
+    {#    <div class="col s12 m12 l8 xl8  pull-l4 pull-xl4 content" style="padding: 4% 3% !important;">#}
     <div class="col s12 m12 l8 xl8  pull-l4 pull-xl4 content">
         {% include 'base2_0/navbar.html' %}
-        {#        <div class="row">#}
-        {##}
-        {#            <div class="card lighten-5">#}
-        {#                <div class="section">#}
-        {#                    <br><br><br><br><br>#}
-        {#                    <h3>#}
-        {#                        <h3>بازی های دوستانه بعد از تکمیل فرایند ثبت نام و بارگذاری کدها توسط تیم ها#}
-        {#                            شروع می شود</h3>#}
-        {#                    </h3>#}
-        {#                </div>#}
-        {##}
-        {#            </div>#}
-        {#        </div>#}
-
-        {#            <div class="card lighten-5"></div>#}
-        {#            <div class="divider"></div>#}
-        {#            <h3>بازی های دوستانه بعد از تکمیل فرایند مرحله ثبت نام و بارگزاری کدها توسط تیم ها#}
-        {#                شروع می شود</h3>#}
-        {#        </div>#}
-
         <div class="row">
-            <div class="col s12 m10 l5 xl5  offset-m1  " style="display: inline">
-                <div class="lighten-5">
-                    <img src='{{ login_team.logo_image.url }}' class="center-block circle logo-friend logo-f" >
-                    <div class="section">
-                        <h3>
-                            {{ user.username }}
-                        </h3>
-                        <h5>
-                            {{ login_team.university.university_name }}
-                        </h5>
-                        <h5>
-                            A
-                        </h5>
-                        <div class="progress-bar">
-                            <span class="progressed" id="filledProgress1">70</span>
-                        </div>
-                        <div class="input-field" style="direction:ltr; margin: 13% 13%; position: relative; top: 5px">
-                            <select>
-                                <option  disabled selected>انتخاب کد</option>
-                                {% for code in codes %}
-                                    <option id="{{ forloop.counter }}">{{ code }}</option>
-                                {% endfor %}
-                            </select>
 
-                        </div>
-{#                        <div class="input-field " style="direction:ltr;">#}
-{#          <select >#}
-{#        <option value="" disabled selected >انتخاب کد</option>#}
-{#      <option value="1">Option 1</option>#}
-{#      <option value="2">Option 2</option>#}
-{#      <option value="3">Option 3</option>#}
-{#    </select>#}
-{#  </div>#}
-                    </div>
-
+            <div class="card lighten-5">
+                <div class="section">
+                    <br><br><br><br><br>
+                    <h3>
+                        <h3>بازی های دوستانه بعد از تکمیل فرایند ثبت نام و بارگذاری کدها توسط تیم ها
+                            شروع می شود</h3>
+                    </h3>
                 </div>
-            </div>
-            <div class="col s12 m10 l5 xl5 offset-m1 offset-xl2 offset-l2 " style="display: inline" id="second_team">
-                <div class=" lighten-5" id="opponent-select">
 
-                    <button class="btn waves-effect waves-light disabled grey darken-3 "
-                            style="width: 90%; right: 5%; height: 30%; margin: 50px 0px;"
-                            onclick="opponent=1">
-                        بازی تصادفی
-                    </button>
-                    <div class="divider"></div>
-                    <button class="btn waves-effect waves-light"
-                            style="width: 90%; right: 5%; height: 30%; margin: 50px 0px;"
-                            onclick="set_second_team_data(2,{image:'{% static 'img/Armankadeh_logo_300.png' %}',team_name:'آرمانکده',class:'A',university:'آرمان رایان شریف'})">
-                        بازی با هوش آرمان
-                    </button>
-
-                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col s12 m10 l2 xl2 offset-m1 offset-l5 offset-xl5">
-                <a class="btn waves-effect waves-light modal-trigger" href="#modal-load"
-                   style="width: 100%; height: 38px;">
-                    شروع بازی
-                    <i class="material-icons right">play_arrow</i>
-                </a>
-                {#                <div id="modal-load" class="modal bottom-sheet center">#}
-                {#                    <img src="https://i.gifer.com/Qr6m.gif" title="this slowpoke moves" />#}
-                {#                </div>#}
-                <div id="modal-load" class="modal center selector-remove">
-                    <div class="modal-content">
-                        <h4>لطفا شکیبا باشید ...</h4>
-                        <h4>توجه</h4>
-                        <img src="http://chittagongit.com//images/ajax-loading-icon/ajax-loading-icon-15.jpg"
-                             title="this slowpoke moves"/>
-                        <p>لطفا کد خود را انتخاب کنید. </p>
-                        <p>هیچ کدی بارگزاری نشده است لطفا کد خود را بارگزاری کنید.</p>
-                        <p>هوش شما در حال بازی با هوش آرمانکده می باشد لطفا شکیبا باشید ...</p>
-                    </div>
-                    <div class="modal-footer">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
+{##}
+{#        <div class="card lighten-5"></div>#}
+{#        <div class="divider"></div>#}
+{#        <h3>بازی های دوستانه بعد از تکمیل فرایند مرحله ثبت نام و بارگزاری کدها توسط تیم ها#}
+{#            شروع می شود</h3>#}
     </div>
+
+    {#        <div class="row">#}
+    {#            <div class="col s12 m10 l5 xl5  offset-m1  " style="display: inline">#}
+    {#                <div class="lighten-5">#}
+    {#                    <img src='{{ login_team.logo_image.url }}' class="center-block circle logo-friend logo-f" >#}
+    {#                    <div class="section">#}
+    {#                        <h3>#}
+    {#                            {{ user.username }}#}
+    {#                        </h3>#}
+    {#                        <h5>#}
+    {#                            {{ login_team.university.university_name }}#}
+    {#                        </h5>#}
+    {#                        <h5>#}
+    {#                            A#}
+    {#                        </h5>#}
+    {#                        <div class="progress-bar">#}
+    {#                            <span class="progressed" id="filledProgress1">70</span>#}
+    {#                        </div>#}
+    {#                        <div class="input-field" style="direction:ltr; margin: 13% 13%; position: relative; top: 5px">#}
+    {#                            <select>#}
+    {#                                <option  disabled selected>انتخاب کد</option>#}
+    {#                                {% for code in codes %}#}
+    {#                                    <option id="{{ forloop.counter }}">{{ code }}</option>#}
+    {#                                {% endfor %}#}
+    {#                            </select>#}
+    {##}
+    {#                        </div>#}
+    {#                        <div class="input-field " style="direction:ltr;">#}
+    {#          <select >#}
+    {#        <option value="" disabled selected >انتخاب کد</option>#}
+    {#      <option value="1">Option 1</option>#}
+    {#      <option value="2">Option 2</option>#}
+    {#      <option value="3">Option 3</option>#}
+    {#    </select>#}
+    {#  </div>#}
+    {#                    </div>#}
+    {##}
+    {#                </div>#}
+    {#            </div>#}
+    {#            <div class="col s12 m10 l5 xl5 offset-m1 offset-xl2 offset-l2 " style="display: inline" id="second_team">#}
+    {#                <div class=" lighten-5" id="opponent-select">#}
+    {##}
+    {#                    <button class="btn waves-effect waves-light disabled grey darken-3 "#}
+    {#                            style="width: 90%; right: 5%; height: 30%; margin: 50px 0px;"#}
+    {#                            onclick="opponent=1">#}
+    {#                        بازی تصادفی#}
+    {#                    </button>#}
+    {#                    <div class="divider"></div>#}
+    {#                    <button class="btn waves-effect waves-light"#}
+    {#                            style="width: 90%; right: 5%; height: 30%; margin: 50px 0px;"#}
+    {#                            onclick="set_second_team_data(2,{image:'{% static 'img/Armankadeh_logo_300.png' %}',team_name:'آرمانکده',class:'A',university:'آرمان رایان شریف'})">#}
+    {#                        بازی با هوش آرمان#}
+    {#                    </button>#}
+    {##}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#        <div class="row">#}
+    {#            <div class="col s12 m10 l2 xl2 offset-m1 offset-l5 offset-xl5">#}
+    {#                <a class="btn waves-effect waves-light modal-trigger" href="#modal-load"#}
+    {#                   style="width: 100%; height: 38px;">#}
+    {#                    شروع بازی#}
+    {#                    <i class="material-icons right">play_arrow</i>#}
+    {#                </a>#}
+    {#                <div id="modal-load" class="modal bottom-sheet center">#}
+    {#                    <img src="https://i.gifer.com/Qr6m.gif" title="this slowpoke moves" />#}
+    {#                </div>#}
+    {#                <div id="modal-load" class="modal center selector-remove">#}
+    {#                    <div class="modal-content">#}
+    {#                        <h4>لطفا شکیبا باشید ...</h4>#}
+    {#                        <h4>توجه</h4>#}
+    {#                        <img src="http://chittagongit.com//images/ajax-loading-icon/ajax-loading-icon-15.jpg"#}
+    {#                             title="this slowpoke moves"/>#}
+    {#                        <p>لطفا کد خود را انتخاب کنید. </p>#}
+    {#                        <p>هیچ کدی بارگزاری نشده است لطفا کد خود را بارگزاری کنید.</p>#}
+    {#                        <p>هوش شما در حال بازی با هوش آرمانکده می باشد لطفا شکیبا باشید ...</p>#}
+    {#                    </div>#}
+    {#                    <div class="modal-footer">#}
+    {##}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+
+
+</div>
 
 </div>
 
