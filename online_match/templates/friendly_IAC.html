@@ -50,11 +50,21 @@
                     </a>
 
                 </div>
-                {% if login_team.competition.competition_level > 4 %}
+                {% if login_team.competition.competition_level == 5 %}
                 <div class="card team-summary">
                     <h1 style="font-size: 30px">دادگان آزمایشی</h1>
                     <h1 style="font-size: 20px;color: black">دادگان عمومی به منظور بررسی دقت الگوریتم</h1>
                     <a class="btn waves-effect new-code js-upload-photos" href="{{ public_test }}" download>
+                        دانلود دادگان
+                    </a>
+
+                </div>
+                {% endif %}
+                {% if login_team.competition.competition_level == 4 %}
+                <div class="card team-summary">
+                    <h1 style="font-size: 30px">راهنمای HTK</h1>
+                    <h1 style="font-size: 20px;color: black">کتابچه‌ی راهنمای ابزارهای HTK</h1>
+                    <a class="btn waves-effect new-code js-upload-photos" href="{{ help }}" download>
                         دانلود دادگان
                     </a>
 
@@ -66,9 +76,9 @@
                 <div class="card team-summary">
                     <h1 style="font-size: 30px">دادگان مسابقه</h1>
                     <h1 style="font-size: 20px; color:black;">سری دوم دادگان</h1>
-                    <button type="button" class="btn waves-effect new-code js-upload-photos">
-                        به زودی ...
-                    </button>
+                    <a class="btn waves-effect new-code js-upload-photos" href="{{ data_set2 }}" download>
+                        دانلود دادگان
+                    </a>
                 </div>
                 <div class="card team-summary">
                     <h1 style="font-size: 30px">دادگان مسابقه</h1>

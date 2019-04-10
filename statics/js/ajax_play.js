@@ -83,7 +83,7 @@ function set_team2_data() {
     else {
         document.getElementById("h2_team2_name").innerText = "تصادفی";
         document.getElementById("university_small").innerText = "";
-        document.getElementById("image_team2").setAttribute("src", "/statics/img/unknown.jpg");
+        document.getElementById("image_team2").setAttribute("src", "/statics/img/unknown.png");
     }
 }
 

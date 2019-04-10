@@ -6,6 +6,7 @@ from django.conf import settings
 from hashlib import sha256
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
+from Jam.settings import LOGO_DEFAULT
 
 
 def upload_location(instance, filename):
@@ -26,7 +27,7 @@ class Team(models.Model):
     loose = models.IntegerField(default=0)
     draw = models.IntegerField(default=0)
     accuracy = models.FloatField(default=0.0)
-    logo_image = models.ImageField(null=True, default='unknown.jpg',
+    logo_image = models.ImageField(null=True, default='unknown.png',
                                    width_field="width_field",
                                    height_field="height_field",
                                    upload_to=upload_location)

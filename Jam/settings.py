@@ -139,7 +139,7 @@ STATICFILES_DIRS = [
 ]
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = '/media/'
-LOGO_DEFAULT = os.path.join(MEDIA_ROOT, 'unknown.jpg')
+LOGO_DEFAULT = os.path.join(MEDIA_ROOT, 'unknown.png')
 const = {
     'CODE_DIRECTORY': '/%d' + '/%s' + '/code',
     'LOGO_DIRECTORY': '/%d' + '/%s' + '/logo',
