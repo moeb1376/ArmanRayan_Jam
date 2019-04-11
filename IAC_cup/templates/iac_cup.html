@@ -1,0 +1,83 @@
+<html>
+
+<head>
+    <title>
+        {{ user.username }} | بازی دوستانه
+
+    </title>
+    {% load static from staticfiles %}
+    <link rel="stylesheet" href='{% static "css/materialize.css" %}'>
+    <link rel="stylesheet" href='{% static "css/style-global.css" %}'>
+    <link rel="stylesheet" href='{% static "css/style-index.css" %}'>
+
+    <meta name="viewport"
+          content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,target-densitydpi=device-dpi, user-scalable=no"/>
+    <meta charset="utf-8">
+    <link type="image/png" rel="icon" href="{% static 'img/jaam.png' %}">
+</head>
+
+<body>
+
+
+<div class="row cnt" style="direction: rtl">
+    {% include 'base2_0/menu_item_IAC.html' %}
+    {% include 'base2_0/menu_team_discription.html' %}
+
+    <div class="col s12 m12 l8 xl8  pull-l4 pull-xl4 content" id="container">
+        {% include 'base2_0/navbar.html' %}
+
+        <div class="row" style="padding: 15px;">
+            <div class="col s12 m12 l5 xl5 push-l1 push-xl1" style="position: relative;">
+                <br class="hide-on-med-and-down" style="font-size: 5vw">
+                <div class="card member" style="background-color: #3a6073; min-height: 20vw">
+{#                    <div class="carousele my-carousel carousel--translate" style="position: unset"></div>#}
+{#                    <h1 style="	position: absolute;	top: 0%; right: 25%; color: #fffcfb !important; font-size: 20px;">#}
+{#                        راهنما و توضیحات#}
+{#                    </h1>#}
+{#                    <span class="text-sub center" style="top: 30%; padding: 0px 30px 30px;text-align: justify;">#}
+{#                        دادگان های مورد نیاز را می توانید از این قسمت دریافت کنید.#}
+{#                        <br>#}
+{#                        <br>#}
+{#                        برای اطلاع از سوالات مسابقه به قسمت راهنما و توضیحات مراجعه کنید.#}
+{#                    </span>#}
+                </div>
+            </div>
+            <div class="col s12 m12 l5 xl5 push-l1 push-xl1" style="position: relative;">
+                <br class="hide-on-med-and-down" style="font-size: 5vw">
+                <div class="card team-summary" style="min-height: 20vw">
+                    <h1 style="font-size: 30px">دادگان مسابقه</h1>
+                    <h1 style="font-size: 20px;color: black">سری اول دادگان</h1>
+                    <a class="btn waves-effect new-code js-upload-photos" href="" download>
+                        دانلود دادگان
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    window.onload = function () {
+        var x = document.getElementById("filledProgress").innerHTML;
+        document.getElementById("filledProgress").innerHTML = "";
+        document.getElementById("filledProgress").style.width = x + "%";
+    }
+
+</script>
+<script src='{% static "js/jquery-3.1.1.min.js" %}'></script>
+<script src="{% static 'js/jaam/item_active.js' %}"></script>
+<script src='{% static "js/bin/materialize.js" %}'></script>
+<!-- upload -->
+<script src="{% static 'js/jQuery-File-Upload-9.14.1/js/vendor/jquery.ui.widget.js' %}"></script>
+<script src="{% static 'js/jQuery-File-Upload-9.14.1/js/jquery.iframe-transport.js' %}"></script>
+<script src="{% static 'js/jQuery-File-Upload-9.14.1/js/jquery.fileupload.js' %}"></script>
+<script src="{% static 'js/photo_upload.js' %}"></script>
+<script>
+    M.AutoInit();
+
+</script>
+</body>
+
+</html>
