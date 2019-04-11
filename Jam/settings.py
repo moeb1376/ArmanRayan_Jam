@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     'online_match.apps.OnlineMatchConfig',
     'django_smtp_ssl',
     'IAC_cup.apps.IacCupConfig',
-
 ]
 
 MIDDLEWARE = [

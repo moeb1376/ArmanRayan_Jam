@@ -1,10 +1,12 @@
 from django.urls import path
 
-from .views import *
-
 from django.views.generic import RedirectView
 
-app_name = 'register'
+from .views import *
+
+app_name = 'IAC_cup'
 urlpatterns = [
-    path('iac_cup/',render_page,name='render_page')
+    path('iac_cup/',render_page,name='render_page'),
+    path("api/get-key", get_key, name="get-key"),
+    path("api/connect", connect, name="connection"),
 ]
