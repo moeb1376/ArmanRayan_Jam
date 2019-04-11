@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'setting.apps.SettingConfig',
     'online_match.apps.OnlineMatchConfig',
     'django_smtp_ssl',
+    'IAC_cup.apps.IacCupConfig',
 
 ]
 
