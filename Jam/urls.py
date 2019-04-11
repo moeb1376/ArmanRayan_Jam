@@ -30,6 +30,7 @@ urlpatterns = [
     path('', include('SPC_main.urls')),
     path('', include('setting.urls')),
     path('', include('online_match.urls')),
+    path('', include('IAC_cup.urls')),
     path('reset-password', password_reset, name='reset_password'),
     path('reset-password/done', password_reset_done, name='password_reset_done'),
     url(r'^reset-password/confirm/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
