@@ -21,9 +21,29 @@ class Cup(models.Model):
 class Key(models.Model):
     team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="Team")
     cup = models.ForeignKey(Cup, on_delete=models.CASCADE, related_name="Cup")
-    key = models.CharField(max_length=25, unique=True)
+    key = models.CharField(max_length=25, unique=True, blank=True)
     password_used = models.BooleanField(default=False)
     last_connection = models.DateTimeField(default=timezone.now())
+
+    def __str__(self):
+        return self.team.user_team.username + " | " + self.cup.name
+
+
+class DatasetCup(models.Model):
+    data = models.CharField(max_length=200, null=False, blank=False)
+    cup = models.ForeignKey(Cup, on_delete=models.CASCADE)
+    answer = models.CharField(max_length=200, null=False, blank=False)
+
+    def __str__(self):
+        return self.data + " | " + self.cup.name
+
+
+class UsersAnswer(models.Model):
+    data = models.OneToOneField(DatasetCup, on_delete=models.CASCADE)
+    user = models.OneToOneField(Team, on_delete=models.CASCADE)
+    user_answer = models.CharField(max_length=200, null=False, blank=False)
+    time_send = models.DateTimeField()
+    time_receive = models.DateTimeField()
 
 
 class TestOneToOne(models.Model):

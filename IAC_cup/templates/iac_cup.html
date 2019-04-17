@@ -30,27 +30,37 @@
             <div class="col s12 m12 l5 xl5 push-l1 push-xl1" style="position: relative;">
                 <br class="hide-on-med-and-down" style="font-size: 5vw">
                 <div class="card member" style="background-color: #3a6073; min-height: 20vw">
-{#                    <div class="carousele my-carousel carousel--translate" style="position: unset"></div>#}
-{#                    <h1 style="	position: absolute;	top: 0%; right: 25%; color: #fffcfb !important; font-size: 20px;">#}
-{#                        راهنما و توضیحات#}
-{#                    </h1>#}
-{#                    <span class="text-sub center" style="top: 30%; padding: 0px 30px 30px;text-align: justify;">#}
-{#                        دادگان های مورد نیاز را می توانید از این قسمت دریافت کنید.#}
-{#                        <br>#}
-{#                        <br>#}
-{#                        برای اطلاع از سوالات مسابقه به قسمت راهنما و توضیحات مراجعه کنید.#}
-{#                    </span>#}
+                    {#                    <div class="carousele my-carousel carousel--translate" style="position: unset"></div>#}
+                    {#                    <h1 style="	position: absolute;	top: 0%; right: 25%; color: #fffcfb !important; font-size: 20px;">#}
+                    {#                        راهنما و توضیحات#}
+                    {#                    </h1>#}
+                    {#                    <span class="text-sub center" style="top: 30%; padding: 0px 30px 30px;text-align: justify;">#}
+                    {#                        دادگان های مورد نیاز را می توانید از این قسمت دریافت کنید.#}
+                    {#                        <br>#}
+                    {#                        <br>#}
+                    {#                        برای اطلاع از سوالات مسابقه به قسمت راهنما و توضیحات مراجعه کنید.#}
+                    {#                    </span>#}
                 </div>
             </div>
             <div class="col s12 m12 l5 xl5 push-l1 push-xl1" style="position: relative;">
                 <br class="hide-on-med-and-down" style="font-size: 5vw">
                 <div class="card team-summary" style="min-height: 20vw">
-                    <h1 style="font-size: 30px">دادگان مسابقه</h1>
-                    <h1 style="font-size: 20px;color: black">سری اول دادگان</h1>
-                    <a class="btn waves-effect new-code js-upload-photos" href="" download>
-                        دانلود دادگان
+                    <h1 style="font-size: 30px">کلید اتصال</h1>
+                    <h1 style="font-size: 20px;color: black">برای شرکت در مسابقه آنلاین کلید تیم خود را دریافت کنید</h1>
+                    <a class="btn waves-effect new-code js-upload-photos" href="#" id="send-key">
+                        ارسال کلید
                     </a>
+                    <span id="user-id" hidden>{{ user.id }}</span>
+                    <div id="modal1" class="modal">
+                        <div class="modal-content">
+                            <h4>توجه</h4>
 
+                            <p id="modal-text-msg"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#!" class="modal-close waves-effect waves-green btn-flat left ">متوجه شدم</a>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -58,17 +68,10 @@
         </div>
     </div>
 </div>
-<script>
-    window.onload = function () {
-        var x = document.getElementById("filledProgress").innerHTML;
-        document.getElementById("filledProgress").innerHTML = "";
-        document.getElementById("filledProgress").style.width = x + "%";
-    }
-
-</script>
 <script src='{% static "js/jquery-3.1.1.min.js" %}'></script>
 <script src="{% static 'js/jaam/item_active.js' %}"></script>
 <script src='{% static "js/bin/materialize.js" %}'></script>
+<script src="{% static 'js/jaam/iac_cup.js' %}"></script>
 <!-- upload -->
 <script src="{% static 'js/jQuery-File-Upload-9.14.1/js/vendor/jquery.ui.widget.js' %}"></script>
 <script src="{% static 'js/jQuery-File-Upload-9.14.1/js/jquery.iframe-transport.js' %}"></script>
@@ -76,7 +79,9 @@
 <script src="{% static 'js/photo_upload.js' %}"></script>
 <script>
     M.AutoInit();
-
+    let elem = document.getElementById("modal1");
+    let options = {dismissible: true, inDuration: 600};
+    let instance = M.Modal.init(elem, options);
 </script>
 </body>
 
