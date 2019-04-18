@@ -51,16 +51,15 @@ def connect(request):
 
 def get_data(request):
     id = request.GET.get("id", None)
+    print(request.GET)
     if id is None:
-        return JsonResponse({"id": 5, "msg": "bad request !!"})
-    if id == 0:
+        return JsonResponse({"id": 5, "msg": "bad request1 !!"})
+    if id == '0':
         key = request.GET.get("key", None)
         player_id = request.GET.get("player_id", None)
-        last_data_id = request.GET.get("last_data_id", None)
+        last_data_id = int(request.GET.get("last_data_id", None))
         if key is None or player_id is None or last_data_id is None:
-            return JsonResponse({"id": 5, "msg": "bad request !!"})
-        if key is None:
-            return JsonResponse({"id": 5, "msg": "bad request !!"})
+            return JsonResponse({"id": 5, "msg": "bad request2 !!"})
         time_delta = timezone.timedelta(hours=1)
         try:
             key_object = Key.objects.get(key=key)
@@ -74,7 +73,8 @@ def get_data(request):
             return JsonResponse({"id": 6, "msg": "Key or player name is not correct"})
         count = DatasetCup.objects.count()
         count = count if last_data_id + 10 > count else last_data_id + 10
-        dataset = DatasetCup.objects.filter(cup=key_object.cup, id__range=range(last_data_id + 1, count + 1))
+        l = list(range(last_data_id + 1, count + 1))
+        dataset = DatasetCup.objects.filter(cup=key_object.cup, id__range=[last_data_id + 1, count + 1])
         result = []
         for data in dataset:
             result.append({"id": data.id, "data": data.data})
