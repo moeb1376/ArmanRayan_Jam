@@ -2,6 +2,8 @@ from django.core.mail import send_mail
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.utils import timezone
+from django.template.loader import get_template
+from django.core.mail import EmailMultiAlternatives
 
 from Jam.settings import EMAIL_HOST_USER
 from .models import Cup, Key, Team, DatasetCup, UsersAnswer
@@ -72,12 +74,14 @@ def get_data(request):
         if player_id != key_object.team.user_team.username:
             return JsonResponse({"id": 6, "msg": "Key or player name is not correct"})
         count = DatasetCup.objects.count()
+        if last_data_id >= count:
+            return JsonResponse({"id": 7, "msg": "The End!"})
         count = count if last_data_id + 10 > count else last_data_id + 10
-        l = list(range(last_data_id + 1, count + 1))
-        dataset = DatasetCup.objects.filter(cup=key_object.cup, id__range=[last_data_id + 1, count + 1])
+        dataset = DatasetCup.objects.filter(cup=key_object.cup, id__range=[last_data_id + 1, count])
         result = []
         for data in dataset:
             result.append({"id": data.id, "data": data.data})
+            UsersAnswer(data=data, time_send=timezone.now(), user=key_object.team).save()
         return JsonResponse({"id": 0, "msg": result})
 
     else:
@@ -91,3 +95,20 @@ def render_page(request):
     competition_level = login_team.competition.competition_level
     cups = Cup.objects.filter(competition__competition_level=competition_level)
     return render(request, "iac_cup.html", {"cups": cups, "login_team": login_team})
+
+
+def send_my_email(request):
+    subject = "دادگان سری جدید"
+    from_mail = EMAIL_HOST_USER
+    to_mail = ["ebimosi14@gmail.com", "j.agheleh@yahoo.com"]
+    body_text = "سری سوم و آخرین سری از دادگان مسابقه در سایت قرار داده شد.برای دانلود به سایت مسابقات مراجعه نمایید."
+    body_text += "\n"
+    body_text += "آخرین مهلت ارسال کدها تا ساعت ۲۳:۵۹ دقیقه روز ۴شنبه ۱۱ اردیبهشت می‌باشد."
+    users = Team.objects.filter(competition__competition_level__gte=3)
+    for my_user in users:
+        message = EmailMultiAlternatives(subject=subject, body=body_text, from_email=from_mail,
+                                         to=[my_user.user_team.email])
+        html_message = get_template("email_template/message.html").render()
+        message.attach_alternative(html_message, "text/html")
+        message.send()
+    return render(request, "email_template/message.html")

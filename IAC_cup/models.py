@@ -39,11 +39,14 @@ class DatasetCup(models.Model):
 
 
 class UsersAnswer(models.Model):
-    data = models.OneToOneField(DatasetCup, on_delete=models.CASCADE)
-    user = models.OneToOneField(Team, on_delete=models.CASCADE)
+    data = models.ForeignKey(DatasetCup, on_delete=models.CASCADE)
+    user = models.ForeignKey(Team, on_delete=models.CASCADE)
     user_answer = models.CharField(max_length=200, null=False, blank=False)
     time_send = models.DateTimeField()
-    time_receive = models.DateTimeField()
+    time_receive = models.DateTimeField(null=True, blank=True)
+
+    def __str__(self):
+        return self.data.data + "|" + self.user.user_team.username
 
 
 class TestOneToOne(models.Model):

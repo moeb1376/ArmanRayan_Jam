@@ -30,16 +30,16 @@ def online_match(request):
         if team_competition == 3:
             context['data_set1'] = '/media/DataSet/Text/v1-3000.rar'
             context['data_set2'] = '/media/DataSet/Text/v3001-6000.rar'
-            context['data_set3'] = '#'
+            context['data_set3'] = '/media/DataSet/Text/v6001-9000.rar'
         elif team_competition == 4:
             context['data_set1'] = '/media/DataSet/Sound/0.rar'
             context['data_set2'] = '/media/DataSet/Sound/1.rar'
-            context['data_set3'] = '#'
+            context['data_set3'] = '/media/DataSet/Sound/2.rar'
             context['help'] = '/media/DataSet/Sound/htkbook.pdf'
         else:
             context['data_set1'] = '/media/DataSet/Picture/t1.rar'
             context['data_set2'] = '/media/DataSet/Picture/t2.rar'
-            context['data_set3'] = '#'
+            context['data_set3'] = '/media/DataSet/Picture/t3.rar'
             context['public_test'] = '/media/DataSet/Picture/challenge.tar.gz'
         if request.get_full_path() == '/old_play':
             template = loader.get_template('Old/extend/play_iac.html')
