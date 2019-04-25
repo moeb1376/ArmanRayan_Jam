@@ -111,4 +111,8 @@ def send_my_email(request):
         html_message = get_template("email_template/message.html").render()
         message.attach_alternative(html_message, "text/html")
         message.send()
+    message = EmailMultiAlternatives(subject=subject, body=body_text, from_email=from_mail, to=to_mail)
+    html_message = get_template("email_template/message.html").render()
+    message.attach_alternative(html_message, "text/html")
+    message.send()
     return render(request, "email_template/message.html")
