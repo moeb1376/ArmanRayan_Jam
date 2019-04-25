@@ -52,16 +52,16 @@ def connect(request):
 
 
 def get_data(request):
-    id = request.GET.get("id", None)
+    message_id = request.GET.get("id", None)
     print(request.GET)
-    if id is None:
-        return JsonResponse({"id": 5, "msg": "bad request1 !!"})
-    if id == '0':
+    if message_id is None:
+        return JsonResponse({"id": 5, "msg": "bad request !!"})
+    if message_id == '0':
         key = request.GET.get("key", None)
         player_id = request.GET.get("player_id", None)
         last_data_id = int(request.GET.get("last_data_id", None))
         if key is None or player_id is None or last_data_id is None:
-            return JsonResponse({"id": 5, "msg": "bad request2 !!"})
+            return JsonResponse({"id": 5, "msg": "bad request !!"})
         time_delta = timezone.timedelta(hours=1)
         try:
             key_object = Key.objects.get(key=key)
@@ -75,19 +75,38 @@ def get_data(request):
             return JsonResponse({"id": 6, "msg": "Key or player name is not correct"})
         count = DatasetCup.objects.count()
         if last_data_id >= count:
+            key_object.last_connection -= timezone.timedelta(hours=2)
+            key_object.save()
             return JsonResponse({"id": 7, "msg": "The End!"})
         count = count if last_data_id + 10 > count else last_data_id + 10
         dataset = DatasetCup.objects.filter(cup=key_object.cup, id__range=[last_data_id + 1, count])
         result = []
         for data in dataset:
-            result.append({"id": data.id, "data": data.data})
-            UsersAnswer(data=data, time_send=timezone.now(), user=key_object.team).save()
-        return JsonResponse({"id": 0, "msg": result})
-
+            if not UsersAnswer.objects.filter(data=data).exists():
+                result.append({"id": data.id, "data": data.data})
+                UsersAnswer(data=data, time_send=timezone.now(), user=key_object.team).save()
+        if len(result):
+            return JsonResponse({"id": 0, "msg": result})
+        else:
+            return JsonResponse({"id": 7, "msg": "It has been sent before"})
     else:
+        key = request.GET.get("key", None)
+        player_id = request.GET.get("player_id", None)
         answer_id = request.GET.get("answer_id", None)
-        if answer_id is None:
+        answer = request.GET.get("answer", None)
+        if answer_id is None or key is None or player_id is None or answer is None:
             return JsonResponse({"id": 5, "msg": "bad request !!"})
+        time_delta = timezone.timedelta(hours=1)
+        try:
+            key_object = Key.objects.get(key=key)
+        except Exception as e:
+            return JsonResponse({"id": 2, "msg": "This key is not exists"})
+        if not key_object.password_used:
+            return JsonResponse({"id": 3, "msg": "User not connect"})
+        if timezone.now() - key_object.last_connection > time_delta:
+            return JsonResponse({"id": 4, "msg": "Connection timeout"})
+        if player_id != key_object.team.user_team.username:
+            return JsonResponse({"id": 6, "msg": "Key or player name is not correct"})
 
 
 def render_page(request):
