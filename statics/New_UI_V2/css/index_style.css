@@ -1,0 +1,159 @@
+.cnt {
+    width: 90%;
+}
+
+.menu-icon {
+    font-family: icon-self;
+    color: #959595;
+    font-size: 3vw;
+    display: inline-block;
+    /*padding-top: 1vw;*/
+}
+
+.menu-icon-mob {
+    font-family: icon-self;
+    color: #959595;
+    font-size: 8vw;
+}
+
+.menu-icon:hover {
+    color: #3A6073;
+}
+
+.menu-icon-mob:hover {
+    color: #3A6073;
+}
+
+.icon-active {
+    color: #3A6073;
+}
+
+.icon-active:hover {
+    color: #3A6073;
+
+}
+
+.icon-cup:before {
+    content: "\e900";
+}
+
+.icon-info:before {
+    content: "\e901";
+}
+
+.icon-logout:before {
+    content: "\e904";
+}
+
+.icon-friendly:before {
+    content: "\e902";
+}
+
+.icon-result:before {
+    content: "\e903";
+
+}
+
+.icon-competition:before {
+    content: "\e90e";
+}
+
+.info {
+    background-color: rgb(184, 184, 208);
+}
+
+.content {
+    position: relative;
+    border-radius: 4px 0px 0px 4px;
+    background-color: rgb(214, 209, 219);
+    /*overflow-y: auto;*/
+    /*height: 95%;*/
+    box-shadow: 3px 0px 17px rgba(0, 0, 0, 0.2);
+
+}
+
+.content2 {
+    position: relative;
+    height: 95%;
+}
+
+.team-avatar {
+    border-radius: 50%;
+}
+
+.team-info {
+    font-size: 2vw;
+}
+
+.nav-menu {
+    direction: ltr;
+}
+
+.icon-logout {
+    /*font-size: 1.6em !important;*/
+    font-family: icon-self;
+}
+
+.logout {
+    cursor: pointer;
+    font-size: 2vw;
+}
+
+.logout label {
+    font-size: 1vw !important;
+    cursor: pointer;
+
+}
+
+.edit-info {
+    cursor: pointer;
+    font-size: 1vw !important;
+}
+
+.edit-info label {
+    font-size: 1vw;
+    cursor: pointer;
+}
+
+.logout:hover .icon-logout {
+    color: #3A6073;
+}
+
+.logout:hover label {
+    color: #3A6073;
+}
+
+.edit-info:hover label {
+    color: #3a6073;
+}
+
+.team-summary {
+    min-height: 300px;
+    background-color: #fffcfb;
+}
+
+.puan {
+    text-align: center;
+    color: #4D5675;
+
+}
+
+.progress-bar {
+    /*position: absolute;*/
+    width: 90%;
+    height: 13px;
+    margin: 20px 5%;
+    border-radius: 10px;
+    background: #F2EAED;
+    border: 2px solid #3a6073;
+    direction: ltr;
+}
+
+.member {
+    /*min-height: 200px;*/
+    background-color: #fffcfb;
+}
+.no-margins{
+    margin-block-end: unset;
+    margin-block-start: unset;
+}
