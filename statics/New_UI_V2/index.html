@@ -142,7 +142,7 @@
         </div>
         <div class="col s12 m12 l4 xl4">
             <div class="card white">
-                <div class="card-content blue-grey-text" >
+                <div class="card-content blue-grey-text">
                     <span class="card-title center"><h1 class="no-margins">B</h1></span>
                     <div class="puan">
                         <h5 class="grey-text text-darken-1 no-margins">امتیاز تیم</h5>
@@ -161,7 +161,7 @@
             </div>
         </div>
         <div class="col s12 m12 l8 xl8">
-            <div class="row s12 m12 l12 xl12">
+            <div class="row">
                 <div class="col s12 m12 l6 xl6">
                     <div class="card member yellow lighten-4">
                         <div class="card-content">
@@ -183,30 +183,29 @@
                         </div>
                     </div>
                 </div>
-                <div class="col s12 m12 l6 xl6">
-                    <div class="card member yellow lighten-4">
+                <div class="col s12 m12 l6 xl6" style="position: relative">
+                    <div class="card ">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <div style="height: 100%;width: 100%;background-image: url('../img/bright-squares.png')">
+<!--                                <img src="../img/avatar-team.png" style="mso-hide: screen">-->
+
+                            </div>
+                        </div>
                         <div class="card-content">
-                            <br class="hide-on-med-and-down" style="font-size: 4vw">
-                            <br class="hide-on-large-only hide-on-extra-large-only" style="font-size: 20vw">
+                    <span class="card-title activator grey-text text-darken-4"><i
+                            class="material-icons right">more_vert</i>نام عضو</span>
                             <p><a href="#"></a></p>
                         </div>
                         <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">{{ members.0.get_fname_lname }}
-                            <i class="material-icons right">close</i>
-                        </span>
-                            <p>{{ members.0.skills }}</p>
-                        </div>
-                        <div class="card-action">
-                            <span class="card-title activator grey-text text-darken-4">
-                                <i class="material-icons right">more_vert</i>
-                                {{ members.0.get_fname_lname }}
-                            </span>
+                    <span class="card-title grey-text text-darken-4">نام عضو<i
+                            class="material-icons right">close</i></span>
+                            <p>توضیحات کوتاه در مورد عضو</p>
                         </div>
                     </div>
                 </div>
 
             </div>
-            <div class="row s12 m12 l12 xl12">
+            <div class="row">
                 <div class="col s12 m12 l6 xl6">
                     <div class="card member">
                         <div class="card-content">

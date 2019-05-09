@@ -152,8 +152,22 @@
 .member {
     /*min-height: 200px;*/
     background-color: #fffcfb;
+    top: 34px;
+    min-height: 200px;
 }
 .no-margins{
     margin-block-end: unset;
     margin-block-start: unset;
+}
+.pattern-back {
+    position: absolute;
+    width: 100% !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    background-image: url(../../img/bright-squares.png);
+    background-repeat: repeat;
+
+}
+.admin .pattern-back {
+    background-color: #ffe57f !important;
 }
