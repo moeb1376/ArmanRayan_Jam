@@ -155,19 +155,52 @@
     top: 34px;
     min-height: 200px;
 }
-.no-margins{
+
+.no-margins {
     margin-block-end: unset;
     margin-block-start: unset;
 }
-.pattern-back {
-    position: absolute;
-    width: 100% !important;
-    height: 100% !important;
-    box-sizing: border-box !important;
-    background-image: url(../../img/bright-squares.png);
-    background-repeat: repeat;
 
-}
 .admin .pattern-back {
     background-color: #ffe57f !important;
+}
+
+.team-class {
+    font-size: 250%;
+}
+
+.puan-card-element {
+    margin-bottom: 15%;
+}
+
+.pattern-back-new {
+    background-image: url("../../img/bright-squares.png");
+    background-repeat: repeat;
+    height: inherit;
+    background-color: #3a6073;
+}
+
+.card-icon-position {
+    right: 12px !important;
+    top: 160px;
+}
+
+.card-indicators-position {
+    right: -50px !important;
+}
+
+.carousel .indicators .indicator-item {
+    background-color: #37474f !important;
+}
+
+.carousel .indicators .indicator-item.active {
+    background-color: #90a4ae !important;
+}
+
+.help-carousal-card-item {
+    height: 300px !important;
+    min-height: unset !important;
+}
+.help-carousel-card-footer{
+    text-align: center;
 }
