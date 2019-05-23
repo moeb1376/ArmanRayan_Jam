@@ -34,6 +34,4 @@ function set_second_team_data(opponent_id, team_data) {
     second_team_element.removeChild(opponent_select);
     // second_team_element.childNodes[1].hidden = true;
     second_team_element.appendChild(main_card);
-
-
 }

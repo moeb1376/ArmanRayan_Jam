@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {{ user.username }} | بازی دوستانه
+    </title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection"/>
+
+    <link type="text/css" rel="stylesheet" href="css/global_css.css">
+    <link type="text/css" rel="stylesheet" href="css/index_style.css">
+    <link type="text/css" rel="stylesheet" href="css/base.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+<br class="hide-on-med-and-down" style="font-size: 1vw">
+<div class="row cnt content" style="direction: rtl">
+
+    <br class="hide-on-large-only hide-on-extra-large-only" style="font-size: 4vw">
+    <div class="hide-on-med-and-down col s12 m12 l1 xl1  push-l11 push-xl11 content center-align">
+        <div class="menu-items hide-on-med-and-down">
+            <br style="font-size: 1vw">
+            <img src='../img/jaam.png'
+                 class=" hide-on-med-and-down responsive-img">
+            <a class="row center-block" href="{% url 'SPC_main:SPC_main_page' %}">
+                <span class="menu-icon icon-info tooltipped" data-position="left"
+                      data-tooltip="اطلاعات تیم" id="team_detail_item"></span>
+            </a>
+            <a class="row center-block" href="{% url 'online_match:online_match' %}">
+                <span class="menu-icon icon-friendly tooltipped" data-position="left"
+                      data-tooltip="بازی دوستانه" id="friendly_item"></span>
+            </a>
+            <a class="row center-block" href="{% url 'SPC_main:table-spc' %}">
+            <span class="menu-icon icon-cup tooltipped" data-position="left" data-tooltip="جدول جام"
+                  id="cup_item"></span>
+            </a>
+            <a class="row center-block" href="{% url 'SPC_main:jaam-tables-view' %}">
+                <span class="menu-icon icon-competition tooltipped" data-position="left"
+                      data-tooltip="جدول رقابت‌ها" id="table_jaam_item"></span>
+            </a>
+            <a class="row center-block" href="{% url 'online_match:log' %}">
+            <span class="menu-icon icon-result tooltipped" data-position="left"
+                  data-tooltip="نتایج" id="log_item"></span>
+            </a>
+
+        </div>
+    </div>
+    <div class="row show-on-medium-and-down hide-on-large-only hide-on-extra-large-only valign-wrapper center-block"
+         style="background-color: rgb(214, 209, 219); margin-bottom: 0%">
+        <div class="col s2 m2 center-align"><a href="{% url 'online_match:log' %}">
+            <span class="menu-icon-mob icon-result tooltipped" data-position="bottom"
+                  data-tooltip="نتایج" id="log_mobile_item"></span>
+        </a></div>
+        <div class="col s2 m2 center-align"><a href="{% url 'SPC_main:jaam-tables-view' %}">
+                <span class="menu-icon-mob icon-competition tooltipped" data-position="bottom"
+                      data-tooltip="جدول رقابت ها" id="table_jaam_mobile_item"></span>
+        </a></div>
+        <div class=" col s2 m2 center-align"><a href="{% url 'SPC_main:table-spc' %}">
+            <span class="menu-icon-mob icon-cup tooltipped" data-position="bottom"
+                  data-tooltip="جدول جام" id="cup_mobile_item"></span>
+        </a></div>
+        <div class=" col s2 m2 center-align"><a href="{% url 'online_match:online_match' %}">
+                <span class="menu-icon-mob icon-friendly tooltipped" data-position="bottom"
+                      data-tooltip="بازی دوستانه" id="friendly_mobile_item"></span>
+        </a></div>
+        <div class=" col s2 m2 center-align"><a href="{% url 'SPC_main:SPC_main_page' %}">
+                <span class="menu-icon-mob icon-info tooltipped" data-position="bottom"
+                      data-tooltip="اطلاعات تیم" id="team_detail_mobile_item"></span>
+        </a></div>
+        <div class=" col s2 m2 center-align"><img src="../img/jaam.png"
+                                                  class="show-on-medium-and-down hide-on-large-only hide-on-extra-large-only responsive-img"
+                                                  style="max-width: 85%">
+        </div>
+    </div>
+    <div class="col s12 m12 l3 xl3  push-l7 push-xl7 info" style="overflow-y: auto;">
+        <div class="hide-on-med-and-down content2">
+            <br style="font-size: 1vw">
+            <div class="row">
+                <div>
+                    <img src="../img/avatar-team.png" class="team-avatar responsive-img center-block"
+                         style="width: 90%">
+                </div>
+                <div class="team-info center-align">
+                    <h3 style="direction: ltr; font-size: 3vw" id="username">
+                        Armankadeh SPC
+                    </h3>
+                    <h6 id="email" style="font-size: 1vw">
+                        Armankadeh@info.com
+                    </h6>
+                </div>
+                <span>
+            <div class="team-quote center-align">
+                <h6>
+                    didi didi
+                </h6>
+            </div>
+            </span>
+
+            </div>
+        </div>
+
+        <div class="hide-on-med-and-up show-on-medium">
+            <div class=" row col s5 m5">
+                <img src="../img/avatar-team.png" class="team-avatar responsive-img">
+            </div>
+            <div class="row col s7 m7 center-align">
+                <div>
+                    <div class="team-info">
+                        <h4 id="username-mobile">
+                            Armankadeh
+                        </h4>
+                        <h6 id="email-mobile center-align">
+                            info@armankadeh.ir
+                        </h6>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!--    Index -->
+    <div class="col s12 m12 l8 xl8  pull-l4 pull-xl4 " id="container">
+        <div class="nav-menu hide-on-med-and-down row" style="margin-bottom: unset">
+            <div class="col l8 xl8 ">
+                <div class="col s2 m2 l1 xl1">
+                    <a href="{% url 'SPC_main:logout' %}" style="color: #959595;">
+                        <span class="logout icon-logout tooltipped" data-position="bottom"
+                              data-tooltip="خروج" id="logout_item2"></span>
+                    </a>
+                </div>
+                <div class="col s2 m2 l1 xl1">
+                    <a class="edit-info waves-teal tooltipped" style="color: #959595;"
+                       onclick="location.href='/setting/'"
+                       data-position="bottom"
+                       data-tooltip="ویرایش اطلاعات">
+                        <i class="material-icons" style="font-size: 2vw; line-height: unset">build</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="hide-on-med-and-down">
+            <div class="row no-margins">
+                <!--                <div class="col l1 xl1"></div>-->
+                <div class="col l6 xl6 center">
+                    <div class="row">
+                        <div class="col l1 xl1"></div>
+                        <div class="col l10 xl10">
+                            <div class="card white small">
+                                <div class="card-content blue-grey-text text-darken-1">
+                                    <div class="card-title">
+                                        <img class="circle responsive-img " src="../img/avatar-team.png"
+                                             style="max-height: 100px">
+                                    </div>
+                                    <div class="center-align">
+                                        <h4>نام تیم</h4>
+                                        <h5>دانشگاه</h5>
+                                        <h6>A</h6>
+                                    </div>
+                                    <div class="progress small">
+                                        <div class="determinate" style="width: 70%"></div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="input-field center" style="direction: ltr">
+                                <select class="white">
+                                    <option class="center" value="" disabled selected>انتخاب کد</option>
+                                    <option value="1">Code 1</option>
+                                    <option value="2">Code 2</option>
+                                    <option value="12">Code 1</option>
+                                    <option value="23">Code 2</option>
+                                    <option value="14">Code 1</option>
+                                    <option value="26">Code 2</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col l1 xl1"></div>
+                    </div>
+
+                </div>
+                <div class="col l6 xl6 center">
+                    <div class="row">
+                        <div class="col l1 xl1"></div>
+                        <div class="col l10 xl10">
+                            <div class="card white small">
+                                <div class="card-content blue-grey-text text-darken-1">
+                                    <div class="card-title">
+                                        <img name="team2-img" class="circle responsive-img " src="../img/unknown.jpg"
+                                             style="max-height: 100px">
+                                    </div>
+                                    <div class="center-align">
+                                        <h4 name="team2-name">تیم تصادفی</h4>
+                                        <h5 name="team2-university"></h5>
+                                        <h6 name="team2-grade"></h6>
+                                    </div>
+                                    <div class="progress small" style="display: none">
+                                        <div class="determinate" style="width: 70%"></div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="input-field" style="direction: ltr">
+                                <select name="second-team" >
+                                    <option value="" disabled selected>انتخاب حریف</option>
+                                    <option value="1">حریف تصادفی</option>
+                                    <option value="2">هوش آرمانکده/آسان</option>
+                                    <option value="3">هوش آرمانکده/متوسط</option>
+                                    <option value="4">هوش آرمانکده/سخت</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col l1 xl1"></div>
+                    </div>
+
+                </div>
+                <!--                <div class="col l2 xl2"></div>-->
+
+                <!--                <div class="col l1 xl1"></div>-->
+            </div>
+            <div class="row center no-margins">
+                <div class="btn waves-effect waves-light " style="width: 20%">شروع</div>
+            </div>
+        </div>
+        <div class="hide-on-large-only hide-on-extra-large-only hide-on-small-only">
+            <div class="row no-margins">
+                <div class="col m6 center">
+                    <div class="card white small">
+                        <div class="card-content blue-grey-text text-darken-1">
+                            <div class="card-title">
+                                <img class="circle responsive-img " src="../img/avatar-team.png"
+                                     style="max-height: 100px">
+                            </div>
+                            <div class="center-align">
+                                <h4>نام تیم</h4>
+                                <h5>دانشگاه</h5>
+                                <h6>A</h6>
+                            </div>
+                            <div class="progress small">
+                                <div class="determinate" style="width: 70%"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="input-field center" style="direction: ltr">
+                        <select class="white">
+                            <option class="center" value="" disabled selected>انتخاب کد</option>
+                            <option value="1">Code 1</option>
+                            <option value="2">Code 2</option>
+                            <option value="12">Code 1</option>
+                            <option value="23">Code 2</option>
+                            <option value="14">Code 1</option>
+                            <option value="26">Code 2</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col m6 center">
+                    <div class="card white small">
+                        <div class="card-content blue-grey-text text-darken-1">
+                            <div class="card-title">
+                                <img name="team2-img" class="circle responsive-img " src="../img/unknown.jpg"
+                                     style="max-height: 100px">
+                            </div>
+                            <div class="center-align">
+                                <h4 name="team2-name">تیم تصادفی</h4>
+                                <h5 name="team2-university"></h5>
+                                <h6 name="team2-grade"></h6>
+                            </div>
+                            <div class="progress small" style="display: none">
+                                <div class="determinate" style="width: 70%"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="input-field" style="direction: ltr">
+                        <select name="second-team" >
+                            <option value="" disabled selected>انتخاب حریف</option>
+                            <option value="1">حریف تصادفی</option>
+                            <option value="2">هوش آرمانکده/آسان</option>
+                            <option value="3">هوش آرمانکده/متوسط</option>
+                            <option value="4">هوش آرمانکده/سخت</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row center">
+                <div class="btn waves-effect waves-light " style="width: 20%">شروع</div>
+            </div>
+        </div>
+        <div class="hide-on-med-and-up  ">
+            <div class="col s12 center">
+                <div class="card white small">
+                    <div class="card-content blue-grey-text text-darken-1">
+                        <div class="card-title">
+                            <img class="circle responsive-img " src="../img/avatar-team.png"
+                                 style="max-height: 100px">
+                        </div>
+                        <div class="center-align">
+                            <h4>نام تیم</h4>
+                            <h5>دانشگاه</h5>
+                            <h6>A</h6>
+                        </div>
+                        <div class="progress small">
+                            <div class="determinate" style="width: 70%"></div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="input-field center" style="direction: ltr">
+                    <select class="white">
+                        <option class="center" value="" disabled selected>انتخاب کد</option>
+                        <option value="1">Code 1</option>
+                        <option value="2">Code 2</option>
+                        <option value="12">Code 1</option>
+                        <option value="23">Code 2</option>
+                        <option value="14">Code 1</option>
+                        <option value="26">Code 2</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col s12 center">
+                <div class="card white small">
+                    <div class="card-content blue-grey-text text-darken-1">
+                        <div class="card-title">
+                            <img name="team2-img" class="circle responsive-img " src="../img/unknown.jpg"
+                                 style="max-height: 100px">
+                        </div>
+                        <div class="center-align">
+                            <h4 name="team2-name">تیم تصادفی</h4>
+                            <h5 name="team2-university"></h5>
+                            <h6 name="team2-grade"></h6>
+                        </div>
+                        <div class="progress small" style="display: none">
+                            <div class="determinate" style="width: 70%"></div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="input-field" style="direction: ltr">
+                    <select name="second-team" >
+                        <option value="" disabled selected>انتخاب حریف</option>
+                        <option value="1">حریف تصادفی</option>
+                        <option value="2">هوش آرمانکده/آسان</option>
+                        <option value="3">هوش آرمانکده/متوسط</option>
+                        <option value="4">هوش آرمانکده/سخت</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col s12 center" style="margin-bottom: 5%">
+                <div class="btn waves-effect waves-light " style="width: 20%">شروع</div>
+            </div>
+        </div>
+    </div>
+    <!--    Help Modal-->
+    <div id="help-modal" class="modal">
+        <div class="modal-content">
+            <h4>فایل‌های راهنما و توضیحات</h4>
+            <ul style="font-size: 120%">
+                <li class="li-help-modal row">
+                    <div class="col s3">
+                        <a href="{% static 'download/spc2.pdf' %}" download>
+                            <div class="btn waves-effect " style="font-size: 70%">
+                                دانلود فایل
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col s9">
+                        دانلود کلاینت
+                    </div>
+                </li>
+                <li class="divider"></li>
+                <li class="li-help-modal row">
+                    <div class="col s3">
+                        <a href="{% static 'download/spc2.pdf' %}" download>
+                            <div class="btn waves-effect " style="font-size: 70%">
+                                دانلود فایل
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col s9">
+                        دانلود کلاینت
+                    </div>
+                </li>
+                <li class="divider"></li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">بستن</a>
+        </div>
+    </div>
+</div>
+
+
+<!--JavaScript at end of body for optimized loading-->
+<script type="text/javascript" src="js/materialize.js"></script>
+<script src="../js/jquery-3.1.1.min.js"></script>
+<script src="js/online_match.js"></script>
+<script>
+    M.AutoInit();
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('select');
+        var instances = M.FormSelect.init(elems, {classes: "white", dropdownOptions: {alignment: "top"}});
+        instances.forEach(i => {
+            i.dropdownOptions.querySelectorAll("li").forEach(li => {
+                li.style.textAlign = "center";
+                if (!li.className.includes("disabled"))
+                    li.querySelector("span").style.color = "#3a6073"
+            });
+            i.input.classList.add("center");
+            i.input.classList.add("blue-grey-text");
+
+        });
+    });
+</script>
+</body>
+</html>
