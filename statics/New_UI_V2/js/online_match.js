@@ -1,6 +1,3 @@
-function load_second_team_data() {
-    console.log("salam");
-}
 $("select[name='second-team']").change(function () {
     console.log("jquery salam")
     let id_selected = $(this).children("option:selected").val();
@@ -19,4 +16,4 @@ $("select[name='second-team']").change(function () {
         else if (id_selected == 4)
             $("h5[name='team2-university']").text("سخت");
     }
-})
+});
