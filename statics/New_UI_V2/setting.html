@@ -152,38 +152,172 @@
                 <div class="collapsible-body white ">
                     <div class="row no-margins">
                         <div class="input-field col s12 m12 l6 xl6">
-                            <input id="last_name" type="text" class="validate">
-                            <label for="last_name">First Name</label>
+                            <input id="first_name" type="text" class="validate">
+                            <label for="first_name">First Name</label>
                             <span class="helper-text" data-error="{{ auth_form.username.errors.as_text }}"></span>
                         </div>
-                        <div class="input-field col s12 m12 l6 xl6">
-                            <input id="last_name" type="text" class="validate">
-                            <label for="last_name">Last Name</label>
-                            <span class="helper-text" data-error="{{ auth_form.username.errors.as_text }}"></span>
-                        </div>
-                    </div>
-
-                    <div class="row">
                         <div class="input-field col s12 m12 l6 xl6">
                             <input id="email_inline" type="email" class="validate">
                             <label for="email_inline">Email</label>
                             <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
                         </div>
                     </div>
+                    <div class="row no-margins">
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <input id="phone-number" type="number" class="validate">
+                            <label for="phone-number">Phone number</label>
+                            <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+                        </div>
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <input id="mentor-code" type="number" class="validate">
+                            <label for="mentor-code">Mentor code</label>
+                            <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+                        </div>
+                    </div>
+                    <div class="row no-margins">
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <select>
+                                <option value="" disabled selected>Choose your University</option>
+                                <option value="1">Sharif</option>
+                                <option value="2">Tehran</option>
+                                <option value="3">Iran University Of Science & Technology</option>
+                            </select>
+                            <label>University</label>
+                        </div>
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <textarea id="textarea1" class="materialize-textarea" data-length="200"></textarea>
+                            <label for="textarea1">Bio</label>
+                        </div>
+                    </div>
+                    <div class="row no-margins">
+                        <div class="file-field input-field col s12 m12 l8 xl8 offset-l2 offset-xl2">
+                            <div class="btn">
+                                <span>Change Avatar</span>
+                                <input type="file">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-    </li>
-    <li>
-        <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
-    <li>
-        <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
-    </ul>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">assignment_ind</i>Admin</div>
+                <div class="collapsible-body white">
+                    <div class="row no-margins">
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <input id="admin_fname" type="text" class="validate">
+                            <label for="admin_fname">First Name</label>
+                            <span class="helper-text" data-error="{{ auth_form.username.errors.as_text }}"></span>
+                        </div>
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <input id="admin_lname" type="text" class="validate">
+                            <label for="admin_lname">Last Name</label>
+                            <span class="helper-text" data-error="{{ auth_form.username.errors.as_text }}"></span>
+                        </div>
+                    </div>
+                    <div class="row no-margins">
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <input id="admin_email_inline" type="email" class="validate">
+                            <label for="admin_email_inline">Email</label>
+                            <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+                        </div>
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <select>
+                                <option value="" disabled selected>Choose your Grade</option>
+                                <option value="1">Ph.D</option>
+                                <option value="2">Master</option>
+                                <option value="3">Under Graduate</option>
+                            </select>
+                            <label>Grade</label>
+                        </div>
+                    </div>
+                    <div class="row no-margins">
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <input id="entrance-year" type="number" class="validate">
+                            <label for="entrance-year">Entrance year</label>
+                            <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+                        </div>
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <select>
+                                <option value="" disabled selected>Choose your University</option>
+                                <option value="1">Sharif</option>
+                                <option value="2">Tehran</option>
+                                <option value="3">Iran University Of Science & Technology</option>
+                            </select>
+                            <label>University</label>
+                        </div>
+
+                    </div>
+                    <div class="row no-margins">
+                        <div class="input-field col s12 ">
+                            <textarea id="admin-skills" class="materialize-textarea" data-length="200"></textarea>
+                            <label for="admin-skills">Skills</label>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">assignment_ind</i>Admin</div>
+                <div class="collapsible-body white">
+                    <div class="row no-margins">
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <input id="user_fname" type="text" class="validate">
+                            <label for="user_fname">First Name</label>
+                            <span class="helper-text" data-error="{{ auth_form.username.errors.as_text }}"></span>
+                        </div>
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <input id="user_lname" type="text" class="validate">
+                            <label for="user_lname">Last Name</label>
+                            <span class="helper-text" data-error="{{ auth_form.username.errors.as_text }}"></span>
+                        </div>
+                    </div>
+                    <div class="row no-margins">
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <input id="user_email_inline" type="email" class="validate">
+                            <label for="user_email_inline">Email</label>
+                            <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+                        </div>
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <select>
+                                <option value="" disabled selected>Choose your Grade</option>
+                                <option value="1">Ph.D</option>
+                                <option value="2">Master</option>
+                                <option value="3">Under Graduate</option>
+                            </select>
+                            <label>Grade</label>
+                        </div>
+                    </div>
+                    <div class="row no-margins">
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <input id="user_entrance-year" type="number" class="validate">
+                            <label for="user_entrance-year">Entrance year</label>
+                            <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+                        </div>
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <select>
+                                <option value="" disabled selected>Choose your University</option>
+                                <option value="1">Sharif</option>
+                                <option value="2">Tehran</option>
+                                <option value="3">Iran University Of Science & Technology</option>
+                            </select>
+                            <label>University</label>
+                        </div>
+
+                    </div>
+                    <div class="row no-margins">
+                        <div class="input-field col s12 ">
+                            <textarea id="admin-skills" class="materialize-textarea" data-length="200"></textarea>
+                            <label for="admin-skills">Skills</label>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
 
 
-</div>
+    </div>
 </div>
 
 <script type="text/javascript" src="js/materialize.js"></script>
@@ -194,6 +328,7 @@
     M.AutoInit();
     $(document).ready(function () {
         $('.collapsible').collapsible();
+        $('textarea#textarea1').characterCounter();
     });
 </script>
 </body>

@@ -96,3 +96,6 @@ html * {
         top: 50px;
     }
 }
+.btn {
+    background-color: #3a6073 !important;
+}
