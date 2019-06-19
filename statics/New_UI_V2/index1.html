@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" style="overflow-y: hidden">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ user.username }} | پنل مدیریت تیم</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection"/>
+
+    <link type="text/css" rel="stylesheet" href="css/global_css.css">
+    <link type="text/css" rel="stylesheet" href="css/base.css">
+    <link type="text/css" rel="stylesheet" href="css/index_style.css">
+
+    <!--Let browser know website is optimized for mobile-->
+
+</head>
+<body>
+<div class="row  cnt  top-margin-main full-height " >
+    <!-- right menu-->
+    <div class="hide-on-med-and-down col l1 xl1  push-l11 push-xl11 content  center-align " >
+        <div class="menu-items hide-on-med-and-down">
+          <!--  <br style="font-size: 1vw"> -->
+            <br>
+            <img src='../img/jaam.png'
+                 class=" hide-on-med-and-down responsive-img">
+            <a class="row center-block" href="{% url 'SPC_main:SPC_main_page' %}">
+                <span class="menu-icon icon-info tooltipped" data-position="left"
+                      data-tooltip="اطلاعات تیم" id="team_detail_item"></span>
+            </a>
+            <a class="row center-block" href="{% url 'online_match:online_match' %}">
+                <span class="menu-icon icon-friendly tooltipped" data-position="left"
+                      data-tooltip="بازی دوستانه" id="friendly_item"></span>
+            </a>
+            <a class="row center-block" href="{% url 'SPC_main:jaam-tables-view' %}">
+                <span class="menu-icon icon-competition tooltipped" data-position="left"
+                      data-tooltip="جدول رقابت‌ها" id="table_jaam_item"></span>
+            </a>
+            <a class="row center-block" href="{% url 'online_match:log' %}">
+            <span class="menu-icon icon-result tooltipped" data-position="left"
+                  data-tooltip="نتایج" id="log_item"></span>
+            </a>
+
+        </div>
+    </div>
+    <div class="show-on-medium-and-down hide-on-large-only hide-on-extra-large-only "  >
+
+
+        <nav class="" role="navigation" style=" background-color: rgb(214, 209, 219) ;color: black; font-size:20px;">
+        <a href="#" data-target="slide-out" class="sidenav-trigger right"><i class="material-icons">menu</i> </a>
+
+         <ul id="slide-out" class="sidenav right-align " >
+
+             <img src="../img/avatar-team.png" class="team-avatar responsive-img  top-margin-main center-block"
+                         style="width: 50%">
+
+             <a class="row " href="">
+               <i class=" material-icons icon-color-mob  "> <span class="menu-icon-mob-size">اطلاعات تیم </span> info_outline </i>
+            </a>
+             <a class="row " href="">
+               <i class=" material-icons icon-color-mob "> <span class="menu-icon-mob-size">ویرایش </span> settings </i>
+            </a>
+             <a class="row " href="">
+               <i class=" material-icons icon-color-mob "> <span class="menu-icon-mob-size">بازی دوستانه </span> videogame_asset </i>
+            </a>
+             <a class="row " href="">
+               <i class=" material-icons icon-color-mob "> <span class="menu-icon-mob-size">جدول رقابت</span> show_chart </i>
+            </a>
+            <a class="row " href="">
+               <i class=" material-icons icon-color-mob "> <span class="menu-icon-mob-size">نتایج</span> assignment </i>
+            </a>
+              <a class="row " href="">
+               <i class=" material-icons icon-color-mob "> <span class="menu-icon-mob-size">خروج </span>exit_to_app </i>
+            </a>
+
+       <!--   <a class="row  menu-icon-mob-size  " href="{% url 'SPC_main:SPC_main_page' %}" > اطلاعات تیم
+                <span class="menu-icon-mob icon-info  " data-position="right" id="team_detail_item"> </span>
+
+            </a>
+            <a class="row  menu-icon-mob-size" href="{% url 'online_match:online_match' %}">بازی دوستانه
+                <span class="menu-icon-mob icon-friendly" data-position="right"
+                      id="friendly_item"></span>
+            </a>
+
+            <a class="row  menu-icon-mob-size" href="{% url 'SPC_main:jaam-tables-view' %}">جدول رقابت
+                <span class="menu-icon-mob icon-competition" data-position="right"
+                      id="table_jaam_item"></span>
+            </a>
+
+            <a class="row   menu-icon-mob-size" href="{% url 'online_match:log' %}">نتایج
+            <span class="menu-icon-mob icon-result" data-position="right"
+                   id="log_item"></span>
+            </a>
+        -->
+
+             </ul>
+          </nav>
+
+    </div>
+    <!-- -->
+
+    <!-- right 2 menu
+         info background color
+         team-info = font-size: 2vw;
+    -->
+    <div class="hide-on-med-and-down col l3 xl3 content2 push-l7 push-xl7 info ">
+
+        <div class="hide-on-med-and-down top-margin-main">
+
+            <div class="row" >
+                <div>
+                    <img src="../img/avatar-team.png" class="team-avatar responsive-img center-block"
+                         style="width: 75%">
+                </div>
+                <div class="team-info center-align">
+                    <h3 style="direction: ltr; font-size: 3vw" id="username">
+                        Armankadeh SPC
+                    </h3>
+                </div>
+                <span>
+            <div class=" center-align">
+                <h6>
+                   dididididdiiddiidididididididididid<br>
+                   didididiidididididididid<br>
+
+                </h6>
+            </div>
+
+            </span>
+
+            </div>
+        </div>
+
+        <div class="hide-on-med-and-up show-on-medium">
+            <div class=" row col s5 m5">
+                <img src="../img/avatar-team.png" class="team-avatar responsive-img">
+            </div>
+            <div class="row col s7 m7 center-align">
+                <div>
+                    <div class="team-info">
+                        <h4 id="username-mobile">
+                            Armankadeh
+                        </h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- -->
+
+
+    <!-- content-->
+    <div class="col content s12 m12 l8 xl8 pull-l4 pull-xl4 ">
+        <h2>va</h2>
+        <h2>va</h2>
+        <h2>va</h2>
+        <h2>va</h2>
+        <h2>va</h2>
+        <h2>va</h2>
+        <h2>va</h2>
+        <h2>va</h2>
+        <h2>va</h2>
+        <h2>va</h2>
+        <h2>va</h2>
+    </div>
+    <!-- -->
+
+
+</div>
+<!--JavaScript at end of body for optimized loading-->
+<script type="text/javascript" src="js/materialize.js"></script>
+<script>
+    M.AutoInit();
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.dropdown-trigger');
+        var instances = M.Dropdown.init(elems, {alignment: "right"});
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    let options = {
+        edge : "right" ,
+
+    }
+    var instances = M.Sidenav.init(elems, options);
+  });
+</script>
+
+</body>
+</html>
