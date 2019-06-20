@@ -29,6 +29,10 @@
                 <span class="menu-icon icon-info tooltipped" data-position="left"
                       data-tooltip="اطلاعات تیم" id="team_detail_item"></span>
             </a>
+            <a class="row center-block" href="{% url 'SPC_main:SPC_main_page' %}">
+                <i class="material-icons tooltipped menu-icon-materialize" data-position="left"
+                      data-tooltip="اطلاعات تیم" id="team2_detail_item">info_outline</i>
+            </a>
             <a class="row center-block" href="{% url 'online_match:online_match' %}">
                 <span class="menu-icon icon-friendly tooltipped" data-position="left"
                       data-tooltip="بازی دوستانه" id="friendly_item"></span>
@@ -152,8 +156,8 @@
                                 <h5 class="grey-text text-darken-1 no-margins puan-card-element">امتیاز تیم</h5>
                                 <h6 class="grey-text puan-card-element">1200</h6>
                             </div>
-                            <div class="progress no-margins small">
-                                <div class="determinate" style="width: 70%"></div>
+                            <div class="progress no-margins small progress-bar-style" >
+                                <div class="determinate" style="width: 70%;background-color: #3a6073;"></div>
                             </div>
 
                         </div>

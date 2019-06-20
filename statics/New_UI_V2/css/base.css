@@ -156,7 +156,34 @@
 html, body {
     height: 100%;
 }
+@media only screen and (min-width: 993px) {
+    .full-height {
+      height: 96% !important;
+    }
+}
 
-.full-height {
-  height: 95%;
+@media only screen and (min-width: 601px) and (max-width: 992px){
+    .full-height{
+        height: 91% !important;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .full-height {
+        height: 85% !important;
+    }
+}
+.menu-icon-materialize{
+    color: gray;
+    font-size: 3.5vw;
+}
+.menu-icon-materialize:hover{
+    color: #3A6073;
+}
+.no-margins {
+    margin-block-end: unset;
+    margin-block-start: unset;
+}
+a.no-margins{
+    margin-block-start: 1.2vw;
+    margin-block-end: unset;
 }
