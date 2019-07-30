@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" style="overflow-y: hidden">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <title>{% block title %}    {% endblock %}</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href='{% static "New_UI_V2/css/materialize.css" %}'
+          media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href='{% static "New_UI_V2/css/global_css.css" %}'>
+    <link type="text/css" rel="stylesheet" href='{% static "New_UI_V2/css/base.css" %}' media="screen,projection"/>
+
+    <link type="image/png" rel="icon" href="{% static 'img/jaam.png' %}">
+    {% block head %}
+    {% endblock %}
+
+    <!--Let browser know website is optimized for mobile-->
+
+</head>
+<body>
+<div class="row  cnt  top-margin-main full-height " style="direction: rtl">
+    <!-- right menu-->
+    {% include 'base_2_1/icon_menu.html' %}
+    <!-- -->
+
+    <!-- info menu -->
+    {% include 'base_2_1/info_menu.html' %}
+    <!-- -->
+
+
+    <!-- content-->
+    {% block content %}
+    {% endblock %}
+    <!-- -->
+
+</div>
+<!--JavaScript at end of body for optimized loading-->
+<script type="text/javascript" src='{% static "New_UI_V2/js/materialize.js" %}'></script>
+<script src='{% static "js/jquery-3.1.1.min.js" %}'></script>
+{% block script %}
+{% endblock %}
+</body>
+</html>
