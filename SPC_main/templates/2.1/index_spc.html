@@ -44,34 +44,31 @@
                                 <i class="material-icons">star</i>
                             </div>
                             <span class="card-title activator grey-text text-darken-4" style="direction: rtl">
-                            وحید صوابیه
+                            {{ members.0.get_fname_lname }}
                         <i class="material-icons right">more_vert</i>
                         </span>
-                            <p><a href="#">This is a link</a></p>
                         </div>
                         <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Card Title<i
+                        <span class="card-title grey-text text-darken-4">{{ members.0.get_fname_lname }}<i
                                 class="material-icons right">close</i></span>
-                            <p>Here is some more information about this product that is only revealed once clicked
-                                on.</p>
+                            <p>{{ members.0.skills }}</p>
                         </div>
                     </div>
                 </div>
                 <div class="col l4 xl4">
                     <div class="card small">
                         <div class="card-image waves-effect waves-block waves-light pattern-back-new">
-                            <!--                        <img class="activator" src="../img/bright-squares.png">-->
                         </div>
                         <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Card Title<i
-                                class="material-icons right">more_vert</i></span>
-                            <p><a href="#">This is a link</a></p>
+                        <span class="card-title activator grey-text text-darken-4">{{ members.1.get_fname_lname }}
+                            <i class="material-icons right">more_vert</i>
+                        </span>
                         </div>
                         <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Card Title<i
-                                class="material-icons right">close</i></span>
-                            <p>Here is some more information about this product that is only revealed once clicked
-                                on.</p>
+                        <span class="card-title grey-text text-darken-4">{{ members.1.get_fname_lname }}
+                            <i class="material-icons right">close</i>
+                        </span>
+                            <p>{{ members.1.skills }}</p>
                         </div>
                     </div>
                 </div>
@@ -93,20 +90,39 @@
                     </div>
                 </div>
                 <div class="col l4 xl4">
-                    <div class="card small">
-                        <div class="card-image pattern-back-new">
-
+                    {% if members.2 %}
+                        <div class="card small">
+                            <div class="card-image waves-effect waves-block waves-light pattern-back-new">
+                            </div>
+                            <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">{{ members.2.get_fname_lname }}
+                            <i class="material-icons right">more_vert</i>
+                        </span>
+                            </div>
+                            <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">{{ members.2.get_fname_lname }}
+                            <i class="material-icons right">close</i>
+                        </span>
+                                <p>{{ members.2.skills }}</p>
+                            </div>
                         </div>
-                        <div class="card-content">
-                            <span class="card-title ">عضو جدید</span>
-                            <a class="btn-floating halfway-fab waves-effect waves-light red card-icon-position">
-                                <i class="material-icons">add</i>
-                            </a>
-                            <p>
-                                افزودن عضو جدید به تیم
-                            </p>
-                        </div>
-                    </div>
+                    {% else %}
+                        <a href="{% url 'setting:setting' 3 %}">
+                            <div class="card small">
+                                <div class="card-image waves-effect waves-block waves-light pattern-back-new">
+                                </div>
+                                <div class="card-content">
+                                    <span class="card-title ">عضو جدید</span>
+                                    <a class="btn-floating halfway-fab waves-effect waves-light red card-icon-position">
+                                        <i class="material-icons">add</i>
+                                    </a>
+                                    <p>
+                                        افزودن عضو جدید به تیم
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -161,81 +177,98 @@
                                 <i class="material-icons">star</i>
                             </div>
                             <span class="card-title activator grey-text text-darken-4" style="direction: rtl">
-                            وحید صوابیه
+                            {{ members.0.get_fname_lname }}
                         <i class="material-icons right">more_vert</i>
                         </span>
-                            <p><a href="#">This is a link</a></p>
                         </div>
                         <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Card Title<i
+                        <span class="card-title grey-text text-darken-4">{{ members.0.get_fname_lname }}<i
                                 class="material-icons right">close</i></span>
-                            <p>Here is some more information about this product that is only revealed once clicked
-                                on.</p>
+                            <p>{{ members.0.skills }}</p>
                         </div>
                     </div>
                 </div>
                 <div class="col m6">
-                    <div class="card small">
+                    <div class="card small ">
                         <div class="card-image waves-effect waves-block waves-light pattern-back-new">
-                            <!--                        <img class="activator" src="../img/bright-squares.png">-->
                         </div>
                         <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Card Title<i
-                                class="material-icons right">more_vert</i></span>
-                            <p><a href="#">This is a link</a></p>
+
+                            <span class="card-title activator grey-text text-darken-4" style="direction: rtl">
+                            {{ members.1.get_fname_lname }}
+                        <i class="material-icons right">more_vert</i>
+                        </span>
                         </div>
                         <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Card Title<i
+                        <span class="card-title grey-text text-darken-4">{{ members.1.get_fname_lname }}<i
                                 class="material-icons right">close</i></span>
-                            <p>Here is some more information about this product that is only revealed once clicked
-                                on.</p>
+                            <p>{{ members.1.skills }}</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col m6 offset-m3">
-                    <div class="card small">
-                        <div class="card-image pattern-back-new">
-
+                    {% if members.2 %}
+                        <div class="card small">
+                            <div class="card-image waves-effect waves-block waves-light pattern-back-new">
+                            </div>
+                            <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">{{ members.2.get_fname_lname }}
+                            <i class="material-icons right">more_vert</i>
+                        </span>
+                            </div>
+                            <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">{{ members.2.get_fname_lname }}
+                            <i class="material-icons right">close</i>
+                        </span>
+                                <p>{{ members.2.skills }}</p>
+                            </div>
                         </div>
-                        <div class="card-content">
-                            <span class="card-title ">عضو جدید</span>
-                            <a class="btn-floating halfway-fab waves-effect waves-light red card-icon-position">
-                                <i class="material-icons">add</i>
-                            </a>
-                            <p>
-                                افزودن عضو جدید به تیم
-                            </p>
-                        </div>
-                    </div>
+                    {% else %}
+                        <a href="{% url 'setting:setting' 3 %}">
+                            <div class="card small">
+                                <div class="card-image waves-effect waves-block waves-light pattern-back-new">
+                                </div>
+                                <div class="card-content">
+                                    <span class="card-title ">عضو جدید</span>
+                                    <a class="btn-floating halfway-fab waves-effect waves-light red card-icon-position">
+                                        <i class="material-icons">add</i>
+                                    </a>
+                                    <p>
+                                        افزودن عضو جدید به تیم
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    {% endif %}
                 </div>
             </div>
         </div>
         <div class="hide-on-med-and-up  ">
             <div class="col s12">
                 <div class="card white small">
-                        <div class="card-content blue-grey-text">
-                            <span class="card-title center"><h1 class="no-margins team-class">B</h1></span>
-                            <div class="puan">
-                                <h5 class="grey-text text-darken-1 no-margins puan-card-element">امتیاز تیم</h5>
-                                <h6 class="grey-text puan-card-element">1200</h6>
-                            </div>
-                            <div class="progress no-margins small progress-bar-style">
-                                <div class="determinate" style="width: 70%;background-color: #3a6073;"></div>
-                            </div>
+                    <div class="card-content blue-grey-text">
+                        <span class="card-title center"><h1 class="no-margins team-class">B</h1></span>
+                        <div class="puan">
+                            <h5 class="grey-text text-darken-1 no-margins puan-card-element">امتیاز تیم</h5>
+                            <h6 class="grey-text puan-card-element">1200</h6>
+                        </div>
+                        <div class="progress no-margins small progress-bar-style">
+                            <div class="determinate" style="width: 70%;background-color: #3a6073;"></div>
+                        </div>
 
-                        </div>
-                        <div class="card-action center">
-                            <button type="button" class="btn waves-effect new-code js-upload-photos modal-trigger">
-                                بارگذاری کد
-                            </button>
-                            <input id="fileupload" type="file" name="code"
-                                   style="display: none;"
-                                   data-url="{% url 'online_match:file_upload_ajax' %}"
-                                   data-form-data='{"csrfmiddlewaretoken": "{{ csrf_token }}"}'>
-                        </div>
                     </div>
+                    <div class="card-action center">
+                        <button type="button" class="btn waves-effect new-code js-upload-photos modal-trigger">
+                            بارگذاری کد
+                        </button>
+                        <input id="fileupload" type="file" name="code"
+                               style="display: none;"
+                               data-url="{% url 'online_match:file_upload_ajax' %}"
+                               data-form-data='{"csrfmiddlewaretoken": "{{ csrf_token }}"}'>
+                    </div>
+                </div>
             </div>
             <div class="col s12">
                 <div class="card white small">
@@ -261,52 +294,68 @@
                             <i class="material-icons">star</i>
                         </div>
                         <span class="card-title activator grey-text text-darken-4" style="direction: rtl">
-                            وحید صوابیه
+                            {{ members.0.get_fname_lname }}
                         <i class="material-icons right">more_vert</i>
                         </span>
-                        <p><a href="#">This is a link</a></p>
                     </div>
                     <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Card Title<i
+                        <span class="card-title grey-text text-darken-4">{{ members.0.get_fname_lname }}<i
                                 class="material-icons right">close</i></span>
-                        <p>Here is some more information about this product that is only revealed once clicked
-                            on.</p>
+                        <p>{{ members.0.skills }}</p>
                     </div>
                 </div>
             </div>
             <div class="col s12">
                 <div class="card small">
                     <div class="card-image waves-effect waves-block waves-light pattern-back-new">
-                        <!--                        <img class="activator" src="../img/bright-squares.png">-->
                     </div>
                     <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">Card Title<i
-                                class="material-icons right">more_vert</i></span>
-                        <p><a href="#">This is a link</a></p>
+                        <span class="card-title activator grey-text text-darken-4">{{ members.1.get_fname_lname }}
+                            <i class="material-icons right">more_vert</i>
+                        </span>
                     </div>
                     <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Card Title<i
-                                class="material-icons right">close</i></span>
-                        <p>Here is some more information about this product that is only revealed once clicked
-                            on.</p>
+                        <span class="card-title grey-text text-darken-4">{{ members.1.get_fname_lname }}
+                            <i class="material-icons right">close</i>
+                        </span>
+                        <p>{{ members.1.skills }}</p>
                     </div>
                 </div>
             </div>
             <div class="col s12">
-                <div class="card small">
-                    <div class="card-image pattern-back-new">
-
+                {% if members.2 %}
+                    <div class="card small">
+                        <div class="card-image waves-effect waves-block waves-light pattern-back-new">
+                        </div>
+                        <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">{{ members.2.get_fname_lname }}
+                            <i class="material-icons right">more_vert</i>
+                        </span>
+                        </div>
+                        <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">{{ members.2.get_fname_lname }}
+                            <i class="material-icons right">close</i>
+                        </span>
+                            <p>{{ members.2.skills }}</p>
+                        </div>
                     </div>
-                    <div class="card-content">
-                        <span class="card-title ">عضو جدید</span>
-                        <a class="btn-floating halfway-fab waves-effect waves-light red card-icon-position">
-                            <i class="material-icons">add</i>
-                        </a>
-                        <p>
-                            افزودن عضو جدید به تیم
-                        </p>
-                    </div>
-                </div>
+                {% else %}
+                    <a href="{% url 'setting:setting' 3 %}">
+                        <div class="card small">
+                            <div class="card-image waves-effect waves-block waves-light pattern-back-new">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title ">عضو جدید</span>
+                                <a class="btn-floating halfway-fab waves-effect waves-light red card-icon-position">
+                                    <i class="material-icons">add</i>
+                                </a>
+                                <p>
+                                    افزودن عضو جدید به تیم
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -316,6 +365,9 @@
             <h4>فایل‌های راهنما و توضیحات</h4>
             <ul style="font-size: 120%">
                 <li class="li-help-modal row">
+                    <h5>راهنمای بازی</h5>
+                    <br>
+                    <div class="col s1"></div>
                     <div class="col s3">
                         <a href="{% static 'download/spc2.pdf' %}" download>
                             <div class="btn waves-effect " style="font-size: 70%">
@@ -323,24 +375,89 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col s9">
-                        دانلود کلاینت
+                    <div class="col s7">
+                        فایل راهنما و قوانین بازی
                     </div>
+                    <div class="col s1"></div>
                 </li>
                 <li class="divider"></li>
                 <li class="li-help-modal row">
+                    <h5>سرور بازی</h5>
+                    <br>
+                    <div class="col s1"></div>
                     <div class="col s3">
-                        <a href="{% static 'download/spc2.pdf' %}" download>
+                        <a href="/media/Download/SPC/Abalone/Server/Abalone_1.1.zip" download>
                             <div class="btn waves-effect " style="font-size: 70%">
                                 دانلود فایل
                             </div>
                         </a>
                     </div>
-                    <div class="col s9">
-                        دانلود کلاینت
+                    <div class="col s7">
+                        دانلود سرور بازی
                     </div>
+                    <div class="col s1"></div>
                 </li>
                 <li class="divider"></li>
+                <li class="li-help-modal row">
+                    <h5>بخش کلاینت</h5>
+                    <br>
+                    <div class="row">
+                        <div class="col s1"></div>
+                        <div class="col s3">
+                            <a href="/media/Download/SPC/Abalone/Client/Python_abalone_client_V1.zip" download>
+                                <div class="btn waves-effect " style="font-size: 70%">
+                                    دانلود فایل
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col s7">
+                            دانلود کلاینت پایتون
+                        </div>
+                        <div class="col s1"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col s1"></div>
+                        <div class="col s3">
+                            <a href="/media/Download/SPC/Abalone/Client/C++%20Abalone%20Client%20v1.rar" download>
+                                <div class="btn waves-effect " style="font-size: 70%">
+                                    دانلود فایل
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col s7">
+                            دانلود کلاینت C++
+                        </div>
+                        <div class="col s1"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col s1"></div>
+                        <div class="col s3">
+                            <a href="/media/Download/SPC/Abalone/Client/java-abalone-client-ver1.rar" download>
+                                <div class="btn waves-effect " style="font-size: 70%">
+                                    دانلود فایل
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col s7">
+                            دانلود کلاینت جاوا
+                        </div>
+                        <div class="col s1"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col s1"></div>
+                        <div class="col s3">
+                            <a href="/media/Download/SPC/Abalone/Client/client_protocole.zip" download>
+                                <div class="btn waves-effect " style="font-size: 70%">
+                                    دانلود فایل
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col s7">
+                            دانلود راهنمای کلاینت‌ها
+                        </div>
+                        <div class="col s1"></div>
+                    </div>
+                </li>
             </ul>
         </div>
         <div class="modal-footer">
