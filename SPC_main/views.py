@@ -49,7 +49,7 @@ def SPC_main_page(request):
     }
     if team.competition.competition_level < 3:
         print('jaam2')
-        template = loader.get_template('index.html')
+        template = loader.get_template('2.1/index_spc.html')
     else:
         print('jaamiac')
         template = loader.get_template('index_IAC.html')
