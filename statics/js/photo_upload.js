@@ -23,7 +23,7 @@ $(function () {
         progressall: function (e, data) {  /* 4. UPDATE THE PROGRESS BAR */
             var progress = parseInt(data.loaded / data.total * 100, 10);
             var strProgress = progress + "%";
-            $(".determinate").css({"width": strProgress});
+            $("#upload-progress-bar").css({"width": strProgress});
             // var progress_bar = $("#upload_progress_bar");
             // progress_bar.css({"width": strProgress});
             // $(".progress-bar").text(strProgress);
