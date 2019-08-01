@@ -80,12 +80,12 @@ def setting_page(request, active_member=0):
         if request.get_full_path() == '/old_setting':
             template = loader.get_template('Old/settings.html')
         else:
-            template = loader.get_template("setting.html")
+            template = loader.get_template("2.1/setting.html")
     else:
         if request.get_full_path() == '/old_setting':
             template = loader.get_template('Old/settings_iac.html')
         else:
-            template = loader.get_template("setting.html")
+            template = loader.get_template("2.1/setting.html")
 
     user_require = 2 if team.competition.competition_level < 3 else 1
     redirect_flag = False if len(team_change.Users.all()) >= user_require else True
