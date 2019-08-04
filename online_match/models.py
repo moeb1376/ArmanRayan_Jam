@@ -8,6 +8,7 @@ from django.utils.timezone import now, datetime, localdate
 from django.dispatch import receiver
 from django.core.validators import MinValueValidator, MaxValueValidator
 from Jam.settings import MEDIA_ROOT, BASE_DIR, MEDIA_URL
+from main.models import Competition
 import os
 from hashlib import sha256
 from django.conf import settings
@@ -88,3 +89,16 @@ def set_version(sender, instance, **kwargs):
     message = '\n'.join(messages)
     # send_mail('جام بزرگ آرمانکده', message, settings.EMAIL_HOST_USER, emails)
     print("pre_save", s, instance)
+
+
+def upload_dataset_address(instance, filename):
+    return "Dataset/%s/%s" % (instance.competition.competition_name, filename)
+
+
+class Dataset(models.Model):
+    competition = models.ForeignKey(Competition, on_delete=models.CASCADE)
+    file = models.FileField(upload_to=upload_dataset_address, null=False)
+    description = models.CharField(max_length=200, null=False)
+
+    def __str__(self):
+        return self.competition.competition_name + "|" + str(self.id)

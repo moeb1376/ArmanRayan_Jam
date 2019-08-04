@@ -44,3 +44,21 @@ class CodeModelAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Code, CodeModelAdmin)
+
+
+class DatasetModelAdmin(admin.ModelAdmin):
+    list_display = ['__str__', 'link_to_competition', 'description', 'file']
+    list_filter = ['competition']
+
+    def link_to_competition(self, obj):
+        link = reverse("admin:main_competition_change", args=[obj.competition.id])  # model name has to be lowercase
+        return format_html("<a href='{}'>{}</a>", link, obj.competition.__str__())
+
+    link_to_competition.allow_tags = True
+    link_to_competition.short_description = "Competition"
+
+    class Meta:
+        model = Dataset
+
+
+admin.site.register(Dataset, DatasetModelAdmin)
