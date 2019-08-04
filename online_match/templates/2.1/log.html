@@ -35,7 +35,11 @@
                                 {% endif %}
                                 {% if not match.is_running %}
                                     {% if match.log_file %}
-                                        <td><a href="{{ match.log_file }}" download>log</a></td>
+                                        <td>
+                                            <a href="{{ match.log_file }}" download>
+                                                <i class="material-icons" style="color: #3A6073">file_download</i>
+                                            </a>
+                                        </td>
                                     {% else %}
                                         <td></td>
                                     {% endif %}
@@ -61,8 +65,11 @@
                                 {% endif %}
                                 {% if not match.is_running %}
                                     {% if match.log_file %}
-                                        <td><a href="{{ match.log_file }}" download><i class="material-icons">file_download</i>
-                                        </a></td>
+                                        <td>
+                                            <a href="{{ match.log_file }}" download>
+                                                <i class="material-icons" style="color: #3A6073;">file_download</i>
+                                            </a>
+                                        </td>
                                     {% else %}
                                         <td></td>
                                     {% endif %}
