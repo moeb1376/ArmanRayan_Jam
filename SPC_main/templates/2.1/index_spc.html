@@ -107,13 +107,13 @@
                             </div>
                         </div>
                     {% else %}
-                        <a href="{% url 'setting:setting' 3 %}">
-                            <div class="card small">
+                        <div class="card small">
                                 <div class="card-image waves-effect waves-block waves-light pattern-back-new">
                                 </div>
                                 <div class="card-content">
                                     <span class="card-title ">عضو جدید</span>
-                                    <a class="btn-floating halfway-fab waves-effect waves-light red card-icon-position">
+                                    <a href="{% url 'setting:setting' 3 %}"
+                                       class="btn-floating halfway-fab waves-effect waves-light red card-icon-position">
                                         <i class="material-icons">add</i>
                                     </a>
                                     <p>
@@ -121,7 +121,6 @@
                                     </p>
                                 </div>
                             </div>
-                        </a>
                     {% endif %}
                 </div>
             </div>
@@ -226,13 +225,13 @@
                             </div>
                         </div>
                     {% else %}
-                        <a href="{% url 'setting:setting' 3 %}">
-                            <div class="card small">
+                        <div class="card small">
                                 <div class="card-image waves-effect waves-block waves-light pattern-back-new">
                                 </div>
                                 <div class="card-content">
                                     <span class="card-title ">عضو جدید</span>
-                                    <a class="btn-floating halfway-fab waves-effect waves-light red card-icon-position">
+                                    <a href="{% url 'setting:setting' 3 %}"
+                                       class="btn-floating halfway-fab waves-effect waves-light red card-icon-position">
                                         <i class="material-icons">add</i>
                                     </a>
                                     <p>
@@ -240,7 +239,6 @@
                                     </p>
                                 </div>
                             </div>
-                        </a>
                     {% endif %}
                 </div>
             </div>
