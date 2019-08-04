@@ -67,11 +67,3 @@
 .li-help-modal {
     margin: 2%;
 }
-.progress-bar-style{
-    background-color: #F2EAED;
-    border-color: #3a6073;
-    border-style: solid;
-    border-width: thin;
-    height: 10px;
-    border-radius: 10px;
-}

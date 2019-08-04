@@ -25,7 +25,7 @@
 }
 
 .icon-active {
-    color: #3A6073;
+    color: #3A6073!important;
 }
 
 .icon-active:hover {
@@ -186,4 +186,12 @@ html, body {
 a.no-margins{
     margin-block-start: 1.2vw;
     margin-block-end: unset;
+}
+.progress-bar-style{
+    background-color: #F2EAED;
+    border-color: #3a6073;
+    border-style: solid;
+    border-width: thin;
+    height: 10px;
+    border-radius: 10px;
 }
