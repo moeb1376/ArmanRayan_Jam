@@ -5,11 +5,11 @@
 {% endblock %}
 {% block head %}
     {% load static %}
-    <link type="text/css" rel="stylesheet" href='{% static "New_UI_V2/css/index_style.css" %}'>
+    {#    <link type="text/css" rel="stylesheet" href='{% static "New_UI_V2/css/index_style.css" %}'>#}
 {% endblock %}
 {% block content %}
 
-    <div class="col content full-height s12 m12 l8 xl8  pull-l4 pull-xl4 "  id="container">
+    <div class="col content full-height s12 m12 l8 xl8  pull-l4 pull-xl4 " id="container">
         <div class="hide-on-med-and-down" style="margin-top: 6%">
             <div class="row no-margins">
                 <div class="col l6 xl6 center">
@@ -27,8 +27,8 @@
                                         <h5>{{ login_team.university.university_name }}</h5>
                                         <h6>A</h6>
                                     </div>
-                                    <div class="progress small">
-                                        <div class="determinate" style="width: 70%"></div>
+                                    <div class="progress small progress-bar-style">
+                                        <div class="determinate" style="width: 70%;background-color: #3A6073;"></div>
                                     </div>
 
                                 </div>
@@ -104,8 +104,8 @@
                                 <h5>{{ login_team.university.university_name }}</h5>
                                 <h6>A</h6>
                             </div>
-                            <div class="progress small">
-                                <div class="determinate" style="width: 70%"></div>
+                            <div class="progress small progress-bar-style">
+                                <div class="determinate" style="width: 70%;background-color: #3A6073"></div>
                             </div>
 
                         </div>
@@ -132,8 +132,8 @@
                                 <h5 name="team2-university"></h5>
                                 <h6 name="team2-grade"></h6>
                             </div>
-                            <div class="progress small" style="display: none">
-                                <div class="determinate" style="width: 70%"></div>
+                            <div class="progress small progress-bar-style" style="display: none">
+                                <div class="determinate" style="width: 70%;background-color: #3A6073"></div>
                             </div>
 
                         </div>
@@ -167,8 +167,8 @@
                             <h5>{{ login_team.university.university_name }}</h5>
                             <h6>A</h6>
                         </div>
-                        <div class="progress small">
-                            <div class="determinate" style="width: 70%"></div>
+                        <div class="progress small progress-bar-style">
+                            <div class="determinate" style="width: 70%;background-color: #3A6073"></div>
                         </div>
 
                     </div>
@@ -218,9 +218,12 @@
     </div>
 {% endblock %}
 {% block script %}
-    <script src='{% static "js/online_match.js" %}'></script>
     <script>
-        M.AutoInit();
+        let armankadehLogoSrc = '{% static "/img/Armankadeh_logo_300.png" %}';
+        let unknownSrc = '{% static "img/unknown.jpg" %}';
+    </script>
+    <script src='{% static "New_UI_V2/js/online_match.js" %}'></script>
+    <script>
         document.addEventListener('DOMContentLoaded', function () {
             var elems = document.querySelectorAll('select');
             var instances = M.FormSelect.init(elems, {classes: "white", dropdownOptions: {alignment: "top"}});
