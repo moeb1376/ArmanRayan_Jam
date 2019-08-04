@@ -97,19 +97,53 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col l6 xl6 offset-xl3 offset-l3">
-                    <div class="card white small">
-                        <div class="card-content blue-grey-text text-darken-1">
+                <div class="col l11 lx11" style="margin-left: 4.16%">
+                    <div class="card white small" style="height: fit-content">
+                        <div class="card-content blue-grey-text text-darken-1" style="height: fit-content">
                             <span class="card-title" style="font-size: 160%">
                                 <i class="material-icons">info</i>
                                 راهنمایی و توضیحات
                             </span>
-                            <p class="help-card-footer">دانلود راهنمای مسابقات و فایل‌های مورد نیاز </p>
-                        </div>
-                        <div class="card-action center">
-                            <a class="waves-effect waves-light btn modal-trigger" href="#help-modal">دانلود</a>
-                        </div>
+                            <ul>
+                                <li class="li-help-modal row">
+                                    <h5>راهنمای مسابقات</h5>
+                                    <br>
+                                    {#                                    <div class="col s1"></div>#}
+                                    <div class="col s3">
+                                        <a href="{% static 'download/iac.pdf' %}" download>
+                                            <div class="btn waves-effect " style="font-size: 90%">
+                                                 دانلود فایل
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col s8">
+                                        <h6>فایل راهنما و نحوه داوری مسابقات</h6>
+                                    </div>
+                                    <div class="col s1"></div>
+                                </li>
+                                <li class="divider"></li>
+                                <li class="li-help-modal row">
+                                    <h5>دادگان آموزشی</h5>
+                                    <br>
+                                    {% for dataset in datasets %}
+                                        <div class="row">
+                                            <div class="col s3">
+                                                <a href="{{ dataset.file.url }}" download>
+                                                    <div class="btn waves-effect " style="font-size: 90%">
+                                                        دانلود فایل
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col s8">
+                                                <h6>{{ dataset.description }}</h6>
+                                            </div>
+                                            <div class="col s1"></div>
+                                        </div>
+                                    {% endfor %}
 
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
