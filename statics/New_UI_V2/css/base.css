@@ -25,7 +25,7 @@
 }
 
 .icon-active {
-    color: #3A6073!important;
+    color: #3A6073 !important;
 }
 
 .icon-active:hover {
@@ -127,71 +127,88 @@
     color: #3a6073;
 }
 
-.top-margin-right-menu{
+.top-margin-right-menu {
     margin-top: 1vw !important;
 }
-.top-margin-main{
-     margin-top: 2.2vw !important;
+
+.top-margin-main {
+    margin-top: 2.2vw !important;
 }
 
-.menu-icon-mob-size{
+.menu-icon-mob-size {
     color: black;
     font-size: 20px;
 }
-.icon-color-mob{
+
+.icon-color-mob {
     color: gray;
 }
-.scrol-content{
+
+.scrol-content {
     overflow: auto;
     height: 800px;
 }
+
 .col-container {
-  display: table;
-  width: 100%;
+    display: table;
+    width: 100%;
 }
+
 .col1 {
-  display: table-cell;
-  padding: 16px;
+    display: table-cell;
+    padding: 16px;
 }
+
 html, body {
     height: 100%;
 }
+
 @media only screen and (min-width: 993px) {
     .full-height {
-      height: 96% !important;
+        height: 96% !important;
     }
 }
 
-@media only screen and (min-width: 601px) and (max-width: 992px){
-    .full-height{
+@media only screen and (min-width: 601px) and (max-width: 992px) {
+    .full-height {
         height: 91% !important;
     }
 }
+
 @media only screen and (max-width: 600px) {
     .full-height {
         height: 85% !important;
     }
 }
-.menu-icon-materialize{
+
+.menu-icon-materialize {
     color: gray;
     font-size: 3.5vw;
 }
-.menu-icon-materialize:hover{
+
+.menu-icon-materialize:hover {
     color: #3A6073;
 }
+
 .no-margins {
     margin-block-end: unset;
     margin-block-start: unset;
 }
-a.no-margins{
+
+a.no-margins {
     margin-block-start: 1.2vw;
     margin-block-end: unset;
 }
-.progress-bar-style{
+
+.progress-bar-style {
     background-color: #F2EAED;
     border-color: #3a6073;
     border-style: solid;
     border-width: thin;
     height: 10px;
     border-radius: 10px;
+}
+
+.sidenav_field_active {
+    background: #F2EAED !important;
 }
