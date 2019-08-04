@@ -5,6 +5,7 @@
 {% endblock %}
 {% block head %}
     {% load widget_tweaks %}
+    {% load static %}
 {% endblock %}
 {% block content %}
     <div class="col s12 m12 l8 xl8  pull-l4 pull-xl4 content full-height" id="container">
@@ -13,8 +14,8 @@
             {{ user_form.non_field_errors }}
             {{ auth_form.non_field_errors }}
             {{ team_form.non_field_errors }}
-            <ul class="collapsible" style="direction: ltr;margin-top: 6%">
-                <li>
+            <ul class="collapsible" id="setting_collapsible" style="direction: ltr;margin-top: 6%">
+                <li name="collapsible_li">
                     <div class="collapsible-header" style="direction: rtl">
                         <i class="material-icons">supervisor_account</i>
                         اطلاعات تیم
@@ -69,7 +70,7 @@
                 {{ user_form.management_form }}
                 {% for form in user_form %}
                     {{ form.id }}
-                    <li>
+                    <li name="collapsible_li">
                         {% if forloop.counter == 1 %}
                             <div class="collapsible-header" style="direction: rtl">
                                 <i class="material-icons">assignment_ind</i>
@@ -134,15 +135,42 @@
                     </li>
                 {% endfor %}
             </ul>
+            <br><br><br>
+            <button type="submit" class="col s12 m8 offset-m2 btn ">
+                ذخیره تغییرات
+            </button>
+            <!-- Modal Body -->
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <h4>توجه</h4>
+                    {% if login_team.competition.competitiom_level < 3 %}
+                        <p>تعداد اعضای شرکت کننده در مسابقات اشاره گرهای هوشمند حداقل ۲ و حداکثر ۳ نفر است</p>
+                    {% else %}
+                        <p>تعداد اعضای شرکت کننده در مسابقات اشاره گرهای هوشمند حداقل ۱ و حداکثر ۲ نفر است</p>
+                    {% endif %}
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat left ">متوجه شدم</a>
+                </div>
+            </div>
         </form>
+        <script>
+            document.getElementsByName("collapsible_li")[{{ active_member }}].classList.add("active");
+        </script>
     </div>
 {% endblock %}
 {% block script %}
+
     <script>
         M.AutoInit();
         $(document).ready(function () {
             $('.collapsible').collapsible();
             $('textarea#textarea1').characterCounter();
         });
+        {% if test %}
+            let instance = M.Modal.getInstance(document.getElementById("modal1"));
+            console.log(instance);
+            instance.open();
+        {% endif %}
     </script>
 {% endblock %}

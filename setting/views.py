@@ -36,7 +36,7 @@ def setting_page(request, active_member=0):
                 previous_logo_image_path = os.path.join(settings.MEDIA_ROOT, previous_logo_image)
                 if os.path.isfile(previous_logo_image_path) and previous_logo_image_path != settings.LOGO_DEFAULT:
                     os.remove(previous_logo_image_path)
-            print(team_setting_form )
+            print(team_setting_form)
             s = team_setting_form.save()
             if 'logo_image' in team_setting_form.changed_data:
                 print(s.logo_image.path)
@@ -76,13 +76,14 @@ def setting_page(request, active_member=0):
             for field in user_form.fields:
                 user_form.fields[field].widget.attrs["class"] = "validate"
     team = request.user.Teams.all()[0]
+    print(request.get_full_path())
     if team.competition.competition_level < 3:
-        if request.get_full_path() == '/old_setting':
+        if request.get_full_path() == '/old_setting/':
             template = loader.get_template('Old/settings.html')
         else:
             template = loader.get_template("2.1/setting.html")
     else:
-        if request.get_full_path() == '/old_setting':
+        if request.get_full_path() == '/old_setting/':
             template = loader.get_template('Old/settings_iac.html')
         else:
             template = loader.get_template("2.1/setting.html")
@@ -90,8 +91,7 @@ def setting_page(request, active_member=0):
     user_require = 2 if team.competition.competition_level < 3 else 1
     redirect_flag = False if len(team_change.Users.all()) >= user_require else True
     print('redirect ', redirect_flag, user_require)
-    active_member = active_member if active_member else 0
-    print(active_member)
+    active_member = int(active_member) if (active_member and int(active_member)< 4) else 0
     context = {
         'test': redirect_flag,
         'user_form': user_team_form,
