@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+{% extends 'base_2_1/base.html' %}
+{% block title %}
+    {{ user.username }}|جدول مسابقات
+{% endblock %}
+{% block content %}
+    <div class="col content s12 m12 l8 xl8 pull-l4 pull-xl4 full-height ">
+        <div class="section center">
+            <h4>جدول لیگ اشاره‌گرهای هوشمند</h4>
+            <div class="row">
+                <div class="col s12 m12 l10 xl10 offset-l1 offset-xl1">
+                    <table class="centered highlight">
+                        <thead>
+                        <tr>
+                            <th>تیم</th>
+                            <th>دانشگاه</th>
+                            <th>بازی</th>
+                            <th>امتیاز</th>
+                            <th>کلاس</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        {% for team in teams.SPC %}
+                            <tr>
+                                <td>{{ team.user_team.username }}</td>
+                                <td>{{ team.university.university_name }}</td>
+                                <td>{{ team.total_games }}</td>
+                                <td>{{ team.get_points }}</td>
+                                <td>B</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+        <div class="section center">
+            <h4>جدول لیگ پردازش تصویر</h4>
+            <div class="row">
+                <div class="col s12 m12 l10 xl10 offset-l1 offset-xl1">
+                    <table class=" centered highlight">
+                        <thead>
+                        <tr>
+                            <th>تیم</th>
+                            <th>دانشگاه</th>
+                            <th>دقت</th>
+                            <th>کلاس</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        {% for team in teams.picture %}
+                            <tr>
+                                <td>{{ team.user_team.username }}</td>
+                                <td>{{ team.university.university_name }}</td>
+                                <td>{{ team.accuracy }}</td>
+                                <td>F</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+        <div class="section center">
+            <h4>جدول لیگ پردازش صوت</h4>
+            <div class="row">
+                <div class="col s12 m12 l10 xl10 offset-l1 offset-xl1">
+                    <table class="centered highlight">
+                        <thead>
+                        <tr>
+                            <th>تیم</th>
+                            <th>دانشگاه</th>
+                            <th>دقت</th>
+                            <th>کلاس</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        {% for team in teams.sound %}
+                            <tr>
+                                <td>{{ team.user_team.username }}</td>
+                                <td>{{ team.university.university_name }}</td>
+                                <td>{{ team.accuracy }}</td>
+                                <td>F</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+        <div class="section center">
+            <h4>جدول لیگ پردازش متن</h4>
+            <div class="row">
+                <div class="col s12 m12 l10 xl10 offset-l1 offset-xl1">
+                    <table class="centered highlight">
+                        <thead>
+                        <tr>
+                            <th>تیم</th>
+                            <th>دانشگاه</th>
+                            <th>دقت</th>
+                            <th>کلاس</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        {% for team in teams.text %}
+                            <tr>
+                                <td>{{ team.user_team.username }}</td>
+                                <td>{{ team.university.university_name }}</td>
+                                <td>{{ team.accuracy }}</td>
+                                <td>F</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

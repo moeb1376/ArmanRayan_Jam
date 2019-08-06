@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+{% if login_team.competition.competition_level < 3 %}
+    <div class="hide-on-med-and-down col l1 xl1  push-l11 push-xl11 content  center-align full-height">
+        <div class="menu-items hide-on-med-and-down">
+            <!--  <br style="font-size: 1vw"> -->
+            <br>
+            {% load static %}
+            <img src="{% static 'img/jaam.png' %}"
+                 class=" hide-on-med-and-down responsive-img">
+            <a class="row center-block no-margins" href="{% url 'SPC_main:SPC_main_page' %}">
+                <i class="material-icons menu-icon-materialize tooltipped" data-position="left"
+                   data-tooltip="اطلاعات تیم" id="team_detail_item">info_outline</i>
+            </a>
+            <a class="row center-block no-margins" href="{% url 'setting:setting' 0 %}">
+                <i class="material-icons menu-icon-materialize tooltipped" data-position="left"
+                   data-tooltip="ویرایش اطلاعات" id="team_setting_item">settings</i>
+            </a>
+            <a class="row center-block no-margins" href="{% url 'online_match:online_match' %}">
+                <i class="material-icons menu-icon-materialize tooltipped" data-position="left"
+                   data-tooltip="بازی دوستانه" id="friendly_item">videogame_asset</i>
+            </a>
+            <a class="row center-block no-margins" href="{% url 'SPC_main:jaam-tables-view' %}">
+                <i class="material-icons menu-icon-materialize tooltipped" data-position="left"
+                   data-tooltip="جدول رقابت‌ها" id="table_jaam_item">show_chart</i>
+            </a>
+            <a class="row center-block no-margins" href="{% url 'online_match:log' %}">
+                <i class="material-icons menu-icon-materialize tooltipped" data-position="left"
+                   data-tooltip="نتایج" id="log_item">assignment</i>
+            </a>
+
+            <a class="row center-block no-margins" href="{% url 'SPC_main:logout' %}">
+                <i class="material-icons menu-icon-materialize tooltipped" data-position="left"
+                   data-tooltip="خروج" id="logout_item">exit_to_app</i>
+            </a>
+
+        </div>
+    </div>
+    <div class="show-on-medium-and-down hide-on-large-only hide-on-extra-large-only ">
+        <nav class="" role="navigation" style=" background-color: rgb(214, 209, 219) ;color: black; font-size:20px;">
+            <a href="#" data-target="slide-out" class="sidenav-trigger right"><i class="material-icons">menu</i> </a>
+            <ul id="slide-out" class="sidenav right-align " style="padding: unset">
+                <img src="{{ login_team.logo_image.url }}"
+                     class="team-avatar responsive-img  top-margin-main center-block"
+                     style="width: 50%">
+                <a class="row " href="{% url 'SPC_main:SPC_main_page' %}">
+                    <i class="material-icons menu-icon-materialize" id="team_detail_mobile_item">
+                        <span class="menu-icon-mob-size">
+                            اطلاعات تیم
+                        </span>
+                        info_outline
+                    </i>
+                </a>
+                <a class="row " href="{% url 'setting:setting' 0 %}">
+                    <i class="material-icons menu-icon-materialize" id="team_setting_mobile_item">
+                        <span class="menu-icon-mob-size">
+                            ویرایش
+                        </span>
+                        settings
+                    </i>
+                </a>
+                <a class="row " href="{% url 'online_match:online_match' %}">
+                    <i class="material-icons menu-icon-materialize" id="friendly_mobile_item">
+                        <span class="menu-icon-mob-size">
+                            بازی دوستانه
+                        </span>
+                        videogame_asset </i>
+                </a>
+                <a class="row " href="{% url 'SPC_main:jaam-tables-view' %}">
+                    <i class="material-icons menu-icon-materialize" id="table_jaam_mobile_item">
+                        <span class="menu-icon-mob-size">
+                            جدول رقابت
+                        </span>
+                        show_chart </i>
+                </a>
+                <a class="row " href="{% url 'online_match:log' %}">
+                    <i class="material-icons menu-icon-materialize" id="log_mobile_item">
+                        <span class="menu-icon-mob-size">
+                            نتایج
+                        </span>
+                        assignment
+                    </i>
+                </a>
+                <a class="row " href="{% url 'SPC_main:logout' %}">
+                    <i class=" material-icons menu-icon-materialize">
+                    <span class="menu-icon-mob-size">
+                                    خروج
+                    </span>
+                        exit_to_app
+                    </i>
+                </a>
+            </ul>
+        </nav>
+    </div>
+{% else %}
+
+    <div class="hide-on-med-and-down col l1 xl1  push-l11 push-xl11 content  center-align full-height">
+        <div class="menu-items hide-on-med-and-down">
+            <!--  <br style="font-size: 1vw"> -->
+            <br>
+            {% load static %}
+            <img src="{% static 'img/jaam.png' %}" class=" hide-on-med-and-down responsive-img">
+            <a class="row center-block no-margins" href="{% url 'SPC_main:SPC_main_page' %}">
+                <i class="material-icons menu-icon-materialize tooltipped" data-position="left"
+                   data-tooltip="اطلاعات تیم" id="team_detail_item">info_outline</i>
+            </a>
+            <a class="row center-block no-margins" href="{% url 'setting:setting' 0 %}">
+                <i class="material-icons menu-icon-materialize tooltipped" data-position="left"
+                   data-tooltip="ویرایش اطلاعات" id="team_setting_item">settings</i>
+            </a>
+            <a class="row center-block no-margins" href="{% url 'SPC_main:jaam-tables-view' %}">
+                <i class="material-icons menu-icon-materialize tooltipped" data-position="left"
+                   data-tooltip="جدول رقابت‌ها" id="table_jaam_item">show_chart</i>
+            </a>
+            <a class="row center-block no-margins" href="{% url 'SPC_main:logout' %}">
+                <i class="material-icons menu-icon-materialize tooltipped" data-position="left"
+                   data-tooltip="خروج" id="logout_item">exit_to_app</i>
+            </a>
+
+        </div>
+    </div>
+    <div class="show-on-medium-and-down hide-on-large-only hide-on-extra-large-only ">
+        <nav class="" role="navigation" style=" background-color: rgb(214, 209, 219) ;color: black; font-size:20px;">
+            <a href="#" data-target="slide-out" class="sidenav-trigger right"><i class="material-icons">menu</i> </a>
+            <ul id="slide-out" class="sidenav right-align " style="padding: unset">
+                <img src="{{ login_team.logo_image.url }}"
+                     class="team-avatar responsive-img  top-margin-main center-block"
+                     style="width: 50%">
+                <a  href="{% url 'SPC_main:SPC_main_page' %}">
+                    <i class="material-icons menu-icon-materialize" id="team_detail_mobile_item">
+                        <span class="menu-icon-mob-size">
+                            اطلاعات تیم
+                        </span>
+                        info_outline
+                    </i>
+                </a>
+                <a  href="{% url 'setting:setting' 0 %}">
+                    <i class="material-icons menu-icon-materialize" id="team_setting_mobile_item">
+                        <span class="menu-icon-mob-size">
+                            ویرایش
+                        </span>
+                        settings
+                    </i>
+                </a>
+                <a href="{% url 'SPC_main:jaam-tables-view' %}">
+                    <i class="material-icons menu-icon-materialize" id="table_jaam_mobile_item">
+                        <span class="menu-icon-mob-size">
+                            جدول رقابت
+                        </span>
+                        show_chart </i>
+                </a>
+                <a href="{% url 'SPC_main:logout' %}">
+                    <i class=" material-icons menu-icon-materialize">
+                        <span class="menu-icon-mob-size">
+                                خروج
+                        </span>
+                        exit_to_app
+                    </i>
+                </a>
+            </ul>
+        </nav>
+    </div>
+{% endif %}

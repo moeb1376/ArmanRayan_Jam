@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ user.username }}|ویرایش اطلاعات</title>
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection"/>
+
+    <link type="text/css" rel="stylesheet" href="css/global_css.css">
+    <link type="text/css" rel="stylesheet" href="css/index_style.css">
+    <link type="text/css" rel="stylesheet" href="css/base.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+<br class="hide-on-med-and-down" style="font-size: 1vw">
+<div class="row cnt content" style="direction: rtl">
+
+    <br class="hide-on-large-only hide-on-extra-large-only" style="font-size: 4vw">
+    <div class="hide-on-med-and-down col s12 m12 l1 xl1  push-l11 push-xl11 content center-align">
+        <div class="menu-items hide-on-med-and-down">
+            <br style="font-size: 1vw">
+            <img src='../img/jaam.png'
+                 class=" hide-on-med-and-down responsive-img">
+            <a class="row center-block" href="{% url 'SPC_main:SPC_main_page' %}">
+                <span class="menu-icon icon-info tooltipped" data-position="left"
+                      data-tooltip="اطلاعات تیم" id="team_detail_item"></span>
+            </a>
+            <a class="row center-block" href="{% url 'online_match:online_match' %}">
+                <span class="menu-icon icon-friendly tooltipped" data-position="left"
+                      data-tooltip="بازی دوستانه" id="friendly_item"></span>
+            </a>
+            <a class="row center-block" href="{% url 'SPC_main:table-spc' %}">
+            <span class="menu-icon icon-cup tooltipped" data-position="left" data-tooltip="جدول جام"
+                  id="cup_item"></span>
+            </a>
+            <a class="row center-block" href="{% url 'SPC_main:jaam-tables-view' %}">
+                <span class="menu-icon icon-competition tooltipped" data-position="left"
+                      data-tooltip="جدول رقابت‌ها" id="table_jaam_item"></span>
+            </a>
+            <a class="row center-block" href="{% url 'online_match:log' %}">
+            <span class="menu-icon icon-result tooltipped" data-position="left"
+                  data-tooltip="نتایج" id="log_item"></span>
+            </a>
+
+        </div>
+    </div>
+    <div class="row show-on-medium-and-down hide-on-large-only hide-on-extra-large-only valign-wrapper center-block"
+         style="background-color: rgb(214, 209, 219); margin-bottom: 0%">
+        <div class="col s2 m2 center-align"><a href="{% url 'online_match:log' %}">
+            <span class="menu-icon-mob icon-result tooltipped" data-position="bottom"
+                  data-tooltip="نتایج" id="log_mobile_item"></span>
+        </a></div>
+        <div class="col s2 m2 center-align"><a href="{% url 'SPC_main:jaam-tables-view' %}">
+                <span class="menu-icon-mob icon-competition tooltipped" data-position="bottom"
+                      data-tooltip="جدول رقابت ها" id="table_jaam_mobile_item"></span>
+        </a></div>
+        <div class=" col s2 m2 center-align"><a href="{% url 'SPC_main:table-spc' %}">
+            <span class="menu-icon-mob icon-cup tooltipped" data-position="bottom"
+                  data-tooltip="جدول جام" id="cup_mobile_item"></span>
+        </a></div>
+        <div class=" col s2 m2 center-align"><a href="{% url 'online_match:online_match' %}">
+                <span class="menu-icon-mob icon-friendly tooltipped" data-position="bottom"
+                      data-tooltip="بازی دوستانه" id="friendly_mobile_item"></span>
+        </a></div>
+        <div class=" col s2 m2 center-align"><a href="{% url 'SPC_main:SPC_main_page' %}">
+                <span class="menu-icon-mob icon-info tooltipped" data-position="bottom"
+                      data-tooltip="اطلاعات تیم" id="team_detail_mobile_item"></span>
+        </a></div>
+        <div class=" col s2 m2 center-align"><img src="../img/jaam.png"
+                                                  class="show-on-medium-and-down hide-on-large-only hide-on-extra-large-only responsive-img"
+                                                  style="max-width: 85%">
+        </div>
+    </div>
+    <div class="col s12 m12 l3 xl3  push-l7 push-xl7 info" style="overflow-y: auto;">
+        <div class="hide-on-med-and-down content2">
+            <br style="font-size: 1vw">
+            <div class="row">
+                <div>
+                    <img src="../img/avatar-team.png" class="team-avatar responsive-img center-block"
+                         style="width: 90%">
+                </div>
+                <div class="team-info center-align">
+                    <h3 style="direction: ltr; font-size: 3vw" id="username">
+                        Armankadeh SPC
+                    </h3>
+                    <h6 id="email" style="font-size: 1vw">
+                        Armankadeh@info.com
+                    </h6>
+                </div>
+                <span>
+            <div class="team-quote center-align">
+                <h6>
+                    didi didi
+                </h6>
+            </div>
+            </span>
+
+            </div>
+        </div>
+
+        <div class="hide-on-med-and-up show-on-medium">
+            <div class=" row col s5 m5">
+                <img src="../img/avatar-team.png" class="team-avatar responsive-img">
+            </div>
+            <div class="row col s7 m7 center-align">
+                <div>
+                    <div class="team-info">
+                        <h4 id="username-mobile">
+                            Armankadeh
+                        </h4>
+                        <h6 id="email-mobile center-align">
+                            info@armankadeh.ir
+                        </h6>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!--    Index -->
+    <div class="col s12 m12 l8 xl8  pull-l4 pull-xl4 " id="container">
+        <div class="nav-menu hide-on-med-and-down row" style="margin-bottom: unset">
+            <div class="col l8 xl8 ">
+                <div class="col s2 m2 l1 xl1">
+                    <a href="{% url 'SPC_main:logout' %}" style="color: #959595;">
+                        <span class="logout icon-logout tooltipped" data-position="bottom"
+                              data-tooltip="خروج" id="logout_item2"></span>
+                    </a>
+                </div>
+                <div class="col s2 m2 l1 xl1">
+                    <a class="edit-info waves-teal tooltipped" style="color: #959595;"
+                       onclick="location.href='/setting/'"
+                       data-position="bottom"
+                       data-tooltip="ویرایش اطلاعات">
+                        <i class="material-icons" style="font-size: 2vw; line-height: unset">build</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <ul class="collapsible" style="direction: ltr">
+            <li>
+                <div class="collapsible-header" style="direction: rtl">
+                    <i class="material-icons">supervisor_account</i>
+                    اطلاعات تیم
+                </div>
+                <div class="collapsible-body white ">
+                    <div class="row no-margins">
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <input id="first_name" type="text" class="validate">
+                            <label for="first_name">First Name</label>
+                            <span class="helper-text" data-error="{{ auth_form.username.errors.as_text }}"></span>
+                        </div>
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <input id="email_inline" type="email" class="validate">
+                            <label for="email_inline">Email</label>
+                            <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+                        </div>
+                    </div>
+                    <div class="row no-margins">
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <input id="phone-number" type="number" class="validate">
+                            <label for="phone-number">Phone number</label>
+                            <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+                        </div>
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <input id="mentor-code" type="number" class="validate">
+                            <label for="mentor-code">Mentor code</label>
+                            <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+                        </div>
+                    </div>
+                    <div class="row no-margins">
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <select>
+                                <option value="" disabled selected>Choose your University</option>
+                                <option value="1">Sharif</option>
+                                <option value="2">Tehran</option>
+                                <option value="3">Iran University Of Science & Technology</option>
+                            </select>
+                            <label>University</label>
+                        </div>
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <textarea id="textarea1" class="materialize-textarea" data-length="200"></textarea>
+                            <label for="textarea1">Bio</label>
+                        </div>
+                    </div>
+                    <div class="row no-margins">
+                        <div class="file-field input-field col s12 m12 l8 xl8 offset-l2 offset-xl2">
+                            <div class="btn">
+                                <span>Change Avatar</span>
+                                <input type="file">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">assignment_ind</i>Admin</div>
+                <div class="collapsible-body white">
+                    <div class="row no-margins">
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <input id="admin_fname" type="text" class="validate">
+                            <label for="admin_fname">First Name</label>
+                            <span class="helper-text" data-error="{{ auth_form.username.errors.as_text }}"></span>
+                        </div>
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <input id="admin_lname" type="text" class="validate">
+                            <label for="admin_lname">Last Name</label>
+                            <span class="helper-text" data-error="{{ auth_form.username.errors.as_text }}"></span>
+                        </div>
+                    </div>
+                    <div class="row no-margins">
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <input id="admin_email_inline" type="email" class="validate">
+                            <label for="admin_email_inline">Email</label>
+                            <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+                        </div>
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <select>
+                                <option value="" disabled selected>Choose your Grade</option>
+                                <option value="1">Ph.D</option>
+                                <option value="2">Master</option>
+                                <option value="3">Under Graduate</option>
+                            </select>
+                            <label>Grade</label>
+                        </div>
+                    </div>
+                    <div class="row no-margins">
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <input id="entrance-year" type="number" class="validate">
+                            <label for="entrance-year">Entrance year</label>
+                            <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+                        </div>
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <select>
+                                <option value="" disabled selected>Choose your University</option>
+                                <option value="1">Sharif</option>
+                                <option value="2">Tehran</option>
+                                <option value="3">Iran University Of Science & Technology</option>
+                            </select>
+                            <label>University</label>
+                        </div>
+
+                    </div>
+                    <div class="row no-margins">
+                        <div class="input-field col s12 ">
+                            <textarea id="admin-skills" class="materialize-textarea" data-length="200"></textarea>
+                            <label for="admin-skills">Skills</label>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="material-icons">account_circle</i>Admin</div>
+                <div class="collapsible-body white">
+                    <div class="row no-margins">
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <input id="user_fname" type="text" class="validate">
+                            <label for="user_fname">First Name</label>
+                            <span class="helper-text" data-error="{{ auth_form.username.errors.as_text }}"></span>
+                        </div>
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <input id="user_lname" type="text" class="validate">
+                            <label for="user_lname">Last Name</label>
+                            <span class="helper-text" data-error="{{ auth_form.username.errors.as_text }}"></span>
+                        </div>
+                    </div>
+                    <div class="row no-margins">
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <input id="user_email_inline" type="email" class="validate">
+                            <label for="user_email_inline">Email</label>
+                            <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+                        </div>
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <select>
+                                <option value="" disabled selected>Choose your Grade</option>
+                                <option value="1">Ph.D</option>
+                                <option value="2">Master</option>
+                                <option value="3">Under Graduate</option>
+                            </select>
+                            <label>Grade</label>
+                        </div>
+                    </div>
+                    <div class="row no-margins">
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <input id="user_entrance-year" type="number" class="validate">
+                            <label for="user_entrance-year">Entrance year</label>
+                            <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+                        </div>
+                        <div class="input-field col s12 m12 l6 xl6">
+                            <select>
+                                <option value="" disabled selected>Choose your University</option>
+                                <option value="1">Sharif</option>
+                                <option value="2">Tehran</option>
+                                <option value="3">Iran University Of Science & Technology</option>
+                            </select>
+                            <label>University</label>
+                        </div>
+
+                    </div>
+                    <div class="row no-margins">
+                        <div class="input-field col s12 ">
+                            <textarea id="user-skills" class="materialize-textarea" data-length="200"></textarea>
+                            <label for="admin-skills">Skills</label>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+
+    </div>
+</div>
+
+<script type="text/javascript" src="js/materialize.js"></script>
+<script src="../js/jquery-3.1.1.min.js"></script>
+<script>
+
+
+    M.AutoInit();
+    $(document).ready(function () {
+        $('.collapsible').collapsible();
+        $('textarea#textarea1').characterCounter();
+    });
+</script>
+</body>
+</html>

@@ -78,6 +78,7 @@ def get_data(request):
             key_object.last_connection -= timezone.timedelta(hours=2)
             key_object.save()
             return JsonResponse({"id": 7, "msg": "The End!"})
+
         count = count if last_data_id + 10 > count else last_data_id + 10
         dataset = DatasetCup.objects.filter(cup=key_object.cup, id__range=[last_data_id + 1, count])
         result = []

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+{% extends 'base_2_1/base.html' %}
+{% block title %}
+    {{ user.username }} | پنل مدیریت تیم
+{% endblock %}
+{% block head %}
+    {% load static %}
+    <link type="text/css" rel="stylesheet" href='{% static "New_UI_V2/css/index_style.css" %}'>
+{% endblock %}
+{% block content %}
+    <!-- content-->
+    <div class="col content s12 m12 l8 xl8 pull-l4 pull-xl4 full-height ">
+        <div class="hide-on-med-and-down">
+            <div class="row">
+                <div class="col l4 xl4">
+                    <div class="card white small">
+                        <div class="card-content blue-grey-text">
+                            <span class="card-title center">
+                                <h1 class="no-margins team-class">
+                                    B
+                                </h1>
+                            </span>
+                            <div class="puan">
+                                <h5 class="grey-text text-darken-1 no-margins puan-card-element">دقت تیم</h5>
+                                <h6 class="grey-text puan-card-element">10%</h6>
+                            </div>
+                            <div class="progress no-margins small progress-bar-style">
+                                <div class="determinate" style="width: 10%;background-color: #3a6073;"></div>
+                            </div>
+
+                        </div>
+                        <div class="card-action center">
+                            <button type="button" class="btn waves-effect new-code js-upload-photos modal-trigger">
+                                بارگذاری کد
+                            </button>
+                            <input id="fileupload" type="file" name="code"
+                                   style="display: none;"
+                                   data-url="{% url 'online_match:file_upload_ajax' %}"
+                                   data-form-data='{"csrfmiddlewaretoken": "{{ csrf_token }}"}'>
+                        </div>
+                    </div>
+                </div>
+                <div class="col l4 xl4">
+                    <div class="card small ">
+                        <div class="card-image waves-effect waves-block waves-light pattern-back-new">
+                        </div>
+                        <div class="card-content">
+                            <div class="btn-floating halfway-fab waves-effect waves-light yellow darken-2 card-icon-position ">
+                                <i class="material-icons">star</i>
+                            </div>
+                            <span class="card-title activator grey-text text-darken-4" style="direction: rtl">
+                            {{ members.0.get_fname_lname }}
+                        <i class="material-icons right">more_vert</i>
+                        </span>
+                        </div>
+                        <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">{{ members.0.get_fname_lname }}<i
+                                class="material-icons right">close</i></span>
+                            <p>{{ members.0.skills }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col l4 xl4">
+
+                    {% if members.1 %}
+                        <div class="card small">
+                            <div class="card-image waves-effect waves-block waves-light pattern-back-new">
+                            </div>
+                            <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">{{ members.1.get_fname_lname }}
+                            <i class="material-icons right">more_vert</i>
+                        </span>
+                            </div>
+                            <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">{{ members.1.get_fname_lname }}
+                            <i class="material-icons right">close</i>
+                        </span>
+                                <p>{{ members.1.skills }}</p>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="card small">
+                            <div class="card-image waves-effect waves-block waves-light pattern-back-new">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title ">عضو جدید</span>
+                                <a href="{% url 'setting:setting' 2 %}"
+                                   class="btn-floating halfway-fab waves-effect waves-light red card-icon-position">
+                                    <i class="material-icons">add</i>
+                                </a>
+                                <p>
+                                    افزودن عضو جدید به تیم
+                                </p>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col l11 lx11" style="margin-left: 4.16%">
+                    <div class="card white small" style="height: fit-content">
+                        <div class="card-content blue-grey-text text-darken-1" style="height: fit-content">
+                            <span class="card-title" style="font-size: 160%">
+                                <i class="material-icons">info</i>
+                                راهنمایی و توضیحات
+                            </span>
+                            <ul>
+                                <li class="li-help-modal row">
+                                    <h5>راهنمای مسابقات</h5>
+                                    <br>
+                                    {#                                    <div class="col s1"></div>#}
+                                    <div class="col s3">
+                                        <a href="{% static 'download/iac.pdf' %}" download>
+                                            <div class="btn waves-effect " style="font-size: 90%">
+                                                 دانلود فایل
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col s8">
+                                        <h6>فایل راهنما و نحوه داوری مسابقات</h6>
+                                    </div>
+                                    <div class="col s1"></div>
+                                </li>
+                                <li class="divider"></li>
+                                <li class="li-help-modal row">
+                                    <h5>دادگان آموزشی</h5>
+                                    <br>
+                                    {% for dataset in datasets %}
+                                        <div class="row">
+                                            <div class="col s3">
+                                                <a href="{{ dataset.file.url }}" download>
+                                                    <div class="btn waves-effect " style="font-size: 90%">
+                                                        دانلود فایل
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="col s8">
+                                                <h6>{{ dataset.description }}</h6>
+                                            </div>
+                                            <div class="col s1"></div>
+                                        </div>
+                                    {% endfor %}
+
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hide-on-large-only hide-on-extra-large-only hide-on-small-only">
+            <div class="row">
+                <div class="col m6">
+                    <div class="card white small">
+                        <div class="card-content blue-grey-text">
+                            <span class="card-title center"><h1 class="no-margins team-class">B</h1></span>
+                            <div class="puan">
+                                <h5 class="grey-text text-darken-1 no-margins puan-card-element">دقت تیم</h5>
+                                <h6 class="grey-text puan-card-element">10%</h6>
+                            </div>
+                            <div class="progress no-margins small progress-bar-style">
+                                <div class="determinate" style="width: 10%;background-color: #3a6073;"></div>
+                            </div>
+
+                        </div>
+                        <div class="card-action center">
+                            <button type="button" class="btn waves-effect new-code js-upload-photos modal-trigger">
+                                بارگذاری کد
+                            </button>
+                            <input id="fileupload" type="file" name="code"
+                                   style="display: none;"
+                                   data-url="{% url 'online_match:file_upload_ajax' %}"
+                                   data-form-data='{"csrfmiddlewaretoken": "{{ csrf_token }}"}'>
+                        </div>
+                    </div>
+                </div>
+                <div class="col m6">
+                    <div class="card white small">
+                        <div class="card-content blue-grey-text text-darken-1">
+                            <span class="card-title" style="font-size: 160%">
+                                <i class="material-icons">info</i>
+                                راهنمایی و توضیحات
+                            </span>
+                            <p class="help-card-footer">دانلود راهنمای مسابقات و فایل‌های مورد نیاز </p>
+                        </div>
+                        <div class="card-action center">
+                            <a class="waves-effect waves-light btn modal-trigger" href="#help-modal">دانلود</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col m6">
+                    <div class="card small ">
+                        <div class="card-image waves-effect waves-block waves-light pattern-back-new">
+                        </div>
+                        <div class="card-content">
+                            <div class="btn-floating halfway-fab waves-effect waves-light yellow darken-2 card-icon-position ">
+                                <i class="material-icons">star</i>
+                            </div>
+                            <span class="card-title activator grey-text text-darken-4" style="direction: rtl">
+                            {{ members.0.get_fname_lname }}
+                        <i class="material-icons right">more_vert</i>
+                        </span>
+                        </div>
+                        <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">{{ members.0.get_fname_lname }}<i
+                                class="material-icons right">close</i></span>
+                            <p>{{ members.0.skills }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col m6">
+
+                    {% if members.1 %}
+                        <div class="card small">
+                            <div class="card-image waves-effect waves-block waves-light pattern-back-new">
+                            </div>
+                            <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">{{ members.1.get_fname_lname }}
+                            <i class="material-icons right">more_vert</i>
+                        </span>
+                            </div>
+                            <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">{{ members.1.get_fname_lname }}
+                            <i class="material-icons right">close</i>
+                        </span>
+                                <p>{{ members.1.skills }}</p>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="card small">
+                            <div class="card-image waves-effect waves-block waves-light pattern-back-new">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title ">عضو جدید</span>
+                                <a href="{% url 'setting:setting' 2 %}"
+                                   class="btn-floating halfway-fab waves-effect waves-light red card-icon-position">
+                                    <i class="material-icons">add</i>
+                                </a>
+                                <p>
+                                    افزودن عضو جدید به تیم
+                                </p>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="hide-on-med-and-up  ">
+            <div class="col s12">
+                <div class="card white small">
+                    <div class="card-content blue-grey-text">
+                        <span class="card-title center"><h1 class="no-margins team-class">B</h1></span>
+                        <div class="puan">
+                            <h5 class="grey-text text-darken-1 no-margins puan-card-element">دقت تیم</h5>
+                            <h6 class="grey-text puan-card-element">10%</h6>
+                        </div>
+                        <div class="progress no-margins small progress-bar-style">
+                            <div class="determinate" style="width: 70%;background-color: #3a6073;"></div>
+                        </div>
+
+                    </div>
+                    <div class="card-action center">
+                        <button type="button" class="btn waves-effect new-code js-upload-photos modal-trigger">
+                            بارگذاری کد
+                        </button>
+                        <input id="fileupload" type="file" name="code"
+                               style="display: none;"
+                               data-url="{% url 'online_match:file_upload_ajax' %}"
+                               data-form-data='{"csrfmiddlewaretoken": "{{ csrf_token }}"}'>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12">
+                <div class="card white small">
+                    <div class="card-content blue-grey-text text-darken-1">
+                            <span class="card-title" style="font-size: 200%">
+                                <i class="material-icons">info</i>
+                                راهنمایی و توضیحات
+                            </span>
+                        <p class="help-card-footer" style="font-size: 150%;">دانلود راهنمای مسابقات و فایل‌های مورد
+                            نیاز </p>
+                    </div>
+                    <div class="card-action center">
+                        <a class="waves-effect waves-light btn modal-trigger" href="#help-modal">دانلود</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12">
+                <div class="card small ">
+                    <div class="card-image waves-effect waves-block waves-light pattern-back-new">
+                    </div>
+                    <div class="card-content">
+                        <div class="btn-floating halfway-fab waves-effect waves-light yellow darken-2 card-icon-position ">
+                            <i class="material-icons">star</i>
+                        </div>
+                        <span class="card-title activator grey-text text-darken-4" style="direction: rtl">
+                            {{ members.0.get_fname_lname }}
+                        <i class="material-icons right">more_vert</i>
+                        </span>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">{{ members.0.get_fname_lname }}<i
+                                class="material-icons right">close</i></span>
+                        <p>{{ members.0.skills }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12">
+                {% if members.1 %}
+                    <div class="card small">
+                        <div class="card-image waves-effect waves-block waves-light pattern-back-new">
+                        </div>
+                        <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">{{ members.1.get_fname_lname }}
+                            <i class="material-icons right">more_vert</i>
+                        </span>
+                        </div>
+                        <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">{{ members.1.get_fname_lname }}
+                            <i class="material-icons right">close</i>
+                        </span>
+                            <p>{{ members.1.skills }}</p>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="card small">
+                        <div class="card-image waves-effect waves-block waves-light pattern-back-new">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title ">عضو جدید</span>
+                            <a href="{% url 'setting:setting' 2 %}"
+                               class="btn-floating halfway-fab waves-effect waves-light red card-icon-position">
+                                <i class="material-icons">add</i>
+                            </a>
+                            <p>
+                                افزودن عضو جدید به تیم
+                            </p>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <!-- -->
+    <div id="help-modal" class="modal">
+        <div class="modal-content">
+            <h4>فایل‌های راهنما و توضیحات</h4>
+            <ul style="font-size: 120%">
+                <li class="li-help-modal row">
+                    <h5>راهنمای مسابقات</h5>
+                    <br>
+                    <div class="col s1"></div>
+                    <div class="col s3">
+                        <a href="{% static 'download/iac.pdf' %}" download>
+                            <div class="btn waves-effect " style="font-size: 70%">
+                                دانلود فایل
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col s7">
+                        فایل راهنما و نحوه داوری مسابقات
+                    </div>
+                    <div class="col s1"></div>
+                </li>
+                <li class="divider"></li>
+                <li class="li-help-modal row">
+                    <h5>دادگان آموزشی</h5>
+                    <br>
+                    {% for dataset in datasets %}
+                        <div class="row">
+                            <div class="col s1"></div>
+                            <div class="col s3">
+                                <a href="{{ dataset.file.url }}" download>
+                                    <div class="btn waves-effect " style="font-size: 70%">
+                                        دانلود فایل
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col s7">
+                                {{ dataset.description }}
+                            </div>
+                            <div class="col s1"></div>
+                        </div>
+                    {% endfor %}
+
+                </li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">بستن</a>
+        </div>
+    </div>
+    <!-- -->
+    <!-- upload modal -->
+    <div id="modal1" class="modal bottom-sheet">
+        <div class="modal-content">
+            <h4>بارگذاری</h4>
+            <br>
+            <div class="progress">
+                <div class="determinate" id="upload-progress-bar" style="width: 70%;background-color:#3A6073 "></div>
+            </div>
+            <p class="center green-text text-darken-4" id="upload-message" hidden>بارگذاری با
+                موفقیت
+                انجام شد</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat" style="color:#3A6073">بستن</a>
+        </div>
+    </div>
+    <!-- -->
+{% endblock %}
+{% block script %}
+    <!-- upload -->
+    <script src="{% static 'js/jQuery-File-Upload-9.14.1/js/vendor/jquery.ui.widget.js' %}"></script>
+    <script src="{% static 'js/jQuery-File-Upload-9.14.1/js/jquery.iframe-transport.js' %}"></script>
+    <script src="{% static 'js/jQuery-File-Upload-9.14.1/js/jquery.fileupload.js' %}"></script>
+    <script src="{% static 'js/photo_upload.js' %}"></script>
+    <script>
+        M.AutoInit();
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.dropdown-trigger');
+            var instances = M.Dropdown.init(elems, {alignment: "right"});
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.modal');
+            var instances = M.Modal.init(elems, {});
+        });
+    </script>
+{% endblock %}

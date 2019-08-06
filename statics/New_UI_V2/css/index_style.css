@@ -1,0 +1,69 @@
+.puan {
+    text-align: center;
+    color: #4D5675;
+
+}
+.team-class {
+    font-size: 250%;
+}
+
+@media only screen and (max-width: 600px) {
+    .puan-card-element {
+        margin-bottom: 6%;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 992px) {
+    .puan-card-element {
+        margin-bottom: 8%;
+    }
+}
+
+@media only screen and (min-width: 993px) {
+    .puan-card-element {
+        margin-bottom: 15%;
+    }
+}
+
+.pattern-back-new {
+    background-image: url("../../img/bright-squares.png");
+    background-repeat: repeat;
+    height: inherit;
+    background-color: #3a6073;
+}
+
+.card-icon-position {
+    right: 12px !important;
+    top: 160px;
+}
+
+.card-indicators-position {
+    right: -50px !important;
+}
+
+.carousel .indicators .indicator-item {
+    background-color: #37474f !important;
+}
+
+.carousel .indicators .indicator-item.active {
+    background-color: #90a4ae !important;
+}
+
+.help-carousal-card-item {
+    height: 300px !important;
+    min-height: unset !important;
+}
+
+.help-carousel-card-footer {
+    text-align: center;
+    margin-bottom: 15%;
+}
+
+.help-card-footer {
+    text-align: center;
+    margin-top: 25% !important;
+}
+
+.li-help-modal {
+    margin: 2%;
+}

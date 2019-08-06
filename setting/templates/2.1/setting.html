@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+{% extends 'base_2_1/base.html' %}
+{% block title %}
+    {{ user.username }} | ویرایش اطلاعات
+{% endblock %}
+{% block head %}
+    {% load widget_tweaks %}
+    {% load static %}
+{% endblock %}
+{% block content %}
+    <div class="col s12 m12 l8 xl8  pull-l4 pull-xl4 content full-height" id="container">
+        <form action="{% url 'setting:setting' 0 %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ user_form.non_field_errors }}
+            {{ auth_form.non_field_errors }}
+            {{ team_form.non_field_errors }}
+            <ul class="collapsible" id="setting_collapsible" style="direction: ltr;margin-top: 6%">
+                <li name="collapsible_li">
+                    <div class="collapsible-header" style="direction: rtl">
+                        <i class="material-icons">supervisor_account</i>
+                        اطلاعات تیم
+                    </div>
+                    <div class="collapsible-body white ">
+                        <div class="row no-margins">
+                            <div class="input-field col s12 m12 l6 xl6">
+                                {% render_field auth_form.username %}
+                                <label for="id_username">{{ auth_form.username.label }}</label>
+                                <span class="helper-text" data-error="{{ auth_form.username.errors.as_text }}"></span>
+                            </div>
+                            <div class="input-field col s12 m12 l6 xl6">
+                                {% render_field auth_form.email %}
+                                <label for="id_email">{{ auth_form.email.label }}</label>
+                                <span class="helper-text" data-error="{{ auth_form.email.errors.as_text }}"></span>
+                            </div>
+                        </div>
+                        <div class="row no-margins">
+                            <div class="input-field col s12 m12 l6 xl6">
+                                {% render_field team_form.phone_number %}
+                                <label for="id_phone_number">{{ team_form.phone_number.label }}</label>
+                                <span class="helper-text"
+                                      data-error="{{ team_form.phone_number.errors.as_text }}"></span>
+                            </div>
+                            <div class="input-field col s12 m12 l6 xl6">
+                                {% render_field team_form.mentor %}
+                                <label for="id_mentor">{{ team_form.mentor.label }}</label>
+                                <span class="helper-text" data-error="{{ team_form.mentor.errors.as_text }}"></span>
+                            </div>
+                        </div>
+                        <div class="row no-margins">
+                            <div class="input-field col s12 m12 l6 xl6">
+                                {% render_field team_form.university name="team_university" %}
+                                <label for="team_university">{{ team_form.university.label }}</label>
+                                <span class="helper-text" data-error="{{ team_form.university.errors.as_text }}"></span>
+                            </div>
+                            <div class="input-field col s12 m12 l6 xl6">
+                                {% render_field team_form.team_bio name='team-bio' class+="materialize-textarea" %}
+                                <label for="id_team_bio">{{ team_form.team_bio.label }}</label>
+                                <span class="helper-text" data-error="{{ team_form.team_bio.errors.as_text }}"></span>
+                            </div>
+                        </div>
+                        <div class="row no-margins">
+                            <label class="btn waves-effect waves-light col s12 m12 l6 xl6 offset-l3 offset-xl3">
+                                <i class="material-icons right">photo</i>
+                                تغییر آواتار
+                                {% render_field team_form.logo_image style="display:none" %}
+                            </label>
+                        </div>
+                    </div>
+                </li>
+                {{ user_form.management_form }}
+                {% for form in user_form %}
+                    {{ form.id }}
+                    <li name="collapsible_li">
+                        {% if forloop.counter == 1 %}
+                            <div class="collapsible-header" style="direction: rtl">
+                                <i class="material-icons">assignment_ind</i>
+                                مشخصات ادمین
+                            </div>
+                        {% else %}
+                            <div class="collapsible-header" style="direction: rtl"><i
+                                    class="material-icons">account_circle</i>
+                                {% if forloop.counter == 2 %}
+                                    مشخصات عضو دوم
+                                {% elif forloop.counter == 3 %}
+                                    مشخصات عضو سوم
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                        <div class="collapsible-body white">
+                            <div class="row no-margins">
+                                <div class="input-field col s12 m12 l6 xl6">
+                                    {% render_field form.user_fname %}
+                                    <label>{{ form.user_fname.label }}</label>
+                                    <span class="helper-text"
+                                          data-error="{{ form.user_fname.errors.as_text }}"></span>
+                                </div>
+                                <div class="input-field col s12 m12 l6 xl6">
+                                    {{ form.user_lname }}
+                                    <label>{{ form.user_lname.label }}</label>
+                                    <span class="helper-text"
+                                          data-error="{{ form.user_lname.errors.as_text }}"></span>
+                                </div>
+                            </div>
+                            <div class="row no-margins">
+                                <div class="input-field col s12 m12 l6 xl6">
+                                    {{ form.email }}
+                                    <label>{{ form.email.label }}</label>
+                                    <span class="helper-text" data-error="{{ form.email.errors.as_text }}"></span>
+                                </div>
+                                <div class="input-field col s12 m12 l6 xl6">
+                                    {{ form.grade }}
+                                    <label>{{ form.grade.label }}</label>
+                                </div>
+                            </div>
+                            <div class="row no-margins">
+                                <div class="input-field col s12 m12 l6 xl6">
+                                    {{ form.entrance_year }}
+                                    <label>{{ form.entrance_year.label }}</label>
+                                    <span class="helper-text"
+                                          data-error="{{ form.entrance_year.errors.as_text }}"></span>
+                                </div>
+                                <div class="input-field col s12 m12 l6 xl6">
+                                    {{ form.university }}
+                                    <label>{{ form.university.label }}</label>
+                                </div>
+
+                            </div>
+                            <div class="row no-margins">
+                                <div class="input-field col s12 ">
+                                    {% render_field form.skills class+="materialize-textarea" %}
+                                    <label>{{ form.skills.label }}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+            <br><br><br>
+            <button type="submit" class="col s12 m8 offset-m2 btn ">
+                ذخیره تغییرات
+            </button>
+            <!-- Modal Body -->
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <h4>توجه</h4>
+                    {% if login_team.competition.competitiom_level < 3 %}
+                        <p>تعداد اعضای شرکت کننده در مسابقات اشاره گرهای هوشمند حداقل ۲ و حداکثر ۳ نفر است</p>
+                    {% else %}
+                        <p>تعداد اعضای شرکت کننده در مسابقات اشاره گرهای هوشمند حداقل ۱ و حداکثر ۲ نفر است</p>
+                    {% endif %}
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat left ">متوجه شدم</a>
+                </div>
+            </div>
+        </form>
+        <script>
+            document.getElementsByName("collapsible_li")[{{ active_member }}].classList.add("active");
+        </script>
+    </div>
+{% endblock %}
+{% block script %}
+
+    <script>
+        M.AutoInit();
+        $(document).ready(function () {
+            $('.collapsible').collapsible();
+            $('textarea#textarea1').characterCounter();
+        });
+        {% if test %}
+            let instance = M.Modal.getInstance(document.getElementById("modal1"));
+            console.log(instance);
+            instance.open();
+        {% endif %}
+    </script>
+{% endblock %}

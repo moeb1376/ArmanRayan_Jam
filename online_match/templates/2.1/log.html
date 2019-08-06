@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% extends 'base_2_1/base.html' %}
+{% block title %}
+    {{ user.username }} | نتایج
+{% endblock %}
+{% block content %}
+    <div class="col content full-height s12 m12 l8 xl8  pull-l4 pull-xl4 " id="container">
+        <div class="section center">
+            <h4>تاریخچه نتایج بازی‌ها</h4>
+            <div class="row">
+                <div class="col s12 m12 l10 xl10 offset-l1 offset-xl1">
+                    <table class="centered highlight">
+                        <thead>
+                        <tr>
+                            <th>تیم حریف</th>
+                            <th>تاریخ</th>
+                            <th>نتیجه</th>
+                            <th>لاگ بازی</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for match in log_home %}
+                            <tr>
+                                <td>
+                                    {{ match.team1.user_team.username }}&nbsp;
+                                </td>
+                                <td>{{ match.date }}</td>
+                                {% if match.winner == 1 %}
+                                    <td>{{ user.username }}</td>
+                                {% elif match.winner == 2 %}
+                                    <td>{{ match.team1.user_team.username }}</td>
+                                {% else %}
+                                    <td>تساوی</td>
+
+                                {% endif %}
+                                {% if not match.is_running %}
+                                    {% if match.log_file %}
+                                        <td>
+                                            <a href="{{ match.log_file }}" download>
+                                                <i class="material-icons" style="color: #3A6073">file_download</i>
+                                            </a>
+                                        </td>
+                                    {% else %}
+                                        <td></td>
+                                    {% endif %}
+
+                                {% else %}
+                                    <td><h5>در حال اجرا</h5></td>
+                                {% endif %}
+                            </tr>
+                        {% endfor %}
+                        {% for match in log_away %}
+                            <tr>
+                                <td>
+                                    {{ match.team2.user_team.username }}&nbsp;
+                                </td>
+                                <td>{{ match.date }}</td>
+                                {% if match.winner == 2 %}
+                                    <td>{{ user.username }}</td>
+                                {% elif match.winner == 1 %}
+                                    <td>{{ match.team2.user_team.username }}</td>
+                                {% else %}
+                                    <td>تساوی</td>
+
+                                {% endif %}
+                                {% if not match.is_running %}
+                                    {% if match.log_file %}
+                                        <td>
+                                            <a href="{{ match.log_file }}" download>
+                                                <i class="material-icons" style="color: #3A6073;">file_download</i>
+                                            </a>
+                                        </td>
+                                    {% else %}
+                                        <td></td>
+                                    {% endif %}
+                                {% else %}
+                                    <td><h5>در حال اجرا</h5></td>
+                                {% endif %}
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}

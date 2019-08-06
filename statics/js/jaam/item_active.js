@@ -1,21 +1,36 @@
 $(document).ready(function () {
     let path = document.location.pathname;
-    if (path.match("jaam/$") ) {
+    let mobile_item
+    console.log(path.match("jaam/$"));
+    if (path.match("jaam/$")) {
         $("#team_detail_item").addClass("icon-active");
-        $("#team_detail_mobile_item").addClass("icon-active");
+        mobile_item = $("#team_detail_mobile_item");
+        mobile_item.addClass("icon-active");
+        mobile_item.parent("a").addClass("sidenav_field_active");
     } else if (path.match("jaam_tables/$")) {
         $("#table_jaam_item").addClass("icon-active");
-        $("#table_jaam_mobile_item").addClass("icon-active");
+        mobile_item = $("#table_jaam_mobile_item");
+        mobile_item.addClass("icon-active");
+        mobile_item.parent("a").addClass("sidenav_field_active");
     } else if (path.match("table/$")) {
         $("#cup_item").addClass("icon-active");
-        $("#cup_mobile_item").addClass("icon-active");
+        mobile_item = $("#cup_mobile_item");
+        mobile_item.addClass("icon-active");
+        mobile_item.parent("a").addClass("sidenav_field_active")
     } else if (path.match("play/$")) {
         $("#friendly_item").addClass("icon-active");
-        $("#friendly_mobile_item").addClass("icon-active");
+        mobile_item = $("#friendly_mobile_item");
+        mobile_item.addClass("icon-active");
+        mobile_item.parent("a").addClass("sidenav_field_active")
     } else if (path.match("log/$")) {
         $("#log_item").addClass("icon-active");
-        $("#log_mobile_item").addClass("icon-active");
-    } else if (path.match("setting/$")) {
-        $("#setting_item").addClass("icon-active");
+        mobile_item = $("#log_mobile_item");
+        mobile_item.addClass("icon-active");
+        mobile_item.parent("a").addClass("sidenav_field_active")
+    } else if (path.match("setting[0-9]/$")) {
+        $("#team_setting_item").addClass("icon-active");
+        mobile_item =$("#team_setting_mobile_item");
+        mobile_item.addClass("icon-active");
+        mobile_item.parent("a").addClass("sidenav_field_active")
     }
 });

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<div class="hide-on-med-and-down col l3 xl3 content2 push-l7 push-xl7 info full-height">
+
+    <div class="hide-on-med-and-down top-margin-main">
+
+        <div class="row">
+            <div>
+                <img src="{{ login_team.logo_image.url }}" class="team-avatar responsive-img center-block"
+                     style="width: 75%">
+            </div>
+            <div class="team-info center-align">
+                <h3 style="direction: ltr; font-size: 3vw" id="username">
+                    {{ user.username }}
+                </h3>
+            </div>
+
+            <div class=" center-align">
+                <h6>
+                    {{ login_team.team_bio|truncatewords:30 }}
+                </h6>
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <div class="hide-on-med-and-up show-on-medium">
+        <div class=" row col s5 m5">
+            <img src="{{ login_team.logo_image.url }}" class="team-avatar responsive-img">
+        </div>
+        <div class="row col s7 m7 center-align">
+            <div>
+                <div class="team-info">
+                    <h4 id="username-mobile">
+                        {{ user.username }}
+                    </h4>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

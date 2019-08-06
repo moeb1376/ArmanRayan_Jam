@@ -6,6 +6,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import redirect
 from register.models import Team
 from .models import Cup
+from online_match.models import Dataset
 
 
 @login_required(login_url='/login', redirect_field_name='')
@@ -49,10 +50,12 @@ def SPC_main_page(request):
     }
     if team.competition.competition_level < 3:
         print('jaam2')
-        template = loader.get_template('index.html')
+        template = loader.get_template('2.1/index_spc.html')
     else:
         print('jaamiac')
-        template = loader.get_template('index_IAC.html')
+        datasets = Dataset.objects.filter(competition=team.competition)
+        context['datasets'] = datasets
+        template = loader.get_template('2.1/index_IAC.html')
     return HttpResponse(template.render(context, request))
 
 
@@ -132,11 +135,11 @@ def jaam_table_view(request):
     login_team = request.user.Teams.all()[0]
     teams = dict()
     temp = Team.objects.filter(competition=1).all()
-    teams['SPC'] = sorted(temp, key=lambda x: x.get_points())
+    teams['SPC'] = sorted(temp, key=lambda x: x.get_points(), reverse=True)
     teams['picture'] = Team.objects.filter(competition__competition_level=5).order_by('accuracy')
     teams['sound'] = Team.objects.filter(competition__competition_level=4).order_by('accuracy')
     teams['text'] = Team.objects.filter(competition__competition_level=3).order_by('accuracy')
-    template = loader.get_template('jaam_tables.html')
+    template = loader.get_template('2.1/jaam_tables.html')
     context = {
         'teams': teams,
         'login_team': login_team

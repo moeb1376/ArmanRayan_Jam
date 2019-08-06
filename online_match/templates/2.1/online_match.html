@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+{% extends 'base_2_1/base.html' %}
+{% block title %}
+    {{ user.username }} | بازی دوستانه
+{% endblock %}
+{% block head %}
+    {% load static %}
+    {#    <link type="text/css" rel="stylesheet" href='{% static "New_UI_V2/css/index_style.css" %}'>#}
+{% endblock %}
+{% block content %}
+
+    <div class="col content full-height s12 m12 l8 xl8  pull-l4 pull-xl4 " id="container">
+        <div class="hide-on-med-and-down" style="margin-top: 6%">
+            <div class="row no-margins">
+                <div class="col l6 xl6 center">
+                    <div class="row">
+                        <div class="col l1 xl1"></div>
+                        <div class="col l10 xl10">
+                            <div class="card white small">
+                                <div class="card-content blue-grey-text text-darken-1">
+                                    <div class="card-title">
+                                        <img class="circle responsive-img " src="{{ login_team.logo_image.url }}"
+                                             style="max-height: 100px">
+                                    </div>
+                                    <div class="center-align">
+                                        <h4>{{ user.username }}</h4>
+                                        <h5>{{ login_team.university.university_name }}</h5>
+                                        <h6>A</h6>
+                                    </div>
+                                    <div class="progress small progress-bar-style">
+                                        <div class="determinate" style="width: 70%;background-color: #3A6073;"></div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="input-field center" style="direction: ltr">
+                                <select class="white">
+                                    <option class="center" value="" disabled selected>انتخاب کد</option>
+                                    {% for code in codes %}
+                                        <option value="{{ forloop.counter }}">{{ code }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col l1 xl1"></div>
+                    </div>
+
+                </div>
+                <div class="col l6 xl6 center">
+                    <div class="row">
+                        <div class="col l1 xl1"></div>
+                        <div class="col l10 xl10">
+                            <div class="card white small">
+                                <div class="card-content blue-grey-text text-darken-1">
+                                    <div class="card-title">
+                                        <img name="team2-img" class="circle responsive-img "
+                                             src='{% static "/img/unknown.jpg" %}'
+                                             style="max-height: 100px">
+                                    </div>
+                                    <div class="center-align">
+                                        <h4 name="team2-name">تیم تصادفی</h4>
+                                        <h5 name="team2-university"></h5>
+                                        <h6 name="team2-grade"></h6>
+                                    </div>
+                                    <div class="progress small" style="display: none">
+                                        <div class="determinate" style="width: 70%"></div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="input-field" style="direction: ltr">
+                                <select name="second-team">
+                                    <option value="" disabled selected>انتخاب حریف</option>
+                                    <option value="1">حریف تصادفی</option>
+                                    <option value="2">هوش آرمانکده/آسان</option>
+                                    <option value="3">هوش آرمانکده/متوسط</option>
+                                    <option value="4">هوش آرمانکده/سخت</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col l1 xl1"></div>
+                    </div>
+
+                </div>
+                <!--                <div class="col l2 xl2"></div>-->
+
+                <!--                <div class="col l1 xl1"></div>-->
+            </div>
+            <div class="row center ">
+                <div class="btn waves-effect waves-light " style="width: 20%">شروع</div>
+            </div>
+        </div>
+        <div class="hide-on-large-only hide-on-extra-large-only hide-on-small-only">
+            <div class="row no-margins">
+                <div class="col m6 center">
+                    <div class="card white small">
+                        <div class="card-content blue-grey-text text-darken-1">
+                            <div class="card-title">
+                                <img class="circle responsive-img " src="{{ login_team.logo_image.url }}"
+                                     style="max-height: 100px">
+                            </div>
+                            <div class="center-align">
+                                <h4>{{ user.username }}</h4>
+                                <h5>{{ login_team.university.university_name }}</h5>
+                                <h6>A</h6>
+                            </div>
+                            <div class="progress small progress-bar-style">
+                                <div class="determinate" style="width: 70%;background-color: #3A6073"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="input-field center" style="direction: ltr">
+                        <select class="white">
+                            <option class="center" value="" disabled selected>انتخاب کد</option>
+                            {% for code in codes %}
+                                <option value="{{ forloop.counter }}">{{ code }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="col m6 center">
+                    <div class="card white small">
+                        <div class="card-content blue-grey-text text-darken-1">
+                            <div class="card-title">
+                                <img name="team2-img" class="circle responsive-img "
+                                     src='{% static "/img/unknown.jpg" %}'
+                                     style="max-height: 100px">
+                            </div>
+                            <div class="center-align">
+                                <h4 name="team2-name">تیم تصادفی</h4>
+                                <h5 name="team2-university"></h5>
+                                <h6 name="team2-grade"></h6>
+                            </div>
+                            <div class="progress small progress-bar-style" style="display: none">
+                                <div class="determinate" style="width: 70%;background-color: #3A6073"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="input-field" style="direction: ltr">
+                        <select name="second-team">
+                            <option value="" disabled selected>انتخاب حریف</option>
+                            <option value="1">حریف تصادفی</option>
+                            <option value="2">هوش آرمانکده/آسان</option>
+                            <option value="3">هوش آرمانکده/متوسط</option>
+                            <option value="4">هوش آرمانکده/سخت</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row center">
+                <div class="btn waves-effect waves-light " style="width: 20%">شروع</div>
+            </div>
+        </div>
+        <div class="hide-on-med-and-up  ">
+            <div class="col s12 center">
+                <div class="card white small">
+                    <div class="card-content blue-grey-text text-darken-1">
+                        <div class="card-title">
+                            <img class="circle responsive-img " src="{{ login_team.logo_image.url }}"
+                                 style="max-height: 100px">
+                        </div>
+                        <div class="center-align">
+                            <h4>{{ user.username }}</h4>
+                            <h5>{{ login_team.university.university_name }}</h5>
+                            <h6>A</h6>
+                        </div>
+                        <div class="progress small progress-bar-style">
+                            <div class="determinate" style="width: 70%;background-color: #3A6073"></div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="input-field center" style="direction: ltr">
+                    <select class="white">
+                        <option class="center" value="" disabled selected>انتخاب کد</option>
+                        {% for code in codes %}
+                            <option value="{{ forloop.counter }}">{{ code }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="col s12 center">
+                <div class="card white small">
+                    <div class="card-content blue-grey-text text-darken-1">
+                        <div class="card-title">
+                            <img name="team2-img" class="circle responsive-img "
+                                 src='{% static "/img/unknown.jpg" %}'
+                                 style="max-height: 100px">
+                        </div>
+                        <div class="center-align">
+                            <h4 name="team2-name">تیم تصادفی</h4>
+                            <h5 name="team2-university"></h5>
+                            <h6 name="team2-grade"></h6>
+                        </div>
+                        <div class="progress small" style="display: none">
+                            <div class="determinate" style="width: 70%"></div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="input-field" style="direction: ltr">
+                    <select name="second-team">
+                        <option value="" disabled selected>انتخاب حریف</option>
+                        <option value="1">حریف تصادفی</option>
+                        <option value="2">هوش آرمانکده/آسان</option>
+                        <option value="3">هوش آرمانکده/متوسط</option>
+                        <option value="4">هوش آرمانکده/سخت</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col s12 center" style="margin-bottom: 5%">
+                <div class="btn waves-effect waves-light " style="width: 20%">شروع</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block script %}
+    <script>
+        let armankadehLogoSrc = '{% static "/img/Armankadeh_logo_300.png" %}';
+        let unknownSrc = '{% static "img/unknown.jpg" %}';
+    </script>
+    <script src='{% static "New_UI_V2/js/online_match.js" %}'></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems, {classes: "white", dropdownOptions: {alignment: "top"}});
+            instances.forEach(i => {
+                i.dropdownOptions.querySelectorAll("li").forEach(li => {
+                    li.style.textAlign = "center";
+                    if (!li.className.includes("disabled"))
+                        li.querySelector("span").style.color = "#3a6073"
+                });
+                i.input.classList.add("center");
+                i.input.classList.add("blue-grey-text");
+
+            });
+        });
+    </script>
+{% endblock %}
