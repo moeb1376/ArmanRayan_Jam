@@ -1,4 +1,4 @@
-<html>
+<html lang="fa">
 
 <head>
     {% load static %}
@@ -22,7 +22,7 @@
     <div id='recaptcha' class="g-recaptcha hide-on-med-and-down"
          data-sitekey="6Le-6pIUAAAAACMO2rfqwGZh5YsKAIN24x16KDIb"
          data-callback="onSubmit"
-         data-size="invisible" ></div>
+         data-size="invisible"></div>
     <div class="card col s12 m12 l8 xl8 login offset-l2 offset-xl2">
 
         <div class="section center-align typo-p">
@@ -70,7 +70,7 @@
                 </div>
             </form>
 
-            <script>recaptcha_onload("login-submit-button","login-form");</script>
+            <script>recaptcha_onload("login-submit-button", "login-form");</script>
 
         </div>
 
@@ -78,7 +78,7 @@
     </div>
 </div>
 
-
+<script src="{% static 'New_UI_V2/js/materialize.js' %}"></script>
 <script src="{% static 'js/bin/anime.min.js' %}"></script>
 <script>
     M.AutoInit();
