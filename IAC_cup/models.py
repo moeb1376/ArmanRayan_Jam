@@ -4,6 +4,7 @@ from django.db import models
 from django.utils import timezone
 from main.models import Competition
 from register.models import Team, auth_user
+from django.utils.timezone import now
 
 
 # Create your models here.
@@ -11,7 +12,7 @@ from register.models import Team, auth_user
 class Cup(models.Model):
     name = models.CharField(max_length=20)
     competition = models.ForeignKey(Competition, on_delete=models.CASCADE, related_name="competition")
-    start_date = models.DateTimeField(default=timezone.now())
+    start_date = models.DateTimeField(default=now)
     end_date = models.DateTimeField()
 
     def __str__(self):
@@ -23,7 +24,7 @@ class Key(models.Model):
     cup = models.ForeignKey(Cup, on_delete=models.CASCADE, related_name="Cup")
     key = models.CharField(max_length=25, unique=True, blank=True)
     password_used = models.BooleanField(default=False)
-    last_connection = models.DateTimeField(default=timezone.now())
+    last_connection = models.DateTimeField(default=now)
 
     def __str__(self):
         return self.team.user_team.username + " | " + self.cup.name
