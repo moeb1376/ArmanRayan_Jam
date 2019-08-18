@@ -132,7 +132,8 @@
 }
 
 .top-margin-main {
-    margin-top: 2.2vw !important;
+    margin-top: 2% !important;
+    margin-bottom: 2% !important;
 }
 
 .menu-icon-mob-size {
@@ -171,13 +172,13 @@ html, body {
 
 @media only screen and (min-width: 601px) and (max-width: 992px) {
     .full-height {
-        height: 91% !important;
+        height: 95% !important;
     }
 }
 
 @media only screen and (max-width: 600px) {
     .full-height {
-        height: 88% !important;
+        height: 95% !important;
     }
 }
 
