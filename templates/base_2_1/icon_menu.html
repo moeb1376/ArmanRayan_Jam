@@ -35,9 +35,12 @@
 
         </div>
     </div>
-    <div class="show-on-medium-and-down hide-on-large-only hide-on-extra-large-only ">
-        <nav class="" role="navigation" style=" background-color: rgb(214, 209, 219) ;color: black; font-size:20px;">
-            <a href="#" data-target="slide-out" class="sidenav-trigger right"><i class="material-icons">menu</i> </a>
+    <div class="show-on-medium-and-down hide-on-large-only hide-on-extra-large-only " style="height: 5%">
+        <nav class="" role="navigation"
+             style=" background-color: rgb(214, 209, 219) ;color: black; font-size:20px;height: 100%">
+            <a href="#" data-target="slide-out" class="sidenav-trigger right" style="height: 100%">
+                <i class="material-icons" style="line-height: 100%">menu</i>
+            </a>
             <ul id="slide-out" class="sidenav right-align " style="padding: unset">
                 <img src="{{ login_team.logo_image.url }}"
                      class="team-avatar responsive-img  top-margin-main center-block"
@@ -119,7 +122,8 @@
         </div>
     </div>
     <div class="show-on-medium-and-down hide-on-large-only hide-on-extra-large-only " style="height: 5% !important;">
-        <nav class="" role="navigation" style=" background-color: rgb(214, 209, 219) ;color: black; font-size:20px;height: 100%">
+        <nav class="" role="navigation"
+             style=" background-color: rgb(214, 209, 219) ;color: black; font-size:20px;height: 100%">
             <a href="#" data-target="slide-out" class="sidenav-trigger right" style="height: 100%">
                 <i class="material-icons" style="line-height: 100%">menu</i>
             </a>
@@ -127,7 +131,7 @@
                 <img src="{{ login_team.logo_image.url }}"
                      class="team-avatar responsive-img  top-margin-main center-block"
                      style="width: 50%">
-                <a  href="{% url 'SPC_main:SPC_main_page' %}">
+                <a href="{% url 'SPC_main:SPC_main_page' %}">
                     <i class="material-icons menu-icon-materialize" id="team_detail_mobile_item">
                         <span class="menu-icon-mob-size">
                             اطلاعات تیم
@@ -135,7 +139,7 @@
                         info_outline
                     </i>
                 </a>
-                <a  href="{% url 'setting:setting' 0 %}">
+                <a href="{% url 'setting:setting' 0 %}">
                     <i class="material-icons menu-icon-materialize" id="team_setting_mobile_item">
                         <span class="menu-icon-mob-size">
                             ویرایش

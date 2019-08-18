@@ -7,7 +7,7 @@ $(document).ready(function () {
         mobile_item = $("#team_detail_mobile_item");
         mobile_item.addClass("icon-active");
         mobile_item.parent("a").addClass("sidenav_field_active");
-    } else if (path.match("cup_tables/$")) {
+    } else if (path.match("cup-tables/$")) {
         $("#table_jaam_item").addClass("icon-active");
         mobile_item = $("#table_jaam_mobile_item");
         mobile_item.addClass("icon-active");
