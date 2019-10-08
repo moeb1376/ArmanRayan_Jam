@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import reverse
 from django.utils.html import format_html
+from django.utils.translation import ugettext_lazy as _
 
 from .models import *
 
@@ -13,7 +14,7 @@ class TeamModelAdmin(admin.ModelAdmin):
         return obj.user_team.email
 
     get_email.allow_tags = True
-    get_email.short_description = 'Email'
+    get_email.short_description = _('Email')
 
     class Meta:
         model = Team
@@ -35,11 +36,11 @@ class MyUserModelAdmin(admin.ModelAdmin):
         return obj.team.competition.competition_name
 
     link_to_team.allow_tags = True
-    link_to_team.short_description = 'Team'
+    link_to_team.short_description = _('Team')
     competition_level.allow_tags = True
-    competition_level.short_description = 'Competition'
+    competition_level.short_description = _('Competition')
     entrance_year_show.allow_tags = True
-    entrance_year_show.short_description = 'Entrance_year'
+    entrance_year_show.short_description = _('Entrance_year')
 
     class Meta:
         model = MyUser

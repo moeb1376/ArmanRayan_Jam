@@ -2,10 +2,10 @@ from django.core.mail import send_mail
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.utils import timezone
-from django.template.loader import get_template
+from django.shortcuts import HttpResponse, loader
 from django.core.mail import EmailMultiAlternatives
 
-from Jam.settings import EMAIL_HOST_USER
+# from Jam.settings import EMAIL_HOST_USER
 from .models import Cup, Key, Team, DatasetCup, UsersAnswer
 import hashlib
 
@@ -114,7 +114,9 @@ def render_page(request):
     login_team = request.user.Teams.all()[0]
     competition_level = login_team.competition.competition_level
     cups = Cup.objects.filter(competition__competition_level=competition_level)
-    return render(request, "iac_cup.html", {"cups": cups, "login_team": login_team})
+    template = loader.get_template('2.1/iac_cup.html')
+    # return HttpResponse(template.render({"cups": cups, "login_team": login_team}, request))
+    return render(request, "2.1/iac_cup.html", {"cups": cups, "login_team": login_team})
 
 
 def send_my_email(request):

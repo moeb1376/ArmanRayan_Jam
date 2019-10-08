@@ -7,12 +7,12 @@ $("#send-key").click(function () {
             "cup": 1
         },
         dataType: 'json',
-        success: test,
+        success: send_key_success_function,
         method: "GET"
     })
 });
 
-function test(data) {
+function send_key_success_function(data) {
     set_msg(data.msg);
     instance.open();
 }

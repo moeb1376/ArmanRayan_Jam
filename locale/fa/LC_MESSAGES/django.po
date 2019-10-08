@@ -1,0 +1,205 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-10-08 11:35+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: IAC_cup/apps.py:6
+#, fuzzy
+#| msgid "Competition"
+msgid "IAC Competitions"
+msgstr "رقابت‌های IAC"
+
+#: Jam/validators.py:8
+msgid "The maximum file size that can be uploaded is 3MB"
+msgstr "فایلی با حجم کمتر از 3MB آپلود کنید."
+
+#: SPC_main/apps.py:7
+msgid "SPC Main App"
+msgstr "برنامه پایه SPC"
+
+#: main/apps.py:7
+msgid "Main"
+msgstr "پایه"
+
+#: online_match/apps.py:6
+msgid "Online match"
+msgstr "بازی‌های آنلاین"
+
+#: register/admin.py:17 register/models.py:106
+msgid "Email"
+msgstr "ایمیل"
+
+#: register/admin.py:39 register/models.py:104
+msgid "Team"
+msgstr "تیم"
+
+#: register/admin.py:41 register/models.py:26
+msgid "Competition"
+msgstr "رقابت"
+
+#: register/admin.py:43
+msgid "Entrance_year"
+msgstr "سال ورودی"
+
+#: register/apps.py:7
+msgid "Register"
+msgstr "ثبت نام"
+
+#: register/models.py:24
+#, fuzzy
+#| msgid "Django site admin"
+msgid "Django User"
+msgstr "کاربر Django"
+
+#: register/models.py:25
+msgid "Rating"
+msgstr "رتبه"
+
+#: register/models.py:27
+msgid "Code address"
+msgstr "محل کد"
+
+#: register/models.py:28 register/models.py:111
+msgid "University"
+msgstr "دانشگاه"
+
+#: register/models.py:29
+msgid "Win"
+msgstr "پیروزی"
+
+#: register/models.py:30
+msgid "Loose"
+msgstr "شکست"
+
+#: register/models.py:31
+msgid "Draw"
+msgstr "تساوی"
+
+#: register/models.py:32
+msgid "Accuracy"
+msgstr "دقت"
+
+#: register/models.py:33
+msgid "Logo image"
+msgstr "لوگوی تیم"
+
+#: register/models.py:36
+msgid "Image height "
+msgstr "ارتفاع عکس"
+
+#: register/models.py:37
+msgid "Image width"
+msgstr "عرض عکس"
+
+#: register/models.py:38
+#, fuzzy
+#| msgid "Team"
+msgid "Team bio"
+msgstr "بیو تیم"
+
+#: register/models.py:39
+msgid "Language"
+msgstr "زبان"
+
+#: register/models.py:40
+msgid "Mentor"
+msgstr "منتور"
+
+#: register/models.py:41
+msgid "Phone number"
+msgstr "شماره تماس"
+
+#: register/models.py:44
+#, fuzzy
+#| msgid "Team"
+msgid "Cup Team"
+msgstr "تیم جام"
+
+#: register/models.py:45
+#, fuzzy
+#| msgid "Team"
+msgid "Cup Teams"
+msgstr "تیم‌های جام۲"
+
+#: register/models.py:102
+msgid "First name"
+msgstr "نام"
+
+#: register/models.py:103
+msgid "Last name"
+msgstr "نام خانوادگی"
+
+#: register/models.py:105
+msgid "Is head"
+msgstr "سرگروه"
+
+#: register/models.py:108
+msgid "Grade"
+msgstr "مقطع"
+
+#: register/models.py:109
+msgid "Skills"
+msgstr "توانایی‌ها"
+
+#: register/models.py:112
+msgid "Entrance year"
+msgstr "ورودی"
+
+#: register/models.py:113
+msgid "Graduate year"
+msgstr "فارغ التحصیلی"
+
+#: register/models.py:117
+msgid "Armankadeh User"
+msgstr "عضو تیم‌"
+
+#: templates/admin/base_site.html:3
+msgid "Django site admin"
+msgstr "صفحه ادمین Django"
+
+#: templates/admin/base_site.html:6
+msgid "Django administration"
+msgstr "Django مدیریت"
+
+#: templates/admin/login.html:23
+msgid "Please correct the error below."
+msgstr "لطفا خطا زیر را اصلاح کنید"
+
+#: templates/admin/login.html:24
+msgid "Please correct the errors below."
+msgstr "لطفا خطاهای زیر را اصلاح کنید"
+
+#: templates/admin/login.html:40
+#, python-format
+msgid ""
+"You are authenticated as %(username)s, but are not authorized to access this "
+"page. Would you like to login to a different account?"
+msgstr ""
+
+#: templates/admin/login.html:71
+msgid "Forgotten your password or username?"
+msgstr "رمز عبور یا نام کاربری خود را فراموش کردین؟"
+
+#: templates/admin/login.html:75
+msgid "Log in"
+msgstr "ورود"
+
+#, fuzzy
+#~| msgid "Armankadeh User"
+#~ msgid "Armankadeh Users"
+#~ msgstr "اعضای تیم‌ها۲"

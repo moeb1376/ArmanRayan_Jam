@@ -16,15 +16,14 @@ def register_page(request):
         'languages': languages,
         'universities': universities,
         'competition': competition,
-        'msg':'salam'
+        'msg': 'salam'
     }
     return HttpResponse(template.render(context, request))
 
 
-
 def login(request):
     context = {}
-    print('salam',request.POST)
+    print('salam', request.POST)
     if request.META.get('HTTP_REFERER').split('/')[-1] == 'register':
         context['message'] = 'OK'
         print('ahsnat ')

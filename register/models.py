@@ -7,6 +7,8 @@ from hashlib import sha256
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from Jam.settings import LOGO_DEFAULT
+from Jam.validators import validate_file_size
+from django.utils.translation import ugettext_lazy as _
 
 
 def upload_location(instance, filename):
@@ -18,25 +20,32 @@ def upload_location(instance, filename):
 
 
 class Team(models.Model):
-    user_team = models.ForeignKey(auth_user, on_delete=models.CASCADE, related_name='Teams')  # username = team_name
-    rating = models.IntegerField(default=3)
-    competition = models.ForeignKey(Competition, on_delete=models.CASCADE)
-    code_address = models.TextField(default='', blank=True)
-    university = models.ForeignKey(University, on_delete=models.CASCADE)
-    win = models.IntegerField(default=0)
-    loose = models.IntegerField(default=0)
-    draw = models.IntegerField(default=0)
-    accuracy = models.FloatField(default=0.0)
-    logo_image = models.ImageField(null=True, default='unknown.png',
-                                   width_field="width_field",
-                                   height_field="height_field",
-                                   upload_to=upload_location)
-    height_field = models.IntegerField(default=200)
-    width_field = models.IntegerField(default=200)
-    team_bio = models.TextField(default='', blank=True, null=True)
-    language = models.ForeignKey(Language, on_delete=models.CASCADE)
-    mentor = models.CharField(max_length=6, blank=True, default='')
-    phone_number = models.CharField(max_length=11, default='')
+    user_team = models.ForeignKey(auth_user, on_delete=models.CASCADE, related_name ='Teams',
+                                  verbose_name=_("Django User"))  # username = team_name
+    rating = models.IntegerField(default=3, verbose_name=_("Rating"))
+    competition = models.ForeignKey(Competition, on_delete=models.CASCADE, verbose_name=_("Competition"))
+    code_address = models.TextField(default='', blank=True, verbose_name=_("Code address"))
+    university = models.ForeignKey(University, on_delete=models.CASCADE, verbose_name=_("University"))
+    win = models.IntegerField(default=0, verbose_name=_("Win"))
+    loose = models.IntegerField(default=0, verbose_name=_("Loose"))
+    draw = models.IntegerField(default=0, verbose_name=_("Draw"))
+    accuracy = models.FloatField(default=0.0, verbose_name=_("Accuracy"))
+    logo_image = models.ImageField(null=True, default='unknown.png', blank=True, verbose_name=_("Logo image"),
+                                   width_field="width_field", height_field="height_field",
+                                   upload_to=upload_location, validators=[validate_file_size])
+    height_field = models.IntegerField(default=200, verbose_name=_("Image height "))
+    width_field = models.IntegerField(default=200, verbose_name=_("Image width"))
+    team_bio = models.TextField(default='', blank=True, null=True, verbose_name=_("Team bio"))
+    language = models.ForeignKey(Language, on_delete=models.CASCADE, verbose_name=_("Language"))
+    mentor = models.CharField(max_length=6, blank=True, default='', verbose_name=_("Mentor"))
+    phone_number = models.CharField(max_length=11, default='', verbose_name=_("Phone number"))
+
+    class Meta:
+        verbose_name = _("Cup Team")
+        verbose_name_plural = _("Cup Teams")
+
+    # def validate_file_size(self):
+    #
 
     def __str__(self):
         return self.user_team.username
@@ -84,21 +93,28 @@ def create_team(sender, instance, **kwargs):
                 'در مسابقات ' + instance.competition.competition_name,
                 'ثبت نام کرد.', instance.user_team.email]
     message = '\n'.join(messages)
+    print("salam pre save")
     # send_mail('جام بزرگ آرمانکده', message, settings.EMAIL_HOST_USER,
     #           ['v.savabieh12@gmail.com', 'ebimosi14@gmail.com'])
 
 
 class MyUser(models.Model):
-    user_fname = models.CharField(max_length=200, blank=True)
-    user_lname = models.CharField(max_length=200, blank=True)
-    team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='Users', blank=True)
-    is_head = models.BooleanField(default=False)
-    email = models.EmailField(blank=True)
-    grade = models.ForeignKey(Grade, on_delete=models.CASCADE, default='', blank=True, null=True)
-    skills = models.TextField(blank=True)
-    university = models.ForeignKey(University, on_delete=models.CASCADE, default='', blank=True, null=True)
-    entrance_year = models.IntegerField(default=1396, blank=True)
-    graduate_year = models.IntegerField(default=1400, blank=True)
+    user_fname = models.CharField(max_length=200, blank=True, verbose_name=_("First name"))
+    user_lname = models.CharField(max_length=200, blank=True, verbose_name=_("Last name"))
+    team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='Users', blank=True, verbose_name=_("Team"))
+    is_head = models.BooleanField(default=False, verbose_name=_("Is head"))
+    email = models.EmailField(blank=True, verbose_name=_("Email"))
+    grade = models.ForeignKey(Grade, on_delete=models.CASCADE, default='', blank=True, null=True,
+                              verbose_name=_("Grade"))
+    skills = models.TextField(blank=True, verbose_name=_("Skills"))
+    university = models.ForeignKey(University, on_delete=models.CASCADE, default='', blank=True, null=True,
+                                   verbose_name=_("University"))
+    entrance_year = models.IntegerField(default=1396, blank=True, verbose_name=_("Entrance year"))
+    graduate_year = models.IntegerField(default=1400, blank=True, verbose_name=_("Graduate year"))
+
+    class Meta:
+
+        verbose_name = _("Armankadeh User")
 
     def get_normal_entrance_year(self):
         return self.entrance_year % 100

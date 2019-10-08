@@ -163,10 +163,6 @@
 
     <script>
         M.AutoInit();
-        $(document).ready(function () {
-            $('.collapsible').collapsible();
-            $('textarea#textarea1').characterCounter();
-        });
         {% if test %}
             let instance = M.Modal.getInstance(document.getElementById("modal1"));
             console.log(instance);

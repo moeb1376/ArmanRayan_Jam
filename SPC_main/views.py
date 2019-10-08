@@ -37,7 +37,7 @@ def SPC_main_page(request):
     print(request.META.get("upload_code", 0))
     print(request.user)
     team = request.user.Teams.all()[0]
-    team_member = team.Users.all()
+    team_member = team.Users.all().order_by("pk")
     user_require = 2 if team.competition.competition_level < 3 else 1
     print(user_require, team.competition.competition_level)
     if len(team_member) < user_require:

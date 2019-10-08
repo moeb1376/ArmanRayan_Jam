@@ -18,7 +18,6 @@ def setting_page(request, active_member=0):
     else:
         user_formset_factory = modelformset_factory(MyUser, extra=2, max_num=2, form=UserSettingForm)
     if request.method == 'POST':
-        print(request.POST)
         auth_user_setting_form = UserTeamSettingForm(request.POST, instance=request.user)
         if auth_user_setting_form.is_valid():
             print('auth user is valid ')
@@ -27,20 +26,18 @@ def setting_page(request, active_member=0):
             print('auth user is not valid', auth_user_setting_form.cleaned_data, auth_user_setting_form.errors)
         previous_logo_image = '/'.join(team_change.logo_image.url.split('/')[2:])
         team_setting_form = TeamSettingForm(request.POST or None, request.FILES or None, instance=team_change)
-        team_setting_form.change_required_field()
         team_setting_form.change_empty_label()
         print(settings.LOGO_DEFAULT, os.path.join(settings.MEDIA_ROOT, previous_logo_image), previous_logo_image)
         if team_setting_form.is_valid():
             print('team setting form is valid ')
-            if 'logo_image' in team_setting_form.changed_data:
-                previous_logo_image_path = os.path.join(settings.MEDIA_ROOT, previous_logo_image)
-                if os.path.isfile(previous_logo_image_path) and previous_logo_image_path != settings.LOGO_DEFAULT:
-                    os.remove(previous_logo_image_path)
             print(team_setting_form)
             s = team_setting_form.save()
             if 'logo_image' in team_setting_form.changed_data:
                 print(s.logo_image.path)
                 crop_image(s.logo_image.path)
+                previous_logo_image_path = os.path.join(settings.MEDIA_ROOT, previous_logo_image)
+                if os.path.isfile(previous_logo_image_path) and previous_logo_image_path != settings.LOGO_DEFAULT:
+                    os.remove(previous_logo_image_path)
             else:
                 print(s.logo_image.path)
         else:
@@ -63,7 +60,6 @@ def setting_page(request, active_member=0):
     else:
         auth_user_setting_form = UserTeamSettingForm(request.POST or None, instance=request.user)
         team_setting_form = TeamSettingForm(instance=team_change)
-        team_setting_form.change_required_field()
         team_setting_form.change_empty_label()
         user_team_form = user_formset_factory(queryset=team_change.Users.all())
         for i in user_team_form:
@@ -91,7 +87,7 @@ def setting_page(request, active_member=0):
     user_require = 2 if team.competition.competition_level < 3 else 1
     redirect_flag = False if len(team_change.Users.all()) >= user_require else True
     print('redirect ', redirect_flag, user_require)
-    active_member = int(active_member) if (active_member and int(active_member)< 4) else 0
+    active_member = int(active_member) if (active_member and int(active_member) < 4) else 0
     context = {
         'test': redirect_flag,
         'user_form': user_team_form,
@@ -112,7 +108,7 @@ def crop_image(image_path):
     else:
         temp = image.crop((0, (height - width) / 2, width, (height + width) / 2))
     print(temp)
-    temp.resize((300, 300)).save(image_path)
+    temp.resize((300, 300)).save(image_path, optimize=True)
 
 
 def test_ajax(request):
