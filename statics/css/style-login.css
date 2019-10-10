@@ -22,3 +22,9 @@
         width: 100%;
     }
 }
+.bismillah_image{
+    height: 8vw !important;
+    width: auto;
+    -webkit-filter: invert(1);
+    filter: invert(1);
+}
