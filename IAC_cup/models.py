@@ -48,8 +48,3 @@ class UsersAnswer(models.Model):
 
     def __str__(self):
         return self.data.data + "|" + self.user.user_team.username
-
-
-class TestOneToOne(models.Model):
-    id_team = models.OneToOneField(auth_user, on_delete=models.CASCADE, primary_key=True)
-    cup = models.OneToOneField(Cup, on_delete=models.CASCADE)
