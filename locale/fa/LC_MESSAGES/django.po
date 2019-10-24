@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-24 14:29+0330\n"
+"POT-Creation-Date: 2019-10-24 16:35+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,8 +27,9 @@ msgstr "الگوریتم‌های هوشمند"
 msgid "Name"
 msgstr "نام"
 
-#: IAC_cup/models.py:14 main/models.py:15 online_match/models.py:111
-#: register/admin.py:41 register/models.py:26
+#: IAC_cup/models.py:14 SPC_main/models.py:10 main/models.py:15
+#: online_match/admin.py:59 online_match/models.py:111 register/admin.py:41
+#: register/models.py:26
 msgid "Competition"
 msgstr "رقابت"
 
@@ -48,7 +49,8 @@ msgstr "جام IAC"
 msgid "IAC Cups"
 msgstr "جام‌های IAC"
 
-#: IAC_cup/models.py:28 online_match/models.py:63 register/admin.py:39
+#: IAC_cup/models.py:28 SPC_main/admin.py:19 SPC_main/models.py:11
+#: online_match/admin.py:41 online_match/models.py:63 register/admin.py:39
 #: register/models.py:104
 msgid "Team"
 msgstr "تیم"
@@ -116,6 +118,22 @@ msgstr "فایلی با حجم کمتر از 3MB آپلود کنید."
 #: SPC_main/apps.py:7
 msgid "SPC Main App"
 msgstr "برنامه پایه SPC"
+
+#: SPC_main/models.py:9
+msgid "Cup Number"
+msgstr "شماره جام"
+
+#: SPC_main/models.py:17
+#, fuzzy
+#| msgid "IAC Cup"
+msgid "SPC Cup"
+msgstr "جام SPC"
+
+#: SPC_main/models.py:18
+#, fuzzy
+#| msgid "IAC Cups"
+msgid "SPC Cups"
+msgstr "جام‌های SPC"
 
 #: main/apps.py:7
 msgid "Main"
@@ -188,21 +206,21 @@ msgstr "منتور"
 msgid "Mentors"
 msgstr "منتور‌ها"
 
-#: online_match/apps.py:7
-msgid "Online match"
-msgstr "بازی‌های آنلاین"
-
-#: online_match/models.py:31
+#: online_match/admin.py:21 online_match/models.py:31
 #, fuzzy
 #| msgid "Team"
 msgid "Team1"
 msgstr "تیم ۱"
 
-#: online_match/models.py:32
+#: online_match/admin.py:23 online_match/models.py:32
 #, fuzzy
 #| msgid "Team"
 msgid "Team2"
 msgstr "تیم ۲"
+
+#: online_match/apps.py:7
+msgid "Online match"
+msgstr "بازی‌های آنلاین"
 
 #: online_match/models.py:33
 msgid "Is Running"

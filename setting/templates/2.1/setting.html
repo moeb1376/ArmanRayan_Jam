@@ -65,6 +65,9 @@
                                 {% render_field team_form.logo_image style="display:none" %}
                             </label>
                         </div>
+                        <div class="row no-margins center">
+                            <p style="direction: rtl;color: #f14d48;">{{ team_form.logo_image.errors.as_text }}</p>
+                        </div>
                     </div>
                 </li>
                 {{ user_form.management_form }}

@@ -20,7 +20,7 @@ def upload_location(instance, filename):
 
 
 class Team(models.Model):
-    user_team = models.ForeignKey(auth_user, on_delete=models.CASCADE, related_name ='Teams',
+    user_team = models.ForeignKey(auth_user, on_delete=models.CASCADE, related_name='Teams',
                                   verbose_name=_("Django User"))  # username = team_name
     rating = models.IntegerField(default=3, verbose_name=_("Rating"))
     competition = models.ForeignKey(Competition, on_delete=models.CASCADE, verbose_name=_("Competition"))
@@ -85,17 +85,6 @@ class Team(models.Model):
                 temp = objects[i]
                 temp.rating = 3
                 temp.save()
-
-
-@receiver(pre_save, sender=Team)
-def create_team(sender, instance, **kwargs):
-    messages = ['تیم ' + instance.user_team.username,
-                'در مسابقات ' + instance.competition.competition_name,
-                'ثبت نام کرد.', instance.user_team.email]
-    message = '\n'.join(messages)
-    print("salam pre save")
-    # send_mail('جام بزرگ آرمانکده', message, settings.EMAIL_HOST_USER,
-    #           ['v.savabieh12@gmail.com', 'ebimosi14@gmail.com'])
 
 
 class MyUser(models.Model):

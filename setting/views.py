@@ -30,7 +30,6 @@ def setting_page(request, active_member=0):
         print(settings.LOGO_DEFAULT, os.path.join(settings.MEDIA_ROOT, previous_logo_image), previous_logo_image)
         if team_setting_form.is_valid():
             print('team setting form is valid ')
-            print(team_setting_form)
             s = team_setting_form.save()
             if 'logo_image' in team_setting_form.changed_data:
                 print(s.logo_image.path)
@@ -41,10 +40,10 @@ def setting_page(request, active_member=0):
             else:
                 print(s.logo_image.path)
         else:
+            print("Team setting form is not valid")
             print(team_setting_form.errors)
         user_team_form = user_formset_factory(request.POST, queryset=team_change.Users.all())
         for index, user_team in enumerate(user_team_form):
-            print('user_team', user_team.has_changed(), user_team.changed_data)
             if not user_team.is_valid():
                 print('user fname:', user_team.cleaned_data)
             else:
@@ -55,7 +54,6 @@ def setting_page(request, active_member=0):
                 temp.is_head = True if index == 0 else False
                 temp.team = team_change
                 temp.save()
-                print('temp:', temp, temp.id)
         user_team_form = user_formset_factory(queryset=team_change.Users.all())
     else:
         auth_user_setting_form = UserTeamSettingForm(request.POST or None, instance=request.user)
@@ -72,7 +70,6 @@ def setting_page(request, active_member=0):
             for field in user_form.fields:
                 user_form.fields[field].widget.attrs["class"] = "validate"
     team = request.user.Teams.all()[0]
-    print(request.get_full_path())
     if team.competition.competition_level < 3:
         if request.get_full_path() == '/old_setting/':
             template = loader.get_template('Old/settings.html')
@@ -107,8 +104,7 @@ def crop_image(image_path):
         temp = image.crop(((width - height) / 2, 0, (width + height) / 2, height))
     else:
         temp = image.crop((0, (height - width) / 2, width, (height + width) / 2))
-    print(temp)
-    temp.resize((300, 300)).save(image_path, optimize=True)
+    temp.resize((300, 300)).save(image_path)
 
 
 def test_ajax(request):
