@@ -24,7 +24,6 @@ from dbbackup_ui.views import BackupView
 
 urlpatterns = [
     path('auth/admin/superuser/', admin.site.urls),
-    path('auth/admin/superuser/backup', BackupView.as_view(), name='backup_view'),
     path('', include('main.urls')),
     path('', include('register.urls')),
     path('', include('SPC_main.urls')),

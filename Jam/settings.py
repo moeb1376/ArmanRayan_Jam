@@ -32,7 +32,6 @@ DEBUG = config("DEBUG", default=False, cast=bool)
 ALLOWED_HOSTS = config("ALLOWED_HOSTS").split()
 # Application definition
 
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,16 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_celery_results',
     'dbbackup',
-    'dbbackup_ui',
+    'django_smtp_ssl',
+    'widget_tweaks',
     'main.apps.MainConfig',
     'register.apps.RegisterConfig',
     'SPC_main.apps.SPCMainConfig',
-    'widget_tweaks',
     'setting.apps.SettingConfig',
     'online_match.apps.OnlineMatchConfig',
-    'django_smtp_ssl',
     'IAC_cup.apps.IacCupConfig',
 ]
 
