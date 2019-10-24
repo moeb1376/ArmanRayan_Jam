@@ -41,8 +41,8 @@ class Team(models.Model):
     phone_number = models.CharField(max_length=11, default='', verbose_name=_("Phone number"))
 
     class Meta:
-        verbose_name = _("Cup Team")
-        verbose_name_plural = _("Cup Teams")
+        verbose_name = _("Cup team")
+        verbose_name_plural = _("Cup teams")
 
     # def validate_file_size(self):
     #
@@ -113,8 +113,8 @@ class MyUser(models.Model):
     graduate_year = models.IntegerField(default=1400, blank=True, verbose_name=_("Graduate year"))
 
     class Meta:
-
         verbose_name = _("Armankadeh User")
+        verbose_name_plural = _("Armankadeh Users")
 
     def get_normal_entrance_year(self):
         return self.entrance_year % 100

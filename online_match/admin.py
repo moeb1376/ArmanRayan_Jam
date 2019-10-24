@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models import *
 from django.urls import reverse
 from django.utils.html import format_html
+from django.utils.translation import ugettext_lazy as _
 
 
 class MatchModelAdmin(admin.ModelAdmin):
@@ -17,9 +18,9 @@ class MatchModelAdmin(admin.ModelAdmin):
         return format_html("<a href='{}'>{}</a>", link, obj.team2.__str__())
 
     link_to_team1.allow_tags = True
-    link_to_team1.short_description = "Team1"
+    link_to_team1.short_description = _("Team1")
     link_to_team2.allow_tags = True
-    link_to_team2.short_description = "Team2"
+    link_to_team2.short_description = _("Team2")
 
     class Meta:
         model = Match
@@ -37,7 +38,7 @@ class CodeModelAdmin(admin.ModelAdmin):
         return format_html("<a href='{}'>{}</a>", link, obj.team.__str__())
 
     link_to_team.allow_tags = True
-    link_to_team.short_description = 'Team'
+    link_to_team.short_description = _('Team')
 
     class Meta:
         model = Code
@@ -55,7 +56,7 @@ class DatasetModelAdmin(admin.ModelAdmin):
         return format_html("<a href='{}'>{}</a>", link, obj.competition.__str__())
 
     link_to_competition.allow_tags = True
-    link_to_competition.short_description = "Competition"
+    link_to_competition.short_description = _("Competition")
 
     class Meta:
         model = Dataset

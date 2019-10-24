@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-08 11:35+0330\n"
+"POT-Creation-Date: 2019-10-24 14:29+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,96 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: IAC_cup/apps.py:6
-#, fuzzy
-#| msgid "Competition"
-msgid "IAC Competitions"
-msgstr "رقابت‌های IAC"
+#: IAC_cup/apps.py:7
+msgid "IAC"
+msgstr "الگوریتم‌های هوشمند"
+
+#: IAC_cup/models.py:12 main/models.py:7 main/models.py:20 main/models.py:32
+#: main/models.py:45
+msgid "Name"
+msgstr "نام"
+
+#: IAC_cup/models.py:14 main/models.py:15 online_match/models.py:111
+#: register/admin.py:41 register/models.py:26
+msgid "Competition"
+msgstr "رقابت"
+
+#: IAC_cup/models.py:15
+msgid "Start Date"
+msgstr "تاریخ شروع"
+
+#: IAC_cup/models.py:16
+msgid "End Date"
+msgstr "تاریخ پایان"
+
+#: IAC_cup/models.py:22
+msgid "IAC Cup"
+msgstr "جام IAC"
+
+#: IAC_cup/models.py:23
+msgid "IAC Cups"
+msgstr "جام‌های IAC"
+
+#: IAC_cup/models.py:28 online_match/models.py:63 register/admin.py:39
+#: register/models.py:104
+msgid "Team"
+msgstr "تیم"
+
+#: IAC_cup/models.py:29 IAC_cup/models.py:45
+msgid "Cup"
+msgstr "جام"
+
+#: IAC_cup/models.py:30 IAC_cup/models.py:39
+msgid "Key"
+msgstr "کلید"
+
+#: IAC_cup/models.py:31
+msgid "Password Used"
+msgstr "کلمه عبور استفاده شده"
+
+#: IAC_cup/models.py:32
+msgid "Last Connection"
+msgstr "آخرین اتصال"
+
+#: IAC_cup/models.py:38
+msgid "Keys"
+msgstr "کلیدها"
+
+#: IAC_cup/models.py:44 IAC_cup/models.py:58
+msgid "Data"
+msgstr "داده"
+
+#: IAC_cup/models.py:46
+msgid "Answer"
+msgstr "جواب"
+
+#: IAC_cup/models.py:52
+msgid "Dataset IAC Cup"
+msgstr "داده جام IAC"
+
+#: IAC_cup/models.py:53
+msgid "Dataset IAC Cups"
+msgstr "داده‌های جام IAC"
+
+#: IAC_cup/models.py:59
+msgid "User"
+msgstr "کاربر"
+
+#: IAC_cup/models.py:60 IAC_cup/models.py:68
+msgid "User Answer"
+msgstr "جواب کاربر"
+
+#: IAC_cup/models.py:61
+msgid "Time Send"
+msgstr "زمان ارسال"
+
+#: IAC_cup/models.py:62
+msgid "Time Receive"
+msgstr "زمان دریافت"
+
+#: IAC_cup/models.py:69
+msgid "User Answers"
+msgstr "جواب‌های کاربر"
 
 #: Jam/validators.py:8
 msgid "The maximum file size that can be uploaded is 3MB"
@@ -36,21 +121,154 @@ msgstr "برنامه پایه SPC"
 msgid "Main"
 msgstr "پایه"
 
-#: online_match/apps.py:6
+#: main/models.py:8
+msgid "Level"
+msgstr "سطح"
+
+#: main/models.py:16
+#, fuzzy
+#| msgid "Competition"
+msgid "Competitions"
+msgstr "رقابت‌ها"
+
+#: main/models.py:27 register/models.py:108
+msgid "Grade"
+msgstr "مقطع"
+
+#: main/models.py:28
+#, fuzzy
+#| msgid "Grade"
+msgid "Grades"
+msgstr "مقطع‌ها"
+
+#: main/models.py:33
+msgid "City"
+msgstr "شهر"
+
+#: main/models.py:40 main/models.py:60 register/models.py:28
+#: register/models.py:111
+msgid "University"
+msgstr "دانشگاه"
+
+#: main/models.py:41
+#, fuzzy
+#| msgid "University"
+msgid "Universities"
+msgstr "دانشگاه‌ها"
+
+#: main/models.py:52 register/models.py:39
+msgid "Language"
+msgstr "زبان"
+
+#: main/models.py:53
+#, fuzzy
+#| msgid "Language"
+msgid "Languages"
+msgstr "زبان‌ها"
+
+#: main/models.py:57 register/models.py:102
+msgid "First name"
+msgstr "نام"
+
+#: main/models.py:58 register/models.py:103
+msgid "Last name"
+msgstr "نام خانوادگی"
+
+#: main/models.py:59 online_match/models.py:61 online_match/models.py:70
+msgid "Code"
+msgstr "کد"
+
+#: main/models.py:64 register/models.py:40
+msgid "Mentor"
+msgstr "منتور"
+
+#: main/models.py:65
+#, fuzzy
+#| msgid "Mentor"
+msgid "Mentors"
+msgstr "منتور‌ها"
+
+#: online_match/apps.py:7
 msgid "Online match"
 msgstr "بازی‌های آنلاین"
+
+#: online_match/models.py:31
+#, fuzzy
+#| msgid "Team"
+msgid "Team1"
+msgstr "تیم ۱"
+
+#: online_match/models.py:32
+#, fuzzy
+#| msgid "Team"
+msgid "Team2"
+msgstr "تیم ۲"
+
+#: online_match/models.py:33
+msgid "Is Running"
+msgstr "درحال اجرا"
+
+#: online_match/models.py:34
+#, fuzzy
+#| msgid "Log in"
+msgid "Log File"
+msgstr "فایل لاگ"
+
+#: online_match/models.py:36
+msgid "Winner"
+msgstr "برنده"
+
+#: online_match/models.py:37
+#, fuzzy
+#| msgid "End Date"
+msgid "Date"
+msgstr "تاریخ"
+
+#: online_match/models.py:38 online_match/models.py:113
+msgid "Description"
+msgstr "توضیحات"
+
+#: online_match/models.py:44
+msgid "SPC Matches"
+msgstr "مسابقات SPC"
+
+#: online_match/models.py:45
+msgid "SPC Match"
+msgstr "مسابقه SPC"
+
+#: online_match/models.py:62
+msgid "Version"
+msgstr "نسخه"
+
+#: online_match/models.py:64
+msgid "Checked"
+msgstr "بررسی شده"
+
+#: online_match/models.py:71
+#, fuzzy
+#| msgid "Code"
+msgid "Codes"
+msgstr "کدها"
+
+#: online_match/models.py:112
+msgid "File"
+msgstr "فایل"
+
+#: online_match/models.py:119
+#, fuzzy
+#| msgid "Dataset IAC Cups"
+msgid "Datasets"
+msgstr "مجموعه داده‌ها"
+
+#: online_match/models.py:120
+#, fuzzy
+#| msgid "Data"
+msgid "Dataset"
+msgstr "مجموعه داده"
 
 #: register/admin.py:17 register/models.py:106
 msgid "Email"
 msgstr "ایمیل"
-
-#: register/admin.py:39 register/models.py:104
-msgid "Team"
-msgstr "تیم"
-
-#: register/admin.py:41 register/models.py:26
-msgid "Competition"
-msgstr "رقابت"
 
 #: register/admin.py:43
 msgid "Entrance_year"
@@ -73,10 +291,6 @@ msgstr "رتبه"
 #: register/models.py:27
 msgid "Code address"
 msgstr "محل کد"
-
-#: register/models.py:28 register/models.py:111
-msgid "University"
-msgstr "دانشگاه"
 
 #: register/models.py:29
 msgid "Win"
@@ -112,45 +326,25 @@ msgstr "عرض عکس"
 msgid "Team bio"
 msgstr "بیو تیم"
 
-#: register/models.py:39
-msgid "Language"
-msgstr "زبان"
-
-#: register/models.py:40
-msgid "Mentor"
-msgstr "منتور"
-
 #: register/models.py:41
 msgid "Phone number"
 msgstr "شماره تماس"
 
 #: register/models.py:44
 #, fuzzy
-#| msgid "Team"
-msgid "Cup Team"
-msgstr "تیم جام"
+#| msgid "cup team"
+msgid "Cup team"
+msgstr "تیم‌ جام"
 
 #: register/models.py:45
 #, fuzzy
-#| msgid "Team"
-msgid "Cup Teams"
-msgstr "تیم‌های جام۲"
-
-#: register/models.py:102
-msgid "First name"
-msgstr "نام"
-
-#: register/models.py:103
-msgid "Last name"
-msgstr "نام خانوادگی"
+#| msgid "cup team"
+msgid "Cup teams"
+msgstr "تیم‌ جام"
 
 #: register/models.py:105
 msgid "Is head"
 msgstr "سرگروه"
-
-#: register/models.py:108
-msgid "Grade"
-msgstr "مقطع"
 
 #: register/models.py:109
 msgid "Skills"
@@ -164,9 +358,15 @@ msgstr "ورودی"
 msgid "Graduate year"
 msgstr "فارغ التحصیلی"
 
-#: register/models.py:117
+#: register/models.py:116
 msgid "Armankadeh User"
 msgstr "عضو تیم‌"
+
+#: register/models.py:117
+#, fuzzy
+#| msgid "Armankadeh User"
+msgid "Armankadeh Users"
+msgstr "اعضای تیم‌ها"
 
 #: templates/admin/base_site.html:3
 msgid "Django site admin"
@@ -198,8 +398,3 @@ msgstr "رمز عبور یا نام کاربری خود را فراموش کرد
 #: templates/admin/login.html:75
 msgid "Log in"
 msgstr "ورود"
-
-#, fuzzy
-#~| msgid "Armankadeh User"
-#~ msgid "Armankadeh Users"
-#~ msgstr "اعضای تیم‌ها۲"

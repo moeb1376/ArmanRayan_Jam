@@ -13,6 +13,7 @@ import os
 from hashlib import sha256
 from django.conf import settings
 from django.core.mail import send_mail
+from django.utils.translation import ugettext_lazy as _
 
 
 # Create your models here.
@@ -27,16 +28,22 @@ def upload_match_log(instance, filename):
 
 
 class Match(models.Model):
-    team1 = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="Team1")
-    team2 = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="Team2")
-    is_running = models.BooleanField(default=False, blank=True)
-    log_file = models.CharField(max_length=300, default="", null=True, blank=True)
-    winner = models.IntegerField(blank=True, null=True, validators=[MinValueValidator(0), MaxValueValidator(2)])
-    date = models.DateField(default=now)
-    description = models.CharField(blank=True, null=True, max_length=200)
+    team1 = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="Team1", verbose_name=_("Team1"))
+    team2 = models.ForeignKey(Team, on_delete=models.CASCADE, related_name="Team2", verbose_name=_("Team2"))
+    is_running = models.BooleanField(default=False, blank=True, verbose_name=_("Is Running"))
+    log_file = models.CharField(max_length=300, default="", null=True, blank=True, verbose_name=_("Log File"))
+    winner = models.IntegerField(blank=True, null=True, validators=[MinValueValidator(0), MaxValueValidator(2)],
+                                 verbose_name=_("Winner"))
+    date = models.DateField(default=now, verbose_name=_("Date"))
+    description = models.CharField(blank=True, null=True, max_length=200, verbose_name=_("Description"))
 
     def __str__(self):
         return self.team1.user_team.username + " vs " + self.team2.user_team.username
+
+    class Meta:
+        verbose_name_plural = _("SPC Matches")
+        verbose_name = _("SPC Match")
+        ordering = ['-is_running']
 
 
 def upload_code_address(instance, filename):
@@ -51,13 +58,18 @@ def upload_code_address(instance, filename):
 
 
 class Code(models.Model):
-    code = models.FileField(null=True, blank=True, upload_to=upload_code_address)
-    version = models.IntegerField(default=0, null=True, blank=True)
-    team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='Team_Code')
-    human_checked = models.BooleanField(blank=True, default=False, verbose_name="Checked")
+    code = models.FileField(null=True, blank=True, upload_to=upload_code_address, verbose_name=_("Code"))
+    version = models.IntegerField(default=0, null=True, blank=True, verbose_name=_("Version"))
+    team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='Team_Code', verbose_name=_("Team"))
+    human_checked = models.BooleanField(blank=True, default=False, verbose_name=_("Checked"))
 
     def __str__(self):
         return self.team.user_team.username + ' | V' + str(self.version)
+
+    class Meta:
+        verbose_name = _("Code")
+        verbose_name_plural = _("Codes")
+        ordering = ['version', 'team']
 
 
 @receiver(post_save, sender=Code)
@@ -96,9 +108,14 @@ def upload_dataset_address(instance, filename):
 
 
 class Dataset(models.Model):
-    competition = models.ForeignKey(Competition, on_delete=models.CASCADE)
-    file = models.FileField(upload_to=upload_dataset_address, null=False)
-    description = models.CharField(max_length=200, null=False)
+    competition = models.ForeignKey(Competition, on_delete=models.CASCADE, verbose_name=_("Competition"))
+    file = models.FileField(upload_to=upload_dataset_address, null=False, verbose_name=_("File"))
+    description = models.CharField(max_length=200, null=False, verbose_name=_("Description"))
 
     def __str__(self):
         return self.competition.competition_name + "|" + str(self.id)
+
+    class Meta:
+        verbose_name_plural = _("Datasets")
+        verbose_name = _("Dataset")
+        ordering = ['competition']

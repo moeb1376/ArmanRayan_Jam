@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import reverse
 from django.utils.html import format_html
-
+from django.utils.translation import ugettext_lazy as _
 from .models import Cup
 
 
@@ -16,7 +16,7 @@ class CupModelAdmin(admin.ModelAdmin):
         return format_html("<a href='{}'>{}</a>", link, obj.team.__str__())
 
     link_to_team.allow_tags = True
-    link_to_team.short_description = 'Team'
+    link_to_team.short_description = _('Team')
 
     class Meta:
         model = Cup
