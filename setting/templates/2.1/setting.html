@@ -6,6 +6,47 @@
 {% block head %}
     {% load widget_tweaks %}
     {% load static %}
+    <style>
+        input:not([type]):focus:not([readonly]),
+        input[type=text]:not(.browser-default):focus:not([readonly]),
+        input[type=password]:not(.browser-default):focus:not([readonly]),
+        input[type=email]:not(.browser-default):focus:not([readonly]),
+        input[type=url]:not(.browser-default):focus:not([readonly]),
+        input[type=time]:not(.browser-default):focus:not([readonly]),
+        input[type=date]:not(.browser-default):focus:not([readonly]),
+        input[type=datetime]:not(.browser-default):focus:not([readonly]),
+        input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
+        input[type=tel]:not(.browser-default):focus:not([readonly]),
+        input[type=number]:not(.browser-default):focus:not([readonly]),
+        input[type=search]:not(.browser-default):focus:not([readonly]),
+        textarea.materialize-textarea:focus:not([readonly]) {
+            border-bottom: 1px solid #3A6073;
+            -webkit-box-shadow: 0 1px 0 0 #3A6073;
+            box-shadow: 0 1px 0 0 #3A6073;
+        }
+
+        input:not([type]):focus:not([readonly]) + label,
+        input[type=text]:not(.browser-default):focus:not([readonly]) + label,
+        input[type=password]:not(.browser-default):focus:not([readonly]) + label,
+        input[type=email]:not(.browser-default):focus:not([readonly]) + label,
+        input[type=url]:not(.browser-default):focus:not([readonly]) + label,
+        input[type=time]:not(.browser-default):focus:not([readonly]) + label,
+        input[type=date]:not(.browser-default):focus:not([readonly]) + label,
+        input[type=datetime]:not(.browser-default):focus:not([readonly]) + label,
+        input[type=datetime-local]:not(.browser-default):focus:not([readonly]) + label,
+        input[type=tel]:not(.browser-default):focus:not([readonly]) + label,
+        input[type=number]:not(.browser-default):focus:not([readonly]) + label,
+        input[type=search]:not(.browser-default):focus:not([readonly]) + label,
+        textarea.materialize-textarea:focus:not([readonly]) + label {
+            color: #3A6073;
+        }
+
+        .select-wrapper input.select-dropdown:focus {
+            border-bottom: 1px solid #3A6073;
+        }
+
+
+    </style>
 {% endblock %}
 {% block content %}
     <div class="col s12 m12 l8 xl8  pull-l4 pull-xl4 content full-height" id="container">
@@ -171,5 +212,21 @@
             console.log(instance);
             instance.open();
         {% endif %}
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems, {classes: "white", dropdownOptions: {alignment: "top"}});
+            instances.forEach(i => {
+                i.dropdownOptions.querySelectorAll("li").forEach(li => {
+                    {#li.style.textAlign = "right";#}
+                    if (!li.className.includes("disabled"))
+                        li.querySelector("span").style.color = "#3a6073"
+                });
+
+                i.input.classList.add("blue-grey-text");
+
+            });
+        });
     </script>
 {% endblock %}

@@ -9,6 +9,7 @@ from django.dispatch import receiver
 from Jam.settings import LOGO_DEFAULT
 from Jam.validators import validate_file_size
 from django.utils.translation import ugettext_lazy as _
+from django.db import models
 
 
 def upload_location(instance, filename):

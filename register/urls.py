@@ -2,7 +2,7 @@ from django.urls import path
 
 from django.views.generic import RedirectView
 
-from .views import old_login_page, old_register_page, login_page, register_page
+from .views import *
 
 app_name = 'register'
 urlpatterns = [

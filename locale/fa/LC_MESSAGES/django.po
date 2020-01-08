@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-24 16:35+0330\n"
+"POT-Creation-Date: 2020-01-08 11:43+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,7 +29,7 @@ msgstr "نام"
 
 #: IAC_cup/models.py:14 SPC_main/models.py:10 main/models.py:15
 #: online_match/admin.py:59 online_match/models.py:111 register/admin.py:41
-#: register/models.py:26
+#: register/models.py:27
 msgid "Competition"
 msgstr "رقابت"
 
@@ -51,7 +51,7 @@ msgstr "جام‌های IAC"
 
 #: IAC_cup/models.py:28 SPC_main/admin.py:19 SPC_main/models.py:11
 #: online_match/admin.py:41 online_match/models.py:63 register/admin.py:39
-#: register/models.py:104
+#: register/models.py:94
 msgid "Team"
 msgstr "تیم"
 
@@ -111,7 +111,7 @@ msgstr "زمان دریافت"
 msgid "User Answers"
 msgstr "جواب‌های کاربر"
 
-#: Jam/validators.py:8
+#: Jam/validators.py:9
 msgid "The maximum file size that can be uploaded is 3MB"
 msgstr "فایلی با حجم کمتر از 3MB آپلود کنید."
 
@@ -149,7 +149,7 @@ msgstr "سطح"
 msgid "Competitions"
 msgstr "رقابت‌ها"
 
-#: main/models.py:27 register/models.py:108
+#: main/models.py:27 register/models.py:98
 msgid "Grade"
 msgstr "مقطع"
 
@@ -163,8 +163,8 @@ msgstr "مقطع‌ها"
 msgid "City"
 msgstr "شهر"
 
-#: main/models.py:40 main/models.py:60 register/models.py:28
-#: register/models.py:111
+#: main/models.py:40 main/models.py:60 register/models.py:29
+#: register/models.py:101 register/models.py:121
 msgid "University"
 msgstr "دانشگاه"
 
@@ -174,7 +174,7 @@ msgstr "دانشگاه"
 msgid "Universities"
 msgstr "دانشگاه‌ها"
 
-#: main/models.py:52 register/models.py:39
+#: main/models.py:52 register/models.py:40
 msgid "Language"
 msgstr "زبان"
 
@@ -184,11 +184,11 @@ msgstr "زبان"
 msgid "Languages"
 msgstr "زبان‌ها"
 
-#: main/models.py:57 register/models.py:102
+#: main/models.py:57 register/models.py:92
 msgid "First name"
 msgstr "نام"
 
-#: main/models.py:58 register/models.py:103
+#: main/models.py:58 register/models.py:93
 msgid "Last name"
 msgstr "نام خانوادگی"
 
@@ -196,7 +196,7 @@ msgstr "نام خانوادگی"
 msgid "Code"
 msgstr "کد"
 
-#: main/models.py:64 register/models.py:40
+#: main/models.py:64 register/models.py:41
 msgid "Mentor"
 msgstr "منتور"
 
@@ -284,7 +284,7 @@ msgstr "مجموعه داده‌ها"
 msgid "Dataset"
 msgstr "مجموعه داده"
 
-#: register/admin.py:17 register/models.py:106
+#: register/admin.py:17 register/models.py:96
 msgid "Email"
 msgstr "ایمیل"
 
@@ -296,91 +296,91 @@ msgstr "سال ورودی"
 msgid "Register"
 msgstr "ثبت نام"
 
-#: register/models.py:24
+#: register/models.py:25
 #, fuzzy
 #| msgid "Django site admin"
 msgid "Django User"
 msgstr "کاربر Django"
 
-#: register/models.py:25
+#: register/models.py:26
 msgid "Rating"
 msgstr "رتبه"
 
-#: register/models.py:27
+#: register/models.py:28
 msgid "Code address"
 msgstr "محل کد"
 
-#: register/models.py:29
+#: register/models.py:30
 msgid "Win"
 msgstr "پیروزی"
 
-#: register/models.py:30
+#: register/models.py:31
 msgid "Loose"
 msgstr "شکست"
 
-#: register/models.py:31
+#: register/models.py:32
 msgid "Draw"
 msgstr "تساوی"
 
-#: register/models.py:32
+#: register/models.py:33
 msgid "Accuracy"
 msgstr "دقت"
 
-#: register/models.py:33
+#: register/models.py:34
 msgid "Logo image"
 msgstr "لوگوی تیم"
 
-#: register/models.py:36
+#: register/models.py:37
 msgid "Image height "
 msgstr "ارتفاع عکس"
 
-#: register/models.py:37
+#: register/models.py:38
 msgid "Image width"
 msgstr "عرض عکس"
 
-#: register/models.py:38
+#: register/models.py:39
 #, fuzzy
 #| msgid "Team"
 msgid "Team bio"
 msgstr "بیو تیم"
 
-#: register/models.py:41
+#: register/models.py:42
 msgid "Phone number"
 msgstr "شماره تماس"
 
-#: register/models.py:44
+#: register/models.py:45
 #, fuzzy
 #| msgid "cup team"
 msgid "Cup team"
 msgstr "تیم‌ جام"
 
-#: register/models.py:45
+#: register/models.py:46
 #, fuzzy
 #| msgid "cup team"
 msgid "Cup teams"
 msgstr "تیم‌ جام"
 
-#: register/models.py:105
+#: register/models.py:95
 msgid "Is head"
 msgstr "سرگروه"
 
-#: register/models.py:109
+#: register/models.py:99
 msgid "Skills"
 msgstr "توانایی‌ها"
 
-#: register/models.py:112
+#: register/models.py:102
 msgid "Entrance year"
 msgstr "ورودی"
 
-#: register/models.py:113
+#: register/models.py:103
 msgid "Graduate year"
 msgstr "فارغ التحصیلی"
 
-#: register/models.py:116
+#: register/models.py:106
 msgid "Armankadeh User"
 msgstr "عضو تیم‌"
 
-#: register/models.py:117
+#: register/models.py:107
 #, fuzzy
 #| msgid "Armankadeh User"
 msgid "Armankadeh Users"

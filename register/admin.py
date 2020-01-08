@@ -23,7 +23,7 @@ class TeamModelAdmin(admin.ModelAdmin):
 class MyUserModelAdmin(admin.ModelAdmin):
     list_display = ['__str__', 'email', 'link_to_team', 'is_head', 'university', 'grade', 'competition_level',
                     'entrance_year_show']
-    list_filter = ['university', 'team__competition__competition_name', 'grade','is_head','entrance_year']
+    list_filter = ['university', 'team__competition__competition_name', 'grade', 'is_head', 'entrance_year']
 
     def entrance_year_show(self, obj):
         return obj.get_normal_entrance_year()
